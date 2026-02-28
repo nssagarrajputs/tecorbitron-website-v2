@@ -1,26 +1,52 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+    --font-mulish: var(--font-mulish);
+
+    --color-*: initial;
+
+    --color-malachite: #00d060;
+    --color-deepspace: #0c3146;
+    --color-gray: #d4d6d8;
+    --color-snow: #f7f9fc;
+    --color-white: #fff;
+
+    --color-malachite-50: #e5fff1;
+    --color-malachite-100: #ccffe4;
+    --color-malachite-200: #99ffc9;
+    --color-malachite-300: #66ffad;
+    --color-malachite-400: #33ff92;
+    --color-malachite-500: #00ff77;
+    --color-malachite-600: #00cc5f;
+    --color-malachite-700: #009947;
+    --color-malachite-800: #006630;
+    --color-malachite-900: #003318;
+    --color-malachite-950: #002411;
+
+    --color-deepspace-50: #e9f5fb;
+    --color-deepspace-100: #d3eaf8;
+    --color-deepspace-200: #a8d6f0;
+    --color-deepspace-300: #7cc1e9;
+    --color-deepspace-400: #51ace1;
+    --color-deepspace-500: #2598da;
+    --color-deepspace-600: #1e79ae;
+    --color-deepspace-700: #165b83;
+    --color-deepspace-800: #0f3d57;
+    --color-deepspace-900: #071e2c;
+    --color-deepspace-950: #05151f;
+
+    --color-error: #ff383c;
+    --color-success: #34c73a;
+    --color-info: #0088ff;
+    --color-warning: #ffcc00;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    body {
+        @apply font-mulish
+    }
 }
