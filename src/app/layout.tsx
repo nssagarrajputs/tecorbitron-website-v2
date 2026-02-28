@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Mulish } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 const mulish = Mulish({
-    variable: "--font-mulish",
     subsets: ["latin"],
     display: "swap",
+    variable: "--font-mulish",
 });
 
 export const metadata: Metadata = {
@@ -27,6 +29,50 @@ export const metadata: Metadata = {
         "UI/UX design",
         "enterprise software",
     ],
+
+    // ── AUTHOR & PUBLISHER ─────────────────────────────
+    authors: [{ name: "Tecorbitron Solutions Pvt. Ltd." }],
+    creator: "Tecorbitron Solutions Pvt. Ltd.",
+    publisher: "Tecorbitron Solutions Pvt. Ltd.",
+
+    // ── CANONICAL & BASE URL ───────────────────────────
+    metadataBase: new URL("https://www.tecorbitron.com"),
+    alternates: {
+        canonical: "/",
+    },
+
+    // ── FAVICON & ICONS ────────────────────────────────
+    icons: {
+        icon: [
+            { url: "/favicon.ico", sizes: "any" },
+            { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+            { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+            { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+        ],
+        apple: [
+            {
+                url: "/apple-touch-icon.png",
+                sizes: "180x180",
+                type: "image/png",
+            },
+        ],
+    },
+
+    // ── WEB MANIFEST ───────────────────────────────────
+    manifest: "/site.webmanifest",
+
+    // ── ROBOTS ─────────────────────────────────────────
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            "max-video-preview": -1,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+        },
+    },
 };
 
 export default function RootLayout({
@@ -36,7 +82,11 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${mulish.variable} antialiased`}>{children}</body>
+            <body className={`${mulish.variable} antialiased`}>
+                <Header />
+                {children}
+                <Footer />
+            </body>
         </html>
     );
 }

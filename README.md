@@ -15,3 +15,7 @@
 # Create Analytics.tsx file for google analytics.(use later)
 
 # upload logo-kit folder in src>assets>logo-kit
+
+## First Commit
+
+# Added favicon file and set into layout file and set robot
