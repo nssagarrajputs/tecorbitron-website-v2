@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mulish } from "next/font/google";
+import { Mulish, Caveat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -9,6 +9,13 @@ const mulish = Mulish({
     display: "swap",
     weight: ["300", "400", "500", "600", "700", "800", "900"],
     variable: "--font-mulish",
+});
+
+const caveat = Caveat({
+    subsets: ["latin"],
+    display: "swap",
+    weight: ["400", "500", "600", "700"],
+    variable: "--font-caveat",
 });
 
 export const metadata: Metadata = {
@@ -83,7 +90,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className={`${mulish.variable} antialiased`}>
+            <body
+                className={`${mulish.variable} ${caveat.variable} antialiased`}
+            >
                 <Header />
                 {children}
                 <Footer />
