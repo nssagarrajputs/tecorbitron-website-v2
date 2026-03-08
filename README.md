@@ -69,3 +69,7 @@
 # Design Services page v1
 
 ## Tenth Commit
+
+# Design Blog and slug page v1
+
+## Eleventh Commit

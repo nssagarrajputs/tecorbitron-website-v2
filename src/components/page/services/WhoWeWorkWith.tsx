@@ -93,7 +93,7 @@ export default function WhoWeWorkWith() {
                                         key={fit}
                                         className="flex items-center gap-2"
                                     >
-                                        <span className="bg-malachite h-1 w-1 flex-shrink-0 rounded-full" />
+                                        <span className="bg-malachite h-1 w-1 shrink-0 rounded-full" />
                                         <span className="text-subtle text-xs font-semibold">
                                             {fit}
                                         </span>

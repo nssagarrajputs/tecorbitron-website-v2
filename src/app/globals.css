@@ -69,13 +69,9 @@
 /*  */
 /*  */
 
-/* ── ADD THIS TO global.css ── */
-
 /* Blog post prose styles */
 .prose-custom {
-    color: var(--color-subtle);
-    font-size: 1rem;
-    line-height: 1.8;
+    @apply text-base leading-relaxed;
 }
 
 .prose-custom h2 {
@@ -99,7 +95,6 @@
 
 .prose-custom p {
     margin-bottom: 1.25rem;
-    font-weight: 300;
 }
 
 .prose-custom a {
@@ -187,7 +182,6 @@
     margin: 2rem 0;
 }
 
-/* ── ADD IN globals.css ── */
 /* Marquee scroll — ClientStripe */
 
 @keyframes marquee-left {
