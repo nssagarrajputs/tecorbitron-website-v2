@@ -49,6 +49,11 @@ export default function Founder() {
                                 Tecorbitron operates: fast, transparent, and
                                 always results-first.
                             </p>
+                            <p className="font-semibold italic">
+                                {
+                                    "Let's drive the future of technology together!"
+                                }
+                            </p>
                         </div>
 
                         {/* Social links — text only */}

@@ -36,10 +36,8 @@ const col1: Category[] = [
                     { name: "Express", icon: "devicon-express-original" },
                     { name: "Laravel", icon: "devicon-laravel-original" },
                     { name: "SpringBoot", icon: "devicon-spring-original" },
-                    { name: "Python", icon: "devicon-python-plain" },
-                    { name: "GraphQL", icon: "devicon-graphql-plain" },
-                    { name: "Prisma", icon: "devicon-prisma-original" },
-                    { name: "FastAPI", icon: "devicon-fastapi-plain" },
+                    { name: "Django", icon: "devicon-django-plain" },
+                    { name: "ASP .NET", icon: "devicon-dot-net-plain" },
                 ],
             },
             {
@@ -114,9 +112,10 @@ const col1: Category[] = [
                 label: "Desktop Frameworks",
                 items: [
                     { name: "Electron", icon: "devicon-electron-original" },
-                    { name: ".NET", icon: "devicon-dot-net-plain" },
+                    { name: "SpringBoot", icon: "devicon-spring-original" },
                     { name: "Qt", icon: "devicon-qt-original" },
                     { name: "Tauri", icon: "devicon-rust-plain" },
+                    { name: "ASP .NET", icon: "devicon-dot-net-plain" },
                 ],
             },
             {
@@ -145,6 +144,7 @@ const col2: Category[] = [
                 items: [
                     { name: "Figma", icon: "devicon-figma-plain" },
                     { name: "Adobe XD", icon: "devicon-xd-plain" },
+                    { name: "Sketch", icon: "devicon-sketch-plain" },
                     { name: "Illustrator", icon: "devicon-illustrator-plain" },
                     { name: "Photoshop", icon: "devicon-photoshop-plain" },
                     {
@@ -259,45 +259,32 @@ const col2: Category[] = [
 // ── Single Category Card ──────────────────────────────────────────────────────
 function CategoryCard({ cat }: { cat: Category }) {
     return (
-        <div className="bg-deepspace-dim flex flex-col gap-6 rounded-xl p-6">
-            {/* Header */}
-            <div className="flex items-center gap-3 lg:hidden">
-                <span className="border-border flex h-10 w-10 items-center justify-center rounded-xl border bg-white text-xl shadow-sm">
-                    {cat.emoji}
-                </span>
-                <h3 className="text-deepspace text-lg font-black">
-                    {cat.title}
-                </h3>
-            </div>
+        <div className="flex flex-col gap-6 rounded-xl bg-white p-6">
+            {cat.subcategories.map((sub) => (
+                <div key={sub.label} className="flex flex-col gap-3">
+                    {/* Sub label */}
+                    <p className="text-muted mb-2 text-sm font-bold tracking-widest uppercase">
+                        {sub.label}
+                    </p>
 
-            {/* Subcategories */}
-            <div className="flex flex-col gap-6">
-                {cat.subcategories.map((sub) => (
-                    <div key={sub.label} className="flex flex-col gap-3">
-                        {/* Sub label */}
-                        <p className="text-muted text-[10px] font-black tracking-widest uppercase">
-                            {sub.label}
-                        </p>
-
-                        {/* Tech item boxes */}
-                        <div className="flex flex-wrap gap-2">
-                            {sub.items.map((tech) => (
-                                <div
-                                    key={tech.name}
-                                    className="flex min-w-16 flex-col items-center gap-1.5 rounded-lg bg-white px-3 py-2.5 "
-                                >
-                                    <i
-                                        className={`${tech.icon} colored text-2xl leading-none`}
-                                    />
-                                    <span className="text-muted text-center text-[10px] leading-tight font-semibold">
-                                        {tech.name}
-                                    </span>
-                                </div>
-                            ))}
-                        </div>
+                    {/* Tech item boxes */}
+                    <div className="flex flex-wrap gap-2">
+                        {sub.items.map((tech) => (
+                            <div
+                                key={tech.name}
+                                className="flex min-w-16 flex-col items-center gap-1.5 py-1"
+                            >
+                                <i
+                                    className={`${tech.icon} colored text-3xl leading-none`}
+                                />
+                                <span className="text-muted text-center text-[10px] leading-tight font-semibold">
+                                    {tech.name}
+                                </span>
+                            </div>
+                        ))}
                     </div>
-                ))}
-            </div>
+                </div>
+            ))}
         </div>
     );
 }
@@ -305,7 +292,7 @@ function CategoryCard({ cat }: { cat: Category }) {
 // ── Main Section ─────────────────────────────────────────────────────────────
 export default function Technologies() {
     return (
-        <section className="bg-white px-4 py-24">
+        <section className="bg-snow px-4 py-24">
             <div className="mx-auto max-w-7xl">
                 {/* Header */}
                 <div className="mb-14 flex flex-col items-center gap-4 text-center">
