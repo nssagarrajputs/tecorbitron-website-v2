@@ -80,7 +80,7 @@ export default function ServiceOverview() {
                         Services Built to{" "}
                         <span className="text-malachite">Scale</span>
                     </h2>
-                    <p className="text-muted max-w-xl text-base leading-relaxed font-light">
+                    <p className="max-w-xl text-base leading-relaxed">
                         From idea to launch — we offer end-to-end technology
                         services designed to help businesses grow faster and
                         smarter.
@@ -100,7 +100,7 @@ export default function ServiceOverview() {
                             </div>
 
                             {/* Name */}
-                            <h3 className="text-deepspace text-lg font-bold">
+                            <h3 className="text-deepspace text-xl font-bold">
                                 {service.name}
                             </h3>
 
@@ -137,7 +137,7 @@ export default function ServiceOverview() {
                 <div className="mt-12 flex justify-center">
                     <Link
                         href="/services"
-                        className="border-border text-deepspace hover:border-malachite hover:text-malachite inline-flex items-center gap-2 rounded-lg border bg-white px-6 py-3 text-sm font-bold transition-all duration-200 hover:-translate-y-0.5"
+                        className="border-border text-deepspace hover:border-malachite hover:text-malachite inline-flex items-center gap-2 rounded-full border bg-white px-6 py-3 text-sm font-bold transition-all duration-200 hover:-translate-y-0.5"
                     >
                         View All Services
                         <ArrowRight size={14} />

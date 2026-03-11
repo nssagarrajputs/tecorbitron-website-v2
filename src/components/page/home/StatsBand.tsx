@@ -1,15 +1,24 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 
 const stats = [
-    { value: 6.3, suffix: "+", label: "Years of Excellence" },
-    { value: 82, suffix: "+", label: "Projects Completed" },
-    { value: 68, suffix: "+", label: "Happy Clients" },
-    { value: 30, suffix: "+", label: "Hands-On Technologies" },
+    { value: 6.3, suffix: "+", label: "Years of Excellence", decimal: true },
+    { value: 82, suffix: "+", label: "Projects Completed", decimal: false },
+    { value: 68, suffix: "+", label: "Happy Clients", decimal: false },
+    { value: 30, suffix: "+", label: "Hands-On Technologies", decimal: false },
 ];
 
-function CountUp({ target, suffix }: { target: number; suffix: string }) {
+function CountUp({
+    target,
+    suffix,
+    decimal,
+}: {
+    target: number;
+    suffix: string;
+    decimal: boolean;
+}) {
     const [count, setCount] = useState(0);
     const ref = useRef<HTMLSpanElement>(null);
     const started = useRef(false);
@@ -19,16 +28,25 @@ function CountUp({ target, suffix }: { target: number; suffix: string }) {
             ([entry]) => {
                 if (entry.isIntersecting && !started.current) {
                     started.current = true;
-                    let start = 0;
                     const duration = 1500;
-                    const step = Math.ceil(target / (duration / 16));
+                    const totalFrames = Math.round(duration / 16);
+                    let frame = 0;
+
                     const timer = setInterval(() => {
-                        start += step;
-                        if (start >= target) {
+                        frame++;
+                        // easeOut curve
+                        const progress =
+                            1 - Math.pow(1 - frame / totalFrames, 3);
+                        const current = target * progress;
+                        setCount(
+                            decimal
+                                ? Math.round(current * 10) / 10
+                                : Math.floor(current),
+                        );
+
+                        if (frame >= totalFrames) {
                             setCount(target);
                             clearInterval(timer);
-                        } else {
-                            setCount(start);
                         }
                     }, 16);
                 }
@@ -37,38 +55,69 @@ function CountUp({ target, suffix }: { target: number; suffix: string }) {
         );
         if (ref.current) observer.observe(ref.current);
         return () => observer.disconnect();
-    }, [target]);
+    }, [target, decimal]);
 
     return (
         <span ref={ref}>
-            {count}
+            {decimal ? count.toFixed(1) : count}
             {suffix}
         </span>
     );
 }
 
+const containerVariants = {
+    hidden: {},
+    visible: {
+        transition: { staggerChildren: 0.15 },
+    },
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 24 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { type: "spring" as const, stiffness: 260, damping: 22 },
+    },
+};
+
 export default function StatsBand() {
+    const ref = useRef(null);
+    const inView = useInView(ref, { once: true, margin: "-80px" });
+
     return (
-        <section className="bg-deepspace-dim px-4 py-20">
+        <section className="bg-deepspace-dim px-4 py-16 sm:py-20">
             <div className="mx-auto max-w-7xl">
-                <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
+                <motion.div
+                    ref={ref}
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate={inView ? "visible" : "hidden"}
+                    className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-8 lg:grid-cols-4"
+                >
                     {stats.map((stat, index) => (
-                        <div
+                        <motion.div
                             key={stat.label}
-                            className={`flex flex-col items-center gap-2 text-center ${index < stats.length - 1 ? "lg:border-border-strong lg:border-r" : ""}`}
+                            variants={itemVariants}
+                            className={`flex flex-col items-center gap-2 text-center ${
+                                index < stats.length - 1
+                                    ? "lg:border-border-strong lg:border-r"
+                                    : ""
+                            }`}
                         >
-                            <p className="text-malachite-soft text-5xl font-black tracking-tight">
+                            <p className="text-malachite-soft text-4xl font-black tracking-tight sm:text-5xl">
                                 <CountUp
                                     target={stat.value}
                                     suffix={stat.suffix}
+                                    decimal={stat.decimal}
                                 />
                             </p>
-                            <p className="text-muted font-medium">
+                            <p className="text-muted text-sm font-medium sm:text-base">
                                 {stat.label}
                             </p>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

@@ -54,7 +54,7 @@ export default function Solutions() {
                             Every Business Need
                         </span>
                     </h2>
-                    <p className="max-w-xl text-base leading-relaxed font-light text-white/50">
+                    <p className="max-w-xl leading-relaxed text-white/80">
                         From simple websites to complex enterprise systems — we
                         build it all.
                     </p>
@@ -73,7 +73,7 @@ export default function Solutions() {
                                     className="group-hover:text-malachite text-white/50 transition-colors duration-300"
                                 />
                             </div>
-                            <span className="text-xs leading-snug font-bold text-white/60 transition-colors duration-300 group-hover:text-white">
+                            <span className="text-sm leading-snug font-bold text-white/60 transition-colors duration-300 group-hover:text-white">
                                 {title}
                             </span>
                         </div>

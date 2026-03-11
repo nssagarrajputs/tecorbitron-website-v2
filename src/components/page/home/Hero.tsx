@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, MapPin, Briefcase, Users } from "lucide-react";
+import { MapPin, Briefcase, Users } from "lucide-react";
 
 export default function Hero() {
     return (
@@ -21,7 +21,6 @@ export default function Hero() {
                 }}
             />
 
-     
             {/* Top fade */}
             <div
                 className="pointer-events-none absolute inset-x-0 top-0 h-32"
@@ -45,7 +44,7 @@ export default function Hero() {
                 {/* Eyebrow */}
                 <div className="border-malachite/20 bg-malachite-muted inline-flex items-center gap-2 rounded-full border px-4 py-1.5">
                     <span className="bg-malachite h-1.5 w-1.5 rounded-full" />
-                    <span className="text-malachite text-xs font-bold  uppercase">
+                    <span className="text-malachite text-xs font-bold uppercase">
                         Next-Gen IT Solutions, Powered by AI
                     </span>
                 </div>
@@ -59,27 +58,26 @@ export default function Hero() {
                 </h1>
 
                 {/* Subheadline */}
-                <p className="max-w-3xl leading-relaxed text-white/50 sm:text-lg">
+                <p className="max-w-3xl leading-relaxed text-white/80 sm:text-lg">
                     Transform ideas into powerful web, mobile, and software
                     solutions. From strategy to execution, our team ensures
                     scalable, secure, and user-centric digital experiences.
                 </p>
 
                 {/* CTAs */}
-                <div className="mt-2 flex flex-col items-center gap-3 sm:flex-row">
+                <div className="mt-2 flex w-full items-center justify-center gap-4 *:min-w-44 *:rounded-full *:px-12 *:py-4 *:text-center *:font-bold max-sm:flex-col">
                     {/* Primary */}
                     <Link
                         href="/contact"
-                        className="bg-malachite text-deepspace-deep hover:bg-malachite-soft hover:shadow-malachite/20 inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0"
+                        className="bg-malachite hover:bg-malachite-soft hover:shadow-malachite/20 text-deepspace-deep transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0"
                     >
                         Start a Project
-                        <ArrowRight size={16} />
                     </Link>
 
                     {/* Secondary */}
                     <Link
-                        href="/work"
-                        className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-7 py-3.5 text-sm font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/15 active:translate-y-0"
+                        href="/portfolio"
+                        className="bg-white/10 text-white/50 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/15 active:translate-y-0"
                     >
                         View Our Work
                     </Link>

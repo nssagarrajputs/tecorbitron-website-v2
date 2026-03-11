@@ -46,7 +46,7 @@ const logosRow2 = [
 
 export default function ClientLogoStripe() {
     return (
-        <section className="bg-snow overflow-hidden py-20">
+        <section className="bg-snow overflow-hidden py-12">
             {/* ── ROW 1 — scroll left ── */}
             <div className="relative mb-4">
                 <div

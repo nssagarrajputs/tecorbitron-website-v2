@@ -42,7 +42,7 @@ export default function PortfolioPreview() {
                         Selected Success{" "}
                         <span className="text-malachite">Stories</span>
                     </h2>
-                    <p className="text-muted max-w-xl text-base leading-relaxed font-light">
+                    <p className=" max-w-xl text-base leading-relaxed ">
                         A few of our recent projects — each one built with care,
                         precision, and a focus on real business outcomes.
                     </p>
