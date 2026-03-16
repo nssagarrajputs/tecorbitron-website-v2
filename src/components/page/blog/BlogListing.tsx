@@ -1,71 +1,38 @@
 "use client";
-// src/components/page/blog/BlogListing.tsx
 
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
-const categories = [
-    "All",
-    "Web Development",
-    "SEO",
-    "UI/UX",
-    "AI & Tech",
-    "Business",
-];
+type Post = {
+    title: string;
+    slug: string;
+    publishedAt: string;
+    readTime: number;
+    category: string;
+    coverImage: string | null;
+};
 
-const posts = [
-    {
-        category: "Web Development",
-        title: "Why Next.js is the Best Choice for Your Business Website in 2025",
-        date: "Mar 01, 2025",
-        readTime: "5 min read",
-        slug: "nextjs-best-choice-2025",
-        gradient: "from-deepspace to-deepspace-soft",
-    },
-    {
-        category: "SEO",
-        title: "10 SEO Strategies That Actually Work for Small Businesses in India",
-        date: "Feb 22, 2025",
-        readTime: "7 min read",
-        slug: "seo-strategies-small-business-india",
-        gradient: "from-deepspace-rich to-deepspace",
-    },
-    {
-        category: "UI/UX",
-        title: "How Good UI/UX Design Directly Impacts Your Business Revenue",
-        date: "Feb 15, 2025",
-        readTime: "6 min read",
-        slug: "uiux-design-business-revenue",
-        gradient: "from-deepspace to-deepspace-rich",
-    },
-    {
-        category: "AI & Tech",
-        title: "How Small Businesses Can Leverage AI Without a Big Budget",
-        date: "Feb 08, 2025",
-        readTime: "8 min read",
-        slug: "ai-for-small-businesses",
-        gradient: "from-deepspace-soft to-deepspace",
-    },
-    {
-        category: "Business",
-        title: "Why Your Business Needs a Website — Not Just a Social Media Page",
-        date: "Jan 30, 2025",
-        readTime: "5 min read",
-        slug: "website-vs-social-media",
-        gradient: "from-deepspace-rich to-deepspace-soft",
-    },
-    {
-        category: "Web Development",
-        title: "React vs Next.js — Which One Should You Choose for Your Project?",
-        date: "Jan 22, 2025",
-        readTime: "6 min read",
-        slug: "react-vs-nextjs",
-        gradient: "from-deepspace to-deepspace-rich",
-    },
-];
+type Category = {
+    name: string;
+    slug: string;
+};
 
-export default function BlogListing() {
+type Props = {
+    posts: Post[];
+    categories: Category[];
+};
+
+function formatDate(dateStr: string) {
+    return new Date(dateStr).toLocaleDateString("en-IN", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+    });
+}
+
+export default function BlogListing({ posts, categories }: Props) {
     const [active, setActive] = useState("All");
 
     const filtered =
@@ -80,19 +47,29 @@ export default function BlogListing() {
                         All <span className="text-malachite">Articles</span>
                     </h2>
 
-                    {/* Category pills */}
+                    {/* ── Category pills — Sanity se dynamic ── */}
                     <div className="flex flex-wrap justify-center gap-2">
+                        <button
+                            onClick={() => setActive("All")}
+                            className={`rounded-full px-4 py-2 text-xs font-bold transition-all duration-200 ${
+                                active === "All"
+                                    ? "bg-malachite text-deepspace-deep shadow-sm"
+                                    : "border-border text-muted hover:border-malachite/40 hover:text-deepspace border bg-white"
+                            }`}
+                        >
+                            All
+                        </button>
                         {categories.map((cat) => (
                             <button
-                                key={cat}
-                                onClick={() => setActive(cat)}
+                                key={cat.slug}
+                                onClick={() => setActive(cat.name)}
                                 className={`rounded-full px-4 py-2 text-xs font-bold transition-all duration-200 ${
-                                    active === cat
+                                    active === cat.name
                                         ? "bg-malachite text-deepspace-deep shadow-sm"
                                         : "border-border text-muted hover:border-malachite/40 hover:text-deepspace border bg-white"
                                 }`}
                             >
-                                {cat}
+                                {cat.name}
                             </button>
                         ))}
                     </div>
@@ -108,20 +85,30 @@ export default function BlogListing() {
                                 className="group border-border hover:border-malachite hover:shadow-deepspace/10 flex flex-col overflow-hidden rounded-2xl border bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                             >
                                 {/* Thumbnail */}
-                                <div
-                                    className={`relative h-44 bg-gradient-to-br ${post.gradient} flex items-center justify-center overflow-hidden`}
-                                >
-                                    <div
-                                        className="absolute inset-0 opacity-10"
-                                        style={{
-                                            backgroundImage:
-                                                "radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px)",
-                                            backgroundSize: "24px 24px",
-                                        }}
-                                    />
-                                    <span className="relative z-10 text-5xl font-black text-white/10">
-                                        {post.title.charAt(0)}
-                                    </span>
+                                <div className="bg-deepspace relative h-44 overflow-hidden">
+                                    {post.coverImage ? (
+                                        <Image
+                                            src={post.coverImage}
+                                            alt={post.title}
+                                            fill
+                                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                        />
+                                    ) : (
+                                        <div className="from-deepspace to-deepspace-soft absolute inset-0 bg-linear-to-br">
+                                            <div
+                                                className="absolute inset-0 opacity-10"
+                                                style={{
+                                                    backgroundImage:
+                                                        "radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px)",
+                                                    backgroundSize: "24px 24px",
+                                                }}
+                                            />
+                                            <span className="absolute inset-0 flex items-center justify-center text-5xl font-black text-white/10">
+                                                {post.title.charAt(0)}
+                                            </span>
+                                        </div>
+                                    )}
                                     <div className="absolute top-4 left-4 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-bold text-white backdrop-blur-sm">
                                         {post.category}
                                     </div>
@@ -134,7 +121,8 @@ export default function BlogListing() {
                                     </h3>
                                     <div className="border-border mt-auto flex items-center justify-between border-t pt-3">
                                         <span className="text-muted text-xs font-medium">
-                                            {post.date} · {post.readTime}
+                                            {formatDate(post.publishedAt)} ·{" "}
+                                            {post.readTime} min read
                                         </span>
                                         <span className="text-malachite-rich inline-flex items-center gap-1 text-xs font-bold transition-all duration-200 group-hover:gap-2">
                                             Read <ArrowRight size={11} />

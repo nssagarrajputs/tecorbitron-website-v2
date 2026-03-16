@@ -1,36 +1,28 @@
 import Link from "next/link";
 import { ArrowRight, ExternalLink } from "lucide-react";
+import Image from "next/image";
+import { client } from "@/sanity/client";
+import { PORTFOLIO_PREVIEW_QUERY } from "@/sanity/queries/portfolio";
 
-const projects = [
-    {
-        title: "E-Commerce Platform",
-        category: "Web Development",
-        result: "3x conversion rate increase",
-        slug: "ecommerce-platform",
-        color: "from-deepspace to-deepspace-soft",
-    },
-    {
-        title: "Healthcare Mobile App",
-        category: "App Development",
-        result: "10K+ downloads in 3 months",
-        slug: "healthcare-app",
-        color: "from-deepspace-rich to-deepspace",
-    },
-    {
-        title: "SEO & Growth Campaign",
-        category: "SEO & Marketing",
-        result: "3x organic traffic in 6 months",
-        slug: "seo-growth-campaign",
-        color: "from-deepspace to-deepspace-soft",
-    },
-];
+type PortfolioPreviewProject = {
+    title: string;
+    slug: string;
+    thumbnail: string | null;
+    industries: string[];
+    projectTypes: string[];
+};
 
-export default function PortfolioPreview() {
+export default async function PortfolioPreview() {
+    const projects: PortfolioPreviewProject[] = await client.fetch(
+        PORTFOLIO_PREVIEW_QUERY,
+        {},
+        { next: { revalidate: 21600 } },
+    );
+
     return (
         <section className="bg-white px-4 py-24">
             <div className="mx-auto max-w-7xl">
                 {/* ── HEADER ── */}
-
                 <div className="mb-14 flex flex-col items-center gap-4 text-center">
                     <div className="bg-malachite-dim inline-flex items-center gap-2 rounded-full px-4 py-1.5">
                         <span className="bg-malachite h-1.5 w-1.5 rounded-full" />
@@ -42,7 +34,7 @@ export default function PortfolioPreview() {
                         Selected Success{" "}
                         <span className="text-malachite">Stories</span>
                     </h2>
-                    <p className=" max-w-xl text-base leading-relaxed ">
+                    <p className="max-w-xl text-base leading-relaxed">
                         A few of our recent projects — each one built with care,
                         precision, and a focus on real business outcomes.
                     </p>
@@ -57,24 +49,34 @@ export default function PortfolioPreview() {
                             className="group border-border hover:border-malachite hover:shadow-deepspace/10 flex flex-col overflow-hidden rounded-lg border bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                         >
                             {/* Thumbnail */}
-                            <div
-                                className={`relative h-52 bg-linear-to-br ${project.color} flex items-center justify-center overflow-hidden`}
-                            >
-                                <div
-                                    className="absolute inset-0 opacity-10"
-                                    style={{
-                                        backgroundImage:
-                                            "radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px)",
-                                        backgroundSize: "24px 24px",
-                                    }}
-                                />
-                                <span className="relative z-10 text-4xl font-black text-white/20">
-                                    {project.title.charAt(0)}
-                                </span>
+                            <div className="bg-deepspace relative h-52 overflow-hidden">
+                                {project.thumbnail ? (
+                                    <Image
+                                        src={project.thumbnail}
+                                        alt={project.title}
+                                        fill
+                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                        sizes="(max-width: 768px) 100vw, 33vw"
+                                    />
+                                ) : (
+                                    <div className="from-deepspace to-deepspace-soft absolute inset-0 bg-linear-to-br">
+                                        <div
+                                            className="absolute inset-0 opacity-10"
+                                            style={{
+                                                backgroundImage:
+                                                    "radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px)",
+                                                backgroundSize: "24px 24px",
+                                            }}
+                                        />
+                                        <span className="absolute inset-0 flex items-center justify-center text-4xl font-black text-white/20">
+                                            {project.title.charAt(0)}
+                                        </span>
+                                    </div>
+                                )}
 
-                                {/* Category badge */}
+                                {/* Industry badge */}
                                 <div className="absolute top-4 left-4 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-bold text-white backdrop-blur-sm">
-                                    {project.category}
+                                    {project.industries?.[0] ?? "Project"}
                                 </div>
 
                                 {/* Arrow on hover */}
@@ -89,14 +91,16 @@ export default function PortfolioPreview() {
                                     {project.title}
                                 </h3>
 
-                                {/* Result */}
-                                <div className="bg-malachite-dim mt-auto flex items-center gap-2 rounded-xl px-3 py-2">
-                                    <span className="text-malachite text-xs font-black">
-                                        ↑
-                                    </span>
-                                    <span className="text-malachite-rich text-xs font-bold">
-                                        {project.result}
-                                    </span>
+                                {/* Project types */}
+                                <div className="mt-auto flex flex-wrap gap-2">
+                                    {project.projectTypes?.map((type) => (
+                                        <span
+                                            key={type}
+                                            className="bg-surface text-subtle rounded-full px-3 py-1 text-xs font-bold capitalize"
+                                        >
+                                            {type.replace(/-/g, " ")}
+                                        </span>
+                                    ))}
                                 </div>
 
                                 {/* View case study */}
@@ -108,7 +112,7 @@ export default function PortfolioPreview() {
                     ))}
                 </div>
 
-                {/* Bottom CTA */}
+                {/* ── BOTTOM CTA ── */}
                 <div className="mt-12 flex justify-center">
                     <Link
                         href="/portfolio"

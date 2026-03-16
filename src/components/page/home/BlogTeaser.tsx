@@ -1,40 +1,35 @@
-// src/components/page/home/BlogTeaser.tsx
-// Images: gradient placeholder for now — swap with Sanity image later
-
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { client } from "@/sanity/client";
+import { BLOG_TEASER_QUERY } from "@/sanity/queries/blog";
+import Image from "next/image";
 
-const posts = [
-    {
-        category: "Web Development",
-        categoryColor: "bg-deepspace-dim text-deepspace",
-        title: "Why Next.js is the Best Choice for Your Business Website in 2025",
-        date: "Mar 01, 2025",
-        readTime: "5 min read",
-        slug: "nextjs-best-choice-2025",
-        gradient: "from-deepspace to-deepspace-soft",
-    },
-    {
-        category: "SEO",
-        categoryColor: "bg-malachite-dim text-malachite-rich",
-        title: "10 SEO Strategies That Actually Work for Small Businesses in India",
-        date: "Feb 22, 2025",
-        readTime: "7 min read",
-        slug: "seo-strategies-small-business-india",
-        gradient: "from-deepspace-rich to-deepspace",
-    },
-    {
-        category: "UI/UX Design",
-        categoryColor: "bg-surface text-subtle border border-border",
-        title: "How Good UI/UX Design Directly Impacts Your Business Revenue",
-        date: "Feb 15, 2025",
-        readTime: "6 min read",
-        slug: "uiux-design-business-revenue",
-        gradient: "from-deepspace to-deepspace-rich",
-    },
-];
+// Type
+type BlogTeaserPost = {
+    title: string;
+    slug: string;
+    publishedAt: string;
+    readTime: number;
+    category: string;
+    coverImage: string | null;
+};
 
-export default function BlogTeaser() {
+// Format date helper
+function formatDate(dateStr: string) {
+    return new Date(dateStr).toLocaleDateString("en-IN", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+    });
+}
+
+export default async function BlogTeaser() {
+    const posts: BlogTeaserPost[] = await client.fetch(
+        BLOG_TEASER_QUERY,
+        {},
+        { next: { revalidate: 21600 } },
+    );
+
     return (
         <section className="bg-white px-4 py-24">
             <div className="mx-auto flex max-w-7xl flex-col items-center gap-12">
@@ -61,20 +56,28 @@ export default function BlogTeaser() {
                             className="group border-border hover:border-malachite hover:shadow-deepspace/10 flex flex-col overflow-hidden rounded-lg border bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                         >
                             {/* Thumbnail */}
-                            <div
-                                className={`relative h-44 bg-linear-to-br ${post.gradient} flex items-center justify-center overflow-hidden`}
-                            >
-                                <div
-                                    className="absolute inset-0 opacity-10"
-                                    style={{
-                                        backgroundImage:
-                                            "radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px)",
-                                        backgroundSize: "24px 24px",
-                                    }}
-                                />
-                                <span className="relative z-10 text-5xl font-black text-white/10">
-                                    {post.title.charAt(0)}
-                                </span>
+                            <div className="bg-deepspace relative h-44 overflow-hidden">
+                                {post.coverImage ? (
+                                    <Image
+                                        src={post.coverImage}
+                                        alt={post.title}
+                                        fill
+                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                        sizes="(max-width: 768px) 100vw, 33vw"
+                                    />
+                                ) : (
+                                    // Fallback gradient agar image nahi hai
+                                    <div className="from-deepspace to-deepspace-soft absolute inset-0 bg-linear-to-br">
+                                        <div
+                                            className="absolute inset-0 opacity-10"
+                                            style={{
+                                                backgroundImage:
+                                                    "radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px)",
+                                                backgroundSize: "24px 24px",
+                                            }}
+                                        />
+                                    </div>
+                                )}
 
                                 {/* Category badge */}
                                 <div className="absolute top-4 left-4 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-bold text-white backdrop-blur-sm">
@@ -91,9 +94,9 @@ export default function BlogTeaser() {
                                 {/* Footer */}
                                 <div className="border-border mt-auto flex items-center justify-between border-t pt-3">
                                     <div className="text-muted flex items-center gap-2 text-xs font-medium">
-                                        <span>{post.date}</span>
-                                        <span className="text-border">·</span>
-                                        <span>{post.readTime}</span>
+                                        <span>
+                                            {formatDate(post.publishedAt)}
+                                        </span>
                                     </div>
                                     <span className="text-malachite-rich inline-flex items-center gap-1 text-xs font-bold transition-all duration-200 group-hover:gap-2">
                                         Read <ArrowRight size={11} />

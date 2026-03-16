@@ -73,3 +73,11 @@
 # Design Blog and slug page v1
 
 ## Eleventh Commit
+## Twelfth Commit
+## Thirteen Commot
+
+# Install Portable react text
+# Create ENV File
+# Connect Sanity CMS Data
+
+## Fourteen Commit

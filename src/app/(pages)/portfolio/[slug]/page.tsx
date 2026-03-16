@@ -1,52 +1,166 @@
-
-import { client } from "@/sanity/client";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ExternalLink, ArrowRight } from "lucide-react";
+import {
+    ArrowLeft,
+    ExternalLink,
+    ArrowRight,
+    Calendar,
+    Tag,
+} from "lucide-react";
+import { PortableText } from "@portabletext/react";
+import { client } from "@/sanity/client";
+import { groq } from "next-sanity";
+import {
+    PORTFOLIO_DETAIL_QUERY,
+    PORTFOLIO_RELATED_QUERY,
+} from "@/sanity/queries/portfolio";
+import type {
+    PortableTextComponentProps,
+    PortableTextBlock,
+    PortableTextMarkComponentProps,
+    PortableTextListComponent,
+    PortableTextListItemComponent,
+} from "@portabletext/react";
 
+// ── Static Params ─────────────────────────────────────────────────────────────
+export async function generateStaticParams() {
+    const slugs: { slug: string }[] = await client.fetch(
+        groq`*[_type == "project"]{ "slug": slug.current }`,
+    );
+    return slugs.map((s) => ({ slug: s.slug }));
+}
+
+export const revalidate = 21600;
+
+// ── Portable Text Components ──────────────────────────────────────────────────
+const ptComponents = {
+    block: {
+        normal: ({
+            children,
+        }: PortableTextComponentProps<PortableTextBlock>) => (
+            <p className="text-muted text-base leading-relaxed font-light">
+                {children}
+            </p>
+        ),
+        h2: ({ children }: PortableTextComponentProps<PortableTextBlock>) => (
+            <h2 className="text-deepspace mt-8 mb-3 text-xl font-black">
+                {children}
+            </h2>
+        ),
+        h3: ({ children }: PortableTextComponentProps<PortableTextBlock>) => (
+            <h3 className="text-deepspace mt-6 mb-2 text-lg font-black">
+                {children}
+            </h3>
+        ),
+        h4: ({ children }: PortableTextComponentProps<PortableTextBlock>) => (
+            <h4 className="text-deepspace mt-4 mb-1 text-base font-black">
+                {children}
+            </h4>
+        ),
+    },
+    list: {
+        bullet: (({ children }) => (
+            <ul className="flex flex-col gap-2 pl-5">{children}</ul>
+        )) as PortableTextListComponent,
+        number: (({ children }) => (
+            <ol className="flex list-decimal flex-col gap-2 pl-5">
+                {children}
+            </ol>
+        )) as PortableTextListComponent,
+    },
+    listItem: {
+        bullet: (({ children }) => (
+            <li className="text-muted list-disc text-base leading-relaxed font-light">
+                {children}
+            </li>
+        )) as PortableTextListItemComponent,
+        number: (({ children }) => (
+            <li className="text-muted text-base leading-relaxed font-light">
+                {children}
+            </li>
+        )) as PortableTextListItemComponent,
+    },
+    marks: {
+        strong: ({ children }: PortableTextMarkComponentProps) => (
+            <strong className="text-deepspace font-black">{children}</strong>
+        ),
+        em: ({ children }: PortableTextMarkComponentProps) => (
+            <em className="italic">{children}</em>
+        ),
+        underline: ({ children }: PortableTextMarkComponentProps) => (
+            <span className="underline">{children}</span>
+        ),
+    },
+};
+
+// ── Case Study Section ────────────────────────────────────────────────────────
+function CaseStudySection({
+    title,
+    content,
+    accent = false,
+}: {
+    title: string;
+    content: PortableTextBlock[] | null;
+    accent?: boolean;
+}) {
+    if (!content || content.length === 0) return null;
+    return (
+        <div
+            className={`flex flex-col gap-4 rounded-2xl p-6 ${accent ? "bg-malachite-dim" : "bg-surface border-border border"}`}
+        >
+            <h2
+                className={`text-sm font-black tracking-widest uppercase ${accent ? "text-malachite-rich" : "text-muted"}`}
+            >
+                {title}
+            </h2>
+            <div className="flex flex-col gap-3">
+                <PortableText value={content} components={ptComponents} />
+            </div>
+        </div>
+    );
+}
+
+// ── Format date ───────────────────────────────────────────────────────────────
+function formatDate(dateStr: string) {
+    return new Date(dateStr).toLocaleDateString("en-IN", {
+        month: "long",
+        year: "numeric",
+    });
+}
+
+// ── Format project type ───────────────────────────────────────────────────────
+function formatType(type: string) {
+    return type.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+// ── Page ──────────────────────────────────────────────────────────────────────
 export default async function ProjectDetailPage(props: {
     params: Promise<{ slug: string }>;
 }) {
-    const params = await props.params;
-    const slug = params.slug;
+    const { slug } = await props.params;
 
-    const projData = await client.fetch(
-        `*[_type == "project" && slug.current == $slug]{
-      title,
-      "slug": slug.current,
-      "thumbnail": thumbnail.asset->url,
-      industries[]->{ name },
-      technologies,
-      summary,
-      "screenshots": screenshots[].asset->url,
-      livePreview
-    }[0]`,
-        { slug },
-    );
+    const [projData, related] = await Promise.all([
+        client.fetch(PORTFOLIO_DETAIL_QUERY, { slug }),
+        client.fetch(PORTFOLIO_RELATED_QUERY, { slug }),
+    ]);
 
     if (!projData) notFound();
 
-    // Related projects — same industry, exclude current
-    const related = await client.fetch(
-        `*[_type == "project" && slug.current != $slug] | order(_createdAt desc) [0..2] {
-      title,
-      "slug": slug.current,
-      "thumbnail": thumbnail.asset->url,
-      industries[]->{ name },
-      technologies,
-      summary
-    }`,
-        { slug },
-    );
+    const hasAnyCaseStudy =
+        projData.problem ||
+        projData.solution ||
+        projData.process ||
+        projData.challenges ||
+        projData.result;
 
-    const techList = projData.technologies
-        ? projData.technologies.split(",").map((t: string) => t.trim())
-        : [];
+    const showClient =
+        projData.showClientPublicly &&
+        (projData.clientName || projData.testimonialQuote);
 
     return (
         <main>
-            {/* ── HERO — Thumbnail ── */}
+            {/* ── HERO ── */}
             <section className="relative w-full overflow-hidden pt-24">
                 <div className="bg-deepspace relative h-72 w-full sm:h-96 lg:h-120">
                     {projData.thumbnail ? (
@@ -56,6 +170,7 @@ export default async function ProjectDetailPage(props: {
                             fill
                             priority
                             className="object-cover"
+                            sizes="100vw"
                         />
                     ) : (
                         <div className="from-deepspace to-deepspace-soft flex h-full items-center justify-center bg-linear-to-br">
@@ -65,7 +180,7 @@ export default async function ProjectDetailPage(props: {
                         </div>
                     )}
 
-                    {/* Dark overlay */}
+                    {/* Overlay */}
                     <div
                         className="absolute inset-0"
                         style={{
@@ -79,16 +194,14 @@ export default async function ProjectDetailPage(props: {
                         <div className="mx-auto flex max-w-7xl flex-col gap-3">
                             {projData.industries?.length > 0 && (
                                 <div className="flex flex-wrap gap-2">
-                                    {projData.industries.map(
-                                        (ind: { name: string }, i: number) => (
-                                            <span
-                                                key={i}
-                                                className="border-malachite/30 bg-malachite/10 text-malachite rounded-full border px-3 py-0.5 text-xs font-bold"
-                                            >
-                                                {ind.name}
-                                            </span>
-                                        ),
-                                    )}
+                                    {projData.industries.map((ind: string) => (
+                                        <span
+                                            key={ind}
+                                            className="border-malachite/30 bg-malachite/10 text-malachite rounded-full border px-3 py-0.5 text-xs font-bold backdrop-blur-sm"
+                                        >
+                                            {ind}
+                                        </span>
+                                    ))}
                                 </div>
                             )}
                             <h1 className="text-3xl font-black text-white sm:text-4xl lg:text-5xl">
@@ -104,7 +217,7 @@ export default async function ProjectDetailPage(props: {
                 <div className="mx-auto max-w-7xl">
                     <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_300px]">
                         {/* ── MAIN ── */}
-                        <div className="flex flex-col gap-10">
+                        <div className="flex flex-col gap-8">
                             {/* Back */}
                             <Link
                                 href="/portfolio"
@@ -125,7 +238,35 @@ export default async function ProjectDetailPage(props: {
                                 </div>
                             )}
 
-                            {/* Screenshots */}
+                            {/* ── Case Study Sections ── */}
+                            {hasAnyCaseStudy && (
+                                <div className="flex flex-col gap-5">
+                                    <CaseStudySection
+                                        title="The Problem"
+                                        content={projData.problem}
+                                    />
+                                    <CaseStudySection
+                                        title="Our Solution"
+                                        content={projData.solution}
+                                        accent
+                                    />
+                                    <CaseStudySection
+                                        title="Our Process"
+                                        content={projData.process}
+                                    />
+                                    <CaseStudySection
+                                        title="Challenges"
+                                        content={projData.challenges}
+                                    />
+                                    <CaseStudySection
+                                        title="Results"
+                                        content={projData.result}
+                                        accent
+                                    />
+                                </div>
+                            )}
+
+                            {/* ── Screenshots ── */}
                             {projData.screenshots?.length > 0 && (
                                 <div className="flex flex-col gap-5">
                                     <h2 className="text-deepspace text-lg font-black">
@@ -133,14 +274,23 @@ export default async function ProjectDetailPage(props: {
                                     </h2>
                                     <div className="flex flex-col gap-4">
                                         {projData.screenshots.map(
-                                            (shot: string, idx: number) => (
+                                            (
+                                                shot: {
+                                                    url: string;
+                                                    alt?: string;
+                                                },
+                                                idx: number,
+                                            ) => (
                                                 <div
                                                     key={idx}
                                                     className="border-border overflow-hidden rounded-2xl border shadow-sm"
                                                 >
                                                     <Image
-                                                        src={shot}
-                                                        alt={`${projData.title} — Screenshot ${idx + 1}`}
+                                                        src={shot.url}
+                                                        alt={
+                                                            shot.alt ??
+                                                            `${projData.title} — Screenshot ${idx + 1}`
+                                                        }
                                                         width={1200}
                                                         height={800}
                                                         className="w-full object-cover"
@@ -152,7 +302,33 @@ export default async function ProjectDetailPage(props: {
                                 </div>
                             )}
 
-                            {/* Related Projects */}
+                            {/* ── Testimonial ── */}
+                            {showClient && (
+                                <div className="bg-deepspace flex flex-col gap-4 rounded-2xl p-6">
+                                    {projData.testimonialQuote && (
+                                        <p className="text-lg leading-relaxed font-light text-white/80 italic">
+                                            &ldquo;{projData.testimonialQuote}
+                                            &rdquo;
+                                        </p>
+                                    )}
+                                    {projData.clientName && (
+                                        <div className="flex flex-col gap-0.5 border-t border-white/10 pt-4">
+                                            <span className="text-sm font-black text-white">
+                                                {projData.clientName}
+                                            </span>
+                                            {projData.designation && (
+                                                <span className="text-muted text-xs font-medium">
+                                                    {projData.designation}
+                                                    {projData.companyName &&
+                                                        `, ${projData.companyName}`}
+                                                </span>
+                                            )}
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+
+                            {/* ── Related Projects ── */}
                             {related?.length > 0 && (
                                 <div className="border-border flex flex-col gap-5 border-t pt-6">
                                     <h2 className="text-deepspace text-lg font-black">
@@ -160,20 +336,14 @@ export default async function ProjectDetailPage(props: {
                                     </h2>
                                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
                                         {related.map(
-                                            (
-                                                proj: {
-                                                    slug: string;
-                                                    thumbnail: string;
-                                                    title: string;
-                                                    industries: {
-                                                        name: string;
-                                                    }[];
-                                                    summary: string;
-                                                },
-                                                i: number,
-                                            ) => (
+                                            (proj: {
+                                                slug: string;
+                                                thumbnail: string | null;
+                                                title: string;
+                                                industries: string[];
+                                            }) => (
                                                 <Link
-                                                    key={i}
+                                                    key={proj.slug}
                                                     href={`/portfolio/${proj.slug}`}
                                                     className="group border-border bg-surface hover:border-malachite flex flex-col overflow-hidden rounded-2xl border transition-all duration-300 hover:-translate-y-0.5"
                                                 >
@@ -186,6 +356,7 @@ export default async function ProjectDetailPage(props: {
                                                                 alt={proj.title}
                                                                 fill
                                                                 className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                                                sizes="(max-width: 640px) 100vw, 33vw"
                                                             />
                                                         ) : (
                                                             <div className="from-deepspace to-deepspace-soft flex h-full items-center justify-center bg-linear-to-br">
@@ -204,7 +375,6 @@ export default async function ProjectDetailPage(props: {
                                                                 {
                                                                     proj
                                                                         .industries[0]
-                                                                        .name
                                                                 }
                                                             </span>
                                                         )}
@@ -227,18 +397,78 @@ export default async function ProjectDetailPage(props: {
                         </div>
 
                         {/* ── SIDEBAR ── */}
-                        <aside className="flex flex-col gap-5 lg:sticky lg:top-28 lg:h-fit">
+                        <aside className="flex flex-col gap-4 lg:sticky lg:top-28 lg:h-fit">
+                            {/* Project Info */}
+                            <div className="bg-surface border-border flex flex-col gap-4 rounded-2xl border p-5">
+                                <h3 className="text-muted text-xs font-black tracking-wider uppercase">
+                                    Project Info
+                                </h3>
+
+                                {/* Project Types */}
+                                {projData.projectTypes?.length > 0 && (
+                                    <div className="flex flex-col gap-2">
+                                        <span className="text-deepspace flex items-center gap-1.5 text-xs font-black">
+                                            <Tag size={11} /> Type
+                                        </span>
+                                        <div className="flex flex-wrap gap-1.5">
+                                            {projData.projectTypes.map(
+                                                (type: string) => (
+                                                    <span
+                                                        key={type}
+                                                        className="border-border text-subtle rounded-full border bg-white px-2.5 py-0.5 text-xs font-semibold"
+                                                    >
+                                                        {formatType(type)}
+                                                    </span>
+                                                ),
+                                            )}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* Completed At */}
+                                {projData.completedAt && (
+                                    <div className="flex flex-col gap-1.5">
+                                        <span className="text-deepspace flex items-center gap-1.5 text-xs font-black">
+                                            <Calendar size={11} /> Completed
+                                        </span>
+                                        <span className="text-muted text-xs font-medium">
+                                            {formatDate(projData.completedAt)}
+                                        </span>
+                                    </div>
+                                )}
+
+                                {/* Industries */}
+                                {projData.industries?.length > 0 && (
+                                    <div className="flex flex-col gap-2">
+                                        <span className="text-deepspace text-xs font-black">
+                                            Industry
+                                        </span>
+                                        <div className="flex flex-wrap gap-1.5">
+                                            {projData.industries.map(
+                                                (ind: string) => (
+                                                    <span
+                                                        key={ind}
+                                                        className="bg-malachite-dim text-malachite-rich rounded-full px-2.5 py-0.5 text-xs font-bold"
+                                                    >
+                                                        {ind}
+                                                    </span>
+                                                ),
+                                            )}
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
                             {/* Tech Stack */}
-                            {techList.length > 0 && (
+                            {projData.techStack?.length > 0 && (
                                 <div className="bg-surface border-border flex flex-col gap-3 rounded-2xl border p-5">
                                     <h3 className="text-muted text-xs font-black tracking-wider uppercase">
-                                        Technologies Used
+                                        Tech Stack
                                     </h3>
                                     <div className="flex flex-wrap gap-2">
-                                        {techList.map(
-                                            (tech: string, i: number) => (
+                                        {projData.techStack.map(
+                                            (tech: string) => (
                                                 <span
-                                                    key={i}
+                                                    key={tech}
                                                     className="border-border text-subtle rounded-full border bg-white px-3 py-1 text-xs font-semibold"
                                                 >
                                                     {tech}
@@ -248,32 +478,7 @@ export default async function ProjectDetailPage(props: {
                                     </div>
                                 </div>
                             )}
-
-                            {/* Industries */}
-                            {projData.industries?.length > 0 && (
-                                <div className="bg-surface border-border flex flex-col gap-3 rounded-2xl border p-5">
-                                    <h3 className="text-muted text-xs font-black tracking-wider uppercase">
-                                        Industry
-                                    </h3>
-                                    <div className="flex flex-wrap gap-2">
-                                        {projData.industries.map(
-                                            (
-                                                ind: { name: string },
-                                                i: number,
-                                            ) => (
-                                                <span
-                                                    key={i}
-                                                    className="bg-malachite-dim text-malachite-rich rounded-full px-3 py-1 text-xs font-bold"
-                                                >
-                                                    {ind.name}
-                                                </span>
-                                            ),
-                                        )}
-                                    </div>
-                                </div>
-                            )}
-
-                            {/* Live Preview */}
+                            {/* Live Preview */}*{" "}
                             {projData.livePreview && (
                                 <a
                                     href={projData.livePreview}
@@ -285,7 +490,6 @@ export default async function ProjectDetailPage(props: {
                                     View Live Project
                                 </a>
                             )}
-
                             {/* CTA */}
                             <div className="bg-deepspace flex flex-col gap-3 rounded-2xl p-5">
                                 <p className="text-malachite text-xs font-black tracking-wider uppercase">
