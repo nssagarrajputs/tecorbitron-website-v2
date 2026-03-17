@@ -478,7 +478,7 @@ export default async function ProjectDetailPage(props: {
                                     </div>
                                 </div>
                             )}
-                            {/* Live Preview */}*{" "}
+                            {/* Live Preview */}
                             {projData.livePreview && (
                                 <a
                                     href={projData.livePreview}

@@ -1,83 +1,77 @@
-# Create Next Project
+# Tecorbitron — Commit History
 
-# font-mulish setup using next/font/google
+```
+commit 15
+    + Add Google Analytics 4
+    + Integrate Embeded Fillout Form
 
-# color setup global.css
+commit 14  sanity-connect
+  + Install @portabletext/react
+  + Create .env.local with Sanity env variables
+  + Connect Sanity CMS — portfolio listing, portfolio detail,
+    blog listing, blog detail, homepage teaser sections
 
-# correct layout code
+commit 13  —
+    + Enhance Header with motion and sidebar
 
-# robots.ts file created
+commit 12  —
+    + Update Sitemap and Robot file
 
-# sitemap.ts file created
+commit 11  —
+    + Add blog detailed page
 
-# Component Folder >layout> create Header & Footer .tsx file
+commit 10  blog
+  + Blog listing page v1 (Hero, RecentBlogs, BlogListing)
+  + Blog detail [slug] page v1 (PostHero, PostBody, NewsletterCTA)
 
-# Create Analytics.tsx file for google analytics.(use later)
+commit 09  services-motion
+  + Install Framer Motion (latest official)
+  + Services page v1 (Hero, ServicesDetail, WhoWeWorkWith,
+    ComparisonTable, FAQs, CTA)
+  + Move founder.png to src/assets/about/
 
-# upload logo-kit folder in src>assets>logo-kit
+commit 08  homepage
+  + Homepage v1 (Hero, ServiceOverview, Solutions, Technologies,
+    WhyUs, PortfolioPreview, Testimonials, StatsBand, BlogTeaser, CTA)
+  + ClientStripe — 18 logos, dual marquee
+  + TrustedPartners section added to About page
+  + Service page placeholder images added
+  + Install sharp for Next.js image optimization
 
-## First Commit
+commit 07  careers
+  + Careers page v1 (Hero, WhyJoinUs, OpenPositions,
+    HiringProcess, CareersCTA)
 
-# Added favicon file and set into layout file and set robot
+commit 06  about
+  + About page v1 (Hero, TrustBand, OurStory, Founder,
+    Credibility, TrustedPartners, CTA)
 
-## Second Commit
+commit 05  portfolio-contact
+  + Portfolio page v1 (Hero, ProjectList)
+  + Contact page v1 (Hero, ContactSection, MapSection)
 
-## Third Commit
+commit 04  legal-pages
+  + Privacy Policy page — 14 sections, sticky TOC
+  + Terms & Conditions page — 18 sections
+  + Header & Footer updated
 
-# Install Sanity and config it, create client.ts file
+commit 03  sanity-fonts
+  + Install Sanity, configure sanity.config.ts
+  + Create src/sanity/client.ts
+  + Add Caveat font via next/font/google
+  + Header & Footer design (in progress)
 
-# Add a new font caveat to layout
+commit 02  favicon
+  + Add favicon.ico to /public
+  + Update layout.tsx metadata and robots config
 
-# Design Header and Footer(In Progress)
-
-## Forth Commit
-
-# Design Privacy Policy and Terms & Conditions
-
-# Update H & F
-
-## Fifth Commit
-
-# Design Portfolio/Work v1
-
-# Design Contact/Let's Talk v1
-
-## Sixth Commit
-
-# Design About v1
-
-## Seventh Commit
-
-# Design Career Page v1
-
-## Eight Commit
-
-# Design Homepage v1, add client stripe logo.
-
-# Update Add TrustedPartner section onto About Page
-
-# Add Images for the service page placeholder
-
-# install sharp - Next Image Optmization
-
-## Nineth Commit
-
-# Install framer motion latest (offcial)
-
-# Move founder.img to assets>about>here
-
-# Design Services page v1
-
-## Tenth Commit
-
-# Design Blog and slug page v1
-
-## Eleventh Commit
-## Twelfth Commit
-## Thirteen Commot
-
-# Install Portable react text
-# Create ENV File
-# Connect Sanity CMS Data
-
-## Fourteen Commit
+commit 01  initial-setup
+  + Scaffold Next.js App Router + TypeScript project
+  + Setup Mulish font via next/font/google
+  + globals.css — Tailwind v4 @theme color tokens
+  + Root layout.tsx
+  + Header.tsx, Footer.tsx skeleton
+  + Analytics.tsx (Google Analytics placeholder)
+  + Upload logo-kit to src/assets/logo-kit/
+  + robots.ts, sitemap.ts created
+```

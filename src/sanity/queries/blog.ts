@@ -22,7 +22,7 @@ export const RECENT_BLOGS_QUERY = groq`
     "category": categories[0]->name,
     "coverImage": coverImage.asset->url,
   }
-`
+`;
 
 // Sab posts — blog listing ke liye
 export const BLOG_LISTING_QUERY = groq`
@@ -34,7 +34,7 @@ export const BLOG_LISTING_QUERY = groq`
     "category": categories[0]->name,
     "coverImage": coverImage.asset->url,
   }
-`
+`;
 
 // Sab unique categories
 export const BLOG_CATEGORIES_QUERY = groq`
@@ -42,4 +42,42 @@ export const BLOG_CATEGORIES_QUERY = groq`
     name,
     "slug": slug.current,
   }
-`
+`;
+
+// Single Blog detail
+export const BLOG_DETAIL_QUERY = groq`
+  *[_type == "post" && slug.current == $slug][0] {
+    title,
+    "slug": slug.current,
+    excerpt,
+    publishedAt,
+    readTime,
+    "coverImage": coverImage.asset->url,
+    "category": categories[0]->name,
+    tags,
+    "author": author->{
+      name,
+      role,
+      "photo": photo.asset->url,
+    },
+    body[]{
+      ...,
+      _type == "image" => {
+        ...,
+        "asset": asset->{url}
+      }
+    }
+  }
+`;
+
+// Related blogs to the blog page
+export const BLOG_RELATED_QUERY = groq`
+  *[_type == "post" && slug.current != $slug] | order(publishedAt desc) [0...3] {
+    title,
+    "slug": slug.current,
+    publishedAt,
+    readTime,
+    "coverImage": coverImage.asset->url,
+    "category": categories[0]->name,
+  }
+`;

@@ -13,6 +13,10 @@ import type {
 import { ArrowLeft, ArrowRight, Clock, Calendar, User } from "lucide-react";
 import { client } from "@/sanity/client";
 import NewsletterCTA from "@/components/page/blog-detail/NewsletterCTA";
+import {
+    BLOG_DETAIL_QUERY,
+    BLOG_RELATED_QUERY,
+} from "@/sanity/queries/blog";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -63,44 +67,6 @@ type CodeBlock = {
     language?: string;
     filename?: string;
 };
-
-// ─── GROQ Queries ─────────────────────────────────────────────────────────────
-
-const BLOG_DETAIL_QUERY = groq`
-  *[_type == "post" && slug.current == $slug][0] {
-    title,
-    "slug": slug.current,
-    excerpt,
-    publishedAt,
-    readTime,
-    "coverImage": coverImage.asset->url,
-    "category": categories[0]->name,
-    tags,
-    "author": author->{
-      name,
-      role,
-      "photo": photo.asset->url,
-    },
-    body[]{
-      ...,
-      _type == "image" => {
-        ...,
-        "asset": asset->{url}
-      }
-    }
-  }
-`;
-
-const BLOG_RELATED_QUERY = groq`
-  *[_type == "post" && slug.current != $slug] | order(publishedAt desc) [0...3] {
-    title,
-    "slug": slug.current,
-    publishedAt,
-    readTime,
-    "coverImage": coverImage.asset->url,
-    "category": categories[0]->name,
-  }
-`;
 
 // ─── Static Params ────────────────────────────────────────────────────────────
 

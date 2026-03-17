@@ -3,6 +3,7 @@ import { Mulish, Caveat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 
 const mulish = Mulish({
     subsets: ["latin"],
@@ -99,6 +100,9 @@ export default function RootLayout({
             <body
                 className={`${mulish.variable} ${caveat.variable} antialiased`}
             >
+                <GoogleAnalytics
+                    gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_M_ID!}
+                />
                 <Header />
                 {children}
                 <Footer />
