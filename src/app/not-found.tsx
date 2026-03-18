@@ -41,7 +41,7 @@ export default function NotFound() {
                 aria-hidden
             >
                 <span
-                    className="leading-none font-black text-white/[0.03]"
+                    className="leading-none font-black text-white/3"
                     style={{ fontSize: "clamp(180px, 40vw, 420px)" }}
                 >
                     404

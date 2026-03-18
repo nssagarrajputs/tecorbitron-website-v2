@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import StructuredData, { globalSchema } from "@/components/StructuredData";
 
 const mulish = Mulish({
@@ -124,6 +125,7 @@ export default function RootLayout({
                 className={`${mulish.variable} ${caveat.variable} antialiased`}
             >
                 <StructuredData data={globalSchema()} />
+                <SpeedInsights />
                 <GoogleAnalytics
                     gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_M_ID!}
                 />

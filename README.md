@@ -1,6 +1,9 @@
 # Tecorbitron — Commit History
 
 ```
+commit 18
+    + Add <SpeedInsights/> of vercal
+
 commit 17
     + Enhance SEO Data
     + Implement Custom 404 page
