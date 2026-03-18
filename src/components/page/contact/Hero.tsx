@@ -16,12 +16,11 @@ export default function Hero() {
                 </div>
 
                 <h1 className="text-5xl leading-tight font-black tracking-tight text-white sm:text-6xl">
-                    {"Let's Build "}
-                    <span className="text-malachite">Something Great</span>{" "}
-                    Together
+                    {"Let's "}
+                    <span className="text-malachite">Connect</span>{" "}
                 </h1>
 
-                <p className="max-w-xl text-base leading-relaxed font-light text-white/50">
+                <p className="max-w-xl text-base leading-relaxed font-bold text-white/60">
                     Tell us about your project and we&apos;ll get back to you
                     within 24 hours. Free consultation, no strings attached.
                 </p>

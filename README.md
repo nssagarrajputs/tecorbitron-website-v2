@@ -1,6 +1,12 @@
 # Tecorbitron — Commit History
 
 ```
+commit 20
+    + Install Resend for mailing
+    + Redesign ContactSection 
+    + Add Api route for mail
+    + Update heading of contact page
+    
 commit 18 & 19
     + Add <SpeedInsights/> of vercal
     + Add <Analytics/> of vercal
