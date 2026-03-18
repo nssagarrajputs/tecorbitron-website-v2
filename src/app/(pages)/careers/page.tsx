@@ -9,6 +9,13 @@ export const metadata: Metadata = {
     title: "Careers",
     description:
         "Join the Tecorbitron team. We're hiring remote-first developers, designers, and marketers. Fast growth, real ownership, honest culture.",
+    keywords: [
+        "Tecorbitron careers",
+        "IT jobs remote India",
+        "web developer jobs India",
+        "software company hiring",
+        "remote tech jobs India",
+    ],
     alternates: { canonical: "/careers" },
     openGraph: {
         title: "Careers at Tecorbitron Solutions",

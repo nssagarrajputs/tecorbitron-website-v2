@@ -10,6 +10,13 @@ export const metadata: Metadata = {
     title: "Contact Us",
     description:
         "Get in touch with Tecorbitron Solutions. Tell us about your project and we'll get back within 24 hours. Free consultation, no strings attached.",
+    keywords: [
+        "contact Tecorbitron",
+        "hire IT company India",
+        "web development consultation",
+        "software project inquiry",
+        "IT services Ghaziabad",
+    ],
     alternates: { canonical: "/contact" },
     openGraph: {
         title: "Contact Tecorbitron Solutions",

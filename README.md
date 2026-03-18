@@ -1,6 +1,10 @@
 # Tecorbitron — Commit History
 
 ```
+commit 17
+    + Enhance SEO Data
+    + Implement Custom 404 page
+    + Create new Og image
 commit 16
     + Generate Meta Data
     + Add Structured JSON-LD Data

@@ -12,6 +12,14 @@ export const metadata: Metadata = {
     title: "About Us",
     description:
         "Learn about Tecorbitron Solutions — a registered IT company based in Ghaziabad, NCR, India. Founded by Sagar Chauhan, we build web, app, and software solutions for businesses globally.",
+    keywords: [
+        "Tecorbitron about",
+        "Tecorbitron Solutions",
+        "IT company Ghaziabad",
+        "software company NCR India",
+        "Sagar Chauhan founder",
+        "registered IT company India",
+    ],
     alternates: { canonical: "/about" },
     openGraph: {
         title: "About Tecorbitron Solutions",

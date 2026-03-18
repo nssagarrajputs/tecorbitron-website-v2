@@ -11,6 +11,16 @@ export const metadata: Metadata = {
     title: "Services",
     description:
         "Tecorbitron offers end-to-end IT services — Web Development, App Development, Custom Software, UI/UX Design, AI Solutions, and SEO & Digital Marketing for businesses of all sizes.",
+    keywords: [
+        "IT services India",
+        "web development services India",
+        "app development company India",
+        "custom software development",
+        "UI UX design agency India",
+        "AI solutions India",
+        "SEO services India",
+        "Tecorbitron services",
+    ],
     alternates: { canonical: "/services" },
     openGraph: {
         title: "IT Services — Tecorbitron Solutions",

@@ -10,6 +10,13 @@ export const metadata: Metadata = {
     title: "Our Work",
     description:
         "Explore Tecorbitron's portfolio — web apps, mobile apps, e-commerce platforms, and custom software solutions delivered for clients across India and beyond.",
+    keywords: [
+        "Tecorbitron portfolio",
+        "web development projects India",
+        "software development case studies",
+        "app development portfolio",
+        "IT company work samples",
+    ],
     alternates: { canonical: "/portfolio" },
     openGraph: {
         title: "Portfolio — Tecorbitron Solutions",

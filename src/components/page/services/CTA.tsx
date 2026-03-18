@@ -46,7 +46,7 @@ export default function ServicesCTA() {
 
                 <div className="mt-2 flex flex-col items-center gap-3 sm:flex-row">
                     <Link
-                        href="/contact"
+                        href="https://cal.com/tecorbitron/discovery-call"
                         className="bg-malachite text-deepspace-deep hover:bg-malachite-soft hover:shadow-malachite/20 inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
                     >
                         <Calendar size={15} />

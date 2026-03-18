@@ -17,6 +17,7 @@ import {
     BLOG_DETAIL_QUERY,
     BLOG_RELATED_QUERY,
 } from "@/sanity/queries/blog";
+import StructuredData, { blogPostSchema } from "@/components/StructuredData";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -356,7 +357,7 @@ export default async function BlogPostPage(props: {
 
     return (
         <main>
-            {/* ── HERO ── */}
+            <StructuredData data={blogPostSchema(post)} />;{/* ── HERO ── */}
             <section className="relative w-full overflow-hidden pt-24">
                 <div className="bg-deepspace relative h-72 w-full sm:h-96 lg:h-120">
                     {post.coverImage ? (
@@ -419,7 +420,6 @@ export default async function BlogPostPage(props: {
                     </div>
                 </div>
             </section>
-
             {/* ── CONTENT ── */}
             <section className="bg-white px-4 py-16">
                 <div className="mx-auto max-w-4xl">

@@ -13,6 +13,14 @@ export const metadata: Metadata = {
     title: "Blog",
     description:
         "Tech insights, SEO guides, AI trends, and web development tips from the Tecorbitron team. Practical knowledge for business owners and developers.",
+    keywords: [
+        "tech blog India",
+        "web development tips",
+        "SEO guides",
+        "AI trends",
+        "software development insights",
+        "Tecorbitron blog",
+    ],
     alternates: { canonical: "/blog" },
     openGraph: {
         title: "The Knowledge Nexus — Tecorbitron Blog",

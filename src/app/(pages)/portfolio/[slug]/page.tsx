@@ -22,6 +22,10 @@ import type {
     PortableTextListComponent,
     PortableTextListItemComponent,
 } from "@portabletext/react";
+import StructuredData, {
+    portfolioProjectSchema,
+} from "@/components/StructuredData";
+
 
 // ── Static Params ─────────────────────────────────────────────────────────────
 export async function generateStaticParams() {
@@ -160,6 +164,7 @@ export default async function ProjectDetailPage(props: {
 
     return (
         <main>
+            <StructuredData data={portfolioProjectSchema(projData)} />;
             {/* ── HERO ── */}
             <section className="relative w-full overflow-hidden pt-24">
                 <div className="bg-deepspace relative h-72 w-full sm:h-96 lg:h-120">
@@ -211,7 +216,6 @@ export default async function ProjectDetailPage(props: {
                     </div>
                 </div>
             </section>
-
             {/* ── CONTENT ── */}
             <section className="bg-white px-4 py-16">
                 <div className="mx-auto max-w-7xl">
