@@ -63,6 +63,25 @@ export function globalSchema() {
     };
 }
 
+// ─── Homepage ─────────────────────────────────────────────────────────────────
+export function homePageSchema() {
+    return {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://www.tecorbitron.com/#homepage",
+        url: "https://www.tecorbitron.com",
+        name: "Web Development & App Development Company | Tecorbitron",
+        description:
+            "Tecorbitron helps startups and businesses build high-converting websites, apps, and custom software solutions.",
+        isPartOf: {
+            "@id": "https://www.tecorbitron.com/#website",
+        },
+        about: {
+            "@id": "https://www.tecorbitron.com/#organization",
+        },
+    };
+}
+
 // ─── Services ─────────────────────────────────────────────────────────────────
 
 export function servicesSchema() {

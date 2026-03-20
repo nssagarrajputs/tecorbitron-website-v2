@@ -9,21 +9,50 @@ import FAQ from "@/components/page/contact/FAQ";
 export const metadata: Metadata = {
     title: "Contact Us",
     description:
-        "Get in touch with Tecorbitron Solutions. Tell us about your project and we'll get back within 24 hours. Free consultation, no strings attached.",
+        "Have an idea or project in mind? Contact Tecorbitron for a free consultation. Get a clear plan, timeline, and cost within 24 hours. No commitment required.",
     keywords: [
-        "contact Tecorbitron",
-        "hire IT company India",
-        "web development consultation",
-        "software project inquiry",
-        "IT services Ghaziabad",
+        // High intent (VERY IMPORTANT)
+        "hire web developer India",
+        "hire app developer India",
+        "contact software development company",
+        "start a project web development",
+        "book free consultation IT company",
+
+        // Conversion intent
+        "get website development quote",
+        "app development consultation India",
+        "custom software inquiry",
+        "IT company contact India",
+
+        // Local + brand
+        "Tecorbitron contact",
+        "IT company Ghaziabad contact",
+        "software company NCR India",
     ],
     alternates: { canonical: "/contact" },
     openGraph: {
-        title: "Contact Tecorbitron Solutions",
+        title: "Start Your Project Today | Free Consultation | Tecorbitron",
+
         description:
-            "Start a project, book a free call, or just say hello. We respond within 24 hours.",
+            "Tell us about your idea and get a clear plan within 24 hours. Free consultation, transparent pricing, and expert guidance.",
+
         url: "https://www.tecorbitron.com/contact",
-        images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+
+        images: [
+            {
+                url: "/og-image.png",
+                width: 1200,
+                height: 630,
+                alt: "Contact Tecorbitron — Start Your Project",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Contact Tecorbitron | Start Your Project",
+        description:
+            "Book a free consultation and build your website, app, or software with experts.",
+        images: ["/og-image.png"],
     },
 };
 

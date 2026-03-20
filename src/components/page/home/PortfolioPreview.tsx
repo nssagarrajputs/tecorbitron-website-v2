@@ -31,8 +31,8 @@ export default async function PortfolioPreview() {
                         </span>
                     </div>
                     <h2 className="text-deepspace text-4xl font-black tracking-tight sm:text-5xl">
-                        Selected Success{" "}
-                        <span className="text-malachite">Stories</span>
+                        Real Work,{" "}
+                        <span className="text-malachite">Real Results</span>
                     </h2>
                     <p className="max-w-xl text-base leading-relaxed">
                         A few of our recent projects — each one built with care,

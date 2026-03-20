@@ -39,14 +39,16 @@ export default function CTA() {
 
                 {/* Headline */}
                 <h2 className="text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl">
-                    Ready to Build{" "}
-                    <span className="text-malachite">Something Great?</span>
+                    Start Your Project Today <br />
+                    <span className="text-malachite text-4xl">
+                        Get a Free Consultation?
+                    </span>
                 </h2>
 
                 {/* Sub */}
-                <p className="max-w-xl text-base leading-relaxed font-light text-white/50">
-                    Tell us about your project and we&apos;ll get back to you
-                    within 24 hours. Free consultation, no strings attached.
+                <p className="max-w-xl text-base leading-relaxed font-bold text-white/80">
+                    Tell us about your project and {"we'll"} get back to you
+                    within 24 hours. <br /> Free consultation, No strings attached.
                 </p>
 
                 {/* CTAs */}

@@ -17,22 +17,32 @@ const mulish = Mulish({
 
 export const metadata: Metadata = {
     title: {
-        default: "Tecorbitron | Software consulting and Development",
+        default: "Tecorbitron | Web, App, Software Solutions Company",
         template: "%s | Tecorbitron",
     },
     description:
-        "Tecorbitron Solutions Pvt. Ltd. is a global IT services company specializing in Web Development, App Development, Software Solutions, Cloud, AI/ML, and UI/UX design. We help businesses innovate and scale with technology-driven solutions.",
+        "Tecorbitron helps startups and businesses build high-converting websites, scalable apps, and custom software solutions. Get a free consultation and turn your idea into a powerful digital product.",
     keywords: [
+        // Primary high-intent keywords
+        "web development company India",
+        "app development company India",
+        "custom software development company",
+        "hire web developer India",
+        "hire app developer India",
+        // Service-based long-tail
+        "custom web development for startups",
+        "saas development company India",
+        "react js development company",
+        "next js development agency",
+        "mobile app development services",
+        // Business intent keywords
+        "build website for business",
+        "software solutions for startups",
+        "digital product development company",
+        "IT company for startups India",
+        // Brand
         "Tecorbitron",
-        "software development",
-        "web development",
-        "app development",
-        "IT services",
-        "cloud solutions",
-        "AI/ML services",
-        "technology consulting",
-        "UI/UX design",
-        "enterprise software",
+        "Tecorbitron Solutions Pvt Ltd",
     ],
 
     // ── AUTHOR & PUBLISHER ─────────────────────────────
@@ -67,7 +77,12 @@ export const metadata: Metadata = {
         type: "website",
         locale: "en_IN",
         url: "https://www.tecorbitron.com",
-        siteName: "Tecorbitron Solutions",
+        siteName: "Tecorbitron",
+        title: "Websites & Apps That Generate Revenue | Tecorbitron",
+
+        description:
+            "We design, develop, and scale websites, apps, and software that drive real business growth. Trusted by startups and businesses worldwide.",
+
         images: [
             {
                 url: "/og-image.png",
@@ -79,11 +94,14 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Tecorbitron | Software Consulting and Development",
+        title: "Tecorbitron | Web & App Solutions Development Company",
         description:
-            "Next-Gen IT Solutions powered by AI. Web, App, Software, UI/UX, SEO & AI services.",
+            "Build high-performance websites, apps, and software with Tecorbitron. Free consultation available.",
         images: ["/og-image.png"],
     },
+
+    // ── EXTRA SEO BOOST ────────────────────────────
+    category: "technology",
 
     // ── WEB MANIFEST ───────────────────────────────────
     manifest: "/site.webmanifest",

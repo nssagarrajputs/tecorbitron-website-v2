@@ -71,7 +71,7 @@ export default function Hero() {
                         href="/contact"
                         className="bg-malachite hover:bg-malachite-soft hover:shadow-malachite/20 text-deepspace-deep transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0"
                     >
-                        Start a Project
+                        Start Your Project
                     </Link>
 
                     {/* Secondary */}

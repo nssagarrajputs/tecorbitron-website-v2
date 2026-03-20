@@ -9,10 +9,17 @@ import StatsBand from "@/components/page/home/StatsBand";
 import BlogTeaser from "@/components/page/home/BlogTeaser";
 import CTA from "@/components/page/home/CTA";
 import ClientLogoStripe from "@/components/page/home/ClientLogoStripe";
+import StructuredData, { homePageSchema } from "@/components/StructuredData";
 
+export const metadata = {
+    title: "Web Development Company for Startups | Tecorbitron",
+    description:
+        "We help startups build scalable websites, apps, and software solutions. Get a free consultation today.",
+};
 export default function Home() {
     return (
         <main>
+            <StructuredData data={homePageSchema()}/>
             <Hero />
             <ClientLogoStripe />
             <ServiceOverview />

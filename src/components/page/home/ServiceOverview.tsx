@@ -16,15 +16,15 @@ const services = [
         icon: <FileCodeCorner />,
         name: "Web Development",
         description:
-            "High-performance websites and web apps built with Next.js, React, and modern tech stacks. Fast, scalable, and SEO-ready.",
-        tags: ["Next.js", "React", "Node.js"],
+            "High-Converting Websites That Turn Visitors Into Customers Fast, SEO-optimized websites built to generate leads and sales — not just look good.",
+        tags: ["React", "Next.js", "Node.js"],
         href: "/services",
     },
     {
         icon: <Smartphone />,
         name: "App Development",
         description:
-            "Native and cross-platform mobile apps for iOS and Android. Built with React Native for seamless performance on all devices.",
+            "Mobile Apps That Users Love to Use Smooth, scalable mobile apps designed for engagement, retention, and growth.",
         tags: ["React Native", "iOS", "Android"],
         href: "/services",
     },
@@ -48,7 +48,7 @@ const services = [
         icon: <Cpu />,
         name: "Custom Software",
         description:
-            "Tailor-made software solutions — ERP, CRM, dashboards, and automation tools built to fit your exact business workflows.",
+            "Custom Software Built Around Your Business — ERP, Automation, Dashboards, and Systems  built to fit your exact business workflows.",
         tags: ["ERP", "CRM", "Automation"],
         href: "/services",
     },
@@ -77,8 +77,8 @@ export default function ServiceOverview() {
                         </span>
                     </div>
                     <h2 className="text-deepspace text-4xl font-black tracking-tight sm:text-5xl">
-                        Services Built to{" "}
-                        <span className="text-malachite">Scale</span>
+                        Services Designed to Grow Your{" "}
+                        <span className="text-malachite">Business</span>
                     </h2>
                     <p className="max-w-xl text-base leading-relaxed">
                         From idea to launch — we offer end-to-end technology

@@ -38,12 +38,12 @@ export default async function BlogTeaser() {
                     <div className="bg-malachite-dim inline-flex items-center gap-2 rounded-full px-4 py-1.5">
                         <span className="bg-malachite h-1.5 w-1.5 rounded-full" />
                         <span className="text-malachite-rich text-xs font-bold tracking-widest uppercase">
-                            Insights
+                            Blog
                         </span>
                     </div>
                     <h2 className="text-deepspace text-4xl font-black tracking-tight sm:text-5xl">
-                        The Knowledge{" "}
-                        <span className="text-malachite">Nexus</span>
+                        Insights That Help You{" "}
+                        <span className="text-malachite">Grow</span>
                     </h2>
                 </div>
 

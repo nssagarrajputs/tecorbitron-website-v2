@@ -73,8 +73,8 @@ export default function ClientLogoStripe() {
             {/* ── ROW 2 — Quote ── */}
             <div className="my-10 flex items-center justify-center px-4">
                 <blockquote className="max-w-xl text-center">
-                    <p className="text-subtle sm:text-xl">
-                        Elevate, Engage, and Excel in the Digital World
+                    <p className="text-subtle sm:text-xl ">
+                        Trusted by Businesses Across the World
                     </p>
                 </blockquote>
             </div>
