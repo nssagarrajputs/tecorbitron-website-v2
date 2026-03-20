@@ -50,9 +50,9 @@ export default function Hero() {
                 </div>
 
                 {/* Headline */}
-                <h1 className="text-5xl leading-tight font-black tracking-tight text-white sm:text-6xl lg:text-7xl">
+                <h1 className="text-6xl leading-tight font-black tracking-tight text-white sm:text-6xl lg:text-7xl">
                     Your Idea, Our Code <br />{" "}
-                    <span className="text-malachite-soft">
+                    <span className="text-malachite-soft max-sm:text-5xl">
                         {"Let's Build It Boldly"}
                     </span>
                 </h1>
@@ -65,7 +65,7 @@ export default function Hero() {
                 </p>
 
                 {/* CTAs */}
-                <div className="mt-2 flex w-full items-center justify-center gap-4 *:min-w-44 *:rounded-full *:px-12 *:py-4 *:text-center *:font-bold max-sm:flex-col">
+                <div className="mt-2 flex w-full items-center justify-center gap-4 *:min-w-44 *:rounded-md *:px-12 *:py-4 *:text-center *:font-bold max-sm:flex-col">
                     {/* Primary */}
                     <Link
                         href="/contact"
@@ -77,7 +77,7 @@ export default function Hero() {
                     {/* Secondary */}
                     <Link
                         href="/portfolio"
-                        className="bg-white/10 text-white/50 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/15 active:translate-y-0"
+                        className="bg-white/5 text-white/70 transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/15 active:translate-y-0"
                     >
                         View Our Work
                     </Link>

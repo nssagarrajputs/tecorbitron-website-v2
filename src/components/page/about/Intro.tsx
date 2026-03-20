@@ -130,11 +130,11 @@ export default function Intro() {
                     </div>
 
                     {/* ── RIGHT — Rating Badges ── */}
-                    <div className="my-8 flex justify-center gap-5">
+                    <div className="my-8 flex max-md:flex-col justify-center items-center gap-5">
                         {ratings.map((r) => (
                             <div
                                 key={r.platform}
-                                className="group border-border hover:border-malachite hover:shadow-deepspace/5 flex items-center justify-between gap-6 rounded-2xl border bg-white p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+                                className="group border-border hover:border-malachite hover:shadow-deepspace/5 flex items-center justify-between gap-6 rounded-2xl border bg-white w-fit p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
                             >
                                 {/* Logo + name */}
                                 <div className="flex items-center gap-4">

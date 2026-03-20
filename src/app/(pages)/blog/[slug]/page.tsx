@@ -13,10 +13,7 @@ import type {
 import { ArrowLeft, ArrowRight, Clock, Calendar, User } from "lucide-react";
 import { client } from "@/sanity/client";
 import NewsletterCTA from "@/components/page/blog-detail/NewsletterCTA";
-import {
-    BLOG_DETAIL_QUERY,
-    BLOG_RELATED_QUERY,
-} from "@/sanity/queries/blog";
+import { BLOG_DETAIL_QUERY, BLOG_RELATED_QUERY } from "@/sanity/queries/blog";
 import StructuredData, { blogPostSchema } from "@/components/StructuredData";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -152,9 +149,7 @@ const ptComponents = {
         normal: ({
             children,
         }: PortableTextComponentProps<PortableTextBlock>) => (
-            <p className="text-subtle text-base leading-[1.85] font-light">
-                {children}
-            </p>
+            <p className="text-base leading-relaxed">{children}</p>
         ),
         h2: ({ children }: PortableTextComponentProps<PortableTextBlock>) => (
             <h2 className="text-deepspace mt-10 mb-4 scroll-mt-28 text-2xl font-black">
@@ -357,8 +352,9 @@ export default async function BlogPostPage(props: {
 
     return (
         <main>
-            <StructuredData data={blogPostSchema(post)} />;{/* ── HERO ── */}
-            <section className="relative w-full overflow-hidden pt-24">
+            <StructuredData data={blogPostSchema(post)} />
+            {/* ── HERO ── */}
+            <section className="relative w-full overflow-hidden">
                 <div className="bg-deepspace relative h-72 w-full sm:h-96 lg:h-120">
                     {post.coverImage ? (
                         <Image
@@ -388,7 +384,7 @@ export default async function BlogPostPage(props: {
 
                     {/* Title overlay */}
                     <div className="absolute right-0 bottom-0 left-0 px-4 pb-10">
-                        <div className="mx-auto flex max-w-4xl flex-col gap-4">
+                        <div className="mx-auto flex max-w-6xl flex-col gap-4">
                             {post.category && (
                                 <span className="border-malachite/30 bg-malachite/10 text-malachite w-fit rounded-full border px-3 py-0.5 text-xs font-bold backdrop-blur-sm">
                                     {post.category}
@@ -422,7 +418,7 @@ export default async function BlogPostPage(props: {
             </section>
             {/* ── CONTENT ── */}
             <section className="bg-white px-4 py-16">
-                <div className="mx-auto max-w-4xl">
+                <div className="mx-auto max-w-6xl">
                     <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_240px]">
                         {/* ── MAIN ── */}
                         <article className="flex min-w-0 flex-col gap-6">
@@ -436,7 +432,7 @@ export default async function BlogPostPage(props: {
 
                             {/* Excerpt */}
                             {post.excerpt && (
-                                <p className="text-deepspace border-malachite border-l-4 pl-5 text-lg leading-relaxed font-light">
+                                <p className="text-deepspace border-malachite border-l-4 pl-5 text-lg leading-relaxed">
                                     {post.excerpt}
                                 </p>
                             )}

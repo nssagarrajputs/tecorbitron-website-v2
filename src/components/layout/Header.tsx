@@ -12,7 +12,7 @@ const navLinks = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
-    { label: "Work", href: "/portfolio" },
+    { label: "Portfolio", href: "/portfolio" },
     { label: "Blog", href: "/blog" },
 ];
 
@@ -20,7 +20,7 @@ const mobNavLinks = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
-    { label: "Work", href: "/portfolio" },
+    { label: "Portfolio", href: "/portfolio" },
     { label: "Blog", href: "/blog" },
     { label: "Contact", href: "/contact" },
 ];
@@ -247,15 +247,12 @@ export default function Header() {
                                     <Link
                                         href="/contact"
                                         onClick={() => setMenuOpen(false)}
-                                        className="bg-malachite text-deepspace-deep hover:bg-malachite-rich flex w-full items-center justify-center gap-2 rounded-full py-3.5 text-sm font-bold transition-all duration-200"
+                                        className="bg-malachite hover:bg-malachite-rich flex w-full items-center justify-center gap-2 rounded-md py-3.5 font-bold text-white transition-all duration-200"
                                     >
                                         {"Let's Talk"}
                                         <ArrowRight size={14} />
                                     </Link>
                                 </motion.div>
-                                <p className="text-muted mt-3 text-center text-xs font-medium">
-                                    info@tecorbitron.com
-                                </p>
                             </div>
                         </motion.aside>
                     </>

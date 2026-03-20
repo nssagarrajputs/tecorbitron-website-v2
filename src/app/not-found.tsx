@@ -64,23 +64,23 @@ export default function NotFound() {
                 </h1>
 
                 {/* Description */}
-                <p className="text-base leading-relaxed font-light text-white/50">
+                <p className=" leading-relaxed  text-white/80">
                     The page you&apos;re looking for doesn&apos;t exist or has
-                    been moved. Let&apos;s get you back on track.
+                    been moved. <br /> Let&apos;s get you back on track.
                 </p>
 
                 {/* CTAs */}
                 <div className="mt-2 flex flex-col items-center gap-3 sm:flex-row">
                     <Link
                         href="/"
-                        className="bg-malachite text-deepspace-deep hover:bg-malachite-soft inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold transition-all duration-200 hover:-translate-y-0.5"
+                        className="bg-malachite text-deepspace-deep hover:bg-malachite-soft inline-flex items-center gap-4 rounded-full px-7 py-4 text-sm font-bold transition-all duration-200 hover:-translate-y-0.5"
                     >
                         <ArrowLeft size={15} />
                         Back to Home
                     </Link>
                     <Link
                         href="/contact"
-                        className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-7 py-3.5 text-sm font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/15"
+                        className="inline-flex items-center gap-4 rounded-full border border-white/10 bg-white/10 px-8 py-4 text-sm font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/15"
                     >
                         Contact Us
                         <ArrowRight size={15} />
@@ -90,15 +90,15 @@ export default function NotFound() {
                 {/* Quick links */}
                 <div className="mt-4 flex flex-wrap items-center justify-center gap-4">
                     {[
-                        { label: "Services", href: "/services" },
-                        { label: "Our Work", href: "/portfolio" },
-                        { label: "Blog", href: "/blog" },
                         { label: "About", href: "/about" },
+                        { label: "Services", href: "/services" },
+                        { label: "Portfolio", href: "/portfolio" },
+                        { label: "Blog", href: "/blog" },
                     ].map((link) => (
                         <Link
                             key={link.href}
                             href={link.href}
-                            className="hover:text-malachite text-xs font-semibold text-white/30 underline-offset-4 transition-colors duration-200 hover:underline"
+                            className="hover:text-malachite text-xs font-semibold text-white/50 underline-offset-4 transition-colors duration-200 hover:underline"
                         >
                             {link.label}
                         </Link>

@@ -4,6 +4,7 @@ import Channel from "@/components/page/contact/Channel";
 import ContactSection from "@/components/page/contact/ContactSection";
 import TrustSignals from "@/components/page/contact/TrustSignals";
 import StructuredData, { contactSchema } from "@/components/StructuredData";
+import FAQ from "@/components/page/contact/FAQ";
 
 export const metadata: Metadata = {
     title: "Contact Us",
@@ -31,9 +32,10 @@ export default function Contact() {
         <main>
             <StructuredData data={contactSchema()} />
             <Hero />
-            <Channel />
             <ContactSection />
+            <Channel />
             <TrustSignals />
+            <FAQ/>
         </main>
     );
 }

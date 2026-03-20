@@ -1,7 +1,40 @@
 import { MetadataRoute } from "next";
+import { client } from "@/sanity/client";
+import { groq } from "next-sanity";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = "https://www.tecorbitron.com";
+const baseUrl = "https://www.tecorbitron.com";
+
+type SanitySlugResult = {
+    slug: string;
+    updatedAt: string;
+};
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+    // ── Sanity se slugs fetch karo ──
+    const [projects, posts] = await Promise.all([
+        client.fetch<SanitySlugResult[]>(
+            groq`*[_type == "project"]{ "slug": slug.current, "updatedAt": _updatedAt }`,
+        ),
+        client.fetch<SanitySlugResult[]>(
+            groq`*[_type == "post"]{ "slug": slug.current, "updatedAt": _updatedAt }`,
+        ),
+    ]);
+
+    // ── Dynamic portfolio pages ──
+    const portfolioUrls: MetadataRoute.Sitemap = projects.map((proj) => ({
+        url: `${baseUrl}/portfolio/${proj.slug}`,
+        lastModified: new Date(proj.updatedAt),
+        changeFrequency: "monthly",
+        priority: 0.7,
+    }));
+
+    // ── Dynamic blog pages ──
+    const blogUrls: MetadataRoute.Sitemap = posts.map((post) => ({
+        url: `${baseUrl}/blog/${post.slug}`,
+        lastModified: new Date(post.updatedAt),
+        changeFrequency: "monthly",
+        priority: 0.6,
+    }));
 
     return [
         // ── Core pages ──
@@ -61,5 +94,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: "yearly",
             priority: 0.3,
         },
+
+        // ── Dynamic pages ──
+        ...portfolioUrls,
+        ...blogUrls,
     ];
 }

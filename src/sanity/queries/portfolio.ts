@@ -23,7 +23,7 @@ export const PORTFOLIO_LIST_QUERY = groq`
       summary,
       livePreview,
     },
-    "rest": *[_type == "project" && featured != true] | order(completedAt desc) {
+    "rest": *[_type == "project"] | order(completedAt desc) {
       title,
       "slug": slug.current,
       "thumbnail": thumbnail.asset->url,

@@ -9,7 +9,7 @@ const navLinks = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
-    { label: "Work", href: "/portfolio" },
+    { label: "Portfolio", href: "/portfolio" },
     { label: "Blog", href: "/blog" },
     { label: "Careers", href: "/careers" },
     { label: "Contact", href: "/contact" },
@@ -19,8 +19,8 @@ const socialLinks = [
     { full: "LinkedIn", href: "https://www.linkedin.com/company/tecorbitrons" },
     { full: "Instagram", href: "https://www.instagram.com/tecorbitron" },
     { full: "Facebook", href: "https://www.facebook.com/tecorbitron" },
-    { full: "WhatsApp", href: "https://wa.me/919084800496" },
     { full: "YouTube", href: "https://www.youtube.com/@Tecorbitron" },
+    { full: "WhatsApp", href: "https://wa.me/919084800496" },
 ];
 
 export default function Footer() {
