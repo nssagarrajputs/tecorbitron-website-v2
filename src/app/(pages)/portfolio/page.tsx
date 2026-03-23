@@ -27,7 +27,8 @@ export const metadata: Metadata = {
     },
 };
 
-type Project = {
+export type Project = {
+    projectName: string;
     title: string;
     slug: string;
     thumbnail: string | null;

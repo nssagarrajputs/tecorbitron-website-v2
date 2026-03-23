@@ -1,16 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ExternalLink } from "lucide-react";
-
-type Project = {
-    title: string;
-    slug: string;
-    thumbnail: string | null;
-    industries: string[];
-    techStack: string[];
-    summary?: string;
-    livePreview?: string;
-};
+import type { Project } from "@/app/(pages)/portfolio/page";
 
 type Props = {
     featured: Project | null;
@@ -101,7 +92,7 @@ export default function ProjectList({ featured, rest }: Props) {
                                     </h2>
 
                                     {featured.summary && (
-                                        <p className="text-muted line-clamp-3 text-sm leading-relaxed font-light">
+                                        <p className="text-muted line-clamp-3 leading-relaxed">
                                             {featured.summary}
                                         </p>
                                     )}
@@ -112,7 +103,7 @@ export default function ProjectList({ featured, rest }: Props) {
                                             {featured.techStack.map((tech) => (
                                                 <span
                                                     key={tech}
-                                                    className="border-border bg-surface text-subtle rounded-full border px-3 py-0.5 text-xs font-semibold"
+                                                    className="bg-deepspace-dim text-subtle rounded-full px-3 py-0.5 text-xs font-semibold"
                                                 >
                                                     {tech}
                                                 </span>
@@ -142,21 +133,21 @@ export default function ProjectList({ featured, rest }: Props) {
                         <p className="text-muted mb-5 text-xs font-bold tracking-widest uppercase">
                             All Projects
                         </p>
-                        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 ">
                             {rest.map((proj) => (
                                 <Link
                                     key={proj.slug}
                                     href={`/portfolio/${proj.slug}`}
-                                    className="group border-border hover:border-malachite hover:shadow-deepspace/5 flex flex-col overflow-hidden rounded-2xl border bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                                    className="group border-border hover:border-malachite hover:shadow-deepspace/5 flex flex-col overflow-hidden rounded-md border bg-white transition-all duration-300 hover:shadow-lg"
                                 >
                                     {/* Thumbnail */}
-                                    <div className="bg-deepspace relative h-52 overflow-hidden">
+                                    <div className="bg-deepspace relative h-72 overflow-hidden">
                                         {proj.thumbnail ? (
                                             <Image
                                                 src={proj.thumbnail}
                                                 alt={proj.title}
                                                 fill
-                                                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                                className="object-cover transition-transform duration-500 group-hover:scale-102"
                                                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                             />
                                         ) : (
@@ -184,7 +175,7 @@ export default function ProjectList({ featured, rest }: Props) {
 
                                     {/* Content */}
                                     <div className="flex flex-1 flex-col gap-3 p-5">
-                                        <h3 className="text-deepspace group-hover:text-malachite-rich text-lg leading-snug font-black transition-colors duration-200">
+                                        <h3 className="text-deepspace group-hover:text-malachite-rich text-2xl leading-relaxed font-bold transition-colors duration-200">
                                             {proj.title}
                                         </h3>
 

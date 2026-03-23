@@ -21,6 +21,20 @@ import StructuredData, {
 } from "@/components/StructuredData";
 import type { Metadata } from "next";
 
+// ── Types ─────────────────────────────────────────────────────────────────────
+type TechStack = {
+    name: string;
+    category: string;
+};
+
+type RelatedProject = {
+    projectName: string;
+    title: string;
+    slug: string;
+    thumbnail: string | null;
+    industries: string[];
+};
+
 // ── Static Params ─────────────────────────────────────────────────────────────
 export async function generateStaticParams() {
     const slugs: { slug: string }[] = await client.fetch(
@@ -39,13 +53,13 @@ export async function generateMetadata(props: {
     const proj = await client.fetch(PORTFOLIO_DETAIL_QUERY, { slug });
     if (!proj) return {};
     return {
-        title: proj.title,
+        title: proj.projectName,
         description: proj.summary
             ? proj.summary.slice(0, 155)
-            : `${proj.title} — A project by Tecorbitron Solutions`,
+            : `${proj.projectName} — A project by Tecorbitron Solutions`,
         alternates: { canonical: `/portfolio/${slug}` },
         openGraph: {
-            title: `${proj.title} — Tecorbitron Portfolio`,
+            title: `${proj.projectName} — Tecorbitron Portfolio`,
             description: proj.summary?.slice(0, 155) ?? "",
             url: `https://www.tecorbitron.com/portfolio/${slug}`,
             images: proj.thumbnail
@@ -148,15 +162,7 @@ export default async function ProjectDetailPage(props: {
     if (!projData) notFound();
 
     const hasAnyCaseStudy =
-        projData.problem ||
-        projData.solution ||
-        projData.challenges ||
-        projData.process ||
-        projData.result;
-
-    const showClient =
-        projData.showClientPublicly &&
-        (projData.clientName || projData.testimonialQuote);
+        projData.problem || projData.solution || projData.result;
 
     return (
         <main className="bg-white">
@@ -179,7 +185,7 @@ export default async function ProjectDetailPage(props: {
                         Portfolio
                     </Link>
                     <ChevronRight size={12} />
-                    <span className="line-clamp-1">{projData.title}</span>
+                    <span className="line-clamp-1">{projData.projectName}</span>
                 </nav>
 
                 {/* ── THUMBNAIL ── */}
@@ -188,7 +194,7 @@ export default async function ProjectDetailPage(props: {
                         <div className="relative min-h-96 w-full">
                             <Image
                                 src={projData.thumbnail}
-                                alt={projData.title}
+                                alt={projData.projectName}
                                 fill
                                 priority
                                 className="object-cover"
@@ -199,12 +205,12 @@ export default async function ProjectDetailPage(props: {
                 )}
 
                 {/* ── TITLE ── */}
-                <h1 className="text-deepspace mb-6 text-4xl font-bold tracking-tight sm:text-5xl">
+                <h1 className="text-deepspace mb-8 text-4xl font-bold tracking-tight sm:text-5xl">
                     {projData.title}
                 </h1>
 
-                {/* ── PILLS ROW ── */}
-                <div className="mb-14 flex flex-col gap-24 sm:flex-row">
+                {/* ── META ROW ── */}
+                <div className="mb-14 flex flex-col gap-6 sm:flex-row">
                     {/* Industries */}
                     {projData.industries?.length > 0 && (
                         <div className="border-border flex flex-col gap-2 border-l-2 p-4">
@@ -231,12 +237,12 @@ export default async function ProjectDetailPage(props: {
                                 Tech Stack
                             </span>
                             <div className="flex flex-wrap gap-2">
-                                {projData.techStack.map((tech: string) => (
+                                {projData.techStack.map((tech: TechStack) => (
                                     <span
-                                        key={tech}
-                                        className="bg-malachite-dim text-malachite-deep rounded-sm px-3 py-1 text-sm font-bold capitalize"
+                                        key={tech.name}
+                                        className="bg-malachite-dim text-malachite-deep rounded-sm px-3 py-1 text-sm font-bold"
                                     >
-                                        {tech}
+                                        {tech.name}
                                     </span>
                                 ))}
                             </div>
@@ -265,14 +271,6 @@ export default async function ProjectDetailPage(props: {
                             title="Our Solution"
                             content={projData.solution}
                         />
-                        <CaseStudySection
-                            title="Challenges"
-                            content={projData.challenges}
-                        />
-                        <CaseStudySection
-                            title="Our Process"
-                            content={projData.process}
-                        />
                     </div>
                 )}
 
@@ -294,7 +292,7 @@ export default async function ProjectDetailPage(props: {
                                             src={shot.url}
                                             alt={
                                                 shot.alt ??
-                                                `${projData.title} — Screenshot ${idx + 1}`
+                                                `${projData.projectName} — Screenshot ${idx + 1}`
                                             }
                                             width={1200}
                                             height={800}
@@ -307,11 +305,10 @@ export default async function ProjectDetailPage(props: {
                     </div>
                 )}
 
-                {/* ── RESULT ── */}
-                {projData.result && (
-                    <div className="mx-auto mb-10 max-w-5xl">
+                {hasAnyCaseStudy && (
+                    <div className="mx-auto mb-10 flex max-w-5xl flex-col gap-8">
                         <CaseStudySection
-                            title="Results Outcome"
+                            title="Results & Outcome"
                             content={projData.result}
                         />
                     </div>
@@ -335,51 +332,47 @@ export default async function ProjectDetailPage(props: {
                             </Link>
                         </div>
                         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-                            {related.map(
-                                (proj: {
-                                    slug: string;
-                                    thumbnail: string | null;
-                                    title: string;
-                                    industries: string[];
-                                }) => (
-                                    <Link
-                                        key={proj.slug}
-                                        href={`/portfolio/${proj.slug}`}
-                                        className="group border-border bg-surface hover:border-malachite flex flex-col overflow-hidden rounded-2xl border transition-all duration-300 hover:-translate-y-0.5"
-                                    >
-                                        <div className="bg-deepspace relative h-36 overflow-hidden">
-                                            {proj.thumbnail ? (
-                                                <Image
-                                                    src={proj.thumbnail}
-                                                    alt={proj.title}
-                                                    fill
-                                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                                    sizes="(max-width: 640px) 100vw, 33vw"
-                                                />
-                                            ) : (
-                                                <div className="from-deepspace to-deepspace-soft flex h-full items-center justify-center bg-linear-to-br">
-                                                    <span className="text-3xl font-black text-white/10">
-                                                        {proj.title.charAt(0)}
-                                                    </span>
-                                                </div>
-                                            )}
-                                        </div>
-                                        <div className="flex flex-col gap-1.5 p-4">
-                                            {proj.industries?.[0] && (
-                                                <span className="text-malachite-rich text-xs font-bold">
-                                                    {proj.industries[0]}
+                            {related.map((proj: RelatedProject) => (
+                                <Link
+                                    key={proj.slug}
+                                    href={`/portfolio/${proj.slug}`}
+                                    className="group border-border bg-surface hover:border-malachite flex flex-col overflow-hidden rounded-2xl border transition-all duration-300 hover:-translate-y-0.5"
+                                >
+                                    <div className="bg-deepspace relative h-36 overflow-hidden">
+                                        {proj.thumbnail ? (
+                                            <Image
+                                                src={proj.thumbnail}
+                                                alt={proj.projectName}
+                                                fill
+                                                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                                sizes="(max-width: 640px) 100vw, 33vw"
+                                            />
+                                        ) : (
+                                            <div className="from-deepspace to-deepspace-soft flex h-full items-center justify-center bg-linear-to-br">
+                                                <span className="text-3xl font-black text-white/10">
+                                                    {proj.projectName.charAt(0)}
                                                 </span>
-                                            )}
-                                            <h3 className="text-deepspace group-hover:text-malachite-rich line-clamp-2 text-sm leading-snug font-black transition-colors duration-200">
-                                                {proj.title}
-                                            </h3>
-                                            <span className="text-malachite-rich mt-1 inline-flex items-center gap-1 text-xs font-bold opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-                                                View <ArrowRight size={11} />
+                                            </div>
+                                        )}
+                                    </div>
+                                    <div className="flex flex-col gap-1.5 p-4">
+                                        {proj.industries?.[0] && (
+                                            <span className="text-malachite-rich text-xs font-bold">
+                                                {proj.industries[0]}
                                             </span>
-                                        </div>
-                                    </Link>
-                                ),
-                            )}
+                                        )}
+                                        <h3 className="text-deepspace group-hover:text-malachite-rich line-clamp-2 text-sm leading-snug font-black transition-colors duration-200">
+                                            {proj.projectName}
+                                        </h3>
+                                        <p className="text-muted line-clamp-1 text-xs font-light">
+                                            {proj.title}
+                                        </p>
+                                        <span className="text-malachite-rich mt-1 inline-flex items-center gap-1 text-xs font-bold opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                                            View <ArrowRight size={11} />
+                                        </span>
+                                    </div>
+                                </Link>
+                            ))}
                         </div>
                     </div>
                 )}

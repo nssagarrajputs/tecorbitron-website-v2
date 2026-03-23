@@ -5,11 +5,10 @@ import { client } from "@/sanity/client";
 import { PORTFOLIO_PREVIEW_QUERY } from "@/sanity/queries/portfolio";
 
 type PortfolioPreviewProject = {
-    title: string;
+    projectName: string;
     slug: string;
     thumbnail: string | null;
     industries: string[];
-    projectTypes: string[];
 };
 
 export default async function PortfolioPreview() {
@@ -53,7 +52,7 @@ export default async function PortfolioPreview() {
                                 {project.thumbnail ? (
                                     <Image
                                         src={project.thumbnail}
-                                        alt={project.title}
+                                        alt={project.projectName}
                                         fill
                                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                                         sizes="(max-width: 768px) 100vw, 33vw"
@@ -69,7 +68,7 @@ export default async function PortfolioPreview() {
                                             }}
                                         />
                                         <span className="absolute inset-0 flex items-center justify-center text-4xl font-black text-white/20">
-                                            {project.title.charAt(0)}
+                                            {project.projectName.charAt(0)}
                                         </span>
                                     </div>
                                 )}
@@ -88,25 +87,12 @@ export default async function PortfolioPreview() {
                             {/* Content */}
                             <div className="flex flex-1 flex-col gap-4 p-6">
                                 <h3 className="text-deepspace group-hover:text-malachite-rich text-lg font-black transition-colors duration-200">
-                                    {project.title}
+                                    {project.projectName}
                                 </h3>
 
-                                {/* Project types */}
-                                <div className="mt-auto flex flex-wrap gap-2">
-                                    {project.projectTypes?.map((type) => (
-                                        <span
-                                            key={type}
-                                            className="bg-surface text-subtle rounded-full px-3 py-1 text-xs font-bold capitalize"
-                                        >
-                                            {type.replace(/-/g, " ")}
-                                        </span>
-                                    ))}
-                                </div>
+                                
 
-                                {/* View case study */}
-                                <div className="text-muted group-hover:text-malachite-rich flex items-center gap-1.5 text-xs font-bold transition-colors duration-200">
-                                    View Case Study <ArrowRight size={11} />
-                                </div>
+                                
                             </div>
                         </Link>
                     ))}

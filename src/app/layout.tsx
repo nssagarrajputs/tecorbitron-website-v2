@@ -17,7 +17,7 @@ const mulish = Mulish({
 
 export const metadata: Metadata = {
     title: {
-        default: "Tecorbitron | Web, App, Software Solutions Company",
+        default: "Tecorbitron | Web and App Development Solutions Company",
         template: "%s | Tecorbitron",
     },
     description:
