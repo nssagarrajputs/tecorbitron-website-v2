@@ -196,44 +196,12 @@ export default function PrivacyPolicyPage() {
     return (
         <main>
             {/* ── HERO ── */}
-            <section
-                className="relative flex min-h-[38vh] w-full flex-col items-center justify-center overflow-hidden px-4 pt-40 pb-20"
-                style={{
-                    background:
-                        "linear-gradient(135deg, #071e2d 0%, #0c3146 50%, #164965 100%)",
-                }}
-            >
-                <div
-                    className="pointer-events-none absolute inset-0"
-                    style={{
-                        background:
-                            "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0,208,96,0.07) 0%, transparent 70%)",
-                    }}
-                />
-                <div
-                    className="pointer-events-none absolute inset-0 opacity-[0.03]"
-                    style={{
-                        backgroundImage:
-                            "linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)",
-                        backgroundSize: "60px 60px",
-                    }}
-                />
+            <section className="relative flex min-h-[38vh] w-full flex-col items-center justify-center overflow-hidden px-4 pt-40 pb-8">
                 <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
-                    <div className="border-malachite/20 bg-malachite/10 inline-flex items-center gap-2 rounded-full border px-4 py-1.5">
-                        <span className="bg-malachite h-1.5 w-1.5 rounded-full" />
-                        <span className="text-malachite text-xs font-bold tracking-widest uppercase">
-                            Legal
-                        </span>
-                    </div>
-                    <h1 className="text-4xl leading-tight font-black tracking-tight text-white sm:text-5xl">
+                    <h1 className="text-4xl leading-tight font-black tracking-tight sm:text-5xl">
                         Privacy <span className="text-malachite">Policy</span>
                     </h1>
-                    <p className="max-w-xl text-sm leading-relaxed font-light text-white/50">
-                        We respect your privacy. This policy explains how
-                        Tecorbitron Solutions Pvt. Ltd. collects, uses, and
-                        protects your personal information.
-                    </p>
-                    <p className="mt-1 text-xs font-medium text-white/30">
+                    <p className="mt-1 font-medium">
                         Last Updated: October 15, 2025 &nbsp;·&nbsp; Effective
                         Immediately
                     </p>
@@ -242,70 +210,49 @@ export default function PrivacyPolicyPage() {
 
             {/* ── CONTENT ── */}
             <section className="bg-white px-4 py-16">
-                <div className="mx-auto max-w-7xl">
-                    <div className="grid grid-cols-1 gap-12 lg:grid-cols-[260px_1fr]">
-                        {/* ── SIDEBAR TOC ── */}
-                        <aside className="hidden lg:block">
-                            <div className="bg-surface border-border sticky top-28 flex flex-col gap-1 rounded-2xl border p-5">
-                                <p className="text-muted mb-3 text-xs font-black tracking-wider uppercase">
-                                    Contents
-                                </p>
-                                {sections.map((s) => (
-                                    <a
-                                        key={s.id}
-                                        href={`#${s.id}`}
-                                        className="text-muted hover:text-malachite-rich py-1 text-xs leading-relaxed font-medium transition-colors duration-200"
-                                    >
-                                        {s.title}
-                                    </a>
-                                ))}
-                            </div>
-                        </aside>
+                <div className="mx-auto max-w-5xl">
+                    {/* ── MAIN CONTENT ── */}
+                    <article className="flex min-w-0 flex-col gap-12">
+                        {/* Intro note */}
+                        <div className="bg-malachite-dim border-malachite/20 rounded-2xl border px-6 py-4">
+                            <p className="text-malachite-rich leading-relaxed font-medium">
+                                This Privacy Policy applies to all users of
+                                Tecorbitron Solutions Pvt. Ltd.&apos;s website,
+                                applications, and services. We process data in
+                                accordance with the Information Technology Act,
+                                2000 and applicable Indian data protection
+                                regulations.
+                            </p>
+                        </div>
 
-                        {/* ── MAIN CONTENT ── */}
-                        <article className="flex min-w-0 flex-col gap-12">
-                            {/* Intro note */}
-                            <div className="bg-malachite-dim border-malachite/20 rounded-2xl border px-6 py-4">
-                                <p className="text-malachite-rich text-sm leading-relaxed font-medium">
-                                    This Privacy Policy applies to all users of
-                                    Tecorbitron Solutions Pvt. Ltd.&apos;s
-                                    website, applications, and services. We
-                                    process data in accordance with the
-                                    Information Technology Act, 2000 and
-                                    applicable Indian data protection
-                                    regulations.
-                                </p>
-                            </div>
-
-                            {sections.map((section) => (
-                                <div
-                                    key={section.id}
-                                    id={section.id}
-                                    className="flex scroll-mt-28 flex-col gap-4"
-                                >
-                                    <h2 className="text-deepspace border-border border-b pb-3 text-lg font-bold">
-                                        {section.title}
-                                    </h2>
-                                    <div className="text-subtle leading-relaxed whitespace-pre-line">
-                                        {section.content}
-                                    </div>
+                        {sections.map((section) => (
+                            <div
+                                key={section.id}
+                                id={section.id}
+                                className="flex scroll-mt-28 flex-col gap-4"
+                            >
+                                <h2 className="text-deepspace border-border border-b pb-3 text-lg font-bold">
+                                    {section.title}
+                                </h2>
+                                <div className="text-subtle leading-relaxed whitespace-pre-line">
+                                    {section.content}
                                 </div>
-                            ))}
-
-                            {/* Bottom nav */}
-                            <div className="border-border mt-4 flex flex-wrap items-center justify-between gap-4 border-t pt-8">
-                                <p className="text-muted text-xs font-medium">
-                                    Last Updated: October 15, 2025
-                                </p>
-                                <Link
-                                    href="/terms"
-                                    className="text-malachite-rich inline-flex items-center gap-1.5 text-xs font-bold hover:underline"
-                                >
-                                    View Terms & Conditions →
-                                </Link>
                             </div>
-                        </article>
-                    </div>
+                        ))}
+
+                        {/* Bottom nav */}
+                        <div className="border-border mt-4 flex flex-wrap items-center justify-between gap-4 border-t pt-8">
+                            <p className="text-muted text-xs font-medium">
+                                Last Updated: October 15, 2025
+                            </p>
+                            <Link
+                                href="/terms"
+                                className="text-malachite-rich inline-flex items-center gap-1.5 text-xs font-bold hover:underline"
+                            >
+                                View Terms & Conditions →
+                            </Link>
+                        </div>
+                    </article>
                 </div>
             </section>
         </main>
