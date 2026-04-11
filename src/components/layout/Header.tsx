@@ -85,7 +85,7 @@ export default function Header() {
     return (
         <header>
             {/* ── NAVBAR ── */}
-            <motion.nav className="fixed z-50 min-h-20 w-full" initial={false}>
+            <motion.nav className="fixed z-50 min-h-20 w-full select-none" initial={false}>
                 <motion.div
                     className="m-auto flex h-16 max-w-325 items-center justify-between rounded-b-lg bg-white px-4"
                     animate={{

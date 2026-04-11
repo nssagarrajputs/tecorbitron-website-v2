@@ -11,7 +11,7 @@ export default function Footer() {
     const year = new Date().getFullYear();
 
     return (
-        <footer className="text-small text-typocolor-secondary mt-40 select-none">
+        <footer className="text-small text-typocolor-secondary mt-40">
             <div className="mx-auto flex max-w-7xl flex-wrap items-start justify-between gap-8 gap-y-12 px-8">
                 {/* Intro */}
                 <div className="flex w-fit flex-col gap-4">
@@ -20,7 +20,7 @@ export default function Footer() {
                             src={logo}
                             alt="Tecorbitron Solutions"
                             width={220}
-                            className="opacity-85"
+                            className="opacity-85 select-none"
                         />
                     </Link>
                     <h3 className="max-w-sm">
