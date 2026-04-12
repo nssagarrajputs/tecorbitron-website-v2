@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Hero from "@/components/page/contact/Hero";
 import Channel from "@/components/page/contact/Channel";
-import ContactSection from "@/components/page/contact/ContactSection";
 import TrustSignals from "@/components/page/contact/TrustSignals";
 import StructuredData, { contactSchema } from "@/components/StructuredData";
 import FAQ from "@/components/page/contact/FAQ";
@@ -61,10 +60,9 @@ export default function Contact() {
         <main>
             <StructuredData data={contactSchema()} />
             <Hero />
-            <ContactSection />
             <Channel />
             <TrustSignals />
-            <FAQ/>
+            <FAQ />
         </main>
     );
 }
