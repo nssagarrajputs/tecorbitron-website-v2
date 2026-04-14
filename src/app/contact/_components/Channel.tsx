@@ -26,13 +26,13 @@ const options = [
         link: "mailto:info@tecorbitron.com",
         external: false,
     },
-    {
-        icon: CalendarDays,
-        title: "Book a Free Call",
-        subtitle: "30 min discovery call",
-        link: "https://cal.com/tecorbitron/discovery-call",
-        external: true,
-    },
+    // {
+    //     icon: CalendarDays,
+    //     title: "Book a Free Call",
+    //     subtitle: "30 min discovery call",
+    //     link: "https://cal.com/tecorbitron/discovery-call",
+    //     external: true,
+    // },
 ];
 
 const containerVariants = {
@@ -60,7 +60,7 @@ export default function Channel() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-80px" }}
-                    className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4"
+                    className="grid grid-cols-1 gap-4 md:grid-cols-3"
                 >
                     {options.map((item) => {
                         const Icon = item.icon;
@@ -73,7 +73,7 @@ export default function Channel() {
                                     href={item.link}
                                     target={item.external ? "_blank" : "_self"}
                                     rel="noopener noreferrer"
-                                    className="group border-malachite/10 hover:border-malachite/40 bg-deepspace hover:shadow-deepspace/20 flex h-full gap-4 rounded-md border p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                                    className="group border-malachite/10 hover:border-malachite/40 bg-deepspace hover:shadow-deepspace/20 flex h-full gap-4 rounded-md border p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg max-lg:flex-col"
                                 >
                                     {/* Icon */}
                                     <div className="bg-malachite/10 group-hover:bg-malachite/20 flex h-12 w-12 shrink-0 items-center justify-center rounded-lg transition-all duration-300">

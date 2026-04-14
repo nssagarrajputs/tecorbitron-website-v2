@@ -78,7 +78,7 @@ export default function Solutions() {
                     {solution.map(({ title, icon: Icon, description }) => (
                         <div
                             key={title}
-                            className="bg-bkg-primary rounded-xl p-6"
+                            className="bg-bkg-primary hover:border-malachite rounded-xl border border-transparent p-6"
                         >
                             <Icon size={40} strokeWidth={1} />
 

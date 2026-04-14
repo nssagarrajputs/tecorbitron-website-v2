@@ -1,3 +1,4 @@
+import SectionHeader from "@/components/basic-ui/SectionHeader";
 import { Rocket, Store, Building2, Globe } from "lucide-react";
 
 const clients = [
@@ -37,27 +38,16 @@ const clients = [
 
 export default function WhoWeWorkWith() {
     return (
-        <section className="bg-surface px-4 py-24">
-            <div className="mx-auto max-w-7xl">
-                {/* Header */}
-                <div className="mb-14 flex flex-col items-center gap-4 text-center">
-                    <div className="bg-malachite-dim inline-flex items-center gap-2 rounded-full px-4 py-1.5">
-                        <span className="bg-malachite h-1.5 w-1.5 rounded-full" />
-                        <span className="text-malachite-rich text-xs font-bold tracking-widest uppercase">
-                            Who We Work With
-                        </span>
-                    </div>
-                    <h2 className="text-deepspace text-4xl font-black tracking-tight sm:text-5xl">
-                        Built for{" "}
-                        <span className="text-malachite">Every Stage</span> of
-                        Business
-                    </h2>
-                    <p className=" max-w-xl leading-relaxed ">
-                        Whether you&apos;re launching your first product or
+        <section className="bg-surface h-breathing-468 v-breathing-20">
+            <div className="section-vlex-gap mx-auto max-w-7xl">
+                <SectionHeader
+                    eyebrow="Clients scope"
+                    heading="Cover Every Stage of Business"
+                    highlight="Business"
+                    support="Whether you're launching your first product or
                         scaling your tenth — we have the right approach for
-                        where you are right now.
-                    </p>
-                </div>
+                        where you are right now."
+                />
 
                 {/* Cards */}
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">

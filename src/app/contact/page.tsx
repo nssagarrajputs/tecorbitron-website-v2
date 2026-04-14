@@ -4,6 +4,7 @@ import TrustSignals from "@/app/contact/_components/TrustSignals";
 import StructuredData, { contactSchema } from "@/components/StructuredData";
 import FAQ from "@/app/contact/_components/FAQ";
 import PageHero from "@/components/basic-ui/PageHero";
+import BookDiscoveryCall from "../start-your-project/_components/BookDiscoveryCall";
 
 export const metadata: Metadata = {
     title: "Contact Us",
@@ -67,6 +68,7 @@ export default function Contact() {
                 description="Tell us about your project and we'll get back to you within 24 hours. Free consultation, no strings attached."
             />
             <Channel />
+            <BookDiscoveryCall />
             <TrustSignals />
             <FAQ />
         </main>

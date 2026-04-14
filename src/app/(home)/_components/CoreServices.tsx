@@ -81,7 +81,7 @@ export default function CoreServices() {
                     {services.map((service) => (
                         <div
                             key={service.name}
-                            className="hover:border-malachite flex flex-col justify-between gap-4 rounded-2xl border border-transparent bg-white p-6 transition-all duration-300"
+                            className="hover:border-malachite shadow-card flex flex-col justify-between gap-4 rounded-2xl border border-transparent bg-white p-6 transition-all duration-300"
                         >
                             <div className="flex flex-col gap-4">
                                 {/* Icon */}

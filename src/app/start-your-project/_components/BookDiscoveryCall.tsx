@@ -23,7 +23,7 @@ export default function BookDiscoveryCall() {
             <div className="section-vlex-gap mx-auto max-w-5xl">
                 <div className="mx-auto max-w-2xl text-center">
                     <h2 className="text-h2 text-typocolor-primary font-black tracking-tight">
-                        Book a Discovery Call
+                        Or Book a Discovery Call
                     </h2>
 
                     <p className="text-body text-typocolor-secondary mt-4 leading-relaxed">

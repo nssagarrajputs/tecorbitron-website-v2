@@ -1,12 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-    --breakpoint-*: initial;
-    --breakpoint-sm: 40rem; /* 640 */
-    --breakpoint-md: 48rem; /* 768 */
-    --breakpoint-lg: 64rem; /* 1024 */
-    --breakpoint-xl: 80rem; /* 1280 */
-
     --font-mulish: var(--font-mulish);
 
     --color-*: initial;
@@ -110,11 +104,6 @@
         border: 0;
         border-top: 1px solid var(--color-border);
     }
-
-    /* ::selection {
-        background: var(--color-malachite-opac);
-        color: var(--color-deepspace-deep);
-    } */
 
     :focus-visible {
         outline: 2px solid var(--color-malachite);

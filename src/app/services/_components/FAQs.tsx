@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
+import SectionHeader from "@/components/basic-ui/SectionHeader";
 
 const faqs = [
     {
@@ -90,24 +91,14 @@ export default function FAQs() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     return (
-        <section className="bg-surface px-4 py-24">
-            <div className="mx-auto max-w-3xl">
-                {/* Header */}
-                <div className="mb-12 flex flex-col items-center gap-4 text-center">
-                    <div className="bg-malachite-dim inline-flex items-center gap-2 rounded-full px-4 py-1.5">
-                        <span className="bg-malachite h-1.5 w-1.5 rounded-full" />
-                        <span className="text-malachite-rich text-xs font-bold tracking-widest uppercase">
-                            FAQs
-                        </span>
-                    </div>
-                    <h2 className="text-deepspace text-4xl font-black tracking-tight sm:text-5xl">
-                        Questions We Get{" "}
-                        <span className="text-malachite">Asked a Lot</span>
-                    </h2>
-                    <p className="max-w-lg leading-relaxed">
-                        Everything you need to know.
-                    </p>
-                </div>
+        <section className="bg-surface h-breathing-468 v-breathing-20">
+            <div className="section-vlex-gap mx-auto max-w-3xl">
+                <SectionHeader
+                    eyebrow="FAQS"
+                    heading="Questions We Get Asked"
+                    highlight="Asked"
+                    support="Everything you need to know."
+                />
 
                 {/* Accordion */}
                 <div className="flex flex-col gap-3">
