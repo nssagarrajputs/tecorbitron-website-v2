@@ -2,11 +2,11 @@ import MissionVision from "@/app/about/_components/MissionVision";
 import OurStory from "@/app/about/_components/OurStory";
 import Founder from "@/app/about/_components/Founder";
 import Credibility from "@/app/about/_components/Credibility";
-import CTA from "@/app/about/_components/CTA";
 import Intro from "@/app/about/_components/Intro";
 import TrustedPartners from "@/app/about/_components/TrustedPartners";
 import type { Metadata } from "next";
 import PageHero from "@/components/basic-ui/PageHero";
+import CTAFormat from "@/components/templetes/CTAFormat";
 
 export const metadata: Metadata = {
     title: "About Us",
@@ -67,7 +67,20 @@ export default function About() {
             <Founder />
             <Credibility />
             <TrustedPartners />
-            <CTA />
+            <CTAFormat
+                eypill="Work With Us"
+                heading="Want to Work With Us?"
+                highlight="With Us?"
+                bodyText="We're always open to new projects and long-term partnerships. Tell us about your idea and let's see if we're a good fit."
+                primaryAction={{
+                    text: "Start a Conversation",
+                    href: "/contact",
+                }}
+                secondaryAction={{
+                    text: "Whatsapp Us",
+                    href: "/contact",
+                }}
+            />
         </main>
     );
 }

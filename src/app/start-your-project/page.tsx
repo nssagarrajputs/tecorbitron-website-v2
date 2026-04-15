@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import StructuredData from "@/components/StructuredData";
 import ProjectInquiry from "./_components/ProjectInquiry";
 import BookDiscoveryCall from "./_components/BookDiscoveryCall";
-import CTA from "./_components/CTA";
 import PageHero from "@/components/basic-ui/PageHero";
+import CTAFormat from "@/components/templetes/CTAFormat";
 
 const startProjectSchema = {
     "@context": "https://schema.org",
@@ -63,7 +63,17 @@ export default function StartYourProject() {
             />
             <ProjectInquiry />
             <BookDiscoveryCall />
-            <CTA />
+
+            <CTAFormat
+                eypill="get in touch"
+                heading="Need another way to reach us?"
+                highlight="reach us?"
+                bodyText="Visit our contact page for phone, email, WhatsApp, and office details."
+                primaryAction={{
+                    text: "Contact Us",
+                    href: "/contact",
+                }}
+            />
         </main>
     );
 }

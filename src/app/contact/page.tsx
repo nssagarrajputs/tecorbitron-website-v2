@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Channel from "@/app/contact/_components/Channel";
 import TrustSignals from "@/app/contact/_components/TrustSignals";
 import StructuredData, { contactSchema } from "@/components/StructuredData";
-import FAQ from "@/app/contact/_components/FAQ";
 import PageHero from "@/components/basic-ui/PageHero";
 import BookDiscoveryCall from "../start-your-project/_components/BookDiscoveryCall";
+import FAQSection from "@/components/templetes/FAQFormat";
 
 export const metadata: Metadata = {
     title: "Contact Us",
@@ -56,6 +56,33 @@ export const metadata: Metadata = {
     },
 };
 
+const faqdata = [
+    {
+        question: "How quickly do you respond to inquiries?",
+        answer: "We respond to all inquiries within 24 hours on business days. For urgent projects, reach out via WhatsApp for a faster response.",
+    },
+    {
+        question: "Do you offer free consultations?",
+        answer: "Yes — our 30-minute discovery call is completely free. No sales pitch, just an honest conversation about your goals and how we can help.",
+    },
+    {
+        question: "What information should I have ready before contacting you?",
+        answer: "A rough idea of what you want to build, your timeline, and budget range. Don't worry if it's not fully formed — we help you shape the idea during the consultation.",
+    },
+    {
+        question: "Do you work with international clients?",
+        answer: "Absolutely. We work with clients across India, UAE, UK, USA, and beyond. Remote collaboration is seamless — we adapt to your timezone.",
+    },
+    {
+        question: "What happens after I submit the contact form?",
+        answer: "You'll receive a confirmation email. Our team will review your project brief and get back within 24 hours with next steps or to schedule a discovery call.",
+    },
+    {
+        question: "Is there a minimum project budget?",
+        answer: "Our projects start from ₹25,000 for simple websites. For complex web apps, software, or AI solutions, budgets vary. We're transparent about pricing from day one.",
+    },
+];
+
 export default function Contact() {
     return (
         <main>
@@ -70,7 +97,14 @@ export default function Contact() {
             <Channel />
             <BookDiscoveryCall />
             <TrustSignals />
-            <FAQ />
+            <FAQSection
+                bg="bg-white"
+                eyebrow="FAQs"
+                heading="Before You Reach Out"
+                highlight="Out"
+                support="Quick answers to the most common questions we get."
+                items={faqdata}
+            />
         </main>
     );
 }

@@ -7,8 +7,8 @@ import StatsBand from "./_components/StatsBand";
 import FeaturedProjects from "./_components/FeaturedProjects";
 import Testimonials from "./_components/Testimonials";
 import FeaturedBlogs from "./_components/FeaturedBlogs";
-import CTA from "./_components/CTA";
 import StructuredData, { homePageSchema } from "@/components/StructuredData";
+import CTAFormat from "@/components/templetes/CTAFormat";
 
 export default function Home() {
     return (
@@ -24,7 +24,25 @@ export default function Home() {
             <FeaturedProjects />
             <Testimonials />
             <FeaturedBlogs />
-            <CTA />
+
+            <CTAFormat
+                eypill="LET'S TALK"
+                heading="Ready to Build Something Better"
+                highlight="Better"
+                bodyText="Tell us about your project and we'll get back to you
+                    within 24 hours. Free consultation, No strings
+                    attached."
+                primaryAction={{
+                    text: "Start Your Project",
+                    href: "/start-your-project",
+                    icon: "ArrowRight",
+                }}
+                secondaryAction={{
+                    text: "Chat on WhatsApp",
+                    href: "https://wa.me/919084800496",
+                    icon: "MessageCircle",
+                }}
+            />
         </main>
     );
 }
