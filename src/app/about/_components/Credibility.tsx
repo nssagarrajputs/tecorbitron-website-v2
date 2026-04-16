@@ -43,10 +43,6 @@ export default function Credibility() {
                         ))}
                     </div>
                 </div>
-                <p className="text-typocolor-muted mt-8 text-center text-sm leading-relaxed font-medium">
-                    * CIN and full registration details available upon request
-                    for enterprise clients and procurement teams.
-                </p>
             </div>
         </section>
     );

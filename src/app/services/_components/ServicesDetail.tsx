@@ -1,5 +1,3 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 import Web from "@/assets/services/services-web.jpg";
@@ -7,6 +5,7 @@ import App from "@/assets/services/services-app.jpg";
 import Software from "@/assets/services/services-software.jpg";
 import UIUX from "@/assets/services/services-UIUX.jpg";
 import AI from "@/assets/services/services-ai-ml.jpg";
+import BrandBtn from "@/components/basic-ui/BrandBtn";
 
 const services = [
     {
@@ -233,13 +232,12 @@ export default function ServicesDetail() {
 
                             {/* CTA */}
                             <div className="mt-2 flex justify-center md:justify-start">
-                                <Link
-                                    href="/contact"
-                                    className="bg-malachite-soft text-deepspace-deep hover:bg-malachite inline-flex items-center gap-2 rounded-2xl px-8 py-4 text-sm font-bold transition-all duration-200 hover:-translate-y-0.5"
+                                <BrandBtn
+                                    href="/start-your-project"
+                                    variant="primary"
                                 >
-                                    {"Let's Build Something Great"}
-                                    <ArrowRight size={14} />
-                                </Link>
+                                    Start your project
+                                </BrandBtn>
                             </div>
                         </div>
 

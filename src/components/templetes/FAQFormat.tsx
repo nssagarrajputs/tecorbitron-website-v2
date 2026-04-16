@@ -50,16 +50,12 @@ export default function FAQFormat({
                         return (
                             <article
                                 key={index}
+                                onClick={() =>
+                                    setOpenIndex(isOpen ? null : index)
+                                }
                                 className="border-border-strong duration-normal ease-standard border-b transition-colors"
                             >
-                                <button
-                                    type="button"
-                                    aria-expanded={isOpen}
-                                    onClick={() =>
-                                        setOpenIndex(isOpen ? null : index)
-                                    }
-                                    className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left"
-                                >
+                                <div className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left">
                                     <h4 className="text-body font-bold">
                                         {faq.question}
                                     </h4>
@@ -71,7 +67,7 @@ export default function FAQFormat({
                                     >
                                         <Plus />
                                     </div>
-                                </button>
+                                </div>
 
                                 {isOpen && (
                                     <div className="px-5 pb-5">

@@ -82,9 +82,9 @@ export default function Solutions() {
                         >
                             <Icon size={40} strokeWidth={1} />
 
-                            <h4 className="text-body my-4 font-semibold">
+                            <h3 className="text-body my-4 font-semibold">
                                 {title}
-                            </h4>
+                            </h3>
                             <p className="text-small text-typocolor-muted">
                                 {description}
                             </p>

@@ -22,24 +22,44 @@ export default function Footer() {
                             className="opacity-80 select-none"
                         />
                     </Link>
-                    <h3 className="max-w-sm">
+                    <p className="max-w-sm">
                         Next-Gen IT Solutions, Powered by AI. <br />
                         #WeBuildBold
-                    </h3>
+                    </p>
 
                     {/* Social */}
-                    <div className="text-h4 text-typocolor-muted **:hover:text-malachite flex gap-4">
-                        <Link href="https://www.linkedin.com/company/tecorbitrons">
+                    <div className="text-body text-typocolor-muted **:hover:text-malachite flex gap-4">
+                        <Link
+                            href="https://www.linkedin.com/company/tecorbitrons"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Visit Tecorbitron on LinkedIn"
+                        >
                             <FaLinkedinIn />
                         </Link>
-                        <Link href="https://www.instagram.com/tecorbitron">
+                        <Link
+                            href="https://www.instagram.com/tecorbitron"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Visit Tecorbitron on Instagram"
+                        >
                             <FaInstagram />
                         </Link>
-                        <Link href="https://www.facebook.com/tecorbitron">
+                        <Link
+                            href="https://www.facebook.com/tecorbitron"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Visit Tecorbitron on Facebook"
+                        >
                             <FaFacebook />
                         </Link>
 
-                        <Link href="https://wa.me/919084800496">
+                        <Link
+                            href="https://wa.me/919084800496"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Chat with Tecorbitron on WhatsApp"
+                        >
                             <FaWhatsapp />
                         </Link>
                     </div>
@@ -61,6 +81,7 @@ export default function Footer() {
                 <div>
                     <h3 className="mb-6 font-bold">Importants</h3>
                     <div className="**:hover:text-malachite flex flex-col gap-3 transition-all **:w-fit">
+                        <Link href="/start-your-project">Start Project</Link>
                         <Link href="/contact">{"Let's Talk"}</Link>
                         <Link href="/careers">Career</Link>
                         <Link href="/privacy-policy">Privacy Policy</Link>

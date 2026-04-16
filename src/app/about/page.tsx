@@ -1,4 +1,3 @@
-import MissionVision from "@/app/about/_components/MissionVision";
 import OurStory from "@/app/about/_components/OurStory";
 import Founder from "@/app/about/_components/Founder";
 import Credibility from "@/app/about/_components/Credibility";
@@ -63,7 +62,6 @@ export default function About() {
             />
             <Intro />
             <OurStory />
-            <MissionVision />
             <Founder />
             <Credibility />
             <TrustedPartners />

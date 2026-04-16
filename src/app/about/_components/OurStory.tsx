@@ -1,18 +1,14 @@
+import SectionHeader from "@/components/basic-ui/SectionHeader";
+
 export default function OurStory() {
     return (
-        <section className="bg-surface px-4 py-24">
-            <div className="mx-auto flex max-w-4xl flex-col gap-8">
-                <div className="bg-malachite-dim inline-flex w-fit items-center gap-2 rounded-full px-4 py-1.5">
-                    <span className="bg-malachite h-1.5 w-1.5 rounded-full" />
-                    <span className="text-malachite-rich text-xs font-bold tracking-widest uppercase">
-                        Our Story
-                    </span>
-                </div>
-
-                <h2 className="text-deepspace text-4xl font-black tracking-tight sm:text-5xl">
-                    Why Tecorbitron{" "}
-                    <span className="text-malachite">Exists</span>
-                </h2>
+        <section className="bg-bkg-primary h-breathing-468 v-breathing-20">
+            <div className="section-vlex-gap mx-auto max-w-4xl">
+                <SectionHeader
+                    eyebrow="Our Story"
+                    heading="Why Tecorbitron Exists"
+                    highlight="Exists"
+                />
 
                 <div className="flex flex-col gap-4 leading-relaxed">
                     <p>

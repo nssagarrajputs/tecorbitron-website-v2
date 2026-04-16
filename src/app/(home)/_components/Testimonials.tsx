@@ -90,9 +90,9 @@ export default function Testimonials() {
                                         className="aspect-square h-8 w-8 rounded-full select-none"
                                     />
                                     <div>
-                                        <h4 className="text-small font-bold">
+                                        <h3 className="text-small font-bold">
                                             {review.name}
-                                        </h4>
+                                        </h3>
                                         <p className="text-xmall">
                                             {review.role}
                                         </p>

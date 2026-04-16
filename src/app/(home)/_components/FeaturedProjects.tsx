@@ -89,7 +89,7 @@ export default async function FeaturedProjects() {
                                     href={`/portfolio/${project.slug}`}
                                     className="border-border-strong text-small mt-4 w-fit rounded-md border px-4 py-2 select-none"
                                 >
-                                    Learn more
+                                    View case study
                                 </Link>
                             </div>
                         </div>

@@ -1,30 +1,56 @@
 import SectionHeader from "@/components/basic-ui/SectionHeader";
 
+import React from "@/assets/technology-icon/react.svg";
+import Nextjs from "@/assets/technology-icon/next-js.svg";
+import TypeScript from "@/assets/technology-icon/typescript.svg";
+import Angular from "@/assets/technology-icon/angular.svg";
+import Nodejs from "@/assets/technology-icon/nodejs.svg";
+import Express from "@/assets/technology-icon/expressjs.svg";
+import Laravel from "@/assets/technology-icon/laravel-2.svg";
+import ReactNative from "@/assets/technology-icon/react-native.svg";
+import Flutter from "@/assets/technology-icon/flutter.svg";
+import Swift from "@/assets/technology-icon/swift-15.svg";
+import SpringBoot from "@/assets/technology-icon/spring-3.svg";
+import Java from "@/assets/technology-icon/java-14.svg";
+import Cplusplus from "@/assets/technology-icon/c.svg";
+import Python from "@/assets/technology-icon/python-5.svg";
+import Go from "@/assets/technology-icon/go-lang.svg";
+import PHP from "@/assets/technology-icon/php-4.svg";
+import Figma from "@/assets/technology-icon/figma-icon.svg";
+import PostgreSQL from "@/assets/technology-icon/postgresql.svg";
+import MySQL from "@/assets/technology-icon/mysql-logo-pure.svg";
+import MongoDB from "@/assets/technology-icon/mongodb-icon-1.svg";
+import Redis from "@/assets/technology-icon/redis.svg";
+import AWS from "@/assets/technology-icon/aws-2.svg";
+import GCP from "@/assets/technology-icon/google-cloud-1.svg";
+import Azure from "@/assets/technology-icon/azure-2.svg";
+import Image from "next/image";
+
 const technology = [
-    { name: "React", icon: "devicon-react-original" },
-    { name: "Next.js", icon: "devicon-nextjs-plain" },
-    { name: "TypeScript", icon: "devicon-typescript-plain" },
-    { name: "Angular", icon: "devicon-angularjs-plain" },
-    { name: "Node.js", icon: "devicon-nodejs-plain" },
-    { name: "Express", icon: "devicon-express-original" },
-    { name: "Laravel", icon: "devicon-laravel-original" },
-    { name: "React Native", icon: "devicon-react-original" },
-    { name: "Flutter", icon: "devicon-flutter-plain" },
-    { name: "Swift", icon: "devicon-swift-plain" },
-    { name: "SpringBoot", icon: "devicon-spring-original" },
-    { name: "Java", icon: "devicon-java-plain" },
-    { name: "C++", icon: "devicon-cplusplus-plain" },
-    { name: "Python", icon: "devicon-python-plain" },
-    { name: "Go", icon: "devicon-go-plain" },
-    { name: "PHP", icon: "devicon-php-plain" },
-    { name: "Figma", icon: "devicon-figma-plain" },
-    { name: "PostgreSQL", icon: "devicon-postgresql-plain" },
-    { name: "MySQL", icon: "devicon-mysql-plain" },
-    { name: "MongoDB", icon: "devicon-mongodb-plain" },
-    { name: "Redis", icon: "devicon-redis-plain" },
-    { name: "AWS", icon: "devicon-amazonwebservices-plain" },
-    { name: "GCP", icon: "devicon-googlecloud-plain" },
-    { name: "Azure", icon: "devicon-azure-plain" },
+    { name: "React", icon: React },
+    { name: "Next.js", icon: Nextjs },
+    { name: "TypeScript", icon: TypeScript },
+    { name: "Angular", icon: Angular },
+    { name: "Node.js", icon: Nodejs },
+    { name: "Express", icon: Express },
+    { name: "Laravel", icon: Laravel },
+    { name: "React Native", icon: ReactNative },
+    { name: "Flutter", icon: Flutter },
+    { name: "Swift", icon: Swift },
+    { name: "SpringBoot", icon: SpringBoot },
+    { name: "Java", icon: Java },
+    { name: "C++", icon: Cplusplus },
+    { name: "Python", icon: Python },
+    { name: "Go", icon: Go },
+    { name: "PHP", icon: PHP },
+    { name: "Figma", icon: Figma },
+    { name: "PostgreSQL", icon: PostgreSQL },
+    { name: "MySQL", icon: MySQL },
+    { name: "MongoDB", icon: MongoDB },
+    { name: "Redis", icon: Redis },
+    { name: "AWS", icon: AWS },
+    { name: "GCP", icon: GCP },
+    { name: "Azure", icon: Azure },
 ];
 
 // ── Main Section ─────────────────────────────────────────────────────────────
@@ -45,8 +71,10 @@ export default function Technologies() {
                             key={tech.name}
                             className="shadow-soft flex min-w-16 flex-col items-center gap-2 rounded-xl bg-white py-4 grayscale-0"
                         >
-                            <i
-                                className={`${tech.icon} colored text-3xl leading-none`}
+                            <Image
+                                src={tech.icon}
+                                alt={tech.name}
+                                className="aspect-square w-[30%] object-contain select-none"
                             />
                             <p className="text-xmall text-typocolor-muted">
                                 {tech.name}

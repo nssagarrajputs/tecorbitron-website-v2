@@ -1,69 +1,32 @@
 import SectionHeader from "@/components/basic-ui/SectionHeader";
 
-type Partner = { category: string; name: string; icon: string };
+import AWS from "@/assets/trusted-partner/aws-2.svg";
+import GoogleCloud from "@/assets/trusted-partner/google-cloud-1.svg";
+import Azure from "@/assets/trusted-partner/azure-2.svg";
+import DigitalOcean from "@/assets/trusted-partner/digitalocean-icon-1.svg";
+import Salesforce from "@/assets/trusted-partner/salesforce-2.svg";
+import WooComerce from "@/assets/trusted-partner/woocommerce.svg";
+import Meta from "@/assets/trusted-partner/meta-3.svg";
+import GAds from "@/assets/trusted-partner/google-ads-2.svg";
+import Ln from "@/assets/trusted-partner/linkedin-icon-3.svg";
+import Oracle from "@/assets/trusted-partner/oracle-india.svg";
+import Docker from "@/assets/trusted-partner/docker-4.svg";
+import Kuber from "@/assets/trusted-partner/kubernets.svg";
+import Image from "next/image";
 
-const partners: Partner[] = [
-    {
-        category: "Cloud",
-        name: "AWS",
-        icon: "devicon-amazonwebservices-plain-wordmark colored",
-    },
-    {
-        category: "Cloud",
-        name: "Google Cloud",
-        icon: "devicon-googlecloud-plain-wordmark colored",
-    },
-    {
-        category: "Cloud",
-        name: "Azure",
-        icon: "devicon-azure-plain-wordmark colored",
-    },
-    {
-        category: "Cloud",
-        name: "DigitalOcean",
-        icon: "devicon-digitalocean-original-wordmark colored",
-    },
-
-    {
-        category: "Commerce",
-        name: "Salesforce",
-        icon: "devicon-salesforce-plain colored",
-    },
-    {
-        category: "Commerce",
-        name: "WooCommerce",
-        icon: "devicon-woocommerce-plain colored",
-    },
-    {
-        category: "Marketing",
-        name: "Meta",
-        icon: "devicon-facebook-plain colored",
-    },
-    {
-        category: "Marketing",
-        name: "Google Ads",
-        icon: "devicon-google-plain colored",
-    },
-    {
-        category: "Marketing",
-        name: "LinkedIn",
-        icon: "devicon-linkedin-plain colored",
-    },
-    {
-        category: "Database",
-        name: "Oracle",
-        icon: "devicon-oracle-original colored",
-    },
-    {
-        category: "DevOps",
-        name: "Docker",
-        icon: "devicon-docker-plain colored",
-    },
-    {
-        category: "DevOps",
-        name: "Kubernetes",
-        icon: "devicon-kubernetes-plain colored",
-    },
+const partners = [
+    { category: "Cloud", name: "AWS", icon: AWS },
+    { category: "Cloud", name: "Google Cloud", icon: GoogleCloud },
+    { category: "Cloud", name: "Azure", icon: Azure },
+    { category: "Cloud", name: "DigitalOcean", icon: DigitalOcean },
+    { category: "Commerce", name: "Salesforce", icon: Salesforce },
+    { category: "Commerce", name: "WooCommerce", icon: WooComerce },
+    { category: "Marketing", name: "Meta", icon: Meta },
+    { category: "Marketing", name: "Google Ads", icon: GAds },
+    { category: "Marketing", name: "LinkedIn", icon: Ln },
+    { category: "Database", name: "Oracle", icon: Oracle },
+    { category: "DevOps", name: "Docker", icon: Docker },
+    { category: "DevOps", name: "Kubernetes", icon: Kuber },
 ];
 
 export default function TrustedPartners() {
@@ -93,12 +56,16 @@ export default function TrustedPartners() {
                             </span>
 
                             {/* Logo */}
-                            <i className={`${p.icon} text-6xl`} />
+                            <Image
+                                src={p.icon}
+                                alt={p.name}
+                                className="aspect-square w-[30%]"
+                            />
 
                             {/* Name */}
-                            {/* <span className="text-muted/50 text-center text-xs font-bold">
+                            <span className="text-muted/50 text-center text-xs font-bold">
                                 {p.name}
-                            </span> */}
+                            </span>
                         </div>
                     ))}
                 </div>

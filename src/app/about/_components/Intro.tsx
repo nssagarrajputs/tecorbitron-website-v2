@@ -130,23 +130,22 @@ export default function Intro() {
                     </div>
 
                     {/* ── RIGHT — Rating Badges ── */}
-                    <div className="my-8 flex max-md:flex-col justify-center items-center gap-5">
+                    <div className="my-8 flex items-center justify-center gap-5 max-md:flex-col">
                         {ratings.map((r) => (
                             <div
                                 key={r.platform}
-                                className="group border-border hover:border-malachite hover:shadow-deepspace/5 flex items-center justify-between gap-6 rounded-2xl border bg-white w-fit p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+                                className="bg-bkg-primary flex w-fit items-center justify-between gap-6 rounded-xl p-2"
                             >
                                 {/* Logo + name */}
                                 <div className="flex items-center gap-4">
-                                    <div className="bg-surface border-border flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border">
+                                    <div className="bg-bkg-primary flex-center h-12 w-12 shrink-0 rounded-xl">
                                         {r.logo}
                                     </div>
-                                    <div className="flex flex-col gap-1">
-                                        <span className="text-deepspace text-sm font-black">
+                                    <div className="flex flex-col">
+                                        <span className="text-body font-bold">
                                             {r.platform}
                                         </span>
-                                        <StarRow rating={r.rating} />
-                                        <span className="text-muted text-xs font-medium">
+                                        <span className="text-typocolor-muted text-xmall">
                                             {r.reviews}
                                         </span>
                                     </div>
@@ -155,13 +154,10 @@ export default function Intro() {
                                 {/* Rating number */}
                                 <div className="flex shrink-0 flex-col items-end gap-0.5">
                                     <span
-                                        className="text-3xl leading-none font-black"
+                                        className="text-3xl leading-none font-black opacity-65"
                                         style={{ color: r.color }}
                                     >
                                         {r.rating.toFixed(1)}
-                                    </span>
-                                    <span className="text-muted text-xs font-semibold">
-                                        / 5.0
                                     </span>
                                 </div>
                             </div>

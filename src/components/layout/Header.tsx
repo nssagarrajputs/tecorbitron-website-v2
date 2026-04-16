@@ -14,6 +14,7 @@ const navLinks = [
     { label: "Services", href: "/services" },
     { label: "Portfolio", href: "/portfolio" },
     { label: "Blog", href: "/blog" },
+    { label: "Start Project*", href: "/start-your-project" },
 ];
 
 const mobNavLinks = [
@@ -22,6 +23,7 @@ const mobNavLinks = [
     { label: "Services", href: "/services" },
     { label: "Portfolio", href: "/portfolio" },
     { label: "Blog", href: "/blog" },
+    { label: "Start Project*", href: "/start-your-project" },
     { label: "Contact", href: "/contact" },
 ];
 
@@ -85,13 +87,16 @@ export default function Header() {
     return (
         <header>
             {/* ── NAVBAR ── */}
-            <motion.nav className="fixed z-50 min-h-20 w-full select-none" initial={false}>
+            <motion.nav
+                className="fixed z-50 min-h-20 w-full select-none"
+                initial={false}
+            >
                 <motion.div
                     className="m-auto flex h-16 max-w-325 items-center justify-between rounded-b-lg bg-white px-4"
                     animate={{
                         boxShadow: scrolled
                             ? "0 4px 24px rgba(7,30,45,0.12)"
-                            : "0 2px 8px rgba(7,30,45,0.06)",
+                            : "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px",
                     }}
                     transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
                 >
@@ -118,8 +123,8 @@ export default function Header() {
                                         href={link.href}
                                         className={`relative pb-1 transition-colors duration-200 ${
                                             isActive(link.href)
-                                                ? "text-deepspace font-bold"
-                                                : "text-muted hover:text-deepspace"
+                                                ? "text-typocolor-primary font-bold"
+                                                : "text-typocolor-secondary"
                                         }`}
                                     >
                                         {link.label}
