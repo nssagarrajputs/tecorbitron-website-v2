@@ -111,13 +111,17 @@ export default function Contact() {
                 items={faqdata}
             />
             <CTAFormat
-                eypill="get in touch"
-                heading="Need another way to reach us?"
-                highlight="reach us?"
-                bodyText="Visit our contact page for phone, email, WhatsApp, and office details."
+                eypill="Get Started"
+                heading="Tell Us What You Need"
+                highlight="You Need"
+                bodyText="Share your goals, project scope, or current challenges and our team will get back to you with the right next steps."
                 primaryAction={{
-                    text: "Contact Us",
-                    href: "/contact",
+                    text: "Explore Services",
+                    href: "/services",
+                }}
+                secondaryAction={{
+                    text: "View Our Work",
+                    href: "/portfolio",
                 }}
             />
         </main>

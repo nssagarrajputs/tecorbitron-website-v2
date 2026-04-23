@@ -108,12 +108,6 @@ export default function ProjectInquiry() {
                     className="grid grid-cols-1 gap-5 md:grid-cols-2"
                 >
                     <div>
-                        <label
-                            htmlFor="name"
-                            className="text-typocolor-primary mb-2 block text-sm font-semibold"
-                        >
-                            Full Name
-                        </label>
                         <input
                             id="name"
                             name="name"
@@ -121,22 +115,13 @@ export default function ProjectInquiry() {
                             autoComplete="name"
                             value={form.name}
                             onChange={handleChange}
-                            placeholder="Enter your full name"
+                            placeholder="Full Name"
                             className="border-border text-body focus:border-malachite w-full rounded-xl border bg-white px-4 py-3 transition outline-none"
                             required
                         />
                     </div>
 
                     <div>
-                        <label
-                            htmlFor="company"
-                            className="text-typocolor-primary mb-2 block text-sm font-semibold"
-                        >
-                            Company / Brand Name{" "}
-                            <span className="text-typocolor-muted">
-                                (Optional)
-                            </span>
-                        </label>
                         <input
                             id="company"
                             name="company"
@@ -144,18 +129,12 @@ export default function ProjectInquiry() {
                             autoComplete="organization"
                             value={form.company}
                             onChange={handleChange}
-                            placeholder="Your company or brand"
+                            placeholder="Company / Brand Name (Optional)"
                             className="border-border text-body focus:border-malachite w-full rounded-xl border bg-white px-4 py-3 transition outline-none"
                         />
                     </div>
 
                     <div>
-                        <label
-                            htmlFor="email"
-                            className="text-typocolor-primary mb-2 block text-sm font-semibold"
-                        >
-                            Work Email
-                        </label>
                         <input
                             id="email"
                             name="email"
@@ -163,19 +142,13 @@ export default function ProjectInquiry() {
                             autoComplete="email"
                             value={form.email}
                             onChange={handleChange}
-                            placeholder="you@company.com"
+                            placeholder="work-email@company.com"
                             className="border-border text-body focus:border-malachite w-full rounded-xl border bg-white px-4 py-3 transition outline-none"
                             required
                         />
                     </div>
 
                     <div>
-                        <label
-                            htmlFor="phone"
-                            className="text-typocolor-primary mb-2 block text-sm font-semibold"
-                        >
-                            Phone
-                        </label>
                         <input
                             id="phone"
                             name="phone"
@@ -183,19 +156,13 @@ export default function ProjectInquiry() {
                             autoComplete="tel"
                             value={form.phone}
                             onChange={handleChange}
-                            placeholder="+91 000-000-0000"
+                            placeholder="Contact Number"
                             className="border-border text-body focus:border-malachite w-full rounded-xl border bg-white px-4 py-3 transition outline-none"
                             required
                         />
                     </div>
 
                     <div className="md:col-span-2">
-                        <label
-                            htmlFor="description"
-                            className="text-typocolor-primary mb-2 block text-sm font-semibold"
-                        >
-                            Project Description
-                        </label>
                         <textarea
                             id="description"
                             name="description"

@@ -1,12 +1,10 @@
-import ServicesDetail from "@/app/services/_components/ServicesDetail";
-import WhoWeWorkWith from "@/app/services/_components/WhoWeWorkWith";
-import ComparisonTable from "@/app/services/_components/ComparisonTable";
 import type { Metadata } from "next";
 import StructuredData, { servicesSchema } from "@/components/StructuredData";
 import PageHero from "@/components/basic-ui/PageHero";
+import ServicesDetail from "@/app/services/_components/ServicesDetail";
 import FAQFormat from "@/components/templetes/FAQFormat";
-import Process from "./_components/Process";
 import CTAFormat from "@/components/templetes/CTAFormat";
+import Industries from "./_components/Industries";
 
 export const metadata: Metadata = {
     title: "Web, App & Software Development Services",
@@ -113,10 +111,9 @@ export default function Services() {
                 highlight="Your Goals"
                 description="Technical services scoped to your business — not cookie-cutter packages. From first website to enterprise software, work within your timeline and budget."
             />
-            <ServicesDetail />
-            <Process />
-            <WhoWeWorkWith />
-            <ComparisonTable />
+            {/* <ServicesDetail /> */}
+            <Industries />
+
             <FAQFormat
                 bg="bg-bkg-primary"
                 eyebrow="FAQS"

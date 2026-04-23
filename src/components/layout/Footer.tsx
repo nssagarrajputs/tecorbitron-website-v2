@@ -81,7 +81,6 @@ export default function Footer() {
                     <h3 className="mb-6 font-bold">Importants</h3>
                     <div className="**:hover:text-malachite flex flex-col gap-3 transition-all **:w-fit">
                         <Link href="/contact">Contact Us</Link>
-                        <Link href="/careers">Career</Link>
                         <Link href="/privacy-policy">Privacy Policy</Link>
                         <Link href="/terms">Terms</Link>
                     </div>

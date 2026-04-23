@@ -6,6 +6,7 @@ import Software from "@/assets/services/services-software.jpg";
 import UIUX from "@/assets/services/services-UIUX.jpg";
 import AI from "@/assets/services/services-ai-ml.jpg";
 import BrandBtn from "@/components/basic-ui/BrandBtn";
+import Eypill from "@/components/basic-ui/Eypill";
 
 const services = [
     {
@@ -168,15 +169,11 @@ export default function ServicesDetail() {
     return (
         <section className="bg-white px-4 py-24">
             <div className="mx-auto flex max-w-7xl flex-col gap-28">
-                {services.map((service, index) => (
+                {services.map((service) => (
                     <div
                         key={service.id}
                         id={service.id}
-                        className={`grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center ${
-                            index % 2 !== 0
-                                ? "lg:[&>div:first-child]:order-2"
-                                : ""
-                        }`}
+                        className={`grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center`}
                     >
                         {/* ── Content ── */}
                         <div className="flex flex-col gap-6">
@@ -190,6 +187,7 @@ export default function ServicesDetail() {
                                             {service.name}
                                         </span>
                                     </div>
+                                    <Eypill text={service.name} />
                                     <p className="text-muted text-sm font-semibold">
                                         {service.tagline}
                                     </p>

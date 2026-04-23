@@ -9,7 +9,7 @@ export default function Hero() {
                 className="pointer-events-none absolute inset-0"
                 style={{
                     background:
-                        "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(0,208,96,0.08) 0%, transparent 70%)",
+                        "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(0,208,96,0.2) 0%, transparent 80%)",
                 }}
             />
 
@@ -32,19 +32,16 @@ export default function Hero() {
                 </h1>
 
                 {/* Subheadline */}
-                <p className="text-typocolor-secondary text-body max-w-2xl leading-relaxed tracking-tight">
+                <p className="text-typocolor-secondary text-body mb-4 max-w-2xl leading-relaxed tracking-tight">
                     Turn your ideas into powerful web, mobile, and software
                     solutions. From strategy to execution, our team ensures
                     scalable, secure, and user-centric digital experiences.
                 </p>
 
                 {/* CTAs */}
-
-                <div className="mt-4">
-                    <BrandBtn href="/contact" variant="primary">
-                        Start Your Project
-                    </BrandBtn>
-                </div>
+                <BrandBtn href="/contact" variant="primary">
+                    Start Your Project
+                </BrandBtn>
 
                 {/* Trust Badges */}
                 <div className="flex-center my-12 gap-4 sm:gap-6">
