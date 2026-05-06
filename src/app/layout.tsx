@@ -3,7 +3,7 @@ import { Mulish } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import StructuredData, { globalSchema } from "@/components/StructuredData";
@@ -131,14 +131,11 @@ export default function RootLayout({
                 <StructuredData data={globalSchema()} />
                 <SpeedInsights />
                 <Analytics />
-                <GoogleAnalytics
-                    gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_M_ID!}
-                />
-
                 <Header />
                 {children}
                 <Footer />
             </body>
+            <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />
         </html>
     );
 }
