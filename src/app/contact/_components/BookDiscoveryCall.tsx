@@ -23,10 +23,10 @@ export default function BookDiscoveryCall() {
         <section className="v-breathing-20 h-breathing-468">
             <div className="section-vlex-gap mx-auto max-w-6xl">
                 <SectionHeader
-                    eyebrow="Online Meeting"
+                    eyebrow="Prefer to Talk First"
                     heading="Or Book a Discovery Call"
                     highlight="Discovery Call"
-                    support="Prefer to talk first? Choose a time that works for you — we'll discuss your goals, requirements, and the clearest path forward."
+                    support="Pick a time that works for you — we'll discuss your project, understand your goals, and map out the clearest path forward."
                 />
 
                 <div className="flex flex-wrap items-center justify-center gap-4">

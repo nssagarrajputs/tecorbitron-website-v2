@@ -59,28 +59,28 @@ export const metadata: Metadata = {
 
 const faqdata = [
     {
-        question: "How quickly do you respond to inquiries?",
-        answer: "We respond to all inquiries within 24 hours on business days. For urgent projects, reach out via WhatsApp for a faster response.",
-    },
-    {
         question: "Do you offer free consultations?",
-        answer: "Yes — our 30-minute discovery call is completely free. No sales pitch, just an honest conversation about your goals and how we can help.",
-    },
-    {
-        question: "What information should I have ready before contacting you?",
-        answer: "A rough idea of what you want to build, your timeline, and budget range. Don't worry if it's not fully formed — we help you shape the idea during the consultation.",
+        answer: "Yes — book a free discovery call directly from our contact page. Choose a time that works for you and we'll have an honest conversation about your goals, requirements, and the best path forward. No sales pitch, no obligation.",
     },
     {
         question: "Do you work with international clients?",
-        answer: "Absolutely. We work with clients across India, UAE, UK, USA, and beyond. Remote collaboration is seamless — we adapt to your timezone.",
+        answer: "Absolutely. We work with clients across India, UAE, UK, USA, and beyond. Communication is seamless — we adapt to your timezone and handle everything remotely without compromising on quality or responsiveness.",
     },
     {
-        question: "What happens after I submit the contact form?",
-        answer: "You'll receive a confirmation email. Our team will review your project brief and get back within 24 hours with next steps or to schedule a discovery call.",
+        question: "Are you a registered company?",
+        answer: "Yes. Tecorbitron Solutions Private Limited is a fully registered company — incorporated under MCA, GST registered, and MSME certified. We are based in Ghaziabad, NCR, India. Enterprise clients and international partners can verify our credentials through official channels.",
     },
     {
-        question: "Is there a minimum project budget?",
-        answer: "Our projects start from ₹25,000 for simple websites. For complex web apps, software, or AI solutions, budgets vary. We're transparent about pricing from day one.",
+        question: "Can you take over a project that's already been started?",
+        answer: "Yes. We regularly take on projects that are partially built or stalled midway. We'll review what exists, assess the codebase and scope, and continue from where things left off — cleanly and without starting from scratch.",
+    },
+    {
+        question: "Do you provide support after the project is delivered?",
+        answer: "Yes. Every project includes 45 days of free post-launch support covering anything within the agreed scope. After that, we offer flexible options — a subscription-based maintenance plan or per-scope scheduled work — whatever fits your needs best.",
+    },
+    {
+        question: "How do I know if my project is a good fit for Tecorbitron?",
+        answer: "If you're a startup, SMB, or founder looking to build or improve a digital product — website, app, software, or anything in between — you're likely a great fit. We work across industries and project sizes. The best way to find out is to book a free call. We'll tell you honestly whether we're the right team for your project, and if not, we'll point you in the right direction.",
     },
 ];
 
@@ -102,10 +102,10 @@ export default function Contact() {
 
             <FAQSection
                 bg="bg-white"
-                eyebrow="COMMON QUESTIONS"
+                eyebrow="FAQS"
                 heading="Before You Reach Out"
-                highlight="Out"
-                support="Quick answers to the most common questions we get."
+                highlight="Reach Out"
+                support="Everything you need to know before getting in touch."
                 items={faqdata}
             />
         </main>

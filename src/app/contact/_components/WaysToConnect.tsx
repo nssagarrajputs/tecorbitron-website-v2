@@ -30,7 +30,7 @@ export default function WaysToConnect() {
     return (
         <section className="h-breathing-468 v-breathing-20">
             <div className="mx-auto max-w-6xl">
-                <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:gap-12">
                     {/* ── LEFT — HQ Info ── */}
                     <div className="bg-bkg-primary flex flex-col gap-8 rounded-xl p-8">
                         {/* Address */}

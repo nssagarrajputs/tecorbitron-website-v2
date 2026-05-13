@@ -11,7 +11,7 @@ type Props = {
 export default function ProjectList({ featured, rest }: Props) {
     if (!featured && rest.length === 0) {
         return (
-            <section className="bg-surface px-4 py-24">
+            <section className="px-4 py-24">
                 <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 py-16 text-center">
                     <span className="text-5xl">🚧</span>
                     <h3 className="text-deepspace text-xl font-black">
@@ -34,7 +34,7 @@ export default function ProjectList({ featured, rest }: Props) {
     }
 
     return (
-        <section className="bg-surface px-4 py-24">
+        <section className="px-4 py-24">
             <div className="mx-auto flex max-w-7xl flex-col gap-16">
                 {/* ── FEATURED PROJECT ── */}
                 {featured && (

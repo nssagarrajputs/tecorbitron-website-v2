@@ -44,7 +44,7 @@ const solutions = [
 
 export default function AllSolutions() {
     return (
-        <section className="bg-bkg-primary h-breathing-6812 v-breathing-20">
+        <section className="h-breathing-6812 v-breathing-20">
             <div className="section-vlex-gap mx-auto max-w-7xl">
                 <SectionHeader
                     eyebrow="Solutions"
@@ -54,11 +54,11 @@ export default function AllSolutions() {
                 />
 
                 {/* ── GRID ── */}
-                <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-6">
+                <div className="grid grid-cols-3 gap-4 sm:grid-cols-4 md:grid-cols-6">
                     {solutions.map(({ icon: Icon, name }) => (
                         <div
                             key={name}
-                            className="hover:border-malachite group flex flex-col items-center gap-3 rounded-xl border border-transparent bg-white p-5 transition-all duration-200 select-none"
+                            className="hover:border-malachite group bg-bkg-primary flex flex-col items-center gap-3 rounded-xl border border-transparent p-4 pt-6 transition-all duration-200 select-none"
                         >
                             <Icon
                                 size={24}

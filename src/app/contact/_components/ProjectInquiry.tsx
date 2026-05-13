@@ -131,8 +131,8 @@ export default function ProjectInquiry() {
                                     </h2>
                                     <p className="text-small text-typocolor-muted mt-2 leading-relaxed">
                                         Have a question or want to discuss your
-                                        project? Send your request below and
-                                        {"we'll"} get back within 24 hours.
+                                        project? Submit your request below and
+                                        {" we'll"} get back within 24 hours.
                                     </p>
                                 </div>
                                 <form
@@ -191,7 +191,7 @@ export default function ProjectInquiry() {
                                         <button
                                             type="submit"
                                             disabled={status === "sending"}
-                                            className="bg-malachite hover:bg-malachite-rich text-small mx-auto mt-4 rounded-xl px-6 py-3 font-bold text-white transition disabled:cursor-not-allowed disabled:opacity-60"
+                                            className="bg-malachite hover:bg-malachite-rich text-body mx-auto mt-4 h-12.5 rounded-full px-6 py-1 font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-60"
                                         >
                                             {status === "sending"
                                                 ? "Sending..."
