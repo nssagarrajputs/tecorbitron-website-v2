@@ -27,14 +27,14 @@ export default function BookDiscoveryCall() {
             highlight="Discovery Call"
             support="Pick a time that works for you — we'll discuss your project, understand your goals, and map out the clearest path forward."
         >
-            <div className="flex flex-wrap items-center justify-center gap-4">
-                <span className="bg-malachite-opac text-malachite rounded-full px-3 py-1 text-sm font-semibold">
+            <div className="flex-center *:text-small flex-wrap gap-4 *:rounded-full *:px-4 *:py-1 *:font-semibold">
+                <span className="bg-malachite-dim text-malachite">
                     30-minute intro call
                 </span>
-                <span className="bg-deepspace-dim text-deepspace rounded-full px-3 py-1 text-sm font-semibold">
+                <span className="bg-deepspace-dim text-deepspace">
                     Scope & next steps
                 </span>
-                <span className="bg-deepspace-dim text-deepspace rounded-full px-3 py-1 text-sm font-semibold">
+                <span className="bg-deepspace-dim text-deepspace">
                     No obligation
                 </span>
             </div>

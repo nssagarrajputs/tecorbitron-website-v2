@@ -27,8 +27,6 @@
     --color-border: #dde6ed;
 
     /* -- BACKGROUNDS -- */
-    --color-bkg-primary: var(--color-snow);
-
     --color-bkg-page: var(--color-white);
     --color-bkg-card: var(--color-snow);
 
@@ -155,8 +153,12 @@
     @apply px-4 sm:px-6 md:px-8;
 }
 
-@utility v-breathing {
+/* @utility v-breathing {
     @apply py-16 sm:py-20 md:py-24;
+} */
+
+@utility v-breathing {
+    @apply py-20 sm:py-24 md:py-28;
 }
 
 @utility cardbox {
@@ -187,4 +189,14 @@
     100% {
         transform: translateX(0);
     }
+}
+
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+
+@utility pi-form-field {
+    @apply text-small focus:border-malachite rounded-3 transition-base shadow-soft w-full border bg-white px-4 py-3 font-semibold outline-none;
 }

@@ -11,7 +11,7 @@ import StructuredData, { globalSchema } from "@/components/StructuredData";
 const mulish = Mulish({
     subsets: ["latin"],
     display: "swap",
-    weight: ["300", "400", "500", "600", "700", "800", "900"],
+    weight: ["300", "400", "600", "700", "900"],
     variable: "--font-mulish",
 });
 

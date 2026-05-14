@@ -81,17 +81,17 @@ export default function ProjectInquiry() {
     };
 
     return (
-        <SectionContainer>
-            <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_2fr] lg:gap-12">
+        <SectionContainer width="lg">
+            <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_2fr] lg:gap-16">
                 {/* ── LEFT — Trust Signals (always visible) ── */}
-                <div className="flex flex-col gap-8 p-8">
+                <div className="flex flex-col gap-12 p-6 md:p-8">
                     {trustSignals.map(({ icon: Icon, title, desc }) => (
                         <div key={title} className="flex flex-col gap-4">
                             <div className="flex items-center gap-2">
-                                <Icon size={18} className="text-malachite" />
-                                <h3 className="text-small font-bold">
+                                <Icon size={20} className="text-malachite" />
+                                <h4 className="text-small font-bold">
                                     {title}
-                                </h3>
+                                </h4>
                             </div>
                             <p className="text-small text-typocolor-muted leading-relaxed">
                                 {desc}
@@ -101,7 +101,7 @@ export default function ProjectInquiry() {
                 </div>
 
                 {/* ── RIGHT — Form or Success (scoped) ── */}
-                <div className="bg-bkg-primary flex flex-col gap-8 rounded-xl p-8">
+                <div className="bg-bkg-card rounded-4 flex flex-col gap-8 border p-6 md:p-8">
                     {status === "success" ? (
                         <div className="flex flex-1 flex-col items-center justify-center gap-4 py-12 text-center">
                             <div className="bg-malachite-opac flex h-16 w-16 items-center justify-center rounded-full">
@@ -123,7 +123,7 @@ export default function ProjectInquiry() {
                     ) : (
                         <>
                             <div>
-                                <h2 className="text-h4 font-black">
+                                <h2 className="text-h4 font-bold">
                                     Discuss your project
                                 </h2>
                                 <p className="text-small text-typocolor-muted mt-2 leading-relaxed">
@@ -143,7 +143,7 @@ export default function ProjectInquiry() {
                                     value={form.name}
                                     onChange={handleChange}
                                     placeholder="Full Name"
-                                    className="border-border text-small focus:border-malachite w-full rounded-xl border bg-white px-4 py-3 transition outline-none"
+                                    className="pi-form-field"
                                     required
                                 />
                                 <input
@@ -153,7 +153,7 @@ export default function ProjectInquiry() {
                                     value={form.company}
                                     onChange={handleChange}
                                     placeholder="Company / Brand Name"
-                                    className="border-border text-small focus:border-malachite w-full rounded-xl border bg-white px-4 py-3 transition outline-none"
+                                    className="pi-form-field"
                                 />
                                 <input
                                     name="email"
@@ -162,7 +162,7 @@ export default function ProjectInquiry() {
                                     value={form.email}
                                     onChange={handleChange}
                                     placeholder="Work Email"
-                                    className="border-border text-small focus:border-malachite w-full rounded-xl border bg-white px-4 py-3 transition outline-none"
+                                    className="pi-form-field"
                                     required
                                 />
                                 <input
@@ -172,16 +172,16 @@ export default function ProjectInquiry() {
                                     value={form.phone}
                                     onChange={handleChange}
                                     placeholder="Phone Number"
-                                    className="border-border text-small focus:border-malachite w-full rounded-xl border bg-white px-4 py-3 transition outline-none"
+                                    className="pi-form-field"
                                     required
                                 />
                                 <textarea
                                     name="description"
-                                    rows={5}
+                                    rows={6}
                                     value={form.description}
                                     onChange={handleChange}
                                     placeholder="Tell us about your project, goals, features, or current challenges."
-                                    className="border-border text-small focus:border-malachite w-full rounded-xl border bg-white px-4 py-3 transition outline-none sm:col-span-2"
+                                    className="pi-form-field w-full resize-none sm:col-span-2"
                                     required
                                 />
                                 <div className="flex flex-col items-start gap-3 pt-1 sm:col-span-2 sm:flex-row sm:items-center">

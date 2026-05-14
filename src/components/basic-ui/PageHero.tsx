@@ -1,3 +1,5 @@
+import Eypill from "./Eypill";
+
 type PageHeroProps = {
     eyebrow: string;
     title: string;
@@ -10,7 +12,7 @@ function PageHero({ eyebrow, title, highlight, description }: PageHeroProps) {
         highlight && title.includes(highlight) ? title.split(highlight) : null;
 
     return (
-        <section className="h-breathing-468 v-breathing-22 relative overflow-hidden">
+        <section className="h-breathing relative overflow-hidden pt-32 pb-20">
             <div
                 className="pointer-events-none absolute inset-0 opacity-[0.03]"
                 style={{
@@ -29,14 +31,9 @@ function PageHero({ eyebrow, title, highlight, description }: PageHeroProps) {
             />
 
             <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-                <div className="border-malachite-soft bg-malachite-opac flex items-center gap-2 rounded-full border px-4 py-1.5 select-none">
-                    <span className="bg-malachite h-1.5 w-1.5 rounded-full" />
-                    <span className="text-malachite text-xmall font-bold tracking-wider uppercase">
-                        {eyebrow}
-                    </span>
-                </div>
+                <Eypill text={eyebrow} />
 
-                <h1 className="text-h2 mx-auto mt-6 mb-5 max-w-4xl leading-tight font-black tracking-tight">
+                <h1 className="text-h1 mx-auto mt-6 mb-5 max-w-4xl leading-tight font-black tracking-tight">
                     {parts ? (
                         <>
                             {parts[0]}
@@ -49,7 +46,7 @@ function PageHero({ eyebrow, title, highlight, description }: PageHeroProps) {
                 </h1>
 
                 {description ? (
-                    <p className="text-typocolor-secondary text-body max-w-2xl leading-relaxed">
+                    <p className="text-typocolor-secondary text-body max-w-xl leading-relaxed">
                         {description}
                     </p>
                 ) : null}

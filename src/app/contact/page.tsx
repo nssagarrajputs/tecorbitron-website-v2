@@ -97,7 +97,9 @@ export default function Contact() {
             />
 
             <ProjectInquiry />
+
             <WaysToConnect />
+
             <BookDiscoveryCall />
 
             <FAQSection
