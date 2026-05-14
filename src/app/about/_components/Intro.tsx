@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import Image from "next/image";
 
 const ratings = [
     {
@@ -163,6 +164,21 @@ export default function Intro() {
                             </div>
                         ))}
                     </div>
+
+                    <div className="mx-auto w-fit">
+                        <a
+                            href="https://global.showmelocal.com/39762168-tecorbitron-solutions-private-limited-website-designer-ghaziabad"
+                            target="_blank"
+                        >
+                            <Image
+                                src="https://www.showmelocal.com/showmelocal-member-39762168"
+                                alt="Tecorbitron Solutions Private Limited,Website Designer,Ghaziabad,Uttar Pradesh"
+                                width={100}
+                                height={50}
+                            />
+                        </a>
+                    </div>
+
                     {/* Note */}
                     <p className="text-muted text-center text-xs font-medium">
                         Ratings reflect verified client feedback across

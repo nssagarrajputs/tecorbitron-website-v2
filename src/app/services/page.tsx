@@ -5,7 +5,6 @@ import FAQFormat from "@/components/templetes/FAQFormat";
 import CTAFormat from "@/components/templetes/CTAFormat";
 import Industries from "./_components/Industries";
 import MainServices from "./_components/MainServices";
-import AllSolutions from "./_components/AllSolutions";
 
 export const metadata: Metadata = {
     title: "Web, App & Software Development Services",
@@ -113,7 +112,6 @@ export default function Services() {
                 description="Technical services scoped to your business — not cookie-cutter packages. From first website to enterprise software, work within your timeline and budget."
             />
             <MainServices />
-            <AllSolutions />
             <Industries />
 
             <FAQFormat

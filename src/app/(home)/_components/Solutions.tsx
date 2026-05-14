@@ -74,11 +74,11 @@ export default function Solutions() {
                 />
 
                 {/* ── GRID ── */}
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
                     {solution.map(({ title, icon: Icon, description }) => (
                         <div
                             key={title}
-                            className="bg-bkg-primary hover:border-malachite rounded-xl border border-transparent p-6"
+                            className="bg-bkg-primary hover:border-malachite rounded-4 border-border border p-6"
                         >
                             <Icon size={40} strokeWidth={1} />
 

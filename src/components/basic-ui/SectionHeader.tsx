@@ -1,5 +1,7 @@
+import Eypill from "@/components/basic-ui/Eypill";
+
 type Props = {
-    eyebrow: string;
+    eyebrow?: string;
     heading: string;
     highlight: string;
     support?: string;
@@ -16,12 +18,7 @@ export default function SectionHeader({
     return (
         <div className="flex flex-col items-center gap-4 text-center">
             {/* Eypill */}
-            <div className="border-malachite-soft bg-malachite-opac flex-center gap-2 rounded-full border px-4 py-1.5 select-none">
-                <span className="bg-malachite h-1.5 w-1.5 rounded-full" />
-                <span className="text-malachite-rich text-xmall font-bold tracking-wider uppercase">
-                    {eyebrow}
-                </span>
-            </div>
+            {eyebrow && <Eypill text={eyebrow} />}
 
             {/* Heading */}
             <h2 className="text-h2/tight font-black tracking-tight">

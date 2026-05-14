@@ -101,7 +101,6 @@ export default function Contact() {
             <BookDiscoveryCall />
 
             <FAQSection
-                bg="bg-white"
                 eyebrow="FAQS"
                 heading="Before You Reach Out"
                 highlight="Reach Out"

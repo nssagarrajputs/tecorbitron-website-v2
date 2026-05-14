@@ -11,7 +11,6 @@
     --color-malachite-rich: #00a34b;
     --color-malachite-deep: #007a38;
     --color-malachite-dim: #e6faf0;
-    --color-malachite-opac: rgba(0, 208, 96, 0.1);
 
     /* ── DEEPSPACE — Secondary Brand ── */
     --color-deepspace: #0c3146;
@@ -19,38 +18,34 @@
     --color-deepspace-rich: #164965;
     --color-deepspace-deep: #071e2d;
     --color-deepspace-dim: #ebf2f7;
-    --color-deepspace-opac: rgba(12, 49, 70, 0.1);
 
     /* ── NEUTRALS ── */
     --color-white: #ffffff;
     --color-snow: #f8fafb;
-    --color-surface: #f2f6f9;
 
-    --color-muted: #6b8a9a;
-    --color-subtle: #3d5c6e;
-
+    /* ── BORDER ── */
     --color-border: #dde6ed;
-    --color-border-strong: #c2d3df;
 
-    /* ── Highlights ── */
+    /* -- BACKGROUNDS -- */
+    --color-bkg-primary: var(--color-snow);
+
+    --color-bkg-page: var(--color-white);
+    --color-bkg-card: var(--color-snow);
+
+    /* ── TEXT ── */
+    --color-typocolor-heading: var(--color-deepspace-deep);
+    --color-typocolor-primary: var(--color-deepspace-rich);
+    --color-typocolor-secondary: #3d5c6e;
+    --color-typocolor-muted: #6b8a9a;
+
+    /* ── STATUS ── */
     --color-error: #ff383c;
     --color-success: #34c73a;
     --color-info: #0088ff;
     --color-warning: #ffcc00;
 
-    /* Semantic - usage-based */
-    --color-bkg-primary: var(--color-snow);
-    --color-bkg-secondary: var(--color-surface);
-
-    --color-typocolor-heading: var(--color-deepspace-deep);
-    --color-typocolor-primary: var(--color-deepspace-rich);
-    --color-typocolor-secondary: var(--color-subtle);
-    --color-typocolor-muted: var(--color-muted);
-
     /* ── TYPOGRAPHY SCALE ── */
-
     --text-*: initial;
-
     --text-base: 1rem;
     --text-base--line-height: calc(1.5 / 1);
     --text-lg: 1.125rem;
@@ -80,15 +75,22 @@
     /* ── SHADOWS ── */
     --shadow-soft: 0 8px 30px rgba(7, 30, 45, 0.06);
     --shadow-card: 0 10px 30px rgba(12, 49, 70, 0.08);
-    --shadow-card-hover: 0 16px 40px rgba(12, 49, 70, 0.12);
 
-    /* ── TRANSITIONS ── */
-    --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
-    --duration-fast: 200ms;
-    --duration-normal: 300ms;
+    /* ── ROUNDED ── */
+    --radius-*: initial;
+    --radius-1: 0.25rem;
+    --radius-2: 0.5rem;
+    --radius-3: 0.75rem;
+    --radius-4: 1rem;
 }
 
 @layer base {
+    *,
+    ::before,
+    ::after {
+        border-color: var(--color-border);
+    }
+
     html {
         scroll-behavior: smooth;
         text-size-adjust: 100%;
@@ -97,7 +99,7 @@
     }
 
     body {
-        @apply font-mulish text-typocolor-primary bg-white antialiased;
+        @apply font-mulish text-typocolor-primary bg-bkg-page antialiased;
     }
 
     hr {
@@ -111,7 +113,7 @@
     }
 
     ::placeholder {
-        color: var(--color-muted);
+        color: var(--color-typocolor-muted);
         opacity: 1;
     }
 }
@@ -134,28 +136,31 @@
 /*  */
 /*  */
 
+@utility transition-base {
+    transition-property:
+        color, background-color, border-color, box-shadow, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+}
+
 @utility flex-center {
     @apply flex items-center justify-center;
 }
 
 @utility section-vlex-gap {
-    @apply flex flex-col gap-14 sm:gap-18 md:gap-20;
+    @apply flex flex-col gap-10 sm:gap-12 md:gap-14 lg:gap-16;
 }
 
-@utility h-breathing-468 {
+@utility h-breathing {
     @apply px-4 sm:px-6 md:px-8;
 }
 
-@utility h-breathing-6812 {
-    @apply px-6 sm:px-8 md:px-12;
+@utility v-breathing {
+    @apply py-16 sm:py-20 md:py-24;
 }
 
-@utility v-breathing-20 {
-    @apply py-20 sm:py-22 md:py-26;
-}
-
-@utility v-breathing-22 {
-    @apply py-22 sm:py-24 md:py-28;
+@utility cardbox {
+    @apply bg-bkg-card hover:border-malachite rounded-4 transition-base border;
 }
 
 /*  */

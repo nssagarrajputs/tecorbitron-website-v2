@@ -3,8 +3,8 @@ import seo from "@/assets/service-icon/seo.png";
 import software from "@/assets/service-icon/custom-software.png";
 import ai from "@/assets/service-icon/cloud-and-ai.png";
 import Image from "next/image";
-import SectionHeader from "@/components/basic-ui/SectionHeader";
 import BrandBtn from "@/components/basic-ui/BrandBtn";
+import SectionContainer from "@/components/basic-ui/SectionContainer";
 
 // ── DATA ───────────────────────────────────────────
 const services = [
@@ -64,57 +64,54 @@ const services = [
 
 export default function CoreServices() {
     return (
-        <section className="bg-bkg-primary h-breathing-6812 v-breathing-20">
-            <div className="section-vlex-gap mx-auto max-w-7xl">
-                <SectionHeader
-                    eyebrow="Core services"
-                    heading="Services Designed to Grow Your Business"
-                    highlight="Business"
-                    support="From idea to launch — we offer end-to-end services designed to help businesses launch, operate, and scale with confidence."
-                />
-
-                {/* service card */}
-                <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2">
-                    {services.map((service) => (
-                        <div
-                            key={service.name}
-                            className="hover:border-malachite shadow-card flex flex-col justify-between gap-4 rounded-2xl border border-transparent bg-white p-6 transition-all duration-300"
-                        >
-                            {/* Icon */}
-                            <div className="flex h-18 w-18 items-center justify-center select-none">
-                                <Image src={service.icon} alt="S" />
-                            </div>
-
-                            {/* Name */}
-                            <h3 className="text-deepspace-rich text-h4 font-bold">
-                                {service.name}
-                            </h3>
-
-                            <p className="text-typocolor-secondary text-small mb-4">
-                                {service.description}
-                            </p>
-
-                            {/* Tags */}
-                            <div className="flex flex-wrap gap-2">
-                                {service.tags.map((tag) => (
-                                    <span
-                                        key={tag}
-                                        className="bg-surface text-typocolor-muted text-xmall rounded-full px-2 py-0.5 font-semibold select-none"
-                                    >
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
+        <SectionContainer
+            width="lg"
+            eyebrow="Core services"
+            heading="Services Designed to Grow Your Business"
+            highlight="Business"
+            support="From idea to launch — we offer end-to-end services designed to help businesses launch, operate, and scale with confidence."
+        >
+            {/* service card */}
+            <div className="mx-auto grid grid-cols-1 gap-8 md:grid-cols-2">
+                {services.map((service) => (
+                    <div
+                        key={service.name}
+                        className="hover:border-malachite border-border rounded-4 bg-bkg-primary flex flex-col justify-between gap-4 border p-6 transition-all duration-300"
+                    >
+                        {/* Icon */}
+                        <div className="flex h-18 w-18 items-center justify-center select-none">
+                            <Image src={service.icon} alt="S" />
                         </div>
-                    ))}
-                </div>
 
-                <div className="mx-auto">
-                    <BrandBtn href="/services" variant="secondary">
-                        View All Services
-                    </BrandBtn>
-                </div>
+                        {/* Name */}
+                        <h3 className="text-deepspace-rich text-h4 font-bold">
+                            {service.name}
+                        </h3>
+
+                        <p className="text-typocolor-secondary text-small mb-4">
+                            {service.description}
+                        </p>
+
+                        {/* Tags */}
+                        <div className="flex flex-wrap gap-2">
+                            {service.tags.map((tag) => (
+                                <span
+                                    key={tag}
+                                    className="bg-bkg-secondary border-border text-typocolor-muted text-xmall rounded-full border px-2 py-0.5 font-semibold select-none"
+                                >
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                ))}
             </div>
-        </section>
+
+            <div className="mx-auto">
+                <BrandBtn href="/services" variant="secondary">
+                    View All Services
+                </BrandBtn>
+            </div>
+        </SectionContainer>
     );
 }

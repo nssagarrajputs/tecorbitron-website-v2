@@ -6,6 +6,7 @@ import software from "@/assets/service-icon/custom-software.png";
 import seo from "@/assets/service-icon/seo.png";
 import cloudai from "@/assets/service-icon/cloud-and-ai.png";
 import BrandBtn from "@/components/basic-ui/BrandBtn";
+import SectionContainer from "@/components/basic-ui/SectionContainer";
 
 const services = [
     {
@@ -54,47 +55,47 @@ const services = [
 
 export default function MainServices() {
     return (
-        <section className="h-breathing-468 v-breathing-20">
-            <div className="section-vlex-gap mx-auto max-w-7xl">
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:grid-rows-3 lg:grid-cols-3 lg:grid-rows-2">
-                    {services.map((service) => (
-                        <div
-                            key={service.name}
-                            className="hover:border-malachite group bg-bkg-primary flex flex-col gap-4 rounded-2xl border border-transparent p-6 transition-all duration-200"
-                        >
-                            {/* Icon */}
-                            <div className="flex h-14 w-14 items-center justify-center select-none">
-                                <Image
-                                    src={service.icon}
-                                    alt={service.name}
-                                    className="h-full w-auto object-contain"
-                                />
-                            </div>
+        <SectionContainer>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:grid-rows-3 lg:grid-cols-3 lg:grid-rows-2">
+                {services.map((service) => (
+                    <div
+                        key={service.name}
+                        className="hover:border-malachite rounded-4 bg-bkg-primary flex flex-col gap-4 border border-transparent p-8 transition-all duration-200"
+                    >
+                        {/* Icon */}
 
-                            {/* Name + tagline */}
-                            <div className="flex flex-col gap-1">
-                                <h3 className="text-h4 text-deepspace-rich font-bold">
-                                    {service.name}
-                                </h3>
-                                <p className="text-small text-malachite-rich font-semibold">
-                                    {service.tagline}
-                                </p>
-                            </div>
+                        <div className="flex h-14 w-14 items-center justify-center select-none">
+                            <Image
+                                src={service.icon}
+                                alt={service.name}
+                                className="h-full w-auto object-contain"
+                            />
+                        </div>
 
-                            {/* Description */}
-                            <p className="text-small text-typocolor-secondary leading-relaxed">
-                                {service.description}
+                        {/* Name + tagline */}
+                        <div className="flex flex-col gap-1">
+                            <h3 className="text-h4 text-malachite font-bold">
+                                {service.name}
+                            </h3>
+
+                            <p className="text-body text-typocolor-primary font-bold">
+                                {service.tagline}
                             </p>
                         </div>
-                    ))}
-                </div>
 
-                <div className="mx-auto">
-                    <BrandBtn href="/contact" variant="secondary">
-                        Start Your Project
-                    </BrandBtn>
-                </div>
+                        {/* Description */}
+                        <p className="text-small text-typocolor-secondary leading-relaxed">
+                            {service.description}
+                        </p>
+                    </div>
+                ))}
             </div>
-        </section>
+
+            <div className="mx-auto">
+                <BrandBtn href="/contact" variant="secondary">
+                    Start Your Project
+                </BrandBtn>
+            </div>
+        </SectionContainer>
     );
 }
