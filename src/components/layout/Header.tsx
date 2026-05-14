@@ -90,7 +90,7 @@ export default function Header() {
                 initial={false}
             >
                 <motion.div
-                    className="m-auto flex h-16 max-w-325 items-center justify-between rounded-b-lg bg-white px-4"
+                    className="rounded-b-2 bg-bkg-page m-auto flex h-16 max-w-325 items-center justify-between px-4"
                     animate={{
                         boxShadow: scrolled
                             ? "0 4px 24px rgba(7,30,45,0.12)"
@@ -115,11 +115,11 @@ export default function Header() {
                             {navLinks.map((link) => (
                                 <li
                                     key={link.href}
-                                    className="hover:bg-surface rounded-sm px-2 py-1"
+                                    className="hover:bg-bkg-card rounded-1 hover:border-border border border-transparent px-2 py-1"
                                 >
                                     <Link
                                         href={link.href}
-                                        className={`relative pb-1 transition-colors duration-200 ${
+                                        className={`transition-base relative pb-1 ${
                                             isActive(link.href)
                                                 ? "text-typocolor-primary font-bold"
                                                 : "text-typocolor-secondary"
@@ -144,7 +144,7 @@ export default function Header() {
                             >
                                 <Link
                                     href="/contact"
-                                    className="bg-deepspace hover:bg-malachite inline-block rounded-sm px-4 py-2 text-base font-semibold text-white transition-colors duration-200"
+                                    className="bg-deepspace hover:bg-malachite rounded-1 text-body transition-base inline-block px-4 py-2 font-semibold text-white"
                                 >
                                     Let&apos;s Connect
                                 </Link>
@@ -187,13 +187,13 @@ export default function Header() {
                             initial="hidden"
                             animate="visible"
                             exit="exit"
-                            className="fixed top-0 right-0 z-50 flex h-full w-72 flex-col bg-white shadow-2xl"
+                            className="bg-bkg-page fixed top-0 right-0 z-50 flex h-full w-72 flex-col shadow-2xl"
                         >
                             {/* Sidebar Header */}
-                            <div className="border-border flex items-center justify-end border-b px-5 py-4">
+                            <div className="flex items-center justify-end border-b px-5 py-4">
                                 <motion.button
                                     onClick={() => setMenuOpen(false)}
-                                    className="hover:bg-surface rounded-xl p-2 transition-colors"
+                                    className="hover:bg-bkg-card rounded-2 transition-base p-2"
                                     aria-label="Close menu"
                                     whileTap={{ scale: 0.9 }}
                                 >
@@ -216,10 +216,10 @@ export default function Header() {
                                         <Link
                                             href={link.href}
                                             onClick={() => setMenuOpen(false)}
-                                            className={`flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold transition-all duration-200 ${
+                                            className={`rounded-2 flex items-center justify-between px-4 py-3 text-sm font-semibold transition-all duration-200 ${
                                                 isActive(link.href)
                                                     ? "bg-malachite-dim text-deepspace"
-                                                    : "text-muted hover:bg-surface hover:text-deepspace"
+                                                    : "text-typocolor-muted hover:bg-bkg-card hover:text-typocolor-primary hover:border-border border border-transparent"
                                             }`}
                                         >
                                             {link.label}
@@ -237,7 +237,7 @@ export default function Header() {
                             </motion.nav>
 
                             {/* Sidebar CTA */}
-                            <div className="border-border border-t px-4 pt-4 pb-8">
+                            <div className="border-t px-4 pt-4 pb-8">
                                 <motion.div
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.97 }}
@@ -250,7 +250,7 @@ export default function Header() {
                                     <Link
                                         href="/contact"
                                         onClick={() => setMenuOpen(false)}
-                                        className="bg-malachite hover:bg-malachite-rich flex w-full items-center justify-center gap-2 rounded-md py-3.5 font-bold text-white transition-all duration-200"
+                                        className="bg-malachite hover:bg-malachite-rich flex-center rounded-2 transition-base w-full gap-2 py-3.5 font-bold text-white"
                                     >
                                         {"Let's Talk"}
                                         <ArrowRight size={14} />

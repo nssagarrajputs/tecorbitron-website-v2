@@ -47,15 +47,15 @@ export default function FAQFormat({
                         <article
                             key={index}
                             onClick={() => setOpenIndex(isOpen ? null : index)}
-                            className="border-border-strong duration-normal ease-standard border-b transition-colors"
+                            className="transition-base border-b"
                         >
                             <div className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left">
-                                <h4 className="text-body font-bold">
+                                <h4 className="text-body text-typocolor-primary font-bold">
                                     {faq.question}
                                 </h4>
 
                                 <div
-                                    className={`text-typocolor-secondary duration-normal ease-standard flex-center rounded-full transition-transform ${
+                                    className={`text-typocolor-secondary transition-base flex-center rounded-full ${
                                         isOpen ? "rotate-45" : "rotate-0"
                                     }`}
                                 >
@@ -65,7 +65,7 @@ export default function FAQFormat({
 
                             {isOpen && (
                                 <div className="px-5 pb-5">
-                                    <p className="text-typocolor-muted text-small leading-relaxed">
+                                    <p className="text-typocolor-secondary text-small leading-relaxed">
                                         {faq.answer}
                                     </p>
 
@@ -73,7 +73,7 @@ export default function FAQFormat({
                                         <div className="mt-3">
                                             <Link
                                                 href={faq.link}
-                                                className="text-small text-malachite duration-fast ease-standard hover:text-malachite-rich inline-flex font-bold transition-colors"
+                                                className="text-small text-malachite hover:text-malachite-rich transition-base inline-flex font-bold"
                                             >
                                                 {faq.linkText}
                                             </Link>

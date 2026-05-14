@@ -28,9 +28,9 @@ export default function CTAFormat({
     bgTo = "#E3FFF0",
 }: CTAFormatProps) {
     return (
-        <section className="h-breathing-6812 v-breathing-20">
+        <section className="h-breathing v-breathing">
             <div
-                className="mx-auto flex max-w-4xl flex-col items-center gap-6 rounded-xl p-6 py-12 text-center sm:py-20 lg:py-24"
+                className="mx-auto flex max-w-4xl flex-col items-center gap-6 rounded-4 p-6 py-12 text-center sm:py-20 lg:py-24"
                 style={{
                     background: `linear-gradient(90deg, ${bgFrom}, ${bgTo})`,
                 }}
@@ -48,7 +48,7 @@ export default function CTAFormat({
                 ) : null}
 
                 {primaryAction || secondaryAction ? (
-                    <div className="mt-2 flex flex-col items-center gap-3 sm:flex-row">
+                    <div className="mt-2 flex flex-col items-center gap-6 md:flex-row">
                         {primaryAction ? (
                             <BrandBtn
                                 href={primaryAction.href}

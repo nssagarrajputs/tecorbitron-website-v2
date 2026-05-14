@@ -29,7 +29,7 @@ function BrandBtn({ href, children, variant = "primary" }: Props) {
             <span className="pl-4 whitespace-nowrap">{children}</span>
 
             <span
-                className={`flex h-10 w-10 items-center justify-center rounded-full transition-all duration-300 ${variantStyles.circle}`}
+                className={`flex-center transition-base h-10 w-10 rounded-full ${variantStyles.circle}`}
             >
                 <ArrowUpRight
                     size={20}

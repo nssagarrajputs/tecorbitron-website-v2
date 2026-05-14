@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import PageHero from "@/components/basic-ui/PageHero";
+import SectionContainer from "@/components/basic-ui/SectionContainer";
+import BrandBtn from "@/components/basic-ui/BrandBtn";
 
 export const metadata: Metadata = {
     title: "Terms & Conditions",
@@ -226,52 +228,43 @@ export default function TermsPage() {
                         Immediately"
             />
 
-            {/* ── CONTENT ── */}
-            <section className="bg-white px-4 py-16">
-                <div className="mx-auto max-w-5xl">
-                    {/* ── MAIN CONTENT ── */}
-                    <article className="flex min-w-0 flex-col gap-12">
-                        {/* Intro note */}
-                        <div className="bg-deepspace-dim border-deepspace/10 rounded-2xl border px-6 py-4">
-                            <p className="text-deepspace leading-relaxed font-medium">
-                                This is a legally binding agreement between you
-                                and Tecorbitron Solutions Private Limited. These
-                                Terms govern your use of our website,
-                                applications, and all services we provide.
-                                Jurisdiction: Ghaziabad, Uttar Pradesh, India.
-                            </p>
-                        </div>
+            <SectionContainer width="md">
+                {/* Intro note */}
+                <p className="text-body leading-relaxed font-semibold italic">
+                    This is a legally binding agreement between you and
+                    Tecorbitron Solutions Private Limited. These Terms govern
+                    your use of our website, applications, and all services we
+                    provide. Jurisdiction: Ghaziabad, Uttar Pradesh, India.
+                </p>
 
-                        {sections.map((section) => (
-                            <div
-                                key={section.id}
-                                id={section.id}
-                                className="flex scroll-mt-28 flex-col gap-4"
-                            >
-                                <h2 className="text-deepspace border-border border-b pb-3 text-lg font-bold">
-                                    {section.title}
-                                </h2>
-                                <div className="text-subtle leading-relaxed whitespace-pre-line">
-                                    {section.content}
-                                </div>
+                <article className="flex flex-col gap-12">
+                    {sections.map((section) => (
+                        <div
+                            key={section.id}
+                            id={section.id}
+                            className="flex flex-col gap-4"
+                        >
+                            <h2 className="text-typocolor-primary border-b pb-3 text-h4 font-bold">
+                                {section.title}
+                            </h2>
+                            <div className="text-typocolor-secondary text-body leading-relaxed whitespace-pre-line">
+                                {section.content}
                             </div>
-                        ))}
-
-                        {/* Bottom nav */}
-                        <div className="border-border mt-4 flex flex-wrap items-center justify-between gap-4 border-t pt-8">
-                            <p className="text-muted text-xs font-medium">
-                                Last Updated: October 15, 2025
-                            </p>
-                            <Link
-                                href="/privacy-policy"
-                                className="text-malachite-rich inline-flex items-center gap-1.5 text-xs font-bold hover:underline"
-                            >
-                                View Privacy Policy →
-                            </Link>
                         </div>
-                    </article>
+                    ))}
+                </article>
+
+                {/* Bottom nav */}
+                <div className="flex-center flex-wrap gap-8 border-t pt-8 md:justify-between">
+                    <p className="text-typocolor-muted text-small font-semibold">
+                        Last Updated: October 15, 2025
+                    </p>
+
+                    <BrandBtn href="/privacy-policy" variant="primary">
+                        View Privacy Policy
+                    </BrandBtn>
                 </div>
-            </section>
+            </SectionContainer>
         </main>
     );
 }

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import PageHero from "@/components/basic-ui/PageHero";
+import SectionContainer from "@/components/basic-ui/SectionContainer";
+import BrandBtn from "@/components/basic-ui/BrandBtn";
 
 export const metadata: Metadata = {
     title: "Privacy Policy",
@@ -203,53 +205,45 @@ export default function PrivacyPolicyPage() {
                 description=" Last Updated: October 23, 2025 &nbsp;·&nbsp; Effective
                         Immediately"
             />
-            {/* ── CONTENT ── */}
-            <section className="bg-white px-4 py-16">
-                <div className="mx-auto max-w-5xl">
-                    {/* ── MAIN CONTENT ── */}
-                    <article className="flex min-w-0 flex-col gap-12">
-                        {/* Intro note */}
-                        <div className="bg-malachite-dim border-malachite/20 rounded-2xl border px-6 py-4">
-                            <p className="text-malachite-rich leading-relaxed font-medium">
-                                This Privacy Policy applies to all users of
-                                Tecorbitron Solutions Pvt. Ltd.&apos;s website,
-                                applications, and services. We process data in
-                                accordance with the Information Technology Act,
-                                2000 and applicable Indian data protection
-                                regulations.
-                            </p>
-                        </div>
+            
+            <SectionContainer width="md">
+                {/* Intro note */}
+                <p className="text-body leading-relaxed font-semibold italic">
+                    This Privacy Policy applies to all users of Tecorbitron
+                    Solutions Pvt. Ltd.&apos;s website, applications, and
+                    services. We process data in accordance with the Information
+                    Technology Act, 2000 and applicable Indian data protection
+                    regulations.
+                </p>
 
-                        {sections.map((section) => (
-                            <div
-                                key={section.id}
-                                id={section.id}
-                                className="flex scroll-mt-28 flex-col gap-4"
-                            >
-                                <h2 className="text-deepspace border-border border-b pb-3 text-lg font-bold">
-                                    {section.title}
-                                </h2>
-                                <div className="text-subtle leading-relaxed whitespace-pre-line">
-                                    {section.content}
-                                </div>
+                <article className="flex flex-col gap-12">
+                    {sections.map((section) => (
+                        <div
+                            key={section.id}
+                            id={section.id}
+                            className="flex flex-col gap-4"
+                        >
+                            <h2 className="text-typocolor-primary border-b pb-3 text-h4 font-bold">
+                                {section.title}
+                            </h2>
+                            <div className="text-typocolor-secondary text-body leading-relaxed whitespace-pre-line">
+                                {section.content}
                             </div>
-                        ))}
-
-                        {/* Bottom nav */}
-                        <div className="border-border mt-4 flex flex-wrap items-center justify-between gap-4 border-t pt-8">
-                            <p className="text-muted text-xs font-medium">
-                                Last Updated: October 15, 2025
-                            </p>
-                            <Link
-                                href="/terms"
-                                className="text-malachite-rich inline-flex items-center gap-1.5 text-xs font-bold hover:underline"
-                            >
-                                View Terms & Conditions →
-                            </Link>
                         </div>
-                    </article>
+                    ))}
+                </article>
+
+                {/* Bottom nav */}
+                <div className="flex-center flex-wrap gap-8 border-t pt-8 md:justify-between">
+                    <p className="text-typocolor-muted text-small font-semibold">
+                        Last Updated: October 15, 2025
+                    </p>
+
+                    <BrandBtn href="/terms" variant="primary">
+                        View Terms & Conditions
+                    </BrandBtn>
                 </div>
-            </section>
+            </SectionContainer>
         </main>
     );
 }

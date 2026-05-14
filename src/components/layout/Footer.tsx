@@ -68,7 +68,7 @@ export default function Footer() {
                 {/* Quick Links */}
                 <div>
                     <h3 className="mb-6 font-bold">Quick Links</h3>
-                    <div className="**:hover:text-malachite flex flex-col gap-3 transition-all **:w-fit">
+                    <div className="**:hover:text-malachite transition-base flex flex-col gap-3 **:w-fit">
                         <Link href="/about">About</Link>
                         <Link href="/services">Services</Link>
                         <Link href="/portfolio">Portfolio</Link>
@@ -79,7 +79,7 @@ export default function Footer() {
                 {/* Important */}
                 <div>
                     <h3 className="mb-6 font-bold">Importants</h3>
-                    <div className="**:hover:text-malachite flex flex-col gap-3 transition-all **:w-fit">
+                    <div className="**:hover:text-malachite transition-base flex flex-col gap-3 **:w-fit">
                         <Link href="/contact">Contact Us</Link>
                         <Link href="/privacy-policy">Privacy Policy</Link>
                         <Link href="/terms">Terms</Link>
@@ -89,7 +89,7 @@ export default function Footer() {
                 {/* Get In Touch */}
                 <div>
                     <h3 className="mb-6 font-bold">Get In Touch</h3>
-                    <div className="**:hover:text-malachite flex flex-col gap-3 transition-all **:w-fit">
+                    <div className="**:hover:text-malachite transition-base flex flex-col gap-3 **:w-fit">
                         <span>Ghaziabad, NCR, India</span>
                         <a href="mailto:info@tecorbitron.com">
                             info@tecorbitron.com
@@ -101,7 +101,7 @@ export default function Footer() {
 
             {/* Copyright */}
             <div className="mt-12">
-                <div className="border-border mx-auto flex max-w-7xl justify-center border-t px-4 py-8">
+                <div className="mx-auto flex max-w-7xl justify-center border-t px-4 py-8">
                     <small className="text-small">
                         © {year} Tecorbitron Solutions Pvt. Ltd.
                     </small>
