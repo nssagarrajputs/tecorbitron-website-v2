@@ -68,7 +68,7 @@ export default function Testimonials() {
                 {testimonials.map((review) => (
                     <div
                         key={review.companyName}
-                        className="mx-auto max-w-4xl cardbox p-6"
+                        className="cardbox mx-auto max-w-4xl p-6"
                     >
                         <div className="text-typocolor-muted flex items-center gap-2 select-none">
                             {review.rating}
@@ -77,7 +77,7 @@ export default function Testimonials() {
                             <Verified size={16} className="text-info" />
                         </div>
 
-                        <p className="text-body mt-4 mb-8 line-clamp-4 leading-relaxed">
+                        <p className="text-body text-typocolor-secondary mt-4 mb-8 line-clamp-4 leading-relaxed">
                             {review.quote}
                         </p>
                         <div className="flex items-center justify-between">

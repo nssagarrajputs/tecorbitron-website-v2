@@ -99,11 +99,11 @@ export default function StatsBand() {
                         variants={itemVariants}
                         className={`flex flex-col items-center gap-2 text-center ${
                             index < stats.length - 1
-                                ? "lg:border-border-strong lg:border-r"
+                                ? "lg:border-base lg:border-r"
                                 : ""
                         }`}
                     >
-                        <p className="text-malachite-soft text-h2 font-black tracking-tight">
+                        <p className="text-malachite-soft text-h1 font-black tracking-tight">
                             <CountUp
                                 target={stat.value}
                                 suffix={stat.suffix}

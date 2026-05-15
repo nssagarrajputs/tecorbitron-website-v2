@@ -37,9 +37,9 @@ const channels = [
 export default function WaysToConnect() {
     return (
         <SectionContainer width="lg">
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-12">
+            <div className="grid grid-cols-1 gap-6 gap-y-40 md:grid-cols-2 lg:gap-12">
                 {/* ── LEFT — HQ Info ── */}
-                <div className="shadow-0 rounded-4 flex flex-col gap-12 border p-6 lg:p-8">
+                <div className="cardbox flex flex-col gap-12 p-6 lg:p-8">
                     {/* Address */}
                     <div className="flex flex-col gap-4">
                         <div className="flex items-center gap-2">
@@ -96,7 +96,7 @@ export default function WaysToConnect() {
                 </div>
 
                 {/* ── RIGHT — Channels ── */}
-                <div className="shadow-soft rounded-4 flex flex-col gap-8 border p-6 lg:p-8">
+                <div className="cardbox flex flex-col gap-8 p-6 lg:p-8">
                     <div className="flex items-center gap-2">
                         <LinkIcon
                             size={18}
@@ -114,9 +114,9 @@ export default function WaysToConnect() {
                                 href={item.link}
                                 target={item.external ? "_blank" : "_self"}
                                 rel="noopener noreferrer"
-                                className="hover:border-malachite shadow-soft rounded-3 transition-base flex w-full gap-4 border bg-white p-4"
+                                className="hover:border-malachite shadow-soft border-base rounded-3 transi-base flex w-full gap-4 border bg-white p-4"
                             >
-                                <div className="bg-malachite-dim rounded-2 flex-center transition-base h-10 w-10">
+                                <div className="bg-malachite-dim rounded-2 flex-center h-10 w-10">
                                     <Icon
                                         size={18}
                                         className="text-malachite-rich"

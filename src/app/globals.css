@@ -164,7 +164,8 @@
 
 @utility transi-base {
     transition-property:
-        color, background-color, border-color, box-shadow, transform, rotate;
+        color, background-color, border-color, box-shadow, transform, rotate,
+        all;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 300ms;
 }
@@ -174,16 +175,14 @@
 /* Reusable semantic classes                                                  */
 /* -------------------------------------------------------------------------- */
 
-@layer components {
-    .cardbox {
-        @apply rounded-4;
-    }
+@utility cardbox {
+    @apply rounded-4 shadow-soft border-base bg-bkg-primary border;
+}
 
-    .form-field {
-        @apply text-small w-full px-4 py-3 font-semibold;
-        @apply rounded-3 shadow-soft;
-        @apply focus:border-malachite transi-base outline-none;
-    }
+@utility form-field {
+    @apply text-small w-full px-4 py-3 font-semibold;
+    @apply rounded-3 shadow-soft border-base border;
+    @apply focus:border-malachite transi-base outline-none;
 }
 
 /* ------------------------------------------------------------------------ */

@@ -75,7 +75,7 @@ export default function Solutions() {
                 {solution.map(({ title, icon: Icon, description }) => (
                     <div
                         key={title}
-                        className="rounded-4 shadow-card border p-6"
+                        className="cardbox hover:border-malachite transi-base p-6"
                     >
                         <Icon size={40} strokeWidth={1} />
 

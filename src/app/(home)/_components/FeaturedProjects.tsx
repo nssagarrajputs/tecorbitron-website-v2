@@ -42,7 +42,7 @@ export default async function FeaturedProjects() {
                 {projects.map((project) => (
                     <div
                         key={project.slug}
-                        className="cardbox mx-auto flex max-w-120 flex-col overflow-hidden"
+                        className="cardbox hover:border-malachite transi-base mx-auto flex max-w-120 flex-col overflow-hidden"
                     >
                         {/* Thumbnail */}
                         <div className="bg-deepspace relative h-52 overflow-hidden">
@@ -73,7 +73,7 @@ export default async function FeaturedProjects() {
 
                         {/* Content */}
                         <div className="flex flex-col gap-2 p-6">
-                            <h3 className="text-h4 font-black">
+                            <h3 className="text-h4 font-bold tracking-tight">
                                 {project.projectName}
                             </h3>
 
@@ -81,7 +81,7 @@ export default async function FeaturedProjects() {
 
                             <Link
                                 href={`/portfolio/${project.slug}`}
-                                className="text-small rounded-2 shadow-soft mt-4 w-fit border px-4 py-2 select-none"
+                                className="text-small rounded-2 shadow-soft border-base mt-4 w-fit border px-4 py-2 select-none"
                             >
                                 View case study
                             </Link>

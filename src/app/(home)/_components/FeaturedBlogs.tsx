@@ -43,7 +43,7 @@ export default async function FeaturedBlogs() {
                 {posts.map((post) => (
                     <div
                         key={post.slug}
-                        className="cardbox mx-auto flex max-w-120 flex-col overflow-hidden"
+                        className="cardbox hover:border-malachite transi-base mx-auto flex max-w-120 flex-col overflow-hidden"
                     >
                         {/* Thumbnail */}
                         <div className="bg-deepspace relative h-44 overflow-hidden">
@@ -78,7 +78,7 @@ export default async function FeaturedBlogs() {
                             <div className="mt-4 flex items-center justify-between">
                                 <Link
                                     href={`/blog/${post.slug}`}
-                                    className="shadow-soft text-small rounded-2 w-fit border px-4 py-2 select-none"
+                                    className="shadow-soft text-small border-base rounded-2 w-fit border px-4 py-2 select-none"
                                 >
                                     Read blog
                                 </Link>

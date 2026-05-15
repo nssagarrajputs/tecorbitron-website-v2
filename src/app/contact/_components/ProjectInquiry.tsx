@@ -101,11 +101,11 @@ export default function ProjectInquiry() {
                 </div>
 
                 {/* ── RIGHT — Form or Success (scoped) ── */}
-                <div className="shadow-soft rounded-4 flex flex-col gap-8 border p-6 md:p-8">
+                <div className="cardbox flex flex-col gap-8 p-6 md:p-8">
                     {status === "success" ? (
-                        <div className="flex flex-1 flex-col items-center justify-center gap-4 py-12 text-center">
-                            <div className="bg-malachite-opac flex h-16 w-16 items-center justify-center rounded-full">
-                                <span className="text-malachite text-3xl font-bold">
+                        <div className="flex-center flex-1 flex-col gap-4 py-12 text-center">
+                            <div className="bg-malachite-dim flex-center h-16 w-16 rounded-full">
+                                <span className="text-malachite text-h3 font-bold">
                                     ✓
                                 </span>
                             </div>
@@ -128,8 +128,8 @@ export default function ProjectInquiry() {
                                 </h2>
                                 <p className="text-small text-typocolor-muted mt-2 leading-relaxed">
                                     Have a question or want to discuss your
-                                    project? Submit your request below and
-                                    {" we'll"} get back within 24 hours.
+                                    project? Submit your request below and{" "}
+                                    {"we'll"} get back within 24 hours.
                                 </p>
                             </div>
                             <form
@@ -143,7 +143,7 @@ export default function ProjectInquiry() {
                                     value={form.name}
                                     onChange={handleChange}
                                     placeholder="Full Name"
-                                    className="pi-form-field"
+                                    className="form-field"
                                     required
                                 />
                                 <input
@@ -153,7 +153,7 @@ export default function ProjectInquiry() {
                                     value={form.company}
                                     onChange={handleChange}
                                     placeholder="Company / Brand Name"
-                                    className="pi-form-field"
+                                    className="form-field"
                                 />
                                 <input
                                     name="email"
@@ -162,7 +162,7 @@ export default function ProjectInquiry() {
                                     value={form.email}
                                     onChange={handleChange}
                                     placeholder="Work Email"
-                                    className="pi-form-field"
+                                    className="form-field"
                                     required
                                 />
                                 <input
@@ -172,7 +172,7 @@ export default function ProjectInquiry() {
                                     value={form.phone}
                                     onChange={handleChange}
                                     placeholder="Phone Number"
-                                    className="pi-form-field"
+                                    className="form-field"
                                     required
                                 />
                                 <textarea
@@ -181,7 +181,7 @@ export default function ProjectInquiry() {
                                     value={form.description}
                                     onChange={handleChange}
                                     placeholder="Tell us about your project, goals, features, or current challenges."
-                                    className="pi-form-field w-full resize-none sm:col-span-2"
+                                    className="form-field w-full resize-none sm:col-span-2"
                                     required
                                 />
                                 <div className="flex flex-col items-start gap-3 pt-1 sm:col-span-2 sm:flex-row sm:items-center">

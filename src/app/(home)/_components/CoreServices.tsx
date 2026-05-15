@@ -76,7 +76,7 @@ export default function CoreServices() {
                 {services.map((service) => (
                     <div
                         key={service.name}
-                        className="bg-bkg-page border rounded-4 shadow-card flex flex-col justify-between gap-4 p-6"
+                        className="cardbox hover:border-malachite transi-base flex flex-col justify-between gap-4 p-6 lg:p-8"
                     >
                         {/* Icon */}
                         <div className="flex h-18 w-18 items-center justify-center select-none">
@@ -97,7 +97,7 @@ export default function CoreServices() {
                             {service.tags.map((tag) => (
                                 <span
                                     key={tag}
-                                    className="bg-bkg-card shadow-soft text-typocolor-muted text-xmall rounded-full border px-2 py-0.5 font-semibold select-none"
+                                    className="bg-bkg-secondary shadow-soft text-typocolor-muted text-xmall border-base rounded-full border px-2 py-0.5 font-semibold select-none"
                                 >
                                     {tag}
                                 </span>

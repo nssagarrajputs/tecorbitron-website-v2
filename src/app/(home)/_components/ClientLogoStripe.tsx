@@ -1,4 +1,3 @@
-"use client";
 import Image from "next/image";
 
 import logo1 from "@/assets/client-stripe/1.png";
@@ -61,7 +60,7 @@ export default function ClientLogoStripe() {
                         <Image
                             src={logo.src}
                             alt={logo.name}
-                            className="h-full w-auto object-contain transition-all duration-300"
+                            className="transi-base h-full w-auto object-contain"
                         />
                     </div>
                 ))}
@@ -82,7 +81,7 @@ export default function ClientLogoStripe() {
                         <Image
                             src={logo.src}
                             alt={logo.name}
-                            className="h-full w-auto object-contain transition-all duration-300"
+                            className="transi-base h-full w-auto object-contain"
                         />
                     </div>
                 ))}
