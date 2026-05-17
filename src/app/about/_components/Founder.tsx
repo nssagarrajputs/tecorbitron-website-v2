@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import FounderImage from "@/assets/about/founder.png";
+import FounderImage from "@/assets/other/founder.png";
 import Eypill from "@/components/basic-ui/Eypill";
 
 export default function Founder() {

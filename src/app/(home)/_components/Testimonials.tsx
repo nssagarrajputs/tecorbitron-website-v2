@@ -1,8 +1,7 @@
 "use client";
 import { Star, Verified } from "lucide-react";
 import Image from "next/image";
-import SectionHeader from "@/components/basic-ui/SectionHeader";
-import DefaultAvatar from "@/assets/clients-testimonials/default-avatar.jpg";
+import DefaultAvatar from "@/assets/other/default-avatar.png";
 import SectionContainer from "@/components/basic-ui/SectionContainer";
 
 const testimonials = [

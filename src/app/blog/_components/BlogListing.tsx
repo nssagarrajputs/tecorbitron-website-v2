@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+
 import Image from "next/image";
 import SectionContainer from "@/components/basic-ui/SectionContainer";
+import DefBlogThumbnail from "@/assets/other/default-thumbnail.webp";
 
 type Post = {
     title: string;
@@ -71,10 +72,9 @@ export default function BlogListing({ posts, categories }: Props) {
             {filtered.length > 0 ? (
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                     {filtered.map((post) => (
-                        <Link
+                        <div
                             key={post.slug}
-                            href={`/blog/${post.slug}`}
-                            className="group border-border hover:border-malachite hover:shadow-deepspace/10 flex flex-col overflow-hidden rounded-2xl border bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                            className="group hover:border-malachite cardbox transi-base flex flex-col overflow-hidden"
                         >
                             {/* Thumbnail */}
                             <div className="bg-deepspace relative h-44 overflow-hidden">
@@ -87,49 +87,41 @@ export default function BlogListing({ posts, categories }: Props) {
                                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                     />
                                 ) : (
-                                    <div className="from-deepspace to-deepspace-soft absolute inset-0 bg-linear-to-br">
-                                        <div
-                                            className="absolute inset-0 opacity-10"
-                                            style={{
-                                                backgroundImage:
-                                                    "radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px)",
-                                                backgroundSize: "24px 24px",
-                                            }}
-                                        />
-                                        <span className="absolute inset-0 flex items-center justify-center text-5xl font-black text-white/10">
-                                            {post.title.charAt(0)}
-                                        </span>
-                                    </div>
+                                    <Image
+                                        src={DefBlogThumbnail}
+                                        alt={post.title}
+                                        fill
+                                        className="object-cover"
+                                    />
                                 )}
-                                <div className="absolute top-4 left-4 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-bold text-white backdrop-blur-sm">
-                                    {post.category}
-                                </div>
                             </div>
 
                             {/* Content */}
-                            <div className="flex flex-1 flex-col gap-4 p-5">
-                                <h3 className="text-deepspace group-hover:text-malachite-rich text-base leading-snug font-black transition-colors duration-200">
+                            <div className="flex flex-col gap-4 p-6">
+                                <h3 className="text-typocolor-primary text-body leading-snug font-bold">
                                     {post.title}
                                 </h3>
-                                <div className="border-border mt-auto flex items-center justify-between border-t pt-3">
-                                    <span className="text-muted text-xs font-medium">
-                                        {formatDate(post.publishedAt)} ·{" "}
-                                        {post.readTime} min read
-                                    </span>
-                                    <span className="text-malachite-rich inline-flex items-center gap-1 text-xs font-bold transition-all duration-200 group-hover:gap-2">
-                                        Read <ArrowRight size={11} />
+                                <div className="mt-auto flex items-center justify-between pt-3">
+                                    <Link
+                                        href={`/blog/${post.slug}`}
+                                        className="action-btn"
+                                    >
+                                        View Blog
+                                    </Link>
+                                    <span className="text-typocolor-muted text-xmall font-semibold">
+                                        {formatDate(post.publishedAt)}
                                     </span>
                                 </div>
                             </div>
-                        </Link>
+                        </div>
                     ))}
                 </div>
             ) : (
-                <div className="flex flex-col items-center gap-3 py-20 text-center">
-                    <p className="text-deepspace/20 text-2xl font-black">
-                        No articles yet
+                <div className="v-breathing flex flex-col gap-3 text-center">
+                    <p className="text-typocolor-secondary text-h3 font-black">
+                        No articles posted
                     </p>
-                    <p className="text-muted text-sm font-light">
+                    <p className="text-typocolor-muted text-body">
                         Check back soon.
                     </p>
                 </div>

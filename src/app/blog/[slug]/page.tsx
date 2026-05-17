@@ -12,9 +12,9 @@ import type {
 } from "@portabletext/react";
 import { ArrowLeft, ArrowRight, Clock, Calendar, User } from "lucide-react";
 import { client } from "@/sanity/client";
-import NewsletterCTA from "@/app/blog/_components/NewsletterCTA";
 import { BLOG_DETAIL_QUERY, BLOG_RELATED_QUERY } from "@/sanity/queries/blog";
 import StructuredData, { blogPostSchema } from "@/components/StructuredData";
+import SectionContainer from "@/components/basic-ui/SectionContainer";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -416,241 +416,135 @@ export default async function BlogPostPage(props: {
                     </div>
                 </div>
             </section>
+
             {/* ── CONTENT ── */}
-            <section className="bg-white px-4 py-16">
-                <div className="mx-auto max-w-6xl">
-                    <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_240px]">
-                        {/* ── MAIN ── */}
-                        <article className="flex min-w-0 flex-col gap-6">
-                            {/* Back */}
-                            <Link
-                                href="/blog"
-                                className="text-muted hover:text-deepspace inline-flex w-fit items-center gap-1.5 text-xs font-bold transition-colors duration-200"
-                            >
-                                <ArrowLeft size={13} /> Back to Blog
-                            </Link>
 
-                            {/* Excerpt */}
-                            {post.excerpt && (
-                                <p className="text-deepspace border-malachite border-l-4 pl-5 text-lg leading-relaxed">
-                                    {post.excerpt}
-                                </p>
-                            )}
+            <SectionContainer width="md">
+                <div className="">
+                    {/* ── MAIN ── */}
+                    <article className="flex min-w-0 flex-col gap-6">
+                        {/* Back */}
+                        <Link
+                            href="/blog"
+                            className="text-muted hover:text-deepspace inline-flex w-fit items-center gap-1.5 text-xs font-bold transition-colors duration-200"
+                        >
+                            <ArrowLeft size={13} /> Back to Blog
+                        </Link>
 
-                            {/* Body */}
-                            <div className="flex flex-col gap-5">
-                                <PortableText
-                                    value={post.body}
-                                    components={ptComponents}
-                                />
+                        {/* Excerpt */}
+                        {post.excerpt && (
+                            <p className="text-deepspace border-malachite border-l-4 pl-5 text-lg leading-relaxed">
+                                {post.excerpt}
+                            </p>
+                        )}
+
+                        {/* Body */}
+                        <div className="flex flex-col gap-5">
+                            <PortableText
+                                value={post.body}
+                                components={ptComponents}
+                            />
+                        </div>
+
+                        {/* Tags */}
+                        {post.tags?.length > 0 && (
+                            <div className="border-border mt-2 flex flex-wrap gap-2 border-t pt-6">
+                                {post.tags.map((tag) => (
+                                    <span
+                                        key={tag}
+                                        className="bg-surface border-border text-muted rounded-full border px-3 py-1 text-xs font-semibold"
+                                    >
+                                        #{tag}
+                                    </span>
+                                ))}
                             </div>
+                        )}
 
-                            {/* Tags */}
-                            {post.tags?.length > 0 && (
-                                <div className="border-border mt-2 flex flex-wrap gap-2 border-t pt-6">
-                                    {post.tags.map((tag) => (
-                                        <span
-                                            key={tag}
-                                            className="bg-surface border-border text-muted rounded-full border px-3 py-1 text-xs font-semibold"
-                                        >
-                                            #{tag}
-                                        </span>
-                                    ))}
-                                </div>
-                            )}
-
-                            {/* Author card */}
-                            {post.author && (
-                                <div className="bg-surface border-border mt-2 flex items-start gap-4 rounded-2xl border p-5">
-                                    {post.author.photo ? (
-                                        <Image
-                                            src={post.author.photo}
-                                            alt={post.author.name}
-                                            width={52}
-                                            height={52}
-                                            className="shrink-0 rounded-full object-cover"
-                                        />
-                                    ) : (
-                                        <div className="bg-deepspace flex h-13 w-13 shrink-0 items-center justify-center rounded-full text-lg font-black text-white">
-                                            {post.author.name.charAt(0)}
-                                        </div>
-                                    )}
-                                    <div className="flex flex-col gap-0.5">
-                                        <span className="text-deepspace text-sm font-black">
-                                            {post.author.name}
-                                        </span>
-                                        <span className="text-muted text-xs font-medium">
-                                            {post.author.role}
-                                        </span>
+                        {/* Author card */}
+                        {post.author && (
+                            <div className="bg-surface border-border mt-2 flex items-start gap-4 rounded-2xl border p-5">
+                                {post.author.photo ? (
+                                    <Image
+                                        src={post.author.photo}
+                                        alt={post.author.name}
+                                        width={52}
+                                        height={52}
+                                        className="shrink-0 rounded-full object-cover"
+                                    />
+                                ) : (
+                                    <div className="bg-deepspace flex h-13 w-13 shrink-0 items-center justify-center rounded-full text-lg font-black text-white">
+                                        {post.author.name.charAt(0)}
                                     </div>
+                                )}
+                                <div className="flex flex-col gap-0.5">
+                                    <span className="text-deepspace text-sm font-black">
+                                        {post.author.name}
+                                    </span>
+                                    <span className="text-muted text-xs font-medium">
+                                        {post.author.role}
+                                    </span>
                                 </div>
-                            )}
-
-                            {/* Related Posts */}
-                            {related?.length > 0 && (
-                                <div className="border-border mt-2 flex flex-col gap-5 border-t pt-8">
-                                    <h2 className="text-deepspace text-lg font-black">
-                                        More Articles
-                                    </h2>
-                                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-                                        {related.map((rel) => (
-                                            <Link
-                                                key={rel.slug}
-                                                href={`/blog/${rel.slug}`}
-                                                className="group border-border bg-surface hover:border-malachite flex flex-col overflow-hidden rounded-2xl border transition-all duration-300 hover:-translate-y-0.5"
-                                            >
-                                                <div className="bg-deepspace relative h-32 overflow-hidden">
-                                                    {rel.coverImage ? (
-                                                        <Image
-                                                            src={rel.coverImage}
-                                                            alt={rel.title}
-                                                            fill
-                                                            className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                                            sizes="(max-width: 640px) 100vw, 33vw"
-                                                        />
-                                                    ) : (
-                                                        <div className="from-deepspace to-deepspace-soft flex h-full items-center justify-center bg-linear-to-br">
-                                                            <span className="text-3xl font-black text-white/10">
-                                                                {rel.title.charAt(
-                                                                    0,
-                                                                )}
-                                                            </span>
-                                                        </div>
-                                                    )}
-                                                </div>
-                                                <div className="flex flex-col gap-1.5 p-4">
-                                                    {rel.category && (
-                                                        <span className="text-malachite-rich text-xs font-bold">
-                                                            {rel.category}
-                                                        </span>
-                                                    )}
-                                                    <h3 className="text-deepspace group-hover:text-malachite-rich line-clamp-2 text-sm leading-snug font-black transition-colors duration-200">
-                                                        {rel.title}
-                                                    </h3>
-                                                    <span className="text-muted mt-0.5 text-xs font-medium">
-                                                        {formatDate(
-                                                            rel.publishedAt,
-                                                        )}
-                                                    </span>
-                                                </div>
-                                            </Link>
-                                        ))}
-                                    </div>
-                                </div>
-                            )}
-                        </article>
-
-                        {/* ── SIDEBAR ── */}
-                        <aside className="sticky top-28 hidden h-fit flex-col gap-4 lg:flex">
-                            {/* Author */}
-                            {post.author && (
-                                <div className="bg-surface border-border flex flex-col gap-3 rounded-2xl border p-5">
-                                    <h3 className="text-muted text-xs font-black tracking-wider uppercase">
-                                        Written by
-                                    </h3>
-                                    <div className="flex items-center gap-3">
-                                        {post.author.photo ? (
+                            </div>
+                        )}
+                    </article>
+                </div>
+                {/* Related Posts */}
+                {related?.length > 0 && (
+                    <div className="border-base section-vlex-gap border-t pt-12">
+                        <h3 className="text-typocolor-primary text-h3 font-black">
+                            More{" "}
+                            <span className="text-malachite">Articles</span>
+                        </h3>
+                        <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+                            {related.map((rel) => (
+                                <div
+                                    key={rel.slug}
+                                    className="group hover:border-malachite cardbox flex flex-col overflow-hidden"
+                                >
+                                    <div className="bg-deepspace relative h-32 overflow-hidden">
+                                        {rel.coverImage ? (
                                             <Image
-                                                src={post.author.photo}
-                                                alt={post.author.name}
-                                                width={40}
-                                                height={40}
-                                                className="shrink-0 rounded-full object-cover"
+                                                src={rel.coverImage}
+                                                alt={rel.title}
+                                                fill
+                                                className="object-cover"
                                             />
                                         ) : (
-                                            <div className="bg-deepspace flex h-10 w-10 shrink-0 items-center justify-center rounded-full font-black text-white">
-                                                {post.author.name.charAt(0)}
+                                            <div className="from-deepspace to-deepspace-soft flex h-full items-center justify-center bg-linear-to-br">
+                                                <span className="text-3xl font-black text-white/10">
+                                                    {rel.title.charAt(0)}
+                                                </span>
                                             </div>
                                         )}
-                                        <div className="flex flex-col gap-0.5">
-                                            <span className="text-deepspace text-sm font-black">
-                                                {post.author.name}
-                                            </span>
-                                            <span className="text-muted text-xs font-medium">
-                                                {post.author.role}
-                                            </span>
-                                        </div>
                                     </div>
-                                </div>
-                            )}
+                                    <div className="flex flex-col gap-6 p-4">
+                                        {rel.category && (
+                                            <span className="text-typocolor-muted text-xmall font-bold">
+                                                {rel.category}
+                                            </span>
+                                        )}
+                                        <h3 className="text-typocolor-primary text-small line-clamp-2 leading-snug font-bold">
+                                            {rel.title}
+                                        </h3>
 
-                            {/* Post meta */}
-                            <div className="bg-surface border-border flex flex-col gap-3 rounded-2xl border p-5">
-                                <h3 className="text-muted text-xs font-black tracking-wider uppercase">
-                                    Post Info
-                                </h3>
-                                <div className="flex flex-col gap-2.5 text-xs">
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-muted font-medium">
-                                            Published
-                                        </span>
-                                        <span className="text-deepspace font-bold">
-                                            {formatDate(post.publishedAt)}
-                                        </span>
-                                    </div>
-                                    {post.readTime && (
                                         <div className="flex items-center justify-between">
-                                            <span className="text-muted font-medium">
-                                                Read time
-                                            </span>
-                                            <span className="text-deepspace font-bold">
-                                                {post.readTime} min
-                                            </span>
-                                        </div>
-                                    )}
-                                    {post.category && (
-                                        <div className="flex items-center justify-between">
-                                            <span className="text-muted font-medium">
-                                                Category
-                                            </span>
-                                            <span className="text-malachite-rich font-bold">
-                                                {post.category}
-                                            </span>
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
-
-                            {/* Tags */}
-                            {post.tags?.length > 0 && (
-                                <div className="bg-surface border-border flex flex-col gap-3 rounded-2xl border p-5">
-                                    <h3 className="text-muted text-xs font-black tracking-wider uppercase">
-                                        Tags
-                                    </h3>
-                                    <div className="flex flex-wrap gap-1.5">
-                                        {post.tags.map((tag) => (
-                                            <span
-                                                key={tag}
-                                                className="border-border text-muted rounded-full border bg-white px-2.5 py-0.5 text-xs font-semibold"
+                                            <Link
+                                                href={`/blog/${rel.slug}`}
+                                                className="action-btn"
                                             >
-                                                #{tag}
+                                                View Blog
+                                            </Link>
+                                            <span className="text-typocolor-muted text-xmall">
+                                                {formatDate(rel.publishedAt)}
                                             </span>
-                                        ))}
+                                        </div>
                                     </div>
                                 </div>
-                            )}
-
-                            {/* CTA */}
-                            <div className="bg-deepspace flex flex-col gap-3 rounded-2xl p-5">
-                                <p className="text-malachite text-xs font-black tracking-wider uppercase">
-                                    Need help?
-                                </p>
-                                <p className="text-xs leading-relaxed font-light text-white/50">
-                                    We build fast, modern websites and apps for
-                                    businesses like yours.
-                                </p>
-                                <Link
-                                    href="/contact"
-                                    className="bg-malachite text-deepspace-deep hover:bg-malachite-soft inline-flex items-center justify-center gap-1.5 rounded-full px-4 py-2.5 text-xs font-bold transition-all duration-200"
-                                >
-                                    Get in Touch <ArrowRight size={12} />
-                                </Link>
-                            </div>
-                        </aside>
+                            ))}
+                        </div>
                     </div>
-                </div>
-            </section>
-            <NewsletterCTA />
+                )}
+            </SectionContainer>
         </main>
     );
 }
