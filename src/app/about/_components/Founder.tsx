@@ -1,28 +1,24 @@
 import Image from "next/image";
 import Link from "next/link";
 import FounderImage from "@/assets/about/founder.png";
+import Eypill from "@/components/basic-ui/Eypill";
 
 export default function Founder() {
     return (
-        <section className="overflow-hidden bg-white px-4">
+        <section className="h-breathing overflow-hidden">
             <div className="mx-auto max-w-6xl">
                 <div className="grid grid-cols-1 lg:grid-cols-2">
                     <div className="flex flex-col gap-8 pt-20">
-                        {/* Eyebrow */}
-                        <div className="bg-malachite-dim inline-flex w-fit items-center gap-2 rounded-full px-4 py-1.5">
-                            <span className="bg-malachite h-1.5 w-1.5 rounded-full" />
-                            <span className="text-malachite-rich text-xs font-bold tracking-widest uppercase">
-                                The Founder
-                            </span>
-                        </div>
-
                         {/* Name + Title */}
                         <div className="flex flex-col gap-2">
-                            <h2 className="text-deepspace text-5xl font-black tracking-tight sm:text-5xl">
+                            <div className="w-fit">
+                                <Eypill text="The Founder" />
+                            </div>
+                            <h2 className="text-typocolor-primary text-h2 font-black tracking-tight">
                                 Sagar{" "}
                                 <span className="text-malachite">Chauhan</span>
                             </h2>
-                            <p className="text-muted text-base font-semibold">
+                            <p className="text-typocolor-muted text-small font-semibold">
                                 Founder & CEO — Tecorbitron Solutions Pvt. Ltd.
                             </p>
                         </div>
@@ -31,7 +27,7 @@ export default function Founder() {
                         <div className="bg-malachite h-px w-16" />
 
                         {/* Bio */}
-                        <div className="flex flex-col gap-4 leading-relaxed">
+                        <div className="text-small flex flex-col gap-4 leading-relaxed">
                             <p>
                                 Sagar founded Tecorbitron with a clear vision —
                                 to build a technology company that prioritises
@@ -62,7 +58,7 @@ export default function Founder() {
                             href="https://www.linkedin.com/in/nssagarrajput"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-deepspace hover:text-malachite w-fit font-bold transition-colors duration-200"
+                            className="text-typocolor-primary hover:text-malachite transi-base w-fit font-bold"
                         >
                             LinkedIn
                         </Link>

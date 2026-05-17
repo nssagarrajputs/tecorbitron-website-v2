@@ -1,4 +1,5 @@
-import SectionHeader from "@/components/basic-ui/SectionHeader";
+import SectionContainer from "@/components/basic-ui/SectionContainer";
+import { LinkIcon } from "lucide-react";
 
 const details = [
     { label: "Legal Name", value: "Tecorbitron Solutions Pvt. Ltd." },
@@ -9,41 +10,44 @@ const details = [
 
 export default function Credibility() {
     return (
-        <section className="bg-bkg-primary h-breathing-468 v-breathing-20">
-            <div className="section-vlex-gap mx-auto max-w-7xl">
-                <SectionHeader
-                    eyebrow="Credibility"
-                    heading="A Company You Can Trust"
-                    highlight="Trust"
-                    support="We are a fully registered Private Limited company — not
+        <SectionContainer
+            width="md"
+            eyebrow="Credibility"
+            heading="A Company You Can Trust"
+            highlight="Trust"
+            support="We are a fully registered Private Limited company — not
                         a freelancer or unregistered agency. Enterprise clients
                         and international partners can verify our credentials
                         through official channels."
-                />
+        >
+            <h3 className="text-body -mb-8 text-center font-bold">
+                -: Key Information Details :-
+            </h3>
+            <div className="grid grid-cols-1 gap-4 lg:gap-8 md:grid-cols-2">
+                {details.map((detail) => (
+                    <div
+                        key={detail.label}
+                        className="cardbox hover:border-malachite transi-base flex flex-col gap-4 p-4 md:p-6"
+                    >
+                        <div className="flex items-center gap-2">
+                            <LinkIcon
+                                size={18}
+                                className="text-malachite shrink-0"
+                            />
+                            <p className="text-body font-bold uppercase">
+                                {detail.label}
+                            </p>
+                        </div>
 
-                <div className="border-border-strong mx-auto mt-8 w-full max-w-3xl overflow-hidden rounded-lg border">
-                    <div className="border-border-strong border-b px-6 py-4">
-                        <h3 className="text-body font-black">
-                            Key Information Details
-                        </h3>
+                        <span className="text-typocolor-secondary text-small px-6 font-semibold">
+                            {detail.value}
+                        </span>
                     </div>
-                    <div className="flex flex-col">
-                        {details.map((detail, index) => (
-                            <div
-                                key={detail.label}
-                                className={`border-border-strong flex items-start justify-between gap-4 border-b px-6 py-4 last:border-0 ${index % 2 === 0 ? "bg-white/2" : "bg-transparent"}`}
-                            >
-                                <span className="text-small shrink-0 pt-0.5 font-bold tracking-wider uppercase">
-                                    {detail.label}
-                                </span>
-                                <span className="text-typocolor-secondary text-small text-right font-semibold">
-                                    {detail.value}
-                                </span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
+                ))}
             </div>
-        </section>
+            <p className="text-typocolor-muted text-center">
+                MCA Approved | MSME Certified | GST Registered
+            </p>
+        </SectionContainer>
     );
 }

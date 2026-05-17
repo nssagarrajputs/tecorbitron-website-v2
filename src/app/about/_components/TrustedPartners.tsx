@@ -13,6 +13,7 @@ import Oracle from "@/assets/trusted-partner/oracle-india.svg";
 import Docker from "@/assets/trusted-partner/docker-4.svg";
 import Kuber from "@/assets/trusted-partner/kubernets.svg";
 import Image from "next/image";
+import SectionContainer from "@/components/basic-ui/SectionContainer";
 
 const partners = [
     { category: "Cloud", name: "AWS", icon: AWS },
@@ -31,47 +32,42 @@ const partners = [
 
 export default function TrustedPartners() {
     return (
-        <section className="h-breathing-468 v-breathing-20">
-            <div className="section-vlex-gap mx-auto max-w-7xl">
-                <SectionHeader
-                    eyebrow="TECHNOLOGY PARTNERS"
-                    heading="Integration Across Platforms"
-                    highlight="Platforms"
-                    support="We work with globally recognised platforms and cloud providers — giving every project enterprise-grade reliability from day one."
-                />
+        <SectionContainer
+            eyebrow="TECHNOLOGY PARTNERS"
+            heading="Integration Across Platforms"
+            highlight="Platforms"
+            support="We work with globally recognised platforms and cloud providers — giving every project enterprise-grade reliability from day one."
+        >
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
+                {partners.map((p) => (
+                    <div
+                        key={p.name}
+                        className="cardbox hover:border-malachite transi-base flex flex-col items-center gap-3 px-2 py-4"
+                    >
+                        {/* Category label */}
+                        <span className="text-typocolor-muted text-xmall font-black tracking-widest uppercase">
+                            {p.category}
+                        </span>
 
-                {/* ── FLAT GRID ── */}
-                <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
-                    {partners.map((p) => (
-                        <div
-                            key={p.name}
-                            className="bg-bkg-primary flex flex-col items-center gap-3 rounded-lg px-2 py-4"
-                        >
-                            {/* Category label */}
-                            <span className="text-muted text-[10px] font-black tracking-widest uppercase">
-                                {p.category}
-                            </span>
+                        {/* Logo */}
+                        <Image
+                            src={p.icon}
+                            alt={p.name}
+                            className="aspect-square w-[25%]"
+                        />
 
-                            {/* Logo */}
-                            <Image
-                                src={p.icon}
-                                alt={p.name}
-                                className="aspect-square w-[30%]"
-                            />
-
-                            {/* Name */}
-                            <span className="text-muted/50 text-center text-xs font-bold">
-                                {p.name}
-                            </span>
-                        </div>
-                    ))}
-                </div>
-
-                <p className="text-muted mt-8 text-center text-xs font-medium">
-                    Partner network continues to grow — reach out to explore
-                    collaboration opportunities.
-                </p>
+                        {/* Name */}
+                        <span className="text-typocolor-secondary text-small text-center font-bold">
+                            {p.name}
+                        </span>
+                    </div>
+                ))}
             </div>
-        </section>
+
+            <p className="text-typocolor-muted text-small text-center font-medium">
+                Partner network continues to grow — reach out to explore
+                collaboration opportunities.
+            </p>
+        </SectionContainer>
     );
 }

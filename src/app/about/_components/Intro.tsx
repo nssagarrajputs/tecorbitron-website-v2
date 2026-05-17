@@ -1,3 +1,4 @@
+import SectionContainer from "@/components/basic-ui/SectionContainer";
 import { Star } from "lucide-react";
 import Image from "next/image";
 
@@ -107,85 +108,77 @@ function StarRow({ rating }: { rating: number }) {
 
 export default function Intro() {
     return (
-        <section className="bg-white px-4 py-20">
-            <div className="mx-auto max-w-7xl">
-                <div className="">
-                    {/* ── LEFT — About Tecorbitron ── */}
-                    <div className="flex flex-col gap-6">
-                        <h2 className="text-deepspace text-center text-4xl font-black tracking-tight sm:text-5xl">
-                            About Tec
-                            <span className="text-malachite">o</span>
-                            rbitron
-                        </h2>
+        <SectionContainer>
+            <div className="">
+                <div className="flex flex-col gap-6">
+                    <h2 className="text-typocolor-primary text-h2 text-center font-black tracking-tight">
+                        About Tec
+                        <span className="text-malachite">o</span>
+                        rbitron
+                    </h2>
 
-                        <div className="mx-auto max-w-3xl text-center leading-relaxed">
-                            <p>
-                                Welcome to Tecorbitron, your premier partner in
-                                IT development solutions across diverse
-                                industries sectors. Founded by a team of
-                                seasoned tech experts, Tecorbitron is dedicated
-                                to transforming your digital vision into reality
-                                with innovation and precision.
-                            </p>
-                        </div>
-                    </div>
+                    <p className="text-body mx-auto max-w-3xl text-center leading-relaxed">
+                        Welcome to Tecorbitron, your premier partner in IT
+                        development solutions across diverse industries sectors.
+                        Founded by a team of seasoned tech experts, Tecorbitron
+                        is dedicated to transforming your digital vision into
+                        reality with innovation and precision.
+                    </p>
+                </div>
 
-                    {/* ── RIGHT — Rating Badges ── */}
-                    <div className="my-8 flex items-center justify-center gap-5 max-md:flex-col">
-                        {ratings.map((r) => (
-                            <div
-                                key={r.platform}
-                                className="bg-bkg-primary flex w-fit items-center justify-between gap-6 rounded-xl p-2"
-                            >
-                                {/* Logo + name */}
-                                <div className="flex items-center gap-4">
-                                    <div className="bg-bkg-primary flex-center h-12 w-12 shrink-0 rounded-xl">
-                                        {r.logo}
-                                    </div>
-                                    <div className="flex flex-col">
-                                        <span className="text-body font-bold">
-                                            {r.platform}
-                                        </span>
-                                        <span className="text-typocolor-muted text-xmall">
-                                            {r.reviews}
-                                        </span>
-                                    </div>
+                <div className="my-8 flex items-center justify-center gap-5 max-md:flex-col">
+                    {ratings.map((r) => (
+                        <div
+                            key={r.platform}
+                            className="cardbox flex w-fit items-center justify-between gap-6 p-2"
+                        >
+                            {/* Logo + name */}
+                            <div className="flex items-center gap-4">
+                                <div className="flex-center h-12 w-12">
+                                    {r.logo}
                                 </div>
-
-                                {/* Rating number */}
-                                <div className="flex shrink-0 flex-col items-end gap-0.5">
-                                    <span
-                                        className="text-3xl leading-none font-black opacity-65"
-                                        style={{ color: r.color }}
-                                    >
-                                        {r.rating.toFixed(1)}
+                                <div className="flex flex-col">
+                                    <span className="text-body font-bold">
+                                        {r.platform}
+                                    </span>
+                                    <span className="text-typocolor-muted text-xmall">
+                                        {r.reviews}
                                     </span>
                                 </div>
                             </div>
-                        ))}
-                    </div>
 
-                    <div className="mx-auto w-fit">
-                        <a
-                            href="https://global.showmelocal.com/39762168-tecorbitron-solutions-private-limited-website-designer-ghaziabad"
-                            target="_blank"
-                        >
-                            <Image
-                                src="https://www.showmelocal.com/showmelocal-member-39762168"
-                                alt="Tecorbitron Solutions Private Limited,Website Designer,Ghaziabad,Uttar Pradesh"
-                                width={100}
-                                height={50}
-                            />
-                        </a>
-                    </div>
-
-                    {/* Note */}
-                    <p className="text-muted text-center text-xs font-medium">
-                        Ratings reflect verified client feedback across
-                        platforms.
-                    </p>
+                            {/* Rating number */}
+                            <div className="flex shrink-0 flex-col items-end gap-1">
+                                <span
+                                    className="text-h4 leading-none font-black opacity-65"
+                                    style={{ color: r.color }}
+                                >
+                                    {r.rating.toFixed(1)}
+                                </span>
+                            </div>
+                        </div>
+                    ))}
                 </div>
+
+                <div className="mx-auto w-fit">
+                    <a
+                        href="https://global.showmelocal.com/39762168-tecorbitron-solutions-private-limited-website-designer-ghaziabad"
+                        target="_blank"
+                    >
+                        <Image
+                            src="https://www.showmelocal.com/showmelocal-member-39762168"
+                            alt="Tecorbitron Solutions Private Limited,Website Designer,Ghaziabad,Uttar Pradesh"
+                            width={100}
+                            height={50}
+                        />
+                    </a>
+                </div>
+
+                {/* Note */}
+                <p className="text-typocolor-muted text-xmall text-center font-semibold">
+                    Ratings reflect verified client feedback across platforms.
+                </p>
             </div>
-        </section>
+        </SectionContainer>
     );
 }

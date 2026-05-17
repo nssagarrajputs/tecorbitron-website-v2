@@ -52,20 +52,16 @@ function Industries() {
         >
             <div className="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-6">
                 {industries.map(({ icon: Icon, name }) => (
-                    // <div
-                    //     key={name}
-                    //     className="hover:border-malachite group bg-bkg-primary flex flex-col items-center gap-3 rounded-xl border border-transparent p-4 transition-all duration-200"
-                    // >
                     <div
                         key={name}
-                        className="cardbox flex flex-col items-center gap-3 transition-all duration-200"
+                        className="cardbox group transi-base hover:border-malachite flex flex-col items-center gap-3 p-4"
                     >
                         <Icon
                             size={35}
                             strokeWidth={1.2}
-                            className="text-typocolor-muted group-hover:text-malachite transition-colors duration-200 select-none"
+                            className="text-typocolor-muted group-hover:text-malachite transi-base select-none"
                         />
-                        <p className="text-xmall text-typocolor-secondary group-hover:text-malachite-rich text-center font-semibold transition-colors duration-200">
+                        <p className="text-xmall text-typocolor-secondary group-hover:text-malachite-rich transi-base text-center font-semibold">
                             {name}
                         </p>
                     </div>

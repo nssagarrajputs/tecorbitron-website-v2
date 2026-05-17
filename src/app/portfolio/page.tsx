@@ -48,8 +48,8 @@ export default async function PortfolioPage() {
         <main>
             <PageHero
                 eyebrow="Our Work"
-                title="Projects That Deliver Results"
-                highlight="Deliver Results"
+                title="Projects That Matter"
+                highlight="Matter"
                 description="A curated selection of our work across web, mobile, software, and AI — each project measured by real business outcomes.."
             />
             <ProjectList featured={featured} rest={rest} />

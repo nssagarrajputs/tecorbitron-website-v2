@@ -60,7 +60,7 @@ export default function MainServices() {
                 {services.map((service) => (
                     <div
                         key={service.name}
-                        className="hover:border-malachite rounded-4 bg-bkg-primary flex flex-col gap-4 border border-transparent p-8 transition-all duration-200"
+                        className="hover:border-malachite cardbox transi-base flex flex-col gap-4 border p-8"
                     >
                         {/* Icon */}
 
