@@ -111,13 +111,7 @@ export default function Intro() {
         <SectionContainer>
             <div className="">
                 <div className="flex flex-col gap-6">
-                    <h2 className="text-typocolor-primary text-h2 text-center font-black tracking-tight">
-                        About Tec
-                        <span className="text-malachite">o</span>
-                        rbitron
-                    </h2>
-
-                    <p className="text-body mx-auto max-w-3xl text-center leading-relaxed">
+                    <p className="text-h4 mx-auto max-w-4xl text-center leading-relaxed">
                         Welcome to Tecorbitron, your premier partner in IT
                         development solutions across diverse industries sectors.
                         Founded by a team of seasoned tech experts, Tecorbitron

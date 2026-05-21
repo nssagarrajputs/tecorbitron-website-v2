@@ -4,136 +4,92 @@ import {
     MessageCircleCode,
     Send,
     MapPin,
-    Clock,
-    LinkIcon,
+    ArrowRight,
 } from "lucide-react";
-import BrandBtn from "@/components/basic-ui/BrandBtn";
 import SectionContainer from "@/components/basic-ui/SectionContainer";
 
 const channels = [
     {
         icon: Phone,
         title: "Phone",
-        subtitle: "+91 9084800496",
-        link: "tel:+919084800496",
+        subtitle: "+91 908-480-0496",
+        label: "Make a Call",
+        href: "tel:+919084800496",
         external: false,
     },
     {
         icon: MessageCircleCode,
         title: "WhatsApp",
         subtitle: "Live chat now",
-        link: "https://wa.me/919084800496",
+        label: "Send Message",
+        href: "https://wa.me/919084800496",
         external: true,
     },
     {
         icon: Send,
         title: "Email",
         subtitle: "contact@tecorbitron.com",
-        link: "mailto:contact@tecorbitron.com",
+        label: "Send an Email",
+        href: "mailto:contact@tecorbitron.com",
         external: false,
+    },
+    {
+        icon: MapPin,
+        title: "Location",
+        subtitle: "Ghaziabad, NCR, India",
+        label: "Get Directions",
+        href: "https://maps.app.goo.gl/M21mRzbWubCJtyHe8",
+        external: true,
     },
 ];
 
 export default function WaysToConnect() {
     return (
         <SectionContainer width="lg">
-            <div className="grid grid-cols-1 gap-6 gap-y-40 md:grid-cols-2 lg:gap-12">
-                {/* ── LEFT — HQ Info ── */}
-                <div className="cardbox flex flex-col gap-12 p-6 lg:p-8">
-                    {/* Address */}
-                    <div className="flex flex-col gap-4">
-                        <div className="flex items-center gap-2">
-                            <MapPin
-                                size={18}
-                                className="text-malachite shrink-0"
-                            />
-                            <p className="text-body text-typocolor-primary font-bold tracking-widest uppercase">
-                                Headquarter
-                            </p>
-                        </div>
-
-                        <p className="text-small text-typocolor-secondary px-6 leading-relaxed">
-                            Ghaziabad, NCR <br />
-                            Uttar Pradesh, 201010 <br />
-                            INDIA
-                        </p>
-                    </div>
-
-                    {/* Business Hours */}
-                    <div className="flex flex-col gap-4">
-                        <div className="flex items-center gap-2">
-                            <Clock
-                                size={18}
-                                className="text-malachite shrink-0"
-                            />
-                            <p className="text-body text-typocolor-primary font-bold tracking-widest uppercase">
-                                Business Hours
-                            </p>
-                        </div>
-                        <div className="text-small text-typocolor-secondary flex flex-col gap-2 px-6">
-                            <div className="flex max-w-xs items-center justify-between">
-                                <span className="font-medium">Mon – Fri</span>
-                                <span className="text-typocolor-primary font-bold">
-                                    09:00 – 19:00
-                                </span>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-4">
+                {channels.map(
+                    ({
+                        icon: Icon,
+                        title,
+                        subtitle,
+                        label,
+                        href,
+                        external,
+                    }) => (
+                        <div
+                            key={title}
+                            className="cardbox transi-base hover:border-malachite group flex flex-col gap-4 p-6"
+                        >
+                            {/* Icon */}
+                            <div className="bg-malachite-dim transi-base group-hover:bg-malachite rounded-2 flex h-10 w-10 items-center justify-center">
+                                <Icon
+                                    size={20}
+                                    className="text-malachite transi-base group-hover:text-white"
+                                />
                             </div>
-                            <div className="flex max-w-xs items-center justify-between">
-                                <span className="font-medium">Saturday</span>
-                                <span className="text-typocolor-primary font-bold">
-                                    10:00 – 16:00
-                                </span>
+
+                            {/* Text */}
+                            <div className="flex flex-col gap-1">
+                                <h3 className="text-typocolor-primary text-body font-bold">
+                                    {title}
+                                </h3>
+                                <p className="text-typocolor-muted text-small font-medium">
+                                    {subtitle}
+                                </p>
                             </div>
-                        </div>
-                    </div>
 
-                    {/* Directions CTA */}
-                    <BrandBtn
-                        href="https://maps.app.goo.gl/M21mRzbWubCJtyHe8"
-                        variant="secondary"
-                    >
-                        Get Directions
-                    </BrandBtn>
-                </div>
-
-                {/* ── RIGHT — Channels ── */}
-                <div className="cardbox flex flex-col gap-8 p-6 lg:p-8">
-                    <div className="flex items-center gap-2">
-                        <LinkIcon
-                            size={18}
-                            className="text-malachite shrink-0"
-                        />
-                        <p className="text-body text-typocolor-primary font-bold tracking-widest">
-                            GET IN TOUCH
-                        </p>
-                    </div>
-                    {channels.map((item) => {
-                        const Icon = item.icon;
-                        return (
+                            {/* Action */}
                             <Link
-                                key={item.title}
-                                href={item.link}
-                                target={item.external ? "_blank" : "_self"}
+                                href={href}
+                                target={external ? "_blank" : "_self"}
                                 rel="noopener noreferrer"
-                                className="hover:border-malachite shadow-soft border-base rounded-3 transi-base flex w-full gap-4 border bg-white p-4"
+                                className="action-btn"
                             >
-                                <div className="bg-malachite-dim rounded-2 flex-center h-10 w-10">
-                                    <Icon
-                                        size={18}
-                                        className="text-malachite-rich"
-                                    />
-                                </div>
-                                <div className="flex flex-col gap-0.5">
-                                    <h3 className="text-small text-typocolor-secondary font-bold">
-                                        {item.title}
-                                    </h3>
-                                    <p className="text-xmall text-typocolor-muted font-medium">
-                                        {item.subtitle}
-                                    </p>
-                                </div>
+                                {label}
                             </Link>
-                        );
-                    })}
-                </div>
+                        </div>
+                    ),
+                )}
             </div>
         </SectionContainer>
     );

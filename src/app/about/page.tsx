@@ -1,11 +1,9 @@
-import OurStory from "@/app/about/_components/OurStory";
+import PageHero from "@/components/basic-ui/PageHero";
+import Intro from "@/app/about/_components/Intro";
 import Founder from "@/app/about/_components/Founder";
 import Credibility from "@/app/about/_components/Credibility";
-import Intro from "@/app/about/_components/Intro";
-import TrustedPartners from "@/app/about/_components/TrustedPartners";
-import type { Metadata } from "next";
-import PageHero from "@/components/basic-ui/PageHero";
 import CTAFormat from "@/components/templetes/CTAFormat";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "About Us",
@@ -54,17 +52,16 @@ export default function About() {
         <main>
             <PageHero
                 eyebrow="who we are"
-                title="Built on Ambition. Driven by Results."
-                highlight="Driven by Results."
+                title="About Tecorbitron"
+                highlight="Tecorbitron"
                 description="Discover our journey, mission, and the team behind our
-                    innovative solutions — dedicated to transforming ideas into
-                    exceptional experiences."
+                    innovative solutions — dedicated to transforming ideas into experiences."
             />
             <Intro />
-            <OurStory />
+
             <Founder />
             <Credibility />
-            <TrustedPartners />
+
             <CTAFormat
                 eypill="Work With Us"
                 heading="Have a Project in Mind?"

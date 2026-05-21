@@ -20,7 +20,7 @@ export default function Hero() {
 
                 {/* Headline */}
                 <h1 className="text-h1 leading-tight font-light tracking-tight">
-                    Build your digital product {/* <br /> */}
+                    Build your Web & App {/* <br /> */}
                     <span className="text-deepspace-rich font-bold">
                         Superfast
                     </span>
@@ -28,7 +28,7 @@ export default function Hero() {
 
                 {/* Subheadline */}
                 <p className="text-typocolor-secondary text-body mb-4 max-w-2xl leading-relaxed tracking-tight">
-                    Turn your ideas into powerful web, mobile, and software
+                    Turn your ideas into powerful web, mobile, and custom
                     solutions. From strategy to execution, our team ensures
                     scalable, secure, and user-centric digital experiences.
                 </p>

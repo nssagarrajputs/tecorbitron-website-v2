@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-
 import StructuredData, { contactSchema } from "@/components/StructuredData";
+
 import PageHero from "@/components/basic-ui/PageHero";
 import ProjectInquiry from "./_components/ProjectInquiry";
 import WaysToConnect from "./_components/WaysToConnect";
-import BookDiscoveryCall from "./_components/BookDiscoveryCall";
 import FAQSection from "@/components/templetes/FAQFormat";
 
 export const metadata: Metadata = {
@@ -59,10 +58,6 @@ export const metadata: Metadata = {
 
 const faqdata = [
     {
-        question: "Do you offer free consultations?",
-        answer: "Yes — book a free discovery call directly from our contact page. Choose a time that works for you and we'll have an honest conversation about your goals, requirements, and the best path forward. No sales pitch, no obligation.",
-    },
-    {
         question: "Do you work with international clients?",
         answer: "Absolutely. We work with clients across India, UAE, UK, USA, and beyond. Communication is seamless — we adapt to your timezone and handle everything remotely without compromising on quality or responsiveness.",
     },
@@ -99,8 +94,6 @@ export default function Contact() {
             <ProjectInquiry />
 
             <WaysToConnect />
-
-            <BookDiscoveryCall />
 
             <FAQSection
                 eyebrow="FAQS"

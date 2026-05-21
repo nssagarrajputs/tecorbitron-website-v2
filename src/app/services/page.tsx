@@ -107,9 +107,9 @@ export default function Services() {
             <StructuredData data={servicesSchema()} />
             <PageHero
                 eyebrow="What We OFFER"
-                title="Services Built Around Your Goals"
-                highlight="Your Goals"
-                description="Technical services scoped to your business — not cookie-cutter packages. From first website to enterprise software, work within your timeline and budget."
+                title="Explore Our Services"
+                highlight="Services"
+                description="Technical services scoped to your business — not cookie-cutter packages. Work within your timeline and budget."
             />
             <MainServices />
             <Industries />

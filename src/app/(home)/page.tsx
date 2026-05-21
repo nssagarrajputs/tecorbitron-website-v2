@@ -24,7 +24,6 @@ export default function Home() {
             <FeaturedProjects />
             <Testimonials />
             <FeaturedBlogs />
-
             <CTAFormat
                 eypill="GET STARTED"
                 heading="Ready to Build Something That Works?"

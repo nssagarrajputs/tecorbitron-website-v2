@@ -44,6 +44,8 @@ export default function ProjectInquiry() {
     const [form, setForm] = useState<FormData>(emptyForm);
     const [status, setStatus] = useState<Status>("idle");
 
+
+
     // ── Auto-dismiss success after 3s ──
     useEffect(() => {
         if (status !== "success") return;

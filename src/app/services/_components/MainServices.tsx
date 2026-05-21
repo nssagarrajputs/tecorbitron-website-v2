@@ -2,9 +2,7 @@ import Image from "next/image";
 import web from "@/assets/service-icon/web-development.png";
 import app from "@/assets/service-icon/app-development.png";
 import ecomm from "@/assets/service-icon/e-commerce.png";
-import software from "@/assets/service-icon/custom-software.png";
 import seo from "@/assets/service-icon/seo.png";
-import cloudai from "@/assets/service-icon/cloud-and-ai.png";
 import BrandBtn from "@/components/basic-ui/BrandBtn";
 import SectionContainer from "@/components/basic-ui/SectionContainer";
 
@@ -31,36 +29,22 @@ const services = [
             "From Shopify and WooCommerce to fully custom storefronts — we build e-commerce solutions with inventory, payments, and admin panels built in.",
     },
     {
-        icon: software,
-        name: "Custom Software",
-        tagline: "Software that fits your business — not the other way.",
-        description:
-            "Tailored ERP systems, CRMs, dashboards, and automation tools designed around your exact workflows, team size, and scale requirements.",
-    },
-    {
         icon: seo,
         name: "SEO & Digital Growth",
         tagline: "Get found. Get leads. Get results.",
         description:
             "Data-driven SEO and marketing strategies that increase visibility, drive qualified traffic, and convert visitors into customers.",
     },
-    {
-        icon: cloudai,
-        name: "Cloud & AI Integration",
-        tagline: "Leverage AI to work smarter, not harder.",
-        description:
-            "We integrate cloud infrastructure and AI tools — chatbots, smart search, automation workflows — into your existing or new product.",
-    },
 ];
 
 export default function MainServices() {
     return (
-        <SectionContainer>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:grid-rows-3 lg:grid-cols-3 lg:grid-rows-2">
+        <SectionContainer width="lg">
+            <div className="grid grid-cols-1 gap-12 sm:grid-cols-2">
                 {services.map((service) => (
                     <div
                         key={service.name}
-                        className="hover:border-malachite cardbox transi-base flex flex-col gap-4 border p-8"
+                        className="hover:border-malachite cardbox transi-base flex flex-col gap-4 border p-12"
                     >
                         {/* Icon */}
 

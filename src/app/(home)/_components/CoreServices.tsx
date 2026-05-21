@@ -1,64 +1,69 @@
-import webapp from "@/assets/service-icon/web-and-app.png";
+import web from "@/assets/service-icon/web-development.png";
+import app from "@/assets/service-icon/app-development.png";
+import ecomm from "@/assets/service-icon/e-commerce.png";
 import seo from "@/assets/service-icon/seo.png";
-import software from "@/assets/service-icon/custom-software.png";
-import ai from "@/assets/service-icon/cloud-and-ai.png";
+
 import Image from "next/image";
 import BrandBtn from "@/components/basic-ui/BrandBtn";
 import SectionContainer from "@/components/basic-ui/SectionContainer";
+import Link from "next/link";
 
-// ── DATA ───────────────────────────────────────────
 const services = [
     {
-        icon: webapp,
-        name: "Web & App Development",
+        icon: web,
+        name: "Website Development",
         description:
-            "We build fast, scalable websites and applications that help businesses launch, operate, and grow with confidence.",
+            "We build fast, scalable, and conversion-focused websites that help businesses establish a strong online presence and grow with confidence.",
         tags: [
             "Business Websites",
-            "Web Apps",
+            "Web Applications",
+            "Landing Pages",
             "Dashboards",
-            "E-Commerce",
-            "Mobile Apps",
+            "Portals",
         ],
+        href: "/services/website-development-company",
+    },
+    {
+        icon: app,
+        name: "Mobile App Development",
+        description:
+            "We design and develop cross-platform mobile applications for iOS and Android that deliver seamless user experiences and drive real business results.",
+        tags: [
+            "iOS Apps",
+            "Android Apps",
+            "Cross-Platform",
+            "React Native",
+            "Flutter",
+        ],
+        href: "/services/mobile-app-development-company",
+    },
+    {
+        icon: ecomm,
+        name: "E-Commerce Development",
+        description:
+            "We build powerful online stores with seamless checkout, inventory management, and growth-ready architecture to help your brand sell more online.",
+        tags: [
+            "Shopify",
+            "WooCommerce",
+            "Custom Stores",
+            "Payment Integration",
+            "Product Management",
+        ],
+        href: "/services/ecommerce-development-company",
     },
     {
         icon: seo,
         name: "SEO & Digital Growth",
         description:
-            "We improve visibility, attract qualified traffic, and turn digital channels into measurable business growth.",
+            "We improve your search visibility, attract qualified traffic, and turn digital channels into measurable, sustainable business growth.",
         tags: [
             "Technical SEO",
             "Local SEO",
+            "On-Page SEO",
             "Google Ads",
-            "Social Media",
             "Performance Tracking",
         ],
-    },
-    {
-        icon: software,
-        name: "Custom Software Solutions",
-        description:
-            "We create tailored business software that simplifies operations, connects workflows, and reduces manual work.",
-        tags: [
-            "ERP Systems",
-            "CRM Platforms",
-            "Workflow Automation",
-            "Order Management",
-            "Internal Business Tools",
-        ],
-    },
-    {
-        icon: ai,
-        name: "Cloud & AI Integration",
-        description:
-            "We integrate cloud infrastructure and AI tools to automate tasks, improve decisions, and scale systems efficiently.",
-        tags: [
-            "AI Chatbots",
-            "AI Assistants",
-            "Smart Search",
-            "Cloud Deployment",
-            "Database",
-        ],
+        href: "/services/seo-digital-marketing-company",
     },
 ];
 
@@ -76,11 +81,17 @@ export default function CoreServices() {
                 {services.map((service) => (
                     <div
                         key={service.name}
-                        className="cardbox hover:border-malachite transi-base flex flex-col justify-between gap-4 p-6 lg:p-8"
+                        className="cardbox hover:border-malachite transi-base group flex flex-col justify-between gap-4 p-6 lg:p-8"
                     >
                         {/* Icon */}
                         <div className="flex h-18 w-18 items-center justify-center select-none">
-                            <Image src={service.icon} alt={service.name} />
+                            <Image
+                                src={service.icon}
+                                alt={service.name}
+                                width={100}
+                                height={100}
+                                className="h-full object-contain"
+                            />
                         </div>
 
                         {/* Name */}
