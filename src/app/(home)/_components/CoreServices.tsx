@@ -1,71 +1,8 @@
-import web from "@/assets/service-icon/web-development.png";
-import app from "@/assets/service-icon/app-development.png";
-import ecomm from "@/assets/service-icon/e-commerce.png";
-import seo from "@/assets/service-icon/seo.png";
-
 import Image from "next/image";
 import BrandBtn from "@/components/basic-ui/BrandBtn";
 import SectionContainer from "@/components/basic-ui/SectionContainer";
 import Link from "next/link";
-
-const services = [
-    {
-        icon: web,
-        name: "Website Development",
-        description:
-            "We build fast, scalable, and conversion-focused websites that help businesses establish a strong online presence and grow with confidence.",
-        tags: [
-            "Business Websites",
-            "Web Applications",
-            "Landing Pages",
-            "Dashboards",
-            "Portals",
-        ],
-        href: "/services/website-development-company",
-    },
-    {
-        icon: app,
-        name: "Mobile App Development",
-        description:
-            "We design and develop cross-platform mobile applications for iOS and Android that deliver seamless user experiences and drive real business results.",
-        tags: [
-            "iOS Apps",
-            "Android Apps",
-            "Cross-Platform",
-            "React Native",
-            "Flutter",
-        ],
-        href: "/services/mobile-app-development-company",
-    },
-    {
-        icon: ecomm,
-        name: "E-Commerce Development",
-        description:
-            "We build powerful online stores with seamless checkout, inventory management, and growth-ready architecture to help your brand sell more online.",
-        tags: [
-            "Shopify",
-            "WooCommerce",
-            "Custom Stores",
-            "Payment Integration",
-            "Product Management",
-        ],
-        href: "/services/ecommerce-development-company",
-    },
-    {
-        icon: seo,
-        name: "SEO & Digital Growth",
-        description:
-            "We improve your search visibility, attract qualified traffic, and turn digital channels into measurable, sustainable business growth.",
-        tags: [
-            "Technical SEO",
-            "Local SEO",
-            "On-Page SEO",
-            "Google Ads",
-            "Performance Tracking",
-        ],
-        href: "/services/seo-digital-marketing-company",
-    },
-];
+import { services } from "@/content/services-data";
 
 export default function CoreServices() {
     return (
@@ -100,7 +37,7 @@ export default function CoreServices() {
                         </h3>
 
                         <p className="text-typocolor-secondary text-small mb-4">
-                            {service.description}
+                            {service.description_home}
                         </p>
 
                         {/* Tags */}
@@ -114,6 +51,10 @@ export default function CoreServices() {
                                 </span>
                             ))}
                         </div>
+
+                        <Link href={service.href} className="action-btn">
+                            Explore {service.name} Services
+                        </Link>
                     </div>
                 ))}
             </div>

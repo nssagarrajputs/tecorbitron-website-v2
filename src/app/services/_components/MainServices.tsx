@@ -1,41 +1,8 @@
 import Image from "next/image";
-import web from "@/assets/service-icon/web-development.png";
-import app from "@/assets/service-icon/app-development.png";
-import ecomm from "@/assets/service-icon/e-commerce.png";
-import seo from "@/assets/service-icon/seo.png";
+import { services } from "@/content/services-data";
 import BrandBtn from "@/components/basic-ui/BrandBtn";
 import SectionContainer from "@/components/basic-ui/SectionContainer";
-
-const services = [
-    {
-        icon: web,
-        name: "Web Development",
-        tagline: "Fast, scalable websites that rank and convert.",
-        description:
-            "We build high-performance websites and web applications using Next.js and React — optimised for speed, SEO, and user experience from day one.",
-    },
-    {
-        icon: app,
-        name: "App Development",
-        tagline: "Mobile apps users love — on iOS and Android.",
-        description:
-            "Cross-platform mobile applications built with React Native. One codebase, two platforms — without compromising on performance or native feel.",
-    },
-    {
-        icon: ecomm,
-        name: "E-commerce Development",
-        tagline: "Online stores built to sell, scale, and retain.",
-        description:
-            "From Shopify and WooCommerce to fully custom storefronts — we build e-commerce solutions with inventory, payments, and admin panels built in.",
-    },
-    {
-        icon: seo,
-        name: "SEO & Digital Growth",
-        tagline: "Get found. Get leads. Get results.",
-        description:
-            "Data-driven SEO and marketing strategies that increase visibility, drive qualified traffic, and convert visitors into customers.",
-    },
-];
+import Link from "next/link";
 
 export default function MainServices() {
     return (
@@ -44,7 +11,7 @@ export default function MainServices() {
                 {services.map((service) => (
                     <div
                         key={service.name}
-                        className="hover:border-malachite cardbox transi-base flex flex-col gap-4 border p-12"
+                        className="hover:border-malachite group cardbox transi-base flex flex-col gap-4 border p-12"
                     >
                         {/* Icon */}
 
@@ -69,8 +36,12 @@ export default function MainServices() {
 
                         {/* Description */}
                         <p className="text-small text-typocolor-secondary leading-relaxed">
-                            {service.description}
+                            {service.description_service}
                         </p>
+
+                        <Link href={service.href} className="action-btn">
+                            Explore {service.name} Services
+                        </Link>
                     </div>
                 ))}
             </div>

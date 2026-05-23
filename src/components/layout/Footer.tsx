@@ -10,7 +10,7 @@ export default function Footer() {
     const year = new Date().getFullYear();
 
     return (
-        <footer className="text-small bg-bkg-primary text-typocolor-secondary mt-40">
+        <footer className="text-small bg-bkg-primary text-typocolor-secondary mt-25">
             <div className="mx-auto flex max-w-7xl flex-wrap items-start justify-between gap-8 gap-y-12 px-8">
                 {/* Intro */}
                 <div className="flex w-fit flex-col gap-4">
@@ -76,11 +76,32 @@ export default function Footer() {
                     </div>
                 </div>
 
+                {/* Quick Links */}
+                <div>
+                    <h3 className="mb-6 font-bold">Services</h3>
+                    <div className="**:hover:text-malachite transi-base flex flex-col gap-3 **:w-fit">
+                        <Link href="/services/web-development">
+                            Web Development
+                        </Link>
+                        <Link href="/services/app-development">
+                            App Developemt
+                        </Link>
+                        <Link href="/services/ecommerce-development">
+                            E-Commerce Store
+                        </Link>
+                        <Link href="/services/seo-and-marketing">
+                            SEO & Digital Growth
+                        </Link>
+                    </div>
+                </div>
+
                 {/* Important */}
                 <div>
                     <h3 className="mb-6 font-bold">Importants</h3>
                     <div className="**:hover:text-malachite transi-base flex flex-col gap-3 **:w-fit">
-                        <Link href="/contact">Contact Us</Link>
+                        <Link href="/contact" className="">
+                            Contact Us
+                        </Link>
                         <Link href="/legal/privacy-policy">Privacy Policy</Link>
                         <Link href="/legal/terms">Terms</Link>
                     </div>
@@ -90,7 +111,12 @@ export default function Footer() {
                 <div>
                     <h3 className="mb-6 font-bold">Get In Touch</h3>
                     <div className="**:hover:text-malachite transi-base flex flex-col gap-3 **:w-fit">
-                        <span>Ghaziabad, NCR, India</span>
+                        <a
+                            href="https://maps.app.goo.gl/DGjePxJRCTsRX3J56"
+                            target="_blank"
+                        >
+                            Ghaziabad, NCR, India
+                        </a>
                         <a href="mailto:info@tecorbitron.com">
                             info@tecorbitron.com
                         </a>
@@ -102,7 +128,7 @@ export default function Footer() {
             {/* Copyright */}
             <div className="mt-12">
                 <div className="border-base flex-center h-breathing mx-auto max-w-7xl border-t py-8">
-                    <small className="text-small">
+                    <small className="text-xmall">
                         Copyright © {year} Tecorbitron Solutions Pvt. Ltd.
                     </small>
                 </div>

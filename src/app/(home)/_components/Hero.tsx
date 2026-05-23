@@ -19,7 +19,7 @@ export default function Hero() {
                 <Eypill text="FOR STARTUPS AND BUSINESS" />
 
                 {/* Headline */}
-                <h1 className="text-h1 leading-tight font-light tracking-tight">
+                <h1 className="text-hero leading-tight font-light tracking-tight">
                     Build your Web & App {/* <br /> */}
                     <span className="text-deepspace-rich font-bold">
                         Superfast

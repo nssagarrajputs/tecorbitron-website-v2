@@ -11,14 +11,14 @@ import StructuredData, { globalSchema } from "@/components/StructuredData";
 const mulish = Mulish({
     subsets: ["latin"],
     display: "swap",
-    weight: ["300", "400", "600", "700", "900"],
+    weight: ["300", "400", "600", "700", "800"],
     variable: "--font-mulish",
 });
 
 export const metadata: Metadata = {
     title: {
-        default: "Tecorbitron | Web and App Development Solutions Company",
-        template: "%s | Tecorbitron",
+        default: "Web and App Development Company - Tecorbitron",
+        template: "%s - Tecorbitron",
     },
     description:
         "Tecorbitron helps startups and businesses build high-converting websites, scalable apps, and custom software solutions. Get a free consultation and turn your idea into a powerful digital product.",
@@ -26,7 +26,6 @@ export const metadata: Metadata = {
         // Primary high-intent keywords
         "web development company India",
         "app development company India",
-        "custom software development company",
         "hire web developer India",
         "hire app developer India",
         // Service-based long-tail
@@ -37,8 +36,6 @@ export const metadata: Metadata = {
         "mobile app development services",
         // Business intent keywords
         "build website for business",
-        "software solutions for startups",
-        "digital product development company",
         "IT company for startups India",
         // Brand
         "Tecorbitron",

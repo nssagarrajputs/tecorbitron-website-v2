@@ -1,6 +1,3 @@
-import Link from "next/link";
-import { ArrowLeft, ArrowRight } from "lucide-react";
-import Eypill from "@/components/basic-ui/Eypill";
 import SectionHeader from "@/components/basic-ui/SectionHeader";
 import BrandBtn from "@/components/basic-ui/BrandBtn";
 

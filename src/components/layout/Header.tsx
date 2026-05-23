@@ -12,6 +12,7 @@ const navLinks = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
+    { label: "Solutions", href: "/solutions" },
     { label: "Portfolio", href: "/portfolio" },
     { label: "Blog", href: "/blog" },
 ];
@@ -139,7 +140,7 @@ export default function Header() {
                                     href="/contact"
                                     className="bg-deepspace hover:bg-malachite rounded-1 transi-base block px-4 py-2 text-base font-semibold text-white"
                                 >
-                                    Let's Connect
+                                    {"Let's"} Connect
                                 </Link>
                             </motion.div>
                         </div>
@@ -247,7 +248,7 @@ export default function Header() {
                                         onClick={() => setMenuOpen(false)}
                                         className="bg-malachite hover:bg-malachite-rich flex-center rounded-2 transi-base w-full gap-2 py-4 font-bold text-white"
                                     >
-                                        Let's Connect
+                                        {"Let's"} Connect
                                         <ArrowRight size={16} strokeWidth={3} />
                                     </Link>
                                 </motion.div>

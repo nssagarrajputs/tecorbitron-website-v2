@@ -1,5 +1,3 @@
-import SectionHeader from "@/components/basic-ui/SectionHeader";
-
 import React from "@/assets/technology-icon/react.svg";
 import Nextjs from "@/assets/technology-icon/next-js.svg";
 import TypeScript from "@/assets/technology-icon/typescript.svg";

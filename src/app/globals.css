@@ -45,7 +45,8 @@
     --text-base: 1rem;
     --text-base--line-height: calc(1.5 / 1);
 
-    --text-h1: clamp(3rem, 1.536rem + 6.25vw, 4.5rem); /* 48 → 72 */
+    --text-hero: clamp(3rem, 1.536rem + 6.25vw, 4.5rem); /* 48 → 72 */
+    --text-h1: clamp(3rem, 1.536rem + 6.25vw, 4rem); /* 48 → 72 */
     --text-h2: clamp(2.25rem, 1.152rem + 4.688vw, 3rem); /* 36 → 48 */
     --text-h3: clamp(1.5rem, 0.402rem + 4.688vw, 2.25rem); /* 24 → 36 */
     --text-h4: clamp(1.25rem, 0.884rem + 1.563vw, 1.5rem); /* 20 → 24 */
@@ -60,7 +61,7 @@
     --font-weight-normal: 400;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
-    --font-weight-black: 900;
+    --font-weight-black: 800;
 
     /* BORDER CORNER RADIUS */
     --radius-*: initial;
@@ -124,6 +125,13 @@
     @apply border-info border;
 }
 
+@utility gradient-heading {
+    background: linear-gradient(135deg, #164965 0%, #00d060 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
 @utility border-base {
     @apply border-surface;
 }
@@ -161,9 +169,10 @@
 /* Reusable semantic classes                                                  */
 /* -------------------------------------------------------------------------- */
 @utility action-btn {
-    @apply border-base rounded-2 shadow-soft transi-base w-fit border px-4 py-2;
+    @apply border-base rounded-2 border;
+    @apply shadow-soft transi-base w-fit px-4 py-2;
     @apply font-semibold group-hover:text-white;
-    @apply group-hover:bg-deepspace hover:bg-malachite active:bg-malachite-deep bg-bkg-primary;
+    @apply group-hover:bg-deepspace hover:bg-malachite active:bg-malachite-deep bg-deepspace-dim;
 }
 
 @utility cardbox {
