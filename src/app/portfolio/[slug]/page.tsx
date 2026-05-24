@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { PortableText } from "@portabletext/react";
 import { client } from "@/sanity/client";
 import { groq } from "next-sanity";
@@ -21,6 +21,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/basic-ui/PageHero";
 import SectionContainer from "@/components/basic-ui/SectionContainer";
 import SectionHeader from "@/components/basic-ui/SectionHeader";
+import CTAFormat from "@/components/templetes/CTAFormat";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 type TechStack = {
@@ -392,6 +393,21 @@ export default async function ProjectDetailPage(props: {
                     </div>
                 )}
             </SectionContainer>
+
+            <CTAFormat
+                eypill="YOUR TURN"
+                heading="Want Results Like This?"
+                highlight="Like This?"
+                bodyText="Share your project idea — we'll reply within 24 hours with a clear plan."
+                primaryAction={{
+                    text: "Start Your Project",
+                    href: "/contact",
+                }}
+                secondaryAction={{
+                    text: "Browse Portfolio",
+                    href: "/portfolio",
+                }}
+            />
         </main>
     );
 }

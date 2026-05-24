@@ -9,10 +9,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo-kit/logo-light.svg";
 
 const navLinks = [
-    { label: "Home", href: "/" },
+    // { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
     { label: "Solutions", href: "/solutions" },
+    { label: "Technologies", href: "/technologies" },
     { label: "Portfolio", href: "/portfolio" },
     { label: "Blog", href: "/blog" },
 ];

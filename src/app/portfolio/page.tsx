@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import PageHero from "@/components/basic-ui/PageHero";
 import SectionContainer from "@/components/basic-ui/SectionContainer";
 import { client } from "@/sanity/client";
@@ -109,39 +108,44 @@ export default async function PortfolioPage() {
                                 </div>
 
                                 {/* Content */}
-                                <div className="flex flex-1 flex-col gap-3 p-5">
-                                    <h3 className="text-typocolor-primary group-hover:text-malachite-rich text-h4 transi-base font-bold">
+                                <div className="flex flex-1 flex-col px-6 py-6">
+                                    <h3 className="text-typocolor-primary group-hover:text-malachite-rich text-h4 transi-base line-clamp-2 leading-snug font-bold ">
                                         {proj.title}
                                     </h3>
 
-                                    {/* Tech stack tags */}
-                                    {proj.techStack?.length > 0 && (
-                                        <div className="border-base mt-auto flex flex-wrap gap-1.5 border-t pt-3">
-                                            {proj.techStack
-                                                .slice(0, 3)
-                                                .map((tech) => (
-                                                    <span
-                                                        key={tech}
-                                                        className="bg-bkg-secondary text-typocolor-muted text-xmall rounded-full px-2.5 py-0.5 font-semibold"
-                                                    >
-                                                        {tech}
+                                    <div className="mt-auto flex flex-col gap-5 pt-6">
+                                        {proj.techStack?.length > 0 && (
+                                            <div className="border-base flex flex-wrap gap-2 border-t pt-5">
+                                                {proj.techStack
+                                                    .slice(0, 3)
+                                                    .map((tech) => (
+                                                        <span
+                                                            key={tech}
+                                                            className="bg-bkg-secondary text-typocolor-muted text-xmall rounded-full px-3 py-1 font-semibold"
+                                                        >
+                                                            {tech}
+                                                        </span>
+                                                    ))}
+                                                {proj.techStack.length > 3 && (
+                                                    <span className="bg-bkg-secondary text-typocolor-muted text-xmall rounded-full px-3 py-1 font-semibold">
+                                                        +
+                                                        {
+                                                            proj.techStack
+                                                                .length - 3
+                                                        }{" "}
+                                                        more
                                                     </span>
-                                                ))}
-                                            {proj.techStack.length > 3 && (
-                                                <span className="bg-bkg-secondary text-typocolor-muted text-xmall rounded-full px-2.5 py-0.5 font-semibold">
-                                                    +{proj.techStack.length - 3}{" "}
-                                                    more
-                                                </span>
-                                            )}
-                                        </div>
-                                    )}
+                                                )}
+                                            </div>
+                                        )}
 
-                                    <Link
-                                        href={`/portfolio/${proj.slug}`}
-                                        className="action-btn"
-                                    >
-                                        View Case Study
-                                    </Link>
+                                        <Link
+                                            href={`/portfolio/${proj.slug}`}
+                                            className="action-btn self-start"
+                                        >
+                                            View Case Study
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
                         ))}

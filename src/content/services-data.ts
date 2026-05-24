@@ -26,6 +26,8 @@ import servicesProcessSeoImg3 from "@/assets/other/why-us.webp";
 import servicesProcessSeoImg4 from "@/assets/other/why-us.webp";
 import servicesProcessSeoImg5 from "@/assets/other/why-us.webp";
 
+import defaultThumbnail from "@/assets/other/default-thumbnail.webp";
+
 import {
     Globe,
     Layout,
@@ -759,4 +761,40 @@ export const serviceSandMSeo: ServiceSandMData = {
     highlight: "Marketing Support",
     description:
         "Every SEO and marketing engagement includes 60 days of free post-project support — covering reporting, tracking fixes, and campaign adjustments at no extra cost. After that, we work through three models depending on your goals. A monthly retainer keeps your rankings and campaigns actively managed with regular reporting. An annual partnership includes quarterly strategy reviews and priority execution. A per-scope option handles one-time audits, campaign setups, or content projects with no ongoing commitment. Pricing is always scoped to your specific requirements. Terms and conditions apply.",
+};
+
+// ─── Type ─────────────────────────────────────────────────────────────────────
+
+export type ServiceIntroData = {
+    image: StaticImageData | string;
+    imageAlt: string;
+    description: string;
+};
+
+export const serviceIntroWeb: ServiceIntroData = {
+    image: defaultThumbnail,
+    imageAlt: "Web Development Services — Tecorbitron",
+    description:
+        "Your website is the first thing a potential client sees — and it has about three seconds to make an impression. Whether you need a clean business site, a high-converting landing page, or a full-scale web application, you deserve something that loads fast, looks sharp, and works exactly the way your business needs it to.",
+};
+
+export const serviceIntroApp: ServiceIntroData = {
+    image: defaultThumbnail,
+    imageAlt: "Mobile App Development Services — Tecorbitron",
+    description:
+        "Your customers are on their phones — your business should be too. Whether you are launching your first app or rebuilding one that did not quite land, you need something that feels smooth, works offline, and does not crash at the worst possible moment. iOS, Android, or both — built right the first time.",
+};
+
+export const serviceIntroEcomm: ServiceIntroData = {
+    image: defaultThumbnail,
+    imageAlt: "E-Commerce Development Services — Tecorbitron",
+    description:
+        "Every second your checkout is slow, confusing, or broken, you are losing a sale. Your store should make it effortless for customers to find what they want, pay without friction, and come back again. Whether you are starting fresh or moving away from a platform that has outgrown you — you need a store built around how your customers actually shop.",
+};
+
+export const serviceIntroSeo: ServiceIntroData = {
+    image: defaultThumbnail,
+    imageAlt: "SEO & Digital Marketing Services — Tecorbitron",
+    description:
+        "If your business does not show up when people search for what you offer, someone else takes that lead. You should not have to guess why your rankings are stuck or why your ads are burning budget without results. You need a clear strategy, honest reporting, and execution that actually moves the numbers.",
 };

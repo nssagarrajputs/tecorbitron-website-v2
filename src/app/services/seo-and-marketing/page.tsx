@@ -7,9 +7,11 @@ import {
     serviceDevProcessSeo,
     serviceSolutionsSeo,
     serviceSandMSeo,
+    serviceIntroSeo,
 } from "@/content/services-data";
 import ServiceWhatSolutions from "../_components/ServiceWhatSolutions";
 import ServiceSandM from "../_components/ServiceSandM";
+import ServiceIntro from "../_components/ServiceIntro";
 
 export default function page() {
     return (
@@ -20,6 +22,7 @@ export default function page() {
                 highlight="Services"
                 description="Struggling to get found on Google? Our SEO specialists help businesses rank higher, drive quality organic traffic, and grow their online visibility. From technical fixes to content optimisation and link building, we build data-driven strategies that deliver measurable, long-term results."
             />
+            <ServiceIntro data={serviceIntroSeo} />
             <ServiceWhatSolutions data={serviceSolutionsSeo} />
             <ServiceDevProcess data={serviceDevProcessSeo} />
             <ServiceWhyUs data={servicesWhyForSeo} />

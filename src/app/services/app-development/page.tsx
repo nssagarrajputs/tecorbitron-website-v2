@@ -7,9 +7,11 @@ import {
     serviceDevProcessApp,
     serviceSolutionsApp,
     serviceSandMApp,
+    serviceIntroApp,
 } from "@/content/services-data";
 import ServiceWhatSolutions from "../_components/ServiceWhatSolutions";
 import ServiceSandM from "../_components/ServiceSandM";
+import ServiceIntro from "../_components/ServiceIntro";
 
 export default function page() {
     return (
@@ -20,6 +22,7 @@ export default function page() {
                 highlight="Services"
                 description="Got an app idea ready to bring to life? Our app developers build high-performance, user-friendly mobile applications for iOS, Android, and cross-platform. From concept to deployment, we handle everything — delivering scalable, feature-rich apps that your users will actually enjoy using."
             />
+            <ServiceIntro data={serviceIntroApp} />
             <ServiceWhatSolutions data={serviceSolutionsApp} />
             <ServiceDevProcess data={serviceDevProcessApp} />
             <ServiceWhyUs data={servicesWhyForApp} />
