@@ -71,6 +71,7 @@ export default function Footer() {
                     <div className="**:hover:text-malachite transi-base flex flex-col gap-3 **:w-fit">
                         <Link href="/about">About</Link>
                         <Link href="/services">Services</Link>
+                        <Link href="/solutions">Solutions</Link>
                         <Link href="/portfolio">Portfolio</Link>
                         <Link href="/blog">Blogs</Link>
                     </div>
