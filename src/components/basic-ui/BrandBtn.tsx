@@ -24,7 +24,7 @@ function BrandBtn({ href, children, variant = "primary" }: Props) {
     return (
         <Link
             href={href}
-            className={`group text-body inline-flex w-fit items-center gap-3 rounded-full border p-1 font-semibold transition-all duration-300 select-none ${variantStyles.wrapper}`}
+            className={`group text-body inline-flex w-fit items-center gap-3 rounded-full border p-1 font-semibold transi-base select-none ${variantStyles.wrapper}`}
         >
             <span className="pl-4 whitespace-nowrap">{children}</span>
 

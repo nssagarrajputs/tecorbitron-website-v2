@@ -3,17 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronRight } from "lucide-react";
 import { PortableText } from "@portabletext/react";
+import type { PortableTextBlock } from "@portabletext/react";
 import { client } from "@/sanity/client";
 import { groq } from "next-sanity";
 import DefBlogThumbnail from "@/assets/other/default-thumbnail.webp";
-
-import type {
-    PortableTextComponentProps,
-    PortableTextBlock,
-    PortableTextMarkComponentProps,
-    PortableTextListComponent,
-    PortableTextListItemComponent,
-} from "@portabletext/react";
+import { ptComponents } from "@/components/PortableTextFormat";
 import StructuredData, {
     portfolioProjectSchema,
 } from "@/components/StructuredData";
@@ -23,7 +17,8 @@ import SectionContainer from "@/components/basic-ui/SectionContainer";
 import SectionHeader from "@/components/basic-ui/SectionHeader";
 import CTAFormat from "@/components/templetes/CTAFormat";
 
-// ── Types ─────────────────────────────────────────────────────────────────────
+// ─── Types ────────────────────────────────────────────────────────────────────
+
 type TechStack = {
     name: string;
     category: string;
@@ -36,19 +31,12 @@ type RelatedProject = {
     thumbnail: string | null;
 };
 
-const PORTFOLIO_RELATED_QUERY = groq`
-  *[_type == "project" && slug.current != $slug] | order(completedAt desc) [0...3] {
-    projectName,
-    title,
-    "slug": slug.current,
-    "thumbnail": thumbnail.asset->url,
-  }
-`;
+// ─── Queries ──────────────────────────────────────────────────────────────────
 
 const PORTFOLIO_DETAIL_QUERY = groq`
   *[_type == "project" && slug.current == $slug][0] {
-     projectName,
-     title,
+    projectName,
+    title,
     "slug": slug.current,
     "thumbnail": thumbnail.asset->url,
     "industries": industries[]->name,
@@ -67,7 +55,17 @@ const PORTFOLIO_DETAIL_QUERY = groq`
   }
 `;
 
-// ── Static Params ─────────────────────────────────────────────────────────────
+const PORTFOLIO_RELATED_QUERY = groq`
+  *[_type == "project" && slug.current != $slug] | order(completedAt desc) [0...3] {
+    projectName,
+    title,
+    "slug": slug.current,
+    "thumbnail": thumbnail.asset->url,
+  }
+`;
+
+// ─── Static Params ────────────────────────────────────────────────────────────
+
 export async function generateStaticParams() {
     const slugs: { slug: string }[] = await client.fetch(
         groq`*[_type == "project"]{ "slug": slug.current }`,
@@ -77,7 +75,8 @@ export async function generateStaticParams() {
 
 export const revalidate = 86400;
 
-// ── generateMetadata ──────────────────────────────────────────────────────────
+// ─── generateMetadata ─────────────────────────────────────────────────────────
+
 export async function generateMetadata(props: {
     params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
@@ -101,67 +100,8 @@ export async function generateMetadata(props: {
     };
 }
 
-// ── Portable Text Components ──────────────────────────────────────────────────
-const ptComponents = {
-    block: {
-        normal: ({
-            children,
-        }: PortableTextComponentProps<PortableTextBlock>) => (
-            <p className="text-base leading-relaxed">{children}</p>
-        ),
-        h2: ({ children }: PortableTextComponentProps<PortableTextBlock>) => (
-            <h2 className="text-deepspace mt-8 mb-3 text-xl font-black">
-                {children}
-            </h2>
-        ),
-        h3: ({ children }: PortableTextComponentProps<PortableTextBlock>) => (
-            <h3 className="text-deepspace mt-6 mb-2 text-lg font-black">
-                {children}
-            </h3>
-        ),
-        h4: ({ children }: PortableTextComponentProps<PortableTextBlock>) => (
-            <h4 className="text-deepspace mt-4 mb-1 text-base font-black">
-                {children}
-            </h4>
-        ),
-    },
-    list: {
-        bullet: (({ children }) => (
-            <ul className="flex flex-col gap-2 pl-1">{children}</ul>
-        )) as PortableTextListComponent,
-        number: (({ children }) => (
-            <ol className="flex list-decimal flex-col gap-2 pl-5">
-                {children}
-            </ol>
-        )) as PortableTextListComponent,
-    },
-    listItem: {
-        bullet: (({ children }) => (
-            <li className="text-subtle flex gap-2.5 text-base leading-relaxed font-light">
-                <span className="text-malachite mt-1.5 shrink-0">•</span>
-                <span>{children}</span>
-            </li>
-        )) as PortableTextListItemComponent,
-        number: (({ children }) => (
-            <li className="text-subtle text-base leading-relaxed font-light">
-                {children}
-            </li>
-        )) as PortableTextListItemComponent,
-    },
-    marks: {
-        strong: ({ children }: PortableTextMarkComponentProps) => (
-            <strong className="text-deepspace font-black">{children}</strong>
-        ),
-        em: ({ children }: PortableTextMarkComponentProps) => (
-            <em className="italic">{children}</em>
-        ),
-        underline: ({ children }: PortableTextMarkComponentProps) => (
-            <span className="underline">{children}</span>
-        ),
-    },
-};
+// ─── Case Study Section ───────────────────────────────────────────────────────
 
-// ── Case Study Section ────────────────────────────────────────────────────────
 function CaseStudySection({
     title,
     content,
@@ -180,7 +120,8 @@ function CaseStudySection({
     );
 }
 
-// ── Page ──────────────────────────────────────────────────────────────────────
+// ─── Page ─────────────────────────────────────────────────────────────────────
+
 export default async function ProjectDetailPage(props: {
     params: Promise<{ slug: string }>;
 }) {
@@ -197,12 +138,13 @@ export default async function ProjectDetailPage(props: {
         projData.problem || projData.solution || projData.result;
 
     return (
-        <main className="bg-white">
+        <main>
             <StructuredData data={portfolioProjectSchema(projData)} />
 
             <PageHero width="lg" eyebrow="Case Study" title={projData.title} />
 
             <SectionContainer width="lg">
+                {/* Thumbnail */}
                 <div className="border-base rounded-4 shadow-soft overflow-hidden border">
                     {projData.thumbnail ? (
                         <Image
@@ -210,7 +152,8 @@ export default async function ProjectDetailPage(props: {
                             alt={projData.projectName}
                             width={2000}
                             height={2000}
-                            className="h-120 object-cover"
+                            className="h-120 w-full object-cover"
+                            priority
                         />
                     ) : (
                         <Image
@@ -218,12 +161,14 @@ export default async function ProjectDetailPage(props: {
                             alt={projData.projectName}
                             width={2000}
                             height={2000}
-                            className="w-full object-cover"
+                            className="h-auto w-full object-cover"
+                            priority
                         />
                     )}
                 </div>
 
-                <nav className="text-muted mb-4 flex items-center gap-1.5 text-xs">
+                {/* Breadcrumb */}
+                <nav className="text-typocolor-muted mb-4 flex items-center gap-1.5 text-xs">
                     <Link
                         href="/"
                         className="hover:text-deepspace transition-colors duration-200"
@@ -241,11 +186,11 @@ export default async function ProjectDetailPage(props: {
                     <span className="line-clamp-1">{projData.projectName}</span>
                 </nav>
 
+                {/* Industries + Tech Stack */}
                 <div className="mx-auto flex w-full max-w-5xl flex-col gap-8 sm:flex-row">
-                    {/* Industries */}
                     {projData.industries?.length > 0 && (
                         <div className="cardbox flex w-full flex-col gap-6 p-8">
-                            <span className="text-muted font-semibold">
+                            <span className="text-typocolor-secondary font-semibold">
                                 Industry
                             </span>
                             <div className="flex flex-wrap gap-2">
@@ -261,10 +206,9 @@ export default async function ProjectDetailPage(props: {
                         </div>
                     )}
 
-                    {/* Tech Stack */}
                     {projData.techStack?.length > 0 && (
                         <div className="cardbox flex w-full flex-col gap-6 p-8">
-                            <span className="text-muted font-semibold">
+                            <span className="text-typocolor-secondary font-semibold">
                                 Tech Stack
                             </span>
                             <div className="flex flex-wrap gap-2">
@@ -281,6 +225,7 @@ export default async function ProjectDetailPage(props: {
                     )}
                 </div>
 
+                {/* Summary */}
                 {projData.summary && (
                     <div className="flex flex-col gap-3">
                         <h2 className="text-h3 font-bold">Summary</h2>
@@ -290,6 +235,7 @@ export default async function ProjectDetailPage(props: {
                     </div>
                 )}
 
+                {/* Case Study — Problem + Solution */}
                 {hasAnyCaseStudy && (
                     <div className="flex flex-col gap-8">
                         <CaseStudySection
@@ -303,6 +249,7 @@ export default async function ProjectDetailPage(props: {
                     </div>
                 )}
 
+                {/* Screenshots */}
                 {projData.screenshots?.length > 0 && (
                     <div className="mx-auto flex max-w-5xl flex-col gap-5">
                         <h2 className="text-h3 font-bold">Screenshots</h2>
@@ -324,7 +271,7 @@ export default async function ProjectDetailPage(props: {
                                             }
                                             width={1200}
                                             height={800}
-                                            className="w-full object-cover"
+                                            className="h-auto w-full object-cover"
                                         />
                                     </div>
                                 ),
@@ -333,6 +280,7 @@ export default async function ProjectDetailPage(props: {
                     </div>
                 )}
 
+                {/* Case Study — Results */}
                 {hasAnyCaseStudy && (
                     <div className="flex flex-col gap-8">
                         <CaseStudySection
@@ -344,6 +292,7 @@ export default async function ProjectDetailPage(props: {
 
                 <hr />
 
+                {/* Related Projects */}
                 {related?.length > 0 && (
                     <div className="section-vlex-gap">
                         <SectionHeader
@@ -363,7 +312,7 @@ export default async function ProjectDetailPage(props: {
                                                 alt={proj.projectName}
                                                 width={500}
                                                 height={500}
-                                                className="w-full object-cover"
+                                                className="h-auto w-full object-cover"
                                             />
                                         ) : (
                                             <Image
@@ -371,7 +320,7 @@ export default async function ProjectDetailPage(props: {
                                                 alt={proj.projectName}
                                                 width={500}
                                                 height={500}
-                                                className="w-full object-cover"
+                                                className="h-auto w-full object-cover"
                                             />
                                         )}
                                     </div>
@@ -379,7 +328,6 @@ export default async function ProjectDetailPage(props: {
                                         <h3 className="text-typocolor-primary text-small line-clamp-2 leading-snug font-bold">
                                             {proj.title}
                                         </h3>
-
                                         <Link
                                             href={`/portfolio/${proj.slug}`}
                                             className="action-btn"

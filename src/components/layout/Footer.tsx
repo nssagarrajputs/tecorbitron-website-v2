@@ -85,7 +85,7 @@ export default function Footer() {
                             Web Development
                         </Link>
                         <Link href="/services/app-development">
-                            App Developemt
+                            App Development
                         </Link>
                         <Link href="/services/ecommerce-development">
                             E-Commerce Store

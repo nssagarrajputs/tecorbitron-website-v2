@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/basic-ui/PageHero";
 import SectionContainer from "@/components/basic-ui/SectionContainer";
 import BrandBtn from "@/components/basic-ui/BrandBtn";
-import { privacyPolicy, termsAndConditions } from "../legal-data";
+import { privacyPolicy, termsAndConditions } from "@/content/legal-data";
 
 type LegalSection = {
     id: string;

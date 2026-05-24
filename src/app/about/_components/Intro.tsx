@@ -1,5 +1,4 @@
 import SectionContainer from "@/components/basic-ui/SectionContainer";
-import { Star } from "lucide-react";
 import Image from "next/image";
 
 const ratings = [
@@ -60,52 +59,6 @@ const ratings = [
     },
 ];
 
-function StarRow({ rating }: { rating: number }) {
-    const full = Math.floor(rating);
-    const partial = rating % 1;
-    return (
-        <div className="flex items-center gap-0.5">
-            {[...Array(5)].map((_, i) => {
-                if (i < full) {
-                    return (
-                        <Star
-                            key={i}
-                            size={13}
-                            className="fill-amber-400 text-amber-400"
-                        />
-                    );
-                }
-                if (i === full && partial > 0) {
-                    return (
-                        <span key={i} className="relative inline-block">
-                            <Star
-                                size={13}
-                                className="text-border fill-border"
-                            />
-                            <span
-                                className="absolute inset-0 overflow-hidden"
-                                style={{ width: `${partial * 100}%` }}
-                            >
-                                <Star
-                                    size={13}
-                                    className="fill-amber-400 text-amber-400"
-                                />
-                            </span>
-                        </span>
-                    );
-                }
-                return (
-                    <Star
-                        key={i}
-                        size={13}
-                        className="text-border fill-border"
-                    />
-                );
-            })}
-        </div>
-    );
-}
-
 export default function Intro() {
     return (
         <SectionContainer>
@@ -163,7 +116,9 @@ export default function Intro() {
                             src="https://www.showmelocal.com/showmelocal-member-39762168"
                             alt="Tecorbitron Solutions Private Limited,Website Designer,Ghaziabad,Uttar Pradesh"
                             width={100}
-                            height={60}
+                            height={100}
+                            // className="h-25 w-25"
+                            priority
                         />
                     </a>
                 </div>

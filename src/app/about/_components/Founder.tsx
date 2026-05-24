@@ -68,9 +68,7 @@ export default function Founder() {
                         <Image
                             src={FounderImage}
                             alt="Sagar Chauhan — Founder & CEO, Tecorbitron"
-                            width={460}
-                            height={580}
-                            className="w-full object-contain object-center drop-shadow-2xl"
+                            className="h-auto w-full object-contain object-center drop-shadow-2xl"
                             priority
                         />
                     </div>

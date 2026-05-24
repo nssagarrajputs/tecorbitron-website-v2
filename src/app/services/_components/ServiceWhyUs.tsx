@@ -39,7 +39,7 @@ export default function ServiceWhyUs({ data }: Props) {
                                 {item.title}
                             </h4>
                         </div>
-                        <p className="text-small text-typocolor-muted pl-13 leading-relaxed">
+                        <p className="text-small text-typocolor-muted pl-14 leading-relaxed">
                             {item.description}
                         </p>
                     </li>
