@@ -49,7 +49,7 @@ const logosRow2 = [
 
 export default function ClientLogoStripe() {
     return (
-        <section className="overflow-hidden py-12 md:py-14">
+        <section className="bg-canvas-white overflow-hidden py-14 md:py-20">
             {/* ── ROW 1 — scroll left ── */}
             <div
                 className="flex w-max gap-8 md:gap-16 lg:gap-24"
@@ -67,7 +67,7 @@ export default function ClientLogoStripe() {
             </div>
 
             {/* ── ROW 2 — Quote ── */}
-            <p className="text-body my-12 px-4 text-center md:my-14">
+            <p className="text-body text-ink-light-primary font-mono font-medium my-12 px-4 text-center md:my-14">
                 Loved by 100+ brands around the world
             </p>
 

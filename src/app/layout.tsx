@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mulish } from "next/font/google";
+import { Mulish, Noto_Serif_JP, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -8,36 +8,46 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import StructuredData, { globalSchema } from "@/components/StructuredData";
 
-const mulish = Mulish({
+// ── Noto Serif Japanese — accent ──
+const serif = Noto_Serif_JP({
+    subsets: ["latin"],
+    weight: ["300", "400", "500", "600", "700", "800"],
+    variable: "--font-serif",
+    display: "swap",
+});
+
+// ── IBM Plex Mono — code ──
+const mono = IBM_Plex_Mono({
+    subsets: ["latin"],
+    weight: ["300", "400", "500", "600", "700"],
+    variable: "--font-mono",
+    display: "swap",
+});
+
+const sans = Mulish({
     subsets: ["latin"],
     display: "swap",
-    weight: ["300", "400", "600", "700", "800"],
-    variable: "--font-mulish",
+    weight: ["300", "400", "500", "600", "700", "800"],
+    variable: "--font-sans",
 });
 
 export const metadata: Metadata = {
     title: {
-        default: "Web and App Development Company - Tecorbitron",
+        default: "Tecorbitron | Scalable Web & App Development for Startups",
         template: "%s - Tecorbitron",
     },
     description:
-        "Tecorbitron helps startups and businesses build high-converting websites, scalable apps, and custom software solutions. Get a free consultation and turn your idea into a powerful digital product.",
+        "Build bold with Tecorbitron. We deliver high-performance apps & websites with AI and Cloud integration as standard. Transparent pricing + 3 months support.",
     keywords: [
-        // Primary high-intent keywords
         "web development company India",
         "app development company India",
-        "hire web developer India",
-        "hire app developer India",
-        // Service-based long-tail
-        "custom web development for startups",
-        "saas development company India",
         "react js development company",
         "next js development agency",
         "mobile app development services",
-        // Business intent keywords
-        "build website for business",
-        "IT company for startups India",
-        // Brand
+        "MVP development services",
+        "SaaS development India",
+        "custom software for startups",
+        "React and Next.js developers",
         "Tecorbitron",
         "Tecorbitron Solutions Pvt Ltd",
     ],
@@ -75,10 +85,10 @@ export const metadata: Metadata = {
         locale: "en_IN",
         url: "https://www.tecorbitron.com",
         siteName: "Tecorbitron",
-        title: "Websites & Apps That Generate Revenue | Tecorbitron",
+        title: "Tecorbitron – Web, App & Digital Solutions for Startups and SMBs",
 
         description:
-            "We design, develop, and scale websites, apps, and software that drive real business growth. Trusted by startups and businesses worldwide.",
+            "Premium digital solutions for startups and SMBs. Websites, apps, e-commerce, and SEO — built to launch fast and scale well.",
 
         images: [
             {
@@ -91,9 +101,9 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Tecorbitron | Web & App Solutions Development Company",
+        title: "Tecorbitron – Web, App & Digital Solutions for Startups and SMBs",
         description:
-            "Build high-performance websites, apps, and software with Tecorbitron. Free consultation available.",
+            "Premium digital solutions for startups and SMBs. Websites, apps, e-commerce, and SEO — built to launch fast and scale well.",
         images: ["/og-image.png"],
     },
 
@@ -124,7 +134,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
-            <body className={`${mulish.variable}`}>
+            <body
+                className={`${sans.variable} ${serif.variable} ${mono.variable}`}
+            >
                 <StructuredData data={globalSchema()} />
                 <SpeedInsights />
                 <Analytics />

@@ -1,10 +1,27 @@
 import { MapPin, Users, Star } from "lucide-react";
-import BrandBtn from "@/components/basic-ui/BrandBtn";
-import Eypill from "@/components/basic-ui/Eypill";
+import Link from "next/link";
+
+const trustBadges = [
+    {
+        icon: Users,
+        text: "120+ Jobs done",
+        iconClass: "text-malachite",
+    },
+    {
+        icon: Star,
+        text: "Trusted by 100+ clients",
+        iconClass: "text-warning",
+    },
+    {
+        icon: MapPin,
+        text: "NCR Based",
+        iconClass: "text-malachite",
+    },
+];
 
 export default function Hero() {
     return (
-        <section className="h-breathing relative min-h-screen pt-32">
+        <section className="h-breathing layout-border-dark relative min-h-screen border-b">
             {/* Radial glow center */}
             <div
                 className="pointer-events-none absolute inset-0"
@@ -14,54 +31,53 @@ export default function Hero() {
                 }}
             />
 
-            {/* ── CONTENT ── */}
-            <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center gap-6 text-center">
-                <Eypill text="FOR STARTUPS AND BUSINESS" />
-
-                {/* Headline */}
-                <h1 className="text-hero leading-tight font-light tracking-tight">
-                    Build your Web & App {/* <br /> */}
-                    <span className="text-deepspace-rich font-bold">
-                        Superfast
+            <div className="layout-border-dark relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-between gap-6 border-x pt-16 text-center">
+                <div className="layout-border-dark w-full border-b p-12">
+                    <span className="text-heading-xs text-ink-dark-muted font-mono">
+                        FOR STARTUPS AND BUSINESS
                     </span>
-                </h1>
+                </div>
 
-                {/* Subheadline */}
-                <p className="text-typocolor-secondary text-body mb-4 max-w-2xl leading-relaxed tracking-tight">
-                    Turn your ideas into powerful web, mobile, and custom
-                    solutions. From strategy to execution, our team ensures
-                    scalable, secure, and user-centric digital experiences.
-                </p>
+                <div className="flex-vertical w-full gap-12 p-4">
+                    <h1 className="text-display-xl leading-tight font-light tracking-tight">
+                        Build your Web & App <br />{" "}
+                        <span className="text-gradient font-bold">
+                            Superfast
+                        </span>
+                    </h1>
 
-                {/* CTAs */}
-                <BrandBtn href="/contact" variant="primary">
-                    Start Your Project
-                </BrandBtn>
+                    <p className="text-heading-xs text-ink-dark-secondary mx-auto max-w-2xl text-center leading-relaxed tracking-tight">
+                        From launch-ready websites to custom apps and e-commerce
+                        stores — we design and build modern digital products
+                        that help your business grow with confidence.
+                    </p>
 
-                {/* Trust Badges */}
-                <div className="flex-center my-12 gap-4 sm:gap-6">
-                    <div className="flex items-center gap-1.5 max-sm:flex-col">
-                        <Users size={15} className="text-malachite" />
-                        <span className="text-xmall font-semibold">
-                            120+ Jobs done
-                        </span>
-                    </div>
-                    <div className="flex items-center gap-1.5 max-sm:flex-col">
-                        <Star
-                            size={15}
-                            strokeWidth={2}
-                            className="text-warning"
-                        />
-                        <span className="text-xmall font-semibold">
-                            Trusted by 100+ clients
-                        </span>
-                    </div>
-                    <div className="flex items-center gap-1.5 max-sm:flex-col">
-                        <MapPin size={15} className="text-malachite" />
-                        <span className="text-xmall font-semibold">
-                            NCR Based
-                        </span>
-                    </div>
+                    <Link
+                        href={"/contact"}
+                        className="bg-canvas-white text-ink-light-primary text-label mx-auto w-fit px-12 py-4 font-medium"
+                    >
+                        Start Your Project
+                    </Link>
+                </div>
+
+                <div className="layout-border-dark grid w-full grid-cols-1 border-t md:grid-cols-3">
+                    {trustBadges.map(
+                        ({ icon: Icon, text, iconClass }, index) => (
+                            <div
+                                key={text}
+                                className={`flex-center gap-2 py-4 ${
+                                    index === 1
+                                        ? "layout-border-dark max-md:border-y md:border-x"
+                                        : ""
+                                }`}
+                            >
+                                <Icon size={15} className={iconClass} />
+                                <span className="text-body-sm font-mono font-medium">
+                                    {text}
+                                </span>
+                            </div>
+                        ),
+                    )}
                 </div>
             </div>
         </section>

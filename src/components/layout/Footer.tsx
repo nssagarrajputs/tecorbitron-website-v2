@@ -1,138 +1,188 @@
 import Link from "next/link";
 import Image from "next/image";
-import logo from "@/assets/logo-kit/logo-light.svg";
-import { FaLinkedinIn } from "react-icons/fa";
-import { FaWhatsapp } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa";
+import logoDark from "@/assets/logo-kit/logo-dark.svg";
+
+type footerMenuItemLink = {
+    label: string;
+    href: string;
+    external?: boolean;
+};
+type footerMenuItem = {
+    title: string;
+    links: footerMenuItemLink[];
+};
+
+const footerMenus: footerMenuItem[] = [
+    {
+        title: "Services",
+        links: [
+            {
+                label: "Web Development",
+                href: "/services/web-development",
+            },
+            {
+                label: "App Development",
+                href: "/services/app-development",
+            },
+            {
+                label: "E-Commerce Store",
+                href: "/services/ecommerce-development",
+            },
+            {
+                label: "SEO & Digital Growth",
+                href: "/services/seo-and-marketing",
+            },
+        ],
+    },
+    {
+        title: "Quick Links",
+        links: [
+            { label: "About", href: "/about" },
+            { label: "Solutions", href: "/solutions" },
+            { label: "Technologies", href: "/technologies" },
+            { label: "Portfolio", href: "/portfolio" },
+        ],
+    },
+    {
+        title: "Importants",
+        links: [
+            { label: "Contact Us", href: "/contact" },
+            { label: "Blogs", href: "/blog" },
+            { label: "Privacy Policy", href: "/legal/privacy-policy" },
+            { label: "Terms", href: "/legal/terms" },
+        ],
+    },
+    {
+        title: "Get In Touch",
+        links: [
+            {
+                label: "908-480-0496",
+                href: "tel:+919084800496",
+                external: true,
+            },
+            {
+                label: "info@tecorbitron.com",
+                href: "mailto:info@tecorbitron.com",
+                external: true,
+            },
+            {
+                label: "Ghaziabad, NCR, India",
+                href: "https://maps.app.goo.gl/DGjePxJRCTsRX3J56",
+                external: true,
+            },
+            {
+                label: "WhatsApp Us",
+                href: "https://wa.me/919084800496",
+                external: true,
+            },
+        ],
+    },
+];
 
 export default function Footer() {
     const year = new Date().getFullYear();
 
     return (
-        <footer className="text-small bg-bkg-primary text-typocolor-secondary mt-25">
-            <div className="mx-auto flex max-w-7xl flex-wrap items-start justify-between gap-8 gap-y-12 px-8">
-                {/* Intro */}
-                <div className="flex w-fit flex-col gap-4">
-                    <Link href="/">
-                        <Image
-                            src={logo}
-                            alt="Tecorbitron Solutions"
-                            width={220}
-                            className="opacity-80 select-none"
-                        />
-                    </Link>
-                    <p className="max-w-sm">
-                        Next-Gen IT Solutions, Powered by AI. <br />
+        <footer className="border-hairdark mx-2 mt-25 border-y">
+            <div className="border-hairdark mx-auto max-w-7xl border-x px-4 pt-32 pb-40 md:px-14 lg:px-28 xl:px-32">
+                <div className="grid grid-cols-1 gap-8 gap-y-12 max-md:px-8 sm:grid-cols-2 lg:grid-cols-4">
+                    {footerMenus.map((menu) => (
+                        <div key={menu.title}>
+                            <h3 className="text-ink-dark-faint text-heading-xs mb-6 font-bold">
+                                {menu.title}
+                            </h3>
+
+                            <div className="flex flex-col gap-3">
+                                {menu.links.map((link) =>
+                                    link.external ? (
+                                        <a
+                                            key={link.href}
+                                            href={link.href}
+                                            target={
+                                                link.href.startsWith("http")
+                                                    ? "_blank"
+                                                    : undefined
+                                            }
+                                            rel={
+                                                link.href.startsWith("http")
+                                                    ? "noopener noreferrer"
+                                                    : undefined
+                                            }
+                                            className="hover:text-malachite text-ink-dark-secondary w-fit font-mono font-medium underline-offset-3 hover:underline"
+                                        >
+                                            {link.label}
+                                        </a>
+                                    ) : (
+                                        <Link
+                                            key={link.href}
+                                            href={link.href}
+                                            className="hover:text-malachite text-ink-dark-secondary w-fit font-mono font-medium underline-offset-3 hover:underline"
+                                        >
+                                            {link.label}
+                                        </Link>
+                                    ),
+                                )}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="my-24">
+                    <p className="text-ink-dark-secondary/30 text-center text-[11vw] leading-none font-bold lg:text-[10.5vw]">
                         #WeBuildBold
                     </p>
+                </div>
 
-                    {/* Social */}
-                    <div className="text-body text-typocolor-muted **:hover:text-malachite flex gap-4">
-                        <Link
+                {/* Copyright */}
+                <div className="flex justify-between gap-4 max-lg:flex-col max-md:px-8">
+                    <div className="flex gap-4 max-md:flex-col md:items-center">
+                        <Link href="/">
+                            <Image
+                                src={logoDark}
+                                alt="Tecorbitron Solutions"
+                                width={180}
+                                className="opacity-100 select-none"
+                            />
+                        </Link>
+                        <small className="text-xmall text-ink-dark-muted font-medium">
+                            {year} © All Rights Reserved.
+                        </small>
+                    </div>
+
+                    <div className="text-ink-dark-muted **:hover:text-ink-dark-primary flex flex-wrap items-center gap-3 font-medium underline-offset-3 **:hover:underline">
+                        <a
                             href="https://www.linkedin.com/company/tecorbitrons"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Visit Tecorbitron on LinkedIn"
                         >
-                            <FaLinkedinIn />
-                        </Link>
-                        <Link
+                            LinkedIn
+                        </a>
+                        <a
                             href="https://www.instagram.com/tecorbitron"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Visit Tecorbitron on Instagram"
                         >
-                            <FaInstagram />
-                        </Link>
-                        <Link
+                            Instagram
+                        </a>
+                        <a
                             href="https://www.facebook.com/tecorbitron"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Visit Tecorbitron on Facebook"
                         >
-                            <FaFacebook />
-                        </Link>
-
-                        <Link
-                            href="https://wa.me/919084800496"
+                            Facebook
+                        </a>
+                        <a
+                            href="https://www.facebook.com/tecorbitron"
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label="Chat with Tecorbitron on WhatsApp"
+                            aria-label="Visit Tecorbitron Youtube Channel"
                         >
-                            <FaWhatsapp />
-                        </Link>
-                    </div>
-                </div>
-
-                {/* Quick Links */}
-                <div>
-                    <h3 className="mb-6 font-bold">Quick Links</h3>
-                    <div className="**:hover:text-malachite transi-base flex flex-col gap-3 **:w-fit">
-                        <Link href="/about">About</Link>
-                        <Link href="/services">Services</Link>
-                        <Link href="/solutions">Solutions</Link>
-                        <Link href="/technologies">Technologies</Link>
-                        <Link href="/portfolio">Portfolio</Link>
-                    </div>
-                </div>
-
-                {/* Quick Links */}
-                <div>
-                    <h3 className="mb-6 font-bold">Services</h3>
-                    <div className="**:hover:text-malachite transi-base flex flex-col gap-3 **:w-fit">
-                        <Link href="/services/web-development">
-                            Web Development
-                        </Link>
-                        <Link href="/services/app-development">
-                            App Development
-                        </Link>
-                        <Link href="/services/ecommerce-development">
-                            E-Commerce Store
-                        </Link>
-                        <Link href="/services/seo-and-marketing">
-                            SEO & Digital Growth
-                        </Link>
-                    </div>
-                </div>
-
-                {/* Important */}
-                <div>
-                    <h3 className="mb-6 font-bold">Importants</h3>
-                    <div className="**:hover:text-malachite transi-base flex flex-col gap-3 **:w-fit">
-                        <Link href="/contact" className="">
-                            Contact Us
-                        </Link>
-                        <Link href="/blog">Blogs</Link>
-                        <Link href="/legal/privacy-policy">Privacy Policy</Link>
-                        <Link href="/legal/terms">Terms</Link>
-                    </div>
-                </div>
-
-                {/* Get In Touch */}
-                <div>
-                    <h3 className="mb-6 font-bold">Get In Touch</h3>
-                    <div className="**:hover:text-malachite transi-base flex flex-col gap-3 **:w-fit">
-                        <a
-                            href="https://maps.app.goo.gl/DGjePxJRCTsRX3J56"
-                            target="_blank"
-                        >
-                            Ghaziabad, NCR, India
+                            Youtube
                         </a>
-                        <a href="mailto:info@tecorbitron.com">
-                            info@tecorbitron.com
-                        </a>
-                        <a href="tel:+919084800496">908-480-0496</a>
                     </div>
-                </div>
-            </div>
-
-            {/* Copyright */}
-            <div className="mt-12">
-                <div className="border-base flex-center h-breathing mx-auto max-w-7xl border-t py-8">
-                    <small className="text-xmall">
-                        Copyright © {year} Tecorbitron Solutions Pvt. Ltd.
-                    </small>
                 </div>
             </div>
         </footer>

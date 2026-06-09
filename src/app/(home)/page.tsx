@@ -7,8 +7,8 @@ import StatsBand from "./_components/StatsBand";
 import FeaturedProjects from "./_components/FeaturedProjects";
 import Testimonials from "./_components/Testimonials";
 import FeaturedBlogs from "./_components/FeaturedBlogs";
-import StructuredData, { homePageSchema } from "@/components/StructuredData";
 import CTAFormat from "@/components/templetes/CTAFormat";
+import StructuredData, { homePageSchema } from "@/components/StructuredData";
 
 export default function Home() {
     return (
@@ -18,12 +18,14 @@ export default function Home() {
             <Hero />
             <ClientLogoStripe />
             <CoreServices />
+            {/*   
             <Solutions />
             <Technologies />
             <StatsBand />
             <FeaturedProjects />
             <Testimonials />
-            <FeaturedBlogs />
+            <FeaturedBlogs /> 
+
             <CTAFormat
                 eypill="GET STARTED"
                 heading="Ready to Build Something That Works?"
@@ -37,7 +39,7 @@ export default function Home() {
                     text: "WhatsApp Us",
                     href: "https://wa.me/919084800496",
                 }}
-            />
+            />*/}
         </main>
     );
 }

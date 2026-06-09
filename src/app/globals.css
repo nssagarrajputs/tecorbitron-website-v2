@@ -1,69 +1,56 @@
 @import "tailwindcss";
 
 @theme {
-    --font-mulish: var(--font-mulish);
+    --font-sans: var(--font-sans);
+    --font-serif: var(--font-serif);
+    --font-mono: var(--font-mono);
 
     --color-*: initial;
 
-    /* STATUS */
+    --color-malachite: #00d060;
+    --color-deepspace: #0c3146;
+
+    --color-primary: #00b781;
+    --color-primary-active: #009c91;
+    --color-secondary: #00637a;
+    --color-secondary-active: #2f4858;
+
+    --color-ink-light-primary: #050e15;
+    --color-ink-light-secondary: #2c3f4d;
+    --color-ink-light-muted: #5d7280;
+    --color-ink-light-faint: #8da0ac;
+
+    --color-ink-dark-primary: #ffffff;
+    --color-ink-dark-secondary: #d5e3e7;
+    --color-ink-dark-muted: #97b0b7;
+    --color-ink-dark-faint: #668089;
+
+    --color-canvas: #02181a;
+    --color-canvas-accent: #00d060;
+    --color-canvas-soft: #f6f5f4;
+    --color-canvas-surface: #f0f5f8;
+    --color-canvas-white: #ffffff;
+    --color-canvas-black: #000000;
+
+    --color-hairlight: #e5e7eb;
+    --color-hairdark: #1d2e31;
+
     --color-error: #ff383c;
     --color-success: #34c73a;
     --color-info: #0088ff;
     --color-warning: #ffcc00;
 
-    /* ── MALACHITE — Primary Brand ── */
-    --color-malachite: #00d060;
-    --color-malachite-soft: #33da80;
-    --color-malachite-rich: #00a34b;
-    --color-malachite-deep: #007a38;
-    --color-malachite-dim: #e6faf0;
-
-    /* ── DEEPSPACE — Secondary Brand ── */
-    --color-deepspace: #0c3146;
-    --color-deepspace-soft: #1e6187;
-    --color-deepspace-rich: #164965;
-    --color-deepspace-deep: #071e2d;
-    --color-deepspace-dim: #ebf2f7;
-
-    /* NEUTRALS */
-    --color-white: #ffffff;
-    --color-snow: #f8fafb;
-    --color-surface: #dde6ed;
-
-    /* BACKGROUND */
-    --color-bkg-primary: var(--color-white);
-    --color-bkg-secondary: var(--color-snow);
-
-    /* TEXT */
-    --color-typocolor-heading: var(--color-deepspace-deep);
-    --color-typocolor-primary: var(--color-deepspace-rich);
-    --color-typocolor-secondary: #3d5c6e;
-    --color-typocolor-muted: #6b8a9a;
-
-    /* TYPOGRAPHY SCALE */
     --text-*: initial;
     --text-base: 1rem;
     --text-base--line-height: calc(1.5 / 1);
 
-    --text-hero: clamp(3rem, 1.536rem + 6.25vw, 4.5rem); /* 48 → 72 */
-    --text-h1: clamp(3rem, 1.536rem + 6.25vw, 4rem); /* 48 → 72 */
-    --text-h2: clamp(2.25rem, 1.152rem + 4.688vw, 3rem); /* 36 → 48 */
-    --text-h3: clamp(1.5rem, 0.402rem + 4.688vw, 2.25rem); /* 24 → 36 */
-    --text-h4: clamp(1.25rem, 0.884rem + 1.563vw, 1.5rem); /* 20 → 24 */
-
-    --text-body: clamp(1rem, 0.817rem + 0.781vw, 1.125rem); /* 16 → 18 */
-    --text-small: clamp(0.875rem, 0.692rem + 0.781vw, 1rem); /* 14 → 16 */
-    --text-xmall: clamp(0.75rem, 0.659rem + 0.391vw, 0.8125rem); /* 12 → 13 */
-
-    /* FONT WEIGHT */
     --font-weight-*: initial;
     --font-weight-light: 300;
     --font-weight-normal: 400;
-    --font-weight-semibold: 600;
+    --font-weight-medium: 600;
     --font-weight-bold: 700;
     --font-weight-black: 800;
 
-    /* BORDER CORNER RADIUS */
     --radius-*: initial;
     --radius-1: 0.25rem;
     --radius-2: 0.5rem;
@@ -73,7 +60,6 @@
 
 /* -------------------------------------------------------------------------- */
 /* BASE LAYER                                                                 */
-/* Global element defaults only                                               */
 /* -------------------------------------------------------------------------- */
 
 @layer base {
@@ -85,12 +71,12 @@
     }
 
     body {
-        @apply font-mulish text-typocolor-primary bg-bkg-primary antialiased;
+        @apply text-ink-dark-primary bg-canvas font-sans antialiased;
     }
 
     hr {
         border: 0;
-        border-top: 1px solid var(--color-surface);
+        border-top: 1px solid;
     }
 
     :focus-visible {
@@ -99,61 +85,113 @@
     }
 
     ::placeholder {
-        color: var(--color-typocolor-muted);
+        color: var(--color-ink-light-faint);
         opacity: 1;
     }
 }
 
 /* -------------------------------------------------------------------------- */
-/* UTILITIES                                                                  */
-/* Small reusable helpers only                                                */
+/* TYPOGRAPHY                                                                 */
 /* -------------------------------------------------------------------------- */
 
-@utility tb1 {
-    @apply border-error border;
+@utility text-display-xl {
+    font-size: clamp(3rem, 1.5rem + 4.688vw, 4.5rem);
+    /* 48 → 51 → 61 → 65 → 72px */
+}
+@utility text-display-lg {
+    font-size: clamp(2.25rem, 0.75rem + 4.688vw, 3.75rem);
+    /* 36 → 39 → 49 → 53 → 60px */
+}
+@utility text-heading-xl {
+    font-size: clamp(2rem, 1rem + 3.125vw, 3rem);
+    /* 32 → 34 → 40 → 43 → 48px */
+}
+@utility text-heading-lg {
+    font-size: clamp(1.625rem, 0.75rem + 2.734vw, 2.5rem);
+    /* 26 → 28 → 32 → 35 → 40px */
+}
+@utility text-heading-md {
+    font-size: clamp(1.375rem, 0.75rem + 1.953vw, 2rem);
+    /* 22 → 23 → 27 → 29 → 32px */
+}
+@utility text-heading-sm {
+    font-size: clamp(1.125rem, 0.75rem + 1.172vw, 1.5rem);
+    /* 18 → 19 → 22 → 23 → 24px */
+}
+@utility text-heading-xs {
+    font-size: clamp(1rem, 0.875rem + 0.391vw, 1.125rem);
+    /* 16 → 16 → 17 → 17 → 18px */
 }
 
-@utility tb2 {
-    @apply border-success border;
+@utility text-body {
+    @apply text-body-sm lg:text-label; /* 14px default/sm/md 16px lg*/
+}
+@utility text-body-sm {
+    font-size: 0.875rem; /* 14px — always fixed */
 }
 
-@utility tb3 {
-    @apply border-warning border;
+@utility text-label {
+    font-size: 1rem; /* 16px */
+}
+@utility text-eyebrow {
+    font-size: 0.6875rem; /* 11px */
+}
+@utility text-caption {
+    font-size: 0.75rem; /* 12px */
+}
+@utility text-xsmall {
+    font-size: 0.75rem; /* 12px */
 }
 
-@utility tb4 {
-    @apply border-info border;
+/*  */
+
+@utility text-nav-link {
+    font-size: 1rem; /* 16px */
+    font-weight: 600;
+}
+@utility text-button-label {
+    font-size: 1rem; /* 16px */
+    font-weight: 600;
 }
 
-@utility gradient-heading {
+/* -------------------------------------------------------------------------- */
+/* SPACING UTILITIES                                                          */
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/* HELPER UTILITIES                                                           */
+/* -------------------------------------------------------------------------- */
+
+@utility flex-center {
+    @apply flex items-center justify-center;
+}
+@utility flex-ic-jb {
+    @apply flex items-center justify-between;
+}
+@utility flex-vertical {
+    @apply flex flex-col;
+}
+
+/* -------------------------------------------------------------------------- */
+/* DESIGN UTILITIES                                                           */
+/* -------------------------------------------------------------------------- */
+
+@utility text-gradient {
     background: linear-gradient(135deg, #164965 0%, #00d060 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
-@utility border-base {
-    @apply border-surface;
+@utility layout-border-light {
+    @apply border-hairlight;
+}
+@utility layout-border-dark {
+    @apply border-hairdark;
 }
 
-@utility shadow-soft {
+@utility elevated-shadow {
     box-shadow: 0 8px 30px rgba(7, 30, 45, 0.08);
-}
-
-@utility flex-center {
-    @apply flex items-center justify-center;
-}
-
-@utility section-vlex-gap {
-    @apply flex flex-col gap-12 sm:gap-14 md:gap-16 lg:gap-20;
-}
-
-@utility h-breathing {
-    @apply px-4 sm:px-6 md:px-8;
-}
-
-@utility v-breathing {
-    @apply py-20 sm:py-24 md:py-28;
 }
 
 @utility transi-base {
@@ -165,25 +203,25 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* COMPONENTS                                                                 */
-/* Reusable semantic classes                                                  */
+/* DEBUG UTILITIES                                                            */
 /* -------------------------------------------------------------------------- */
-@utility action-btn {
-    @apply border-base rounded-2 border;
-    @apply shadow-soft transi-base w-fit px-4 py-2;
-    @apply text-typocolor-primary font-semibold group-hover:text-white;
-    @apply group-hover:bg-deepspace hover:bg-malachite active:bg-malachite-deep bg-deepspace-dim;
+
+@utility tb1 {
+    @apply border-error border;
+}
+@utility tb2 {
+    @apply border-success border;
+}
+@utility tb3 {
+    @apply border-warning border;
+}
+@utility tb4 {
+    @apply border-info border;
 }
 
-@utility cardbox {
-    @apply rounded-4 shadow-soft border-base bg-bkg-primary border;
-}
-
-@utility form-field {
-    @apply text-small w-full px-4 py-3 font-semibold;
-    @apply rounded-3 shadow-soft border-base border;
-    @apply focus:border-malachite transi-base outline-none;
-}
+/* -------------------------------------------------------------------------- */
+/* RESUABLE COMPONENTS                                                        */
+/* -------------------------------------------------------------------------- */
 
 /* ------------------------------------------------------------------------ */
 /* HOMEPAGE */
@@ -207,3 +245,7 @@
         transform: translateX(0);
     }
 }
+
+/* ------------------------------------------------------------------------ */
+/* HEADER */
+/* ------------------------------------------------------------------------ */

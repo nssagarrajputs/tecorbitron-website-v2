@@ -18,34 +18,24 @@ type CTAFormatProps = {
 };
 
 export default function CTAFormat({
-    eypill,
     heading,
-    highlight,
+
     bodyText,
     primaryAction,
     secondaryAction,
-    bgFrom = "#DBFCFF",
-    bgTo = "#E3FFF0",
 }: CTAFormatProps) {
     return (
-        <section className="h-breathing v-breathing">
-            <div
-                className="mx-auto flex max-w-4xl flex-col items-center gap-6 rounded-4 p-6 py-12 text-center sm:py-20 lg:py-24"
-                style={{
-                    background: `linear-gradient(90deg, ${bgFrom}, ${bgTo})`,
-                }}
-            >
-                <SectionHeader
-                    eyebrow={eypill}
-                    heading={heading}
-                    highlight={highlight}
-                />
+        <section className="border-layout-dark border-y">
+            <div className="border-layout-dark mx-auto flex max-w-7xl flex-col gap-8 border-x p-6 px-32 py-12 sm:py-20 lg:py-24">
+                <h1 className="text-h1 max-w-4xl font-serif text-white">
+                    {heading}
+                </h1>
 
-                {bodyText ? (
-                    <p className="text-body max-w-xl leading-relaxed">
+                {/* {bodyText ? (
+                    <p className="text-body max-w-3xl leading-relaxed text-white">
                         {bodyText}
                     </p>
-                ) : null}
+                ) : null} */}
 
                 {primaryAction || secondaryAction ? (
                     <div className="mt-2 flex flex-col items-center gap-6 md:flex-row">

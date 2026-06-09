@@ -9,16 +9,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo-kit/logo-light.svg";
 
 const navLinks = [
-    // { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
     { label: "Solutions", href: "/solutions" },
     { label: "Technologies", href: "/technologies" },
-    { label: "Portfolio", href: "/portfolio" },
-    { label: "Blog", href: "/blog" },
+    { label: "Case Studies", href: "/case-studies" },
+    { label: "Insights", href: "/blog" },
+    { label: "About", href: "/about" },
 ];
 
-const mobNavLinks = [...navLinks, { label: "Contact Us", href: "/contact" }];
+const mobNavLinks = [{ label: "Home", href: "/" }, ...navLinks];
 
 const sidebarVariants = {
     hidden: { x: "100%", opacity: 0 },
@@ -80,12 +79,9 @@ export default function Header() {
     return (
         <header>
             {/* ── NAVBAR ── */}
-            <motion.nav
-                className="fixed z-50 min-h-20 w-full select-none"
-                initial={false}
-            >
+            <motion.nav className="fixed z-50 min-h-20 w-full" initial={false}>
                 <motion.div
-                    className="rounded-b-2 bg-bkg-primary h-breathing m-auto flex h-16 max-w-325 items-center justify-between"
+                    className="rounded-b-2 bg-canvas-white flex-ic-jb m-auto h-16 max-w-7xl px-4"
                     animate={{
                         boxShadow: scrolled
                             ? "0 4px 24px rgba(7,30,45,0.12)"
@@ -104,20 +100,20 @@ export default function Header() {
                     </Link>
 
                     {/* RIGHT SIDE */}
-                    <div className="flex items-center justify-end gap-8">
+                    <div className="flex items-center justify-end gap-6">
                         {/* NAV LINKS — Desktop */}
-                        <ul className="hidden gap-4 font-semibold lg:flex">
+                        <ul className="hidden gap-1 font-semibold lg:flex">
                             {navLinks.map((link) => (
                                 <li
                                     key={link.href}
-                                    className="hover:bg-deepspace-dim rounded-1 px-2 py-1"
+                                    className="hover:bg-canvas-surface px-2 py-1"
                                 >
                                     <Link
                                         href={link.href}
-                                        className={`transition-base relative pb-1 ${
+                                        className={`transition-base text-nav-link relative pb-1 ${
                                             isActive(link.href)
-                                                ? "text-typocolor-primary font-bold"
-                                                : "text-typocolor-secondary"
+                                                ? "text-ink-light-primary"
+                                                : "text-ink-light-secondary"
                                         }`}
                                     >
                                         {link.label}
@@ -139,9 +135,9 @@ export default function Header() {
                             >
                                 <Link
                                     href="/contact"
-                                    className="bg-deepspace hover:bg-malachite rounded-1 transi-base block px-4 py-2 text-base font-semibold text-white"
+                                    className="bg-deepspace hover:bg-primary active:bg-primary-active rounded-1 transi-base text-ink-dark-primary text-button-label block px-4 py-1.5"
                                 >
-                                    {"Let's"} Connect
+                                    Contact Us
                                 </Link>
                             </motion.div>
                         </div>
@@ -153,7 +149,10 @@ export default function Header() {
                                 aria-label="Open menu"
                                 whileTap={{ scale: 0.9 }}
                             >
-                                <Menu size={25} className="text-deepspace" />
+                                <Menu
+                                    size={25}
+                                    className="text-ink-light-primary"
+                                />
                             </motion.button>
                         </div>
                     </div>
@@ -172,7 +171,7 @@ export default function Header() {
                             animate="visible"
                             exit="exit"
                             onClick={() => setMenuOpen(false)}
-                            className="bg-deepspace-deep/10 fixed inset-0 z-40 backdrop-blur-sm"
+                            className="bg-deepspace/20 fixed inset-0 z-40 backdrop-blur-sm"
                         />
 
                         {/* Sidebar Panel */}
@@ -182,23 +181,25 @@ export default function Header() {
                             initial="hidden"
                             animate="visible"
                             exit="exit"
-                            className="bg-bkg-primary fixed top-0 right-0 z-50 flex h-full w-80 flex-col shadow-2xl"
+                            className="bg-canvas-white fixed top-0 right-0 z-50 flex h-full w-80 flex-col shadow-2xl"
                         >
-                            {/* Sidebar Header */}
-                            <div className="h-breathing border-base flex h-16 items-center justify-end border-b">
+                            {/* Sidebar top Header */}
+                            <div className="border-hairlight flex h-16 items-center justify-end border-b px-4">
                                 <motion.button
                                     onClick={() => setMenuOpen(false)}
-                                    className="hover:bg-bkg-secondary rounded-1"
                                     aria-label="Close menu"
                                     whileTap={{ scale: 0.9 }}
                                 >
-                                    <X size={25} className="text-deepspace" />
+                                    <X
+                                        size={25}
+                                        className="text-ink-light-primary"
+                                    />
                                 </motion.button>
                             </div>
 
                             {/* Sidebar Links — staggered */}
                             <motion.nav
-                                className="h-breathing flex flex-1 flex-col gap-2 overflow-y-auto py-6"
+                                className="flex flex-1 flex-col gap-2 overflow-y-auto px-4 py-6"
                                 variants={linkContainerVariants}
                                 initial="hidden"
                                 animate="visible"
@@ -211,10 +212,10 @@ export default function Header() {
                                         <Link
                                             href={link.href}
                                             onClick={() => setMenuOpen(false)}
-                                            className={`rounded-2 text-body transi-base flex items-center justify-between px-4 py-4 font-semibold ${
+                                            className={`text-nav-link transi-base flex-ic-jb border px-4 py-2 ${
                                                 isActive(link.href)
-                                                    ? "bg-malachite-dim text-malachite-rich"
-                                                    : "text-typocolor-muted hover:bg-bkg-secondary hover:text-typocolor-primary hover:border-base border border-transparent"
+                                                    ? "bg-malachite/10 text-ink-light-primary border-malachite"
+                                                    : "text-ink-light-muted hover:bg-canvas-surface hover:text-ink-light-secondary hover:border-hairlight border-transparent"
                                             }`}
                                         >
                                             {link.label}
@@ -224,7 +225,7 @@ export default function Header() {
                                                 ) : (
                                                     <ArrowRight
                                                         size={18}
-                                                        className="text-border-strong"
+                                                        className="text-ink-light-faint"
                                                     />
                                                 )}
                                             </div>
@@ -234,7 +235,7 @@ export default function Header() {
                             </motion.nav>
 
                             {/* Sidebar CTA */}
-                            <div className="border-base h-breathing border-t py-8">
+                            <div className="border-hairlight border-t px-4 py-8">
                                 <motion.div
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.97 }}
@@ -247,10 +248,9 @@ export default function Header() {
                                     <Link
                                         href="/contact"
                                         onClick={() => setMenuOpen(false)}
-                                        className="bg-malachite hover:bg-malachite-rich flex-center rounded-2 transi-base w-full gap-2 py-4 font-bold text-white"
+                                        className="bg-primary active:bg-primary-active flex-center transi-base text-ink-dark-primary text-button-label w-full py-3"
                                     >
-                                        {"Let's"} Connect
-                                        <ArrowRight size={16} strokeWidth={3} />
+                                        Contact Us
                                     </Link>
                                 </motion.div>
                             </div>
