@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import SectionContainer from "@/components/basic-ui/SectionContainer";
 
 const stats = [
     { value: 6, suffix: "+", label: "Years of Expertise", decimal: false },
@@ -85,37 +84,36 @@ export default function StatsBand() {
     const inView = useInView(ref, { once: true, margin: "-80px" });
 
     return (
-        <SectionContainer>
+        <section className="bg-canvas-white">
+            <div className="bg-canvas edge-dark border-x flex-center mx-auto max-w-7xl py-24">
+                <h2 className="text-h3 font-serif">Real Work. Real Results.</h2>
+            </div>
             <motion.div
                 ref={ref}
                 variants={containerVariants}
                 initial="hidden"
                 animate={inView ? "visible" : "hidden"}
-                className="grid grid-cols-1 gap-x-4 gap-y-10 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4"
+                className="bg-canvas mx-auto grid max-w-7xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 edge-dark border-l"
             >
-                {stats.map((stat, index) => (
+                {stats.map((stat) => (
                     <motion.div
                         key={stat.label}
                         variants={itemVariants}
-                        className={`flex flex-col items-center gap-2 text-center ${
-                            index < stats.length - 1
-                                ? "lg:border-base lg:border-r"
-                                : ""
-                        }`}
+                        className={`edge-dark flex flex-col items-center gap-2 border-t border-r py-16 text-center`}
                     >
-                        <p className="text-malachite-soft text-h1 font-black tracking-tight">
+                        <p className="text-malachite text-h1 font-mono font-black tracking-tight">
                             <CountUp
                                 target={stat.value}
                                 suffix={stat.suffix}
                                 decimal={stat.decimal}
                             />
                         </p>
-                        <p className="text-typocolor-secondary text-body">
+                        <p className="text-ink-dark-secondary text-body">
                             {stat.label}
                         </p>
                     </motion.div>
                 ))}
             </motion.div>
-        </SectionContainer>
+        </section>
     );
 }

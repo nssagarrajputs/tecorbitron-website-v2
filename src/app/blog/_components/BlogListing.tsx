@@ -5,7 +5,6 @@ import Link from "next/link";
 import { groq } from "next-sanity";
 
 import Image from "next/image";
-import SectionContainer from "@/components/basic-ui/SectionContainer";
 import DefBlogThumbnail from "@/assets/other/default-thumbnail.webp";
 
 type Post = {
@@ -42,91 +41,85 @@ export default function BlogListing({ posts, categories }: Props) {
         active === "All" ? posts : posts.filter((p) => p.category === active);
 
     return (
-        <SectionContainer heading="All" highlight="Articles">
-            {/* ── Category pills — Sanity se dynamic ── */}
-            <div className="flex flex-wrap justify-center gap-2 gap-y-4">
-                <button
-                    onClick={() => setActive("All")}
-                    className={`text-xmall transi-base rounded-full px-4 py-2 font-bold ${
-                        active === "All"
-                            ? "bg-malachite text-typocolor-primary"
-                            : "border-base text-muted border"
-                    }`}
-                >
-                    All
-                </button>
-                {categories.map((cat) => (
+        <section className="py-24">
+            <div className="flex-vertical side-breathing mx-auto max-w-7xl gap-24">
+                <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-2 gap-y-4">
                     <button
-                        key={cat.slug}
-                        onClick={() => setActive(cat.name)}
-                        className={`text-xmall transi-base rounded-full px-4 py-2 font-semibold ${
-                            active === cat.name
-                                ? "bg-malachite border-base border text-white"
-                                : "border-base shadow-soft text-muted hover:border-malachite/40 hover:text-deepspace border bg-white"
+                        onClick={() => setActive("All")}
+                        className={`text-14 smooth-transition cursor-pointer rounded-full px-6 py-2 font-mono ${
+                            active === "All"
+                                ? "bg-primary border-primary text-ink-dark-primary border text-white"
+                                : "hover:border-primary border-secondary-active text-ink-dark-secondary border bg-white"
                         }`}
                     >
-                        {cat.name}
+                        All
                     </button>
-                ))}
-            </div>
-
-            {filtered.length > 0 ? (
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    {filtered.map((post) => (
-                        <div
-                            key={post.slug}
-                            className="group hover:border-malachite cardbox transi-base flex flex-col overflow-hidden"
+                    {categories.map((cat) => (
+                        <button
+                            key={cat.slug}
+                            onClick={() => setActive(cat.name)}
+                            className={`text-14 smooth-transition cursor-pointer rounded-full px-6 py-2 font-mono ${
+                                active === cat.name
+                                    ? "bg-primary border-primary text-ink-dark-primary border text-white"
+                                    : "hover:border-primary border-secondary-active text-ink-dark-secondary border bg-white"
+                            }`}
                         >
-                            {/* Thumbnail */}
-                            <div className="bg-deepspace relative h-44 overflow-hidden">
-                                {post.coverImage ? (
-                                    <Image
-                                        src={post.coverImage}
-                                        alt={post.title}
-                                        fill
-                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                    />
-                                ) : (
-                                    <Image
-                                        src={DefBlogThumbnail}
-                                        alt={post.title}
-                                        fill
-                                        className="object-cover"
-                                    />
-                                )}
-                            </div>
-
-                            {/* Content */}
-                            <div className="flex flex-col gap-4 p-6">
-                                <h3 className="text-typocolor-primary text-body leading-snug font-bold">
-                                    {post.title}
-                                </h3>
-                                <div className="mt-auto flex items-center justify-between pt-3">
-                                    <Link
-                                        href={`/blog/${post.slug}`}
-                                        className="action-btn"
-                                    >
-                                        View Blog
-                                    </Link>
-                                    <span className="text-typocolor-muted text-xmall font-semibold">
-                                        {formatDate(post.publishedAt)}
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
+                            {cat.name}
+                        </button>
                     ))}
                 </div>
-            ) : (
-                <div className="v-breathing flex flex-col gap-3 text-center">
-                    <p className="text-typocolor-secondary text-h3 font-black">
-                        No articles posted
-                    </p>
-                    <p className="text-typocolor-muted text-body">
-                        Check back soon.
-                    </p>
-                </div>
-            )}
-        </SectionContainer>
+
+                {filtered.length > 0 ? (
+                    <div className="grid grid-cols-1 gap-12 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
+                        {filtered.map((post) => (
+                            <Link href={`/blog/${post.slug}`} key={post.slug}>
+                                <div className="group flex-vertical overflow-hidden">
+                                    {/* Thumbnail */}
+                                    <div className="bg-deepspace rounded-2 relative h-44 overflow-hidden">
+                                        {post.coverImage ? (
+                                            <Image
+                                                src={post.coverImage}
+                                                alt={post.title}
+                                                fill
+                                                className="object-cover grayscale-75 transition-transform duration-500 group-hover:scale-103 group-hover:grayscale-0"
+                                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                            />
+                                        ) : (
+                                            <Image
+                                                src={DefBlogThumbnail}
+                                                alt={post.title}
+                                                fill
+                                                className="object-cover"
+                                            />
+                                        )}
+                                    </div>
+
+                                    {/* Content */}
+                                    <div className="flex flex-col-reverse gap-4 py-4">
+                                        <h3 className="text-ink-dark-primary text-body leading-snug font-medium">
+                                            {post.title}
+                                        </h3>
+                                        <div className="text-14 mt-auto flex items-center gap-4 pt-3">
+                                            <span className="text-primary smooth-transition group-hover:text-malachite font-mono underline-offset-4 group-hover:underline">
+                                                Read Article
+                                            </span>
+                                            <span className="text-ink-dark-muted font-mono">
+                                                {formatDate(post.publishedAt)}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
+                ) : (
+                    <div className="flex flex-col gap-3 py-32 text-center">
+                        <p className="text-ink-dark-muted text-h4 font-medium">
+                            No articles found in the category
+                        </p>
+                    </div>
+                )}
+            </div>
+        </section>
     );
 }

@@ -3,15 +3,20 @@ import Intro from "@/app/about/_components/Intro";
 import Founder from "@/app/about/_components/Founder";
 import Credibility from "@/app/about/_components/Credibility";
 import CTAFormat from "@/components/templetes/CTAFormat";
+import MissionVision from "./_components/MissionVision";
+import PricingPolicy from "./_components/PricingPolicy";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "About Us",
+    title: "About Tecorbitron – Founder-Led Digital Solutions Company",
     description:
-        "Tecorbitron is a fast-growing IT company helping startups and businesses build high-performance websites, scalable apps, and custom software solutions. Founded by Sagar Chauhan, Based in Ghaziabad, NCR, India, serving clients worldwide.",
+        "Learn about Tecorbitron — a founder-led digital solutions company based in Ghaziabad, India. Modern web, app, and e-commerce solutions for startups and SMBs.",
 
     keywords: [
         "About Tecorbitron",
+        "founder-led digital agency India",
+        "Sagar chauhan",
         "Tecorbitron",
         "Tecorbitron Solutions Pvt Ltd",
         "IT company Ghaziabad",
@@ -25,9 +30,9 @@ export const metadata: Metadata = {
     ],
     alternates: { canonical: "/about" },
     openGraph: {
-        title: "About Tecorbitron | Building Digital Products That Drive Growth",
+        title: "About Tecorbitron – Founder-Led Digital Solutions Company",
         description:
-            "Founded in 2024, Tecorbitron helps businesses turn ideas into powerful digital products — from websites and apps to custom software and AI solutions.",
+            "Learn about Tecorbitron — a founder-led digital solutions company based in Ghaziabad, India. Modern web, app, and e-commerce solutions for startups and SMBs.",
         url: "https://www.tecorbitron.com/about",
         images: [
             {
@@ -40,9 +45,9 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "About Tecorbitron | Web & App Development Company",
+        title: "About Tecorbitron – Founder-Led Digital Solutions Company",
         description:
-            "Learn how Tecorbitron helps startups and businesses build scalable digital solutions.",
+            "Learn about Tecorbitron — a founder-led digital solutions company based in Ghaziabad, India. Modern web, app, and e-commerce solutions for startups and SMBs.",
         images: ["/og-image.png"],
     },
 };
@@ -53,27 +58,28 @@ export default function About() {
             <PageHero
                 eyebrow="who we are"
                 title="About Tecorbitron"
-                highlight="Tecorbitron"
-                description="Discover our journey, mission, and the team behind our
-                    innovative solutions — dedicated to transforming ideas into experiences."
+                description="Discover our journey, mission, and the people behind every project — dedicated to building modern digital products that make a real difference."
             />
             <Intro />
-
+            <MissionVision />
+            <div className="section-edge-light"></div>
             <Founder />
+            <div className="section-edge-light"></div>
             <Credibility />
+            <div className="section-edge-light"></div>
+            <PricingPolicy />
+            <div className="section-edge-dark"></div>
 
             <CTAFormat
-                eypill="Work With Us"
-                heading="Have a Project in Mind?"
-                highlight="Mind?"
-                bodyText="We're always open to new projects and partnerships. Tell us what you're building and we'll tell you honestly if we're the right fit."
+                eyebrow="Got a Project in Mind? Let's Talk."
+                heading="Share your idea and we'll get back to you within 24 hours."
                 primaryAction={{
-                    text: "View Our Services",
-                    href: "/services",
+                    text: "Start Your Project →",
+                    href: "/contact",
                 }}
                 secondaryAction={{
-                    text: "Contact Us",
-                    href: "/contact",
+                    text: "Explore Our Services → ",
+                    href: "/services",
                 }}
             />
         </main>

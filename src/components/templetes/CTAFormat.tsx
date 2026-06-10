@@ -1,5 +1,6 @@
-import SectionHeader from "@/components/basic-ui/SectionHeader";
-import BrandBtn from "../basic-ui/BrandBtn";
+import ctaBottomGraphic from "@/assets/other/cells.svg";
+import Image from "next/image";
+import Link from "next/link";
 
 type CTAAction = {
     text: string;
@@ -7,57 +8,45 @@ type CTAAction = {
 };
 
 type CTAFormatProps = {
-    eypill: string;
+    eyebrow: string;
     heading: string;
-    highlight: string;
-    bodyText?: string;
-    primaryAction?: CTAAction;
-    secondaryAction?: CTAAction;
-    bgFrom?: string;
-    bgTo?: string;
+    primaryAction: CTAAction;
+    secondaryAction: CTAAction;
 };
 
 export default function CTAFormat({
+    eyebrow,
     heading,
-
-    bodyText,
     primaryAction,
     secondaryAction,
 }: CTAFormatProps) {
     return (
-        <section className="border-layout-dark border-y">
-            <div className="border-layout-dark mx-auto flex max-w-7xl flex-col gap-8 border-x p-6 px-32 py-12 sm:py-20 lg:py-24">
-                <h1 className="text-h1 max-w-4xl font-serif text-white">
-                    {heading}
-                </h1>
-
-                {/* {bodyText ? (
-                    <p className="text-body max-w-3xl leading-relaxed text-white">
-                        {bodyText}
-                    </p>
-                ) : null} */}
-
-                {primaryAction || secondaryAction ? (
-                    <div className="mt-2 flex flex-col items-center gap-6 md:flex-row">
-                        {primaryAction ? (
-                            <BrandBtn
-                                href={primaryAction.href}
-                                variant="primary"
-                            >
-                                {primaryAction.text}
-                            </BrandBtn>
-                        ) : null}
-
-                        {secondaryAction ? (
-                            <BrandBtn
-                                href={secondaryAction.href}
-                                variant="secondary"
-                            >
-                                {secondaryAction.text}
-                            </BrandBtn>
-                        ) : null}
+        <section className="">
+            <div className="edge-dark mx-auto max-w-7xl border-x pt-24">
+                <div className="side-breathing">
+                    <span className="text-14 font-mono">{eyebrow}</span>
+                    <h2 className="text-h1 font-serif tracking-tighter">
+                        {heading}
+                    </h2>
+                    <div className="mt-16 flex gap-4">
+                        <Link
+                            href={primaryAction.href}
+                            className="border-hairlight text-16 bg-canvas-white text-ink-light-primary w-fit border px-4 py-2 font-medium"
+                        >
+                            {primaryAction.text}
+                        </Link>
+                        <Link
+                            href={secondaryAction.href}
+                            className="border-hairlight text-16 w-fit border px-4 py-2 font-medium"
+                        >
+                            {secondaryAction.text}
+                        </Link>
                     </div>
-                ) : null}
+                </div>
+
+                <div className="mt-28">
+                    <Image src={ctaBottomGraphic} alt="cta bottom" />
+                </div>
             </div>
         </section>
     );

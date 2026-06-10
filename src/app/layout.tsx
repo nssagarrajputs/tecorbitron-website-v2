@@ -32,10 +32,7 @@ const sans = Mulish({
 });
 
 export const metadata: Metadata = {
-    title: {
-        default: "Tecorbitron | Scalable Web & App Development for Startups",
-        template: "%s - Tecorbitron",
-    },
+    title: "Tecorbitron – Web, App & Digital Solutions for Startups and SMBs",
     description:
         "Build bold with Tecorbitron. We deliver high-performance apps & websites with AI and Cloud integration as standard. Transparent pricing + 3 months support.",
     keywords: [

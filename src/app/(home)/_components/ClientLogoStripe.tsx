@@ -60,14 +60,14 @@ export default function ClientLogoStripe() {
                         <Image
                             src={logo.src}
                             alt={logo.name}
-                            className="transi-base h-full w-auto object-contain"
+                            className="h-full w-auto object-contain"
                         />
                     </div>
                 ))}
             </div>
 
             {/* ── ROW 2 — Quote ── */}
-            <p className="text-body text-ink-light-primary font-mono font-medium my-12 px-4 text-center md:my-14">
+            <p className="text-body text-ink-light-primary my-12 px-4 text-center md:my-14">
                 Loved by 100+ brands around the world
             </p>
 
@@ -81,7 +81,7 @@ export default function ClientLogoStripe() {
                         <Image
                             src={logo.src}
                             alt={logo.name}
-                            className="transi-base h-full w-auto object-contain"
+                            className="h-full w-auto object-contain"
                         />
                     </div>
                 ))}

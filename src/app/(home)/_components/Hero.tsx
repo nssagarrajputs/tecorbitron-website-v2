@@ -21,7 +21,7 @@ const trustBadges = [
 
 export default function Hero() {
     return (
-        <section className="h-breathing layout-border-dark relative min-h-screen border-b">
+        <section className="relative min-h-screen">
             {/* Radial glow center */}
             <div
                 className="pointer-events-none absolute inset-0"
@@ -31,22 +31,22 @@ export default function Hero() {
                 }}
             />
 
-            <div className="layout-border-dark relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-between gap-6 border-x pt-16 text-center">
-                <div className="layout-border-dark w-full border-b p-12">
-                    <span className="text-heading-xs text-ink-dark-muted font-mono">
+            <div className="edge-dark relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-between gap-6 border-x pt-16 text-center">
+                <div className="edge-dark w-full border-b p-8">
+                    <span className="text-body text-ink-dark-secondary font-mono">
                         FOR STARTUPS AND BUSINESS
                     </span>
                 </div>
 
                 <div className="flex-vertical w-full gap-12 p-4">
-                    <h1 className="text-display-xl leading-tight font-light tracking-tight">
+                    <h1 className="text-d1 leading-tight font-light tracking-tight">
                         Build your Web & App <br />{" "}
                         <span className="text-gradient font-bold">
                             Superfast
                         </span>
                     </h1>
 
-                    <p className="text-heading-xs text-ink-dark-secondary mx-auto max-w-2xl text-center leading-relaxed tracking-tight">
+                    <p className="text-body text-ink-dark-secondary mx-auto max-w-2xl text-center leading-relaxed">
                         From launch-ready websites to custom apps and e-commerce
                         stores — we design and build modern digital products
                         that help your business grow with confidence.
@@ -54,25 +54,25 @@ export default function Hero() {
 
                     <Link
                         href={"/contact"}
-                        className="bg-canvas-white text-ink-light-primary text-label mx-auto w-fit px-12 py-4 font-medium"
+                        className="bg-malachite text-ink-dark-primary text-16 hover:bg-primary active:bg-primary-active smooth-transition mx-auto w-fit px-12 py-4 font-bold"
                     >
                         Start Your Project
                     </Link>
                 </div>
 
-                <div className="layout-border-dark grid w-full grid-cols-1 border-t md:grid-cols-3">
+                <div className="edge-dark grid w-full grid-cols-1 border-t md:grid-cols-3">
                     {trustBadges.map(
                         ({ icon: Icon, text, iconClass }, index) => (
                             <div
                                 key={text}
                                 className={`flex-center gap-2 py-4 ${
                                     index === 1
-                                        ? "layout-border-dark max-md:border-y md:border-x"
+                                        ? "edge-dark max-md:border-y md:border-x"
                                         : ""
                                 }`}
                             >
                                 <Icon size={15} className={iconClass} />
-                                <span className="text-body-sm font-mono font-medium">
+                                <span className="text-16 font-mono">
                                     {text}
                                 </span>
                             </div>

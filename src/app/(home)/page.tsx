@@ -17,29 +17,32 @@ export default function Home() {
 
             <Hero />
             <ClientLogoStripe />
+            <div className="section-edge-light"></div>
             <CoreServices />
-            {/*   
+            <div className="section-edge-light"></div>
             <Solutions />
-            <Technologies />
-            <StatsBand />
-            <FeaturedProjects />
+            <div className="section-edge-light"></div>
             <Testimonials />
-            <FeaturedBlogs /> 
-
+            <div className="section-edge-light"></div>
+            <StatsBand />
+            <div className="section-edge-light"></div>
+            <FeaturedProjects />
+            <div className="section-edge-light"></div>
+            <Technologies />
+            <div className="section-edge-light"></div>
+            <FeaturedBlogs />
             <CTAFormat
-                eypill="GET STARTED"
+                eyebrow="GET STARTED"
                 heading="Ready to Build Something That Works?"
-                highlight="Something That Works?"
-                bodyText="Share your project with us. We'll respond within 24 hours with a clear plan. Free consultation, No strings attached."
                 primaryAction={{
-                    text: "Start Your Project",
+                    text: "Start your project",
                     href: "/contact",
                 }}
                 secondaryAction={{
-                    text: "WhatsApp Us",
-                    href: "https://wa.me/919084800496",
+                    text: "Explore Services",
+                    href: "/services",
                 }}
-            />*/}
+            />
         </main>
     );
 }

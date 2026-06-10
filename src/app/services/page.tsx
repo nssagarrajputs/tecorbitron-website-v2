@@ -7,36 +7,34 @@ import Industries from "./_components/Industries";
 import MainServices from "./_components/MainServices";
 
 export const metadata: Metadata = {
-    title: "Web, App & Software Development Services",
+    title: "Explore Our Services — Tecorbitron",
     description:
-        "Explore Tecorbitron’s services — high-converting websites, scalable mobile apps, custom software, AI solutions, and SEO strategies designed to help your business grow faster.",
+        "From websites and apps to e-commerce and SEO — built for startups and businesses. Fast delivery, transparent pricing, 3 months support included.",
     keywords: [
         "web development services for startups",
         "app development services India",
-        "custom software development company India",
-        "hire web developers India",
-        "hire app developers India",
         // Service-specific
         "next js development services",
         "react development company India",
         "mobile app development services India",
-        "ui ux design agency for startups",
-        "ai development company India",
         // Business intent
         "build website for business",
         "digital product development company",
         "software solutions for startups",
         "startup tech partner India",
-        // Brand
+
+        "web development services India",
+        "app development company",
+        "ecommerce development",
+        "SEO services India",
         "Tecorbitron services",
-        "Tecorbitron Solutions",
     ],
     alternates: { canonical: "/services" },
     openGraph: {
-        title: "Services That Help You Build & Scale Faster | Tecorbitron",
+        title: "Explore Our Services — Tecorbitron",
 
         description:
-            "From websites and apps to AI and custom software — we build digital solutions that drive real business results. Fast delivery. Transparent pricing.",
+            "From websites and apps to e-commerce and SEO — built for startups and businesses. Fast delivery, transparent pricing, 3 months support included.",
 
         url: "https://www.tecorbitron.com/services",
 
@@ -51,9 +49,9 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Web, App & Software Development Services | Tecorbitron",
+        title: "Explore Our Services — Tecorbitron",
         description:
-            "Build scalable digital products with Tecorbitron. Websites, apps, software & AI solutions.",
+            "From websites and apps to e-commerce and SEO — built for startups and businesses. Fast delivery, transparent pricing, 3 months support included.",
         images: ["/og-image.png"],
     },
 };
@@ -108,30 +106,27 @@ export default function Services() {
             <PageHero
                 eyebrow="What We OFFER"
                 title="Explore Our Services"
-                highlight="Services"
                 description="Technical services scoped to your business — not cookie-cutter packages. Work within your timeline and budget."
             />
             <MainServices />
+            <div className="section-edge-light"></div>
             <Industries />
+            <div className="section-edge-light"></div>
 
             <FAQFormat
-                eyebrow="FAQS"
-                heading="Questions We Get Asked"
-                highlight="Asked"
-                support="Everything you need to know."
+                eyebrow="FAQ"
+                heading="Frequently Asked Questions"
                 items={faqdata}
             />
             <CTAFormat
-                eypill="FREE CONSULTATION"
-                heading="Not Sure Where to Begin?"
-                highlight="Begin?"
-                bodyText="Book a free 30-minute discovery call. No sales pitch — just an honest conversation about your goals and the best way to move forward."
+                eyebrow="NOT SURE WHERE TO BEGIN?"
+                heading="Tell us about your project and we'll help you figure out the best approach."
                 primaryAction={{
-                    text: "Book Discovery Call",
+                    text: "Start Your Project →",
                     href: "/contact",
                 }}
                 secondaryAction={{
-                    text: "View Our Work",
+                    text: "Explore Our Work →",
                     href: "/portfolio",
                 }}
             />

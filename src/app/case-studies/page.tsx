@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import PageHero from "@/components/basic-ui/PageHero";
-import SectionContainer from "@/components/basic-ui/SectionContainer";
 import { client } from "@/sanity/client";
 import { groq } from "next-sanity";
 import type { Metadata } from "next";
@@ -52,106 +51,88 @@ export default async function PortfolioPage() {
     return (
         <main>
             <PageHero
-                eyebrow="Our Work"
+                eyebrow="Case Studies"
                 title="Projects That Matter"
-                highlight="Matter"
-                description="A curated selection of our work across web, mobile, software, and AI — each project measured by real business outcomes.."
+                description="A curated selection of our work across web, mobile, software, and AI — each project measured by real business outcomes."
             />
 
-            <SectionContainer width="lg">
-                {projects.length === 0 ? (
-                    /* ── Empty state ── */
-                    <div className="flex flex-col items-center gap-4 py-16 text-center">
-                        <span className="text-5xl">🚧</span>
-                        <h3 className="text-typocolor-primary text-h4 font-bold">
-                            Projects Coming Soon
-                        </h3>
-                        <p className="text-typocolor-muted text-small max-w-sm font-light">
-                            We&apos;re currently updating our portfolio. Check
-                            back soon or{" "}
-                            <Link
-                                href="/contact"
-                                className="text-malachite-rich font-semibold hover:underline"
-                            >
-                                contact us
-                            </Link>{" "}
-                            to see our work directly.
-                        </p>
-                    </div>
-                ) : (
-                    /* ── Projects grid ── */
-                    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:gap-12">
-                        {projects.map((proj) => (
-                            <div
-                                key={proj.slug}
-                                className="group cardbox transi-base hover:border-malachite flex flex-col overflow-hidden"
-                            >
-                                {/* Thumbnail */}
-                                <div className="bg-deepspace rounded-t-4 relative h-50 overflow-hidden">
-                                    {proj.thumbnail ? (
+            <section className="bg-canvas-white side-breathing py-24">
+                <div className="mx-auto max-w-7xl">
+                    {projects.length === 0 ? (
+                        /* ── Empty state ── */
+                        <div className="flex flex-col items-center gap-4 py-16 text-center">
+                            <span className="text-5xl">🚧</span>
+                            <h3 className="text-typocolor-primary text-h4 font-bold">
+                                Projects Coming Soon
+                            </h3>
+                            <p className="text-typocolor-muted text-small max-w-sm font-light">
+                                We&apos;re currently updating our portfolio.
+                                Check back soon or{" "}
+                                <Link
+                                    href="/contact"
+                                    className="text-malachite-rich font-semibold hover:underline"
+                                >
+                                    contact us
+                                </Link>{" "}
+                                to see our work directly.
+                            </p>
+                        </div>
+                    ) : (
+                        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12">
+                            {projects.map((proj) => (
+                                <div
+                                    key={proj.slug}
+                                    className="group flex flex-col overflow-hidden"
+                                >
+                                    {/* Thumbnail */}
+                                    <div className="rounded-2 border-hairlight relative h-48 overflow-hidden border sm:h-56 md:h-64 lg:h-72">
                                         <Image
-                                            src={proj.thumbnail}
+                                            src={
+                                                proj.thumbnail ||
+                                                DefProjectThumbnail
+                                            }
                                             alt={proj.title}
                                             fill
-                                            className="object-cover transition-transform duration-500 group-hover:scale-102"
-                                            sizes="(max-width: 640px) 100vw, 50vw"
+                                            className="smooth-transition h-full w-full scale-105 object-cover group-hover:scale-102"
                                         />
-                                    ) : (
-                                        <Image
-                                            src={DefProjectThumbnail}
-                                            alt={proj.title}
-                                            fill
-                                            className="object-cover transition-transform duration-500 group-hover:scale-102"
-                                            sizes="(max-width: 640px) 100vw, 50vw"
-                                        />
-                                    )}
-                                </div>
+                                    </div>
 
-                                {/* Content */}
-                                <div className="flex flex-1 flex-col px-6 py-6">
-                                    <h3 className="text-typocolor-primary group-hover:text-malachite-rich text-h4 transi-base line-clamp-2 leading-snug font-bold ">
-                                        {proj.title}
-                                    </h3>
+                                    {/* Content */}
+                                    <div className="flex flex-1 flex-col py-6">
+                                        <h3 className="text-ink-light-primary text-h4 line-clamp-2 leading-snug font-medium">
+                                            {proj.title}
+                                        </h3>
 
-                                    <div className="mt-auto flex flex-col gap-5 pt-6">
-                                        {proj.techStack?.length > 0 && (
-                                            <div className="border-base flex flex-wrap gap-2 border-t pt-5">
-                                                {proj.techStack
-                                                    .slice(0, 3)
-                                                    .map((tech) => (
-                                                        <span
-                                                            key={tech}
-                                                            className="bg-bkg-secondary text-typocolor-muted text-xmall rounded-full px-3 py-1 font-semibold"
-                                                        >
-                                                            {tech}
-                                                        </span>
-                                                    ))}
-                                                {proj.techStack.length > 3 && (
-                                                    <span className="bg-bkg-secondary text-typocolor-muted text-xmall rounded-full px-3 py-1 font-semibold">
-                                                        +
-                                                        {
-                                                            proj.techStack
-                                                                .length - 3
-                                                        }{" "}
-                                                        more
-                                                    </span>
-                                                )}
-                                            </div>
-                                        )}
+                                        <div className="mt-auto flex flex-col gap-5 pt-6">
+                                            {proj.techStack?.length > 0 && (
+                                                <div className="border-base flex flex-wrap gap-2 border-t pt-5">
+                                                    {proj.techStack.map(
+                                                        (tech) => (
+                                                            <span
+                                                                key={tech}
+                                                                className="bg-canvas-soft text-16 text-ink-light-muted px-2 py-0.5 font-semibold select-none"
+                                                            >
+                                                                {tech}
+                                                            </span>
+                                                        ),
+                                                    )}
+                                                </div>
+                                            )}
 
-                                        <Link
-                                            href={`/portfolio/${proj.slug}`}
-                                            className="action-btn self-start"
-                                        >
-                                            View Case Study
-                                        </Link>
+                                            <Link
+                                                href={`/portfolio/${proj.slug}`}
+                                                className="border-hairdark text-ink-light-primary mt-6 w-fit border px-4 py-2 underline-offset-4 group-hover:underline"
+                                            >
+                                                View Case Study
+                                            </Link>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
-                    </div>
-                )}
-            </SectionContainer>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            </section>
         </main>
     );
 }

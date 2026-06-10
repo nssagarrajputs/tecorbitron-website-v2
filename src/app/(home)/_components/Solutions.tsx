@@ -8,9 +8,8 @@ import {
     Users,
     GraduationCap,
 } from "lucide-react";
-import SectionHeader from "@/components/basic-ui/SectionHeader";
-import BrandBtn from "@/components/basic-ui/BrandBtn";
-import SectionContainer from "@/components/basic-ui/SectionContainer";
+
+import Link from "next/link";
 
 const solution = [
     {
@@ -65,35 +64,47 @@ const solution = [
 
 export default function Solutions() {
     return (
-        <SectionContainer
-            eyebrow="Solutions"
-            heading="Built For Real Business Need"
-            highlight="Business Need"
-            support="From customer-facing platforms to internal systems, we build digital solutions tailored to how your business runs, serves, and scales."
-        >
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                {solution.map(({ title, icon: Icon, description }) => (
-                    <div
-                        key={title}
-                        className="cardbox hover:border-malachite transi-base p-6"
-                    >
-                        <Icon size={40} strokeWidth={1} />
+        <section className="bg-canvas-white">
+            <div className="mx-auto max-w-7xl">
+                <div className="text-ink-light-primary edge-light side-breathing grid grid-cols-1 gap-y-12 border-x py-12 md:py-18 lg:grid-cols-2 lg:py-24">
+                    <h2 className="text-h2 font-serif">
+                        Solutions for Every Stage of Growth
+                    </h2>
 
-                        <h3 className="text-body my-4 font-semibold">
-                            {title}
-                        </h3>
-                        <p className="text-small text-typocolor-muted">
-                            {description}
-                        </p>
+                    <div className="flex-vertical justify-end md:items-end">
+                        <Link
+                            href={"/solutions"}
+                            className="text-16 border-hairdark hover:bg-canvas active:bg-canvas active:text-ink-dark-primary hover:text-ink-dark-primary smooth-transition w-fit border px-4 py-2 font-medium"
+                        >
+                            Explore All Solutions →
+                        </Link>
+                        <Link
+                            href={"/contact"}
+                            className="text-16 border-hairdark hover:bg-canvas active:bg-canvas active:text-ink-dark-primary hover:text-ink-dark-primary smooth-transition w-fit border px-4 py-2 font-medium"
+                        >
+                            Build Your Own →
+                        </Link>
                     </div>
-                ))}
-            </div>
+                </div>
 
-            <div className="mx-auto">
-                <BrandBtn href="/contact" variant="secondary">
-                    Start Your Project
-                </BrandBtn>
+                <div className="edge-light grid grid-cols-1 border-l sm:grid-cols-2 lg:grid-cols-4">
+                    {solution.map(({ title, icon: Icon, description }) => (
+                        <div
+                            key={title}
+                            className="edge-light text-ink-light-secondary border-t border-r p-6"
+                        >
+                            <Icon size={40} strokeWidth={1} />
+
+                            <h3 className="text-body text-ink-light-secondary my-4 font-semibold">
+                                {title}
+                            </h3>
+                            <p className="text-small text-ink-light-muted">
+                                {description}
+                            </p>
+                        </div>
+                    ))}
+                </div>
             </div>
-        </SectionContainer>
+        </section>
     );
 }

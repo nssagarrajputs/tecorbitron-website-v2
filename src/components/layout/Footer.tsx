@@ -7,6 +7,7 @@ type footerMenuItemLink = {
     href: string;
     external?: boolean;
 };
+
 type footerMenuItem = {
     title: string;
     links: footerMenuItemLink[];
@@ -83,12 +84,12 @@ export default function Footer() {
     const year = new Date().getFullYear();
 
     return (
-        <footer className="border-hairdark mx-2 mt-25 border-y">
-            <div className="border-hairdark mx-auto max-w-7xl border-x px-4 pt-32 pb-40 md:px-14 lg:px-28 xl:px-32">
-                <div className="grid grid-cols-1 gap-8 gap-y-12 max-md:px-8 sm:grid-cols-2 lg:grid-cols-4">
+        <footer className="edge-dark border-y">
+            <div className="edge-dark mx-auto max-w-7xl border-x px-4 pt-32 pb-40 md:px-14 lg:px-28 xl:px-32">
+                <div className="grid grid-cols-1 gap-8 gap-y-16 max-md:px-8 sm:grid-cols-2 lg:grid-cols-4">
                     {footerMenus.map((menu) => (
                         <div key={menu.title}>
-                            <h3 className="text-ink-dark-faint text-heading-xs mb-6 font-bold">
+                            <h3 className="text-ink-dark-faint text-16 mb-6 font-bold">
                                 {menu.title}
                             </h3>
 
@@ -108,7 +109,7 @@ export default function Footer() {
                                                     ? "noopener noreferrer"
                                                     : undefined
                                             }
-                                            className="hover:text-malachite text-ink-dark-secondary w-fit font-mono font-medium underline-offset-3 hover:underline"
+                                            className="hover:text-malachite text-ink-dark-secondary text-16 w-fit font-mono underline-offset-4 hover:underline"
                                         >
                                             {link.label}
                                         </a>
@@ -116,7 +117,7 @@ export default function Footer() {
                                         <Link
                                             key={link.href}
                                             href={link.href}
-                                            className="hover:text-malachite text-ink-dark-secondary w-fit font-mono font-medium underline-offset-3 hover:underline"
+                                            className="hover:text-malachite text-ink-dark-secondary text-16 w-fit font-mono underline-offset-4 hover:underline"
                                         >
                                             {link.label}
                                         </Link>
@@ -128,7 +129,7 @@ export default function Footer() {
                 </div>
 
                 <div className="my-24">
-                    <p className="text-ink-dark-secondary/30 text-center text-[11vw] leading-none font-bold lg:text-[10.5vw]">
+                    <p className="text-gradient text-center text-[11vw] leading-none font-bold lg:text-[10.5vw]">
                         #WeBuildBold
                     </p>
                 </div>
@@ -144,12 +145,12 @@ export default function Footer() {
                                 className="opacity-100 select-none"
                             />
                         </Link>
-                        <small className="text-xmall text-ink-dark-muted font-medium">
+                        <small className="text-14 text-ink-dark-muted font-medium">
                             {year} © All Rights Reserved.
                         </small>
                     </div>
 
-                    <div className="text-ink-dark-muted **:hover:text-ink-dark-primary flex flex-wrap items-center gap-3 font-medium underline-offset-3 **:hover:underline">
+                    <div className="text-ink-dark-muted **:hover:text-ink-dark-primary text-16 flex flex-wrap items-center gap-3 font-medium underline-offset-4 **:hover:underline">
                         <a
                             href="https://www.linkedin.com/company/tecorbitrons"
                             target="_blank"

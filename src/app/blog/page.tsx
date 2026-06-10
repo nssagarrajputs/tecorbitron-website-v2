@@ -1,5 +1,4 @@
 import BlogListing from "@/app/blog/_components/BlogListing";
-import RecentBlogs from "@/app/blog/_components/RecentBlogs";
 import { client } from "@/sanity/client";
 
 import { groq } from "next-sanity";
@@ -54,12 +53,10 @@ export default async function Blog() {
     return (
         <main>
             <PageHero
-                eyebrow="INSIGHTS & EXPERTISE"
-                title="The Knowledge Nexus"
-                highlight="Nexus"
-                description="Practical insights on web development, SEO, AI, and digital strategy — written by the Tecorbitron team."
+                eyebrow="Blogs & Insights"
+                title="Stay Informed. Stay Ahead."
+                description="Practical guides, expert articles, and industry updates on tech and businesses — written by the Tecorbitron team."
             />
-            <RecentBlogs />
             <BlogListing posts={posts} categories={categories} />
         </main>
     );

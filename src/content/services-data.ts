@@ -1,7 +1,4 @@
-import webDevelopmentIcon from "@/assets/service-icon/web-development.png";
-import appDevelopmentIcon from "@/assets/service-icon/app-development.png";
-import ecommerceIcon from "@/assets/service-icon/e-commerce.png";
-import seoIcon from "@/assets/service-icon/seo.png";
+
 
 import servicesWhyUsWebBanner from "@/assets/other/why-us.webp";
 import servicesWhyUsAppBanner from "@/assets/other/why-us.webp";
@@ -56,81 +53,6 @@ import { StaticImageData } from "next/image";
 
 // ─── Home & Service page service card ─────────────────────────────────────────
 
-export const services = [
-    {
-        key: "web-development",
-        icon: webDevelopmentIcon,
-        name: "Web Development",
-        description_home:
-            "We build fast, scalable, and conversion-focused websites that help businesses establish a strong online presence and grow with confidence.",
-        tags: [
-            "Business Websites",
-            "Web Applications",
-            "Landing Pages",
-            "Dashboards",
-            "Portals",
-        ],
-        tagline: "Fast, scalable websites that rank and convert.",
-        description_service:
-            "We build high-performance websites and web applications using Next.js and React — optimised for speed, SEO, and user experience from day one.",
-
-        href: "/services/web-development",
-    },
-    {
-        key: "app-development",
-        icon: appDevelopmentIcon,
-        name: "App Development",
-        description_home:
-            "We design and develop cross-platform mobile applications for iOS and Android that deliver seamless user experiences and drive real business results.",
-        tags: [
-            "iOS Apps",
-            "Android Apps",
-            "Cross-Platform",
-            "React Native",
-            "Flutter",
-        ],
-        tagline: "Mobile apps users love — on iOS and Android.",
-        description_service:
-            "Cross-platform mobile applications built with React Native. One codebase, two platforms — without compromising on performance or native feel.",
-        href: "/services/app-development",
-    },
-    {
-        key: "ecommerce-development",
-        icon: ecommerceIcon,
-        name: "E-commerce Development",
-        description_home:
-            "We build powerful online stores with seamless checkout, inventory management, and growth-ready architecture to help your brand sell more online.",
-        tags: [
-            "Shopify",
-            "WooCommerce",
-            "Custom Stores",
-            "Payment Integration",
-            "Product Management",
-        ],
-        tagline: "Online stores built to sell, scale, and retain.",
-        description_service:
-            "From Shopify and WooCommerce to fully custom storefronts — we build e-commerce solutions with inventory, payments, and admin panels built in.",
-        href: "/services/ecommerce-development",
-    },
-    {
-        key: "seo-marketing",
-        icon: seoIcon,
-        name: "SEO & Digital Growth",
-        description_home:
-            "We improve your search visibility, attract qualified traffic, and turn digital channels into measurable, sustainable business growth.",
-        tags: [
-            "Technical SEO",
-            "Local SEO",
-            "On-Page SEO",
-            "Google Ads",
-            "Performance Tracking",
-        ],
-        tagline: "Get found. Get leads. Get results.",
-        description_service:
-            "Data-driven SEO and marketing strategies that increase visibility, drive qualified traffic, and convert visitors into customers.",
-        href: "/services/seo-and-marketing",
-    },
-];
 
 // ─── Type ─────────────────────────────────────────────────────────────────────
 

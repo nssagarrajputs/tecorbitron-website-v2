@@ -19,7 +19,6 @@
     --color-ink-light-secondary: #2c3f4d;
     --color-ink-light-muted: #5d7280;
     --color-ink-light-faint: #8da0ac;
-
     --color-ink-dark-primary: #ffffff;
     --color-ink-dark-secondary: #d5e3e7;
     --color-ink-dark-muted: #97b0b7;
@@ -43,6 +42,17 @@
     --text-*: initial;
     --text-base: 1rem;
     --text-base--line-height: calc(1.5 / 1);
+    --text-d1: clamp(3.5rem, 1.536rem + 6.25vw, 4.5rem); /* 56 → 72 */
+    --text-h1: clamp(3rem, 1.536rem + 6.25vw, 4rem); /* 48 → 64 */
+    --text-h2: clamp(2.25rem, 1.152rem + 4.688vw, 3rem); /* 36 → 48 */
+    --text-h3: clamp(1.5rem, 0.402rem + 4.688vw, 2.25rem); /* 24 → 36 */
+    --text-h4: clamp(1.25rem, 0.884rem + 1.563vw, 1.5rem); /* 20 → 24 */
+    --text-body: clamp(1rem, 0.817rem + 0.781vw, 1.125rem); /* 16 → 18 */
+    --text-small: clamp(0.875rem, 0.692rem + 0.781vw, 1rem); /* 14 → 16 */
+    --text-xmall: clamp(0.75rem, 0.659rem + 0.391vw, 0.8125rem); /* 12 → 13 */
+    --text-16: 1rem;
+    --text-14: 0.875rem;
+    --text-12: 0.75rem;
 
     --font-weight-*: initial;
     --font-weight-light: 300;
@@ -71,7 +81,7 @@
     }
 
     body {
-        @apply text-ink-dark-primary bg-canvas font-sans antialiased;
+        @apply text-ink-dark-primary bg-canvas text-body font-sans antialiased;
     }
 
     hr {
@@ -91,72 +101,12 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* TYPOGRAPHY                                                                 */
-/* -------------------------------------------------------------------------- */
-
-@utility text-display-xl {
-    font-size: clamp(3rem, 1.5rem + 4.688vw, 4.5rem);
-    /* 48 → 51 → 61 → 65 → 72px */
-}
-@utility text-display-lg {
-    font-size: clamp(2.25rem, 0.75rem + 4.688vw, 3.75rem);
-    /* 36 → 39 → 49 → 53 → 60px */
-}
-@utility text-heading-xl {
-    font-size: clamp(2rem, 1rem + 3.125vw, 3rem);
-    /* 32 → 34 → 40 → 43 → 48px */
-}
-@utility text-heading-lg {
-    font-size: clamp(1.625rem, 0.75rem + 2.734vw, 2.5rem);
-    /* 26 → 28 → 32 → 35 → 40px */
-}
-@utility text-heading-md {
-    font-size: clamp(1.375rem, 0.75rem + 1.953vw, 2rem);
-    /* 22 → 23 → 27 → 29 → 32px */
-}
-@utility text-heading-sm {
-    font-size: clamp(1.125rem, 0.75rem + 1.172vw, 1.5rem);
-    /* 18 → 19 → 22 → 23 → 24px */
-}
-@utility text-heading-xs {
-    font-size: clamp(1rem, 0.875rem + 0.391vw, 1.125rem);
-    /* 16 → 16 → 17 → 17 → 18px */
-}
-
-@utility text-body {
-    @apply text-body-sm lg:text-label; /* 14px default/sm/md 16px lg*/
-}
-@utility text-body-sm {
-    font-size: 0.875rem; /* 14px — always fixed */
-}
-
-@utility text-label {
-    font-size: 1rem; /* 16px */
-}
-@utility text-eyebrow {
-    font-size: 0.6875rem; /* 11px */
-}
-@utility text-caption {
-    font-size: 0.75rem; /* 12px */
-}
-@utility text-xsmall {
-    font-size: 0.75rem; /* 12px */
-}
-
-/*  */
-
-@utility text-nav-link {
-    font-size: 1rem; /* 16px */
-    font-weight: 600;
-}
-@utility text-button-label {
-    font-size: 1rem; /* 16px */
-    font-weight: 600;
-}
-
-/* -------------------------------------------------------------------------- */
 /* SPACING UTILITIES                                                          */
 /* -------------------------------------------------------------------------- */
+
+@utility side-breathing {
+    @apply px-4 md:px-6 lg:px-8;
+}
 
 /* -------------------------------------------------------------------------- */
 /* HELPER UTILITIES                                                           */
@@ -165,16 +115,29 @@
 @utility flex-center {
     @apply flex items-center justify-center;
 }
-@utility flex-ic-jb {
-    @apply flex items-center justify-between;
-}
 @utility flex-vertical {
     @apply flex flex-col;
+}
+@utility flex-ic-jb {
+    @apply flex items-center justify-between;
 }
 
 /* -------------------------------------------------------------------------- */
 /* DESIGN UTILITIES                                                           */
 /* -------------------------------------------------------------------------- */
+
+@utility edge-light {
+    @apply border-hairlight;
+}
+@utility edge-dark {
+    @apply border-hairdark;
+}
+@utility section-edge-light {
+    @apply bg-hairlight h-px;
+}
+@utility section-edge-dark {
+    @apply bg-hairdark h-px;
+}
 
 @utility text-gradient {
     background: linear-gradient(135deg, #164965 0%, #00d060 100%);
@@ -183,18 +146,11 @@
     background-clip: text;
 }
 
-@utility layout-border-light {
-    @apply border-hairlight;
-}
-@utility layout-border-dark {
-    @apply border-hairdark;
-}
-
 @utility elevated-shadow {
     box-shadow: 0 8px 30px rgba(7, 30, 45, 0.08);
 }
 
-@utility transi-base {
+@utility smooth-transition {
     transition-property:
         color, background-color, border-color, box-shadow, transform, rotate,
         all;
@@ -219,10 +175,6 @@
     @apply border-info border;
 }
 
-/* -------------------------------------------------------------------------- */
-/* RESUABLE COMPONENTS                                                        */
-/* -------------------------------------------------------------------------- */
-
 /* ------------------------------------------------------------------------ */
 /* HOMEPAGE */
 /* ------------------------------------------------------------------------ */
@@ -245,7 +197,3 @@
         transform: translateX(0);
     }
 }
-
-/* ------------------------------------------------------------------------ */
-/* HEADER */
-/* ------------------------------------------------------------------------ */

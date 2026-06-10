@@ -1,5 +1,3 @@
-import Eypill from "./Eypill";
-
 type PageHeroProps = {
     width?: "sm" | "md" | "lg" | "xl";
     eyebrow: string;
@@ -26,7 +24,7 @@ function PageHero({
         highlight && title.includes(highlight) ? title.split(highlight) : null;
 
     return (
-        <section className="h-breathing relative overflow-hidden pt-32 pb-12">
+        <section className="edge-dark relative overflow-hidden border-b">
             <div
                 className="pointer-events-none absolute inset-0 opacity-[0.03]"
                 style={{
@@ -45,28 +43,35 @@ function PageHero({
             />
 
             {/* <div className="tb1 mx-auto flex max-w-4xl flex-col items-center text-center"> */}
-            <div
-                className={`mx-auto flex ${widthMap[width]} flex-col items-center text-center`}
-            >
-                <Eypill text={eyebrow} />
+            <div className="edge-dark mx-auto max-w-7xl border-x py-16">
+                <div className="edge-dark w-full border-b p-8 text-center">
+                    <span className="text-body text-ink-dark-secondary font-mono uppercase">
+                        {eyebrow}
+                    </span>
+                </div>
+                <div
+                    className={`mx-auto flex ${widthMap[width]} flex-col items-center text-center`}
+                >
+                    <h1 className="text-h1 mx-auto mt-6 mb-5 leading-tight font-black tracking-tight">
+                        {parts ? (
+                            <>
+                                {parts[0]}
+                                <span className="text-malachite">
+                                    {highlight}
+                                </span>
+                                {parts[1]}
+                            </>
+                        ) : (
+                            title
+                        )}
+                    </h1>
 
-                <h1 className="text-h1 mx-auto mt-6 mb-5 leading-tight font-black tracking-tight">
-                    {parts ? (
-                        <>
-                            {parts[0]}
-                            <span className="text-malachite">{highlight}</span>
-                            {parts[1]}
-                        </>
-                    ) : (
-                        title
-                    )}
-                </h1>
-
-                {description ? (
-                    <p className="text-typocolor-secondary text-body max-w-xl leading-relaxed">
-                        {description}
-                    </p>
-                ) : null}
+                    {description ? (
+                        <p className="text-ink-dark-muted text-body max-w-xl leading-relaxed font-medium">
+                            {description}
+                        </p>
+                    ) : null}
+                </div>
             </div>
         </section>
     );

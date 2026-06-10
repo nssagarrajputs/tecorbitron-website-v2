@@ -2,7 +2,6 @@
 import { Star, Verified } from "lucide-react";
 import Image from "next/image";
 import DefaultAvatar from "@/assets/other/default-avatar.png";
-import SectionContainer from "@/components/basic-ui/SectionContainer";
 
 const testimonials = [
     {
@@ -57,50 +56,48 @@ const testimonials = [
 
 export default function Testimonials() {
     return (
-        <SectionContainer
-            eyebrow="Testimonials"
-            heading="What Our Clients Say"
-            highlight="Clients Say"
-            support="Verified feedback from clients across industries — in their own words."
-        >
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {testimonials.map((review) => (
-                    <div
-                        key={review.companyName}
-                        className="cardbox mx-auto max-w-4xl p-6"
-                    >
-                        <div className="text-typocolor-muted flex items-center gap-2 select-none">
-                            {review.rating}
-                            <Star size={15} />
-                            on {review.source}{" "}
-                            <Verified size={16} className="text-info" />
+        <section className="bg-canvas-white">
+            <div className="bg-canvas edge-dark mx-auto max-w-7xl border-x">
+                <div className="flex-center side-breathing min-h-120">
+                    <h2 className="hidden">What Our client Says</h2>
+                    <div className="flex-vertical gap-8">
+                        <div className="flex-ic-jb">
+                            <span className="font-medium">
+                                5.0 | Bark Verified
+                            </span>
+                            <span className="font-black">ThreadCo Name</span>
+                        </div>
+                        <blockquote className="text-h4 mx-auto line-clamp-3 max-w-3xl font-serif leading-relaxed">
+                            {'"'}Honestly refreshing to work with a team that
+                            actually gets design. They redesigned our entire
+                            storefront and it just *looks* like money now.
+                            {'"'}
+                        </blockquote>
+                    </div>
+                </div>
+
+                <div className="edge-dark side-breathing mx-auto border-t py-4">
+                    <div className="flex-ic-jb mx-auto max-w-3xl">
+                        <div className="flex-vertical">
+                            <span className="text-body font-bold">
+                                Name Surname
+                            </span>
+                            <span className="text-small font-medium">
+                                Designation
+                            </span>
                         </div>
 
-                        <p className="text-body text-typocolor-secondary mt-4 mb-8 line-clamp-4 leading-relaxed">
-                            {review.quote}
-                        </p>
-                        <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-2">
-                                <Image
-                                    src={DefaultAvatar}
-                                    alt=""
-                                    className="aspect-square h-8 w-8 rounded-full select-none"
-                                />
-                                <div>
-                                    <h3 className="text-small font-bold">
-                                        {review.name}
-                                    </h3>
-                                    <p className="text-xmall">{review.role}</p>
-                                </div>
-                            </div>
-
-                            <p className="text-small text-typocolor-muted max-w-28 text-right font-black select-none">
-                                {review.companyName}
-                            </p>
+                        <div className="flex gap-4">
+                            <button className="border-hairlight flex-center h-10 w-10 border-2 font-bold">
+                                P
+                            </button>
+                            <button className="border-hairlight flex-center h-10 w-10 border-2 font-bold">
+                                N
+                            </button>
                         </div>
                     </div>
-                ))}
+                </div>
             </div>
-        </SectionContainer>
+        </section>
     );
 }

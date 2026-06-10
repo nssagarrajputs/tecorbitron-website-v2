@@ -23,7 +23,7 @@ import AWS from "@/assets/technology-icon/aws-2.svg";
 import GCP from "@/assets/technology-icon/google-cloud-1.svg";
 import Azure from "@/assets/technology-icon/azure-2.svg";
 import Image from "next/image";
-import SectionContainer from "@/components/basic-ui/SectionContainer";
+import Link from "next/link";
 
 const technology = [
     { name: "React", icon: React },
@@ -55,29 +55,41 @@ const technology = [
 // ── Main Section ─────────────────────────────────────────────────────────────
 export default function Technologies() {
     return (
-        <SectionContainer
-            eyebrow="Tech Stack"
-            heading="Technologies We Work With"
-            highlight="We Work With"
-            support="We pick the right technology for the right problem — not just what's trending."
-        >
-            <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-4 md:grid-cols-6 lg:grid-cols-8">
-                {technology.map((tech) => (
-                    <div
-                        key={tech.name}
-                        className="cardbox hover:border-malachite transi-base flex flex-col items-center gap-2 py-4"
-                    >
-                        <Image
-                            src={tech.icon}
-                            alt={tech.name}
-                            className="aspect-square w-[30%] object-contain select-none"
-                        />
-                        <p className="text-xmall text-typocolor-muted">
-                            {tech.name}
-                        </p>
+        <section className="bg-canvas-white">
+            <div className="mx-auto max-w-7xl">
+                <div className="text-ink-light-primary edge-light side-breathing flex-vertical items-center gap-8 border-x py-12 md:py-18 lg:py-24">
+                    <div className="text-center">
+                        <span className="text-12 font-mono">Tool & Tech</span>
+                        <h2 className="text-h2 font-serif">
+                            The Stack Behind Every Project
+                        </h2>
                     </div>
-                ))}
+
+                    <Link
+                        href={"/technologies"}
+                        className="text-16 border-hairdark hover:bg-canvas active:bg-canvas active:text-ink-dark-primary hover:text-ink-dark-primary smooth-transition w-fit border px-4 py-2 font-medium"
+                    >
+                        View All Technologies →
+                    </Link>
+                </div>
+                <div className="edge-light grid grid-cols-3 border-l sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
+                    {technology.map((tech) => (
+                        <div
+                            key={tech.name}
+                            className="edge-light flex flex-col items-center gap-2 border-t border-r py-4"
+                        >
+                            <Image
+                                src={tech.icon}
+                                alt={tech.name}
+                                className="aspect-square w-[30%] object-contain select-none"
+                            />
+                            <p className="text-xmall text-ink-light-muted font-mono">
+                                {tech.name}
+                            </p>
+                        </div>
+                    ))}
+                </div>
             </div>
-        </SectionContainer>
+        </section>
     );
 }

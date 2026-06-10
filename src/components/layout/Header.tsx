@@ -81,7 +81,7 @@ export default function Header() {
             {/* ── NAVBAR ── */}
             <motion.nav className="fixed z-50 min-h-20 w-full" initial={false}>
                 <motion.div
-                    className="rounded-b-2 bg-canvas-white flex-ic-jb m-auto h-16 max-w-7xl px-4"
+                    className="rounded-b-2 bg-canvas-white flex-ic-jb mx-auto h-16 max-w-7xl px-4"
                     animate={{
                         boxShadow: scrolled
                             ? "0 4px 24px rgba(7,30,45,0.12)"
@@ -101,16 +101,15 @@ export default function Header() {
 
                     {/* RIGHT SIDE */}
                     <div className="flex items-center justify-end gap-6">
-                        {/* NAV LINKS — Desktop */}
-                        <ul className="hidden gap-1 font-semibold lg:flex">
+                        <ul className="hidden gap-2 font-semibold lg:flex">
                             {navLinks.map((link) => (
                                 <li
                                     key={link.href}
-                                    className="hover:bg-canvas-surface px-2 py-1"
+                                    className="hover:bg-canvas-surface smooth-transition px-2 py-1"
                                 >
                                     <Link
                                         href={link.href}
-                                        className={`transition-base text-nav-link relative pb-1 ${
+                                        className={`text-16 relative pb-1 font-medium ${
                                             isActive(link.href)
                                                 ? "text-ink-light-primary"
                                                 : "text-ink-light-secondary"
@@ -135,7 +134,7 @@ export default function Header() {
                             >
                                 <Link
                                     href="/contact"
-                                    className="bg-deepspace hover:bg-primary active:bg-primary-active rounded-1 transi-base text-ink-dark-primary text-button-label block px-4 py-1.5"
+                                    className="bg-deepspace hover:bg-primary active:bg-primary-active rounded-1 smooth-transition text-ink-dark-primary text-16 block px-4 py-1.5 font-medium"
                                 >
                                     Contact Us
                                 </Link>
@@ -181,7 +180,7 @@ export default function Header() {
                             initial="hidden"
                             animate="visible"
                             exit="exit"
-                            className="bg-canvas-white fixed top-0 right-0 z-50 flex h-full w-80 flex-col shadow-2xl"
+                            className="bg-canvas-white flex-vertical fixed top-0 right-0 z-50 h-full w-80 shadow-2xl"
                         >
                             {/* Sidebar top Header */}
                             <div className="border-hairlight flex h-16 items-center justify-end border-b px-4">
@@ -212,10 +211,10 @@ export default function Header() {
                                         <Link
                                             href={link.href}
                                             onClick={() => setMenuOpen(false)}
-                                            className={`text-nav-link transi-base flex-ic-jb border px-4 py-2 ${
+                                            className={`text-16 smooth-transition flex-ic-jb px-4 py-2 font-medium ${
                                                 isActive(link.href)
-                                                    ? "bg-malachite/10 text-ink-light-primary border-malachite"
-                                                    : "text-ink-light-muted hover:bg-canvas-surface hover:text-ink-light-secondary hover:border-hairlight border-transparent"
+                                                    ? "text-ink-light-primary"
+                                                    : "text-ink-light-muted hover:bg-canvas-surface"
                                             }`}
                                         >
                                             {link.label}
@@ -248,7 +247,7 @@ export default function Header() {
                                     <Link
                                         href="/contact"
                                         onClick={() => setMenuOpen(false)}
-                                        className="bg-primary active:bg-primary-active flex-center transi-base text-ink-dark-primary text-button-label w-full py-3"
+                                        className="bg-primary active:bg-primary-active flex-center smooth-transition text-ink-dark-primary text-16 w-full py-3 font-medium"
                                     >
                                         Contact Us
                                     </Link>

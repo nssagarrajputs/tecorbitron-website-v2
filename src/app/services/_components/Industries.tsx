@@ -18,8 +18,6 @@ import {
     Truck,
     Plane,
 } from "lucide-react";
-import BrandBtn from "@/components/basic-ui/BrandBtn";
-import SectionContainer from "@/components/basic-ui/SectionContainer";
 
 const industries = [
     { icon: Wheat, name: "Agriculture" },
@@ -44,36 +42,42 @@ const industries = [
 
 function Industries() {
     return (
-        <SectionContainer
-            eyebrow="Industries"
-            heading="Wide Expertise Across Sectors"
-            highlight="Sectors"
-            support="We've built for clients across very different sectors — from early-stage startups to established enterprises."
-        >
-            <div className="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-6">
-                {industries.map(({ icon: Icon, name }) => (
-                    <div
-                        key={name}
-                        className="cardbox group transi-base hover:border-malachite flex flex-col items-center gap-3 p-4"
-                    >
-                        <Icon
-                            size={35}
-                            strokeWidth={1.2}
-                            className="text-typocolor-muted group-hover:text-malachite transi-base select-none"
-                        />
-                        <p className="text-xmall text-typocolor-secondary group-hover:text-malachite-rich transi-base text-center font-semibold">
-                            {name}
+        <section className="bg-canvas-white">
+            <div className="mx-auto max-w-7xl">
+                <div className="text-ink-light-primary edge-light side-breathing border-x py-12 md:py-18 lg:py-24">
+                    <div className="mx-auto max-w-4xl text-center">
+                        <span className="text-12 font-mono">Industries</span>
+                        <h2 className="text-h2 mb-8 font-serif">
+                            Wide Expertise Across Sectors
+                        </h2>
+                        <p>
+                            {"We've"} built for clients across very different
+                            sectors — from early-stage startups to established
+                            enterprises. No matter your industry, we know what
+                            it takes to deliver.
                         </p>
                     </div>
-                ))}
-            </div>
+                </div>
 
-            <div className="mx-auto">
-                <BrandBtn href="/contact" variant="secondary">
-                    Start Your Project
-                </BrandBtn>
+                <div className="grid edge-light border-l grid-cols-2 lg:grid-cols-6">
+                    {industries.map(({ icon: Icon, name }) => (
+                        <div
+                            key={name}
+                            className="edge-light group flex flex-col items-center gap-3 border-t border-r p-4 py-8"
+                        >
+                            <Icon
+                                size={35}
+                                strokeWidth={1.2}
+                                className="text-ink-light-muted select-none"
+                            />
+                            <p className="text-small text-ink-light-muted text-center font-medium">
+                                {name}
+                            </p>
+                        </div>
+                    ))}
+                </div>
             </div>
-        </SectionContainer>
+        </section>
     );
 }
 
