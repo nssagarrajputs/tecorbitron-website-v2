@@ -9,21 +9,21 @@ import DefProjectThumbnail from "@/assets/other/default-thumbnail.webp";
 export const revalidate = 21600;
 
 export const metadata: Metadata = {
-    title: "Our Work",
+    title: "Case Studies — Real Projects by Tecorbitron",
     description:
-        "Explore Tecorbitron's portfolio — web apps, mobile apps, e-commerce platforms, and custom software solutions delivered for clients across India and beyond.",
+        "See what we've built — real projects delivered for startups and businesses across industries. From websites and apps to e-commerce and custom digital solutions.",
     keywords: [
-        "Tecorbitron portfolio",
+        "Tecorbitron case studies",
         "web development projects India",
-        "software development case studies",
-        "app development portfolio",
-        "IT company work samples",
+        "app development projects",
+        "digital solutions work",
+        "client projects Tecorbitron",
     ],
     alternates: { canonical: "/portfolio" },
     openGraph: {
-        title: "Portfolio — Tecorbitron Solutions",
+        title: "Case Studies — Real Projects by Tecorbitron",
         description:
-            "Real projects, real results. Browse our work across web, app, software, and AI solutions.",
+            "See what we've built — real projects delivered for startups and businesses across industries. From websites and apps to e-commerce and custom digital solutions.",
         url: "https://www.tecorbitron.com/portfolio",
         images: [{ url: "/og-image.png", width: 1200, height: 630 }],
     },

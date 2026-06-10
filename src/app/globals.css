@@ -93,11 +93,6 @@
         outline: 2px solid var(--color-malachite);
         outline-offset: 2px;
     }
-
-    ::placeholder {
-        color: var(--color-ink-light-faint);
-        opacity: 1;
-    }
 }
 
 /* -------------------------------------------------------------------------- */
@@ -156,6 +151,13 @@
         all;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 300ms;
+}
+
+@utility form-field {
+    @apply text-16 font-medium tracking-wide;
+    @apply placeholder:text-ink-light-muted text-ink-light-primary;
+    @apply px-6 py-4;
+    @apply edge-light border;
 }
 
 /* -------------------------------------------------------------------------- */

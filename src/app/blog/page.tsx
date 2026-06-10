@@ -7,9 +7,9 @@ import type { Metadata } from "next";
 import PageHero from "@/components/basic-ui/PageHero";
 
 export const metadata: Metadata = {
-    title: "Blog",
+    title: "Insights — Tecorbitron",
     description:
-        "Tech insights, SEO guides, AI trends, and web development tips from the Tecorbitron team. Practical knowledge for business owners and developers.",
+        "Expert articles, practical guides, and industry updates from the Tecorbitron team — written to help you build, grow, and scale your business online.",
     keywords: [
         "tech blog India",
         "web development tips",
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
     ],
     alternates: { canonical: "/blog" },
     openGraph: {
-        title: "The Knowledge Nexus — Tecorbitron Blog",
+        title: "Insights — Tecorbitron",
         description:
-            "Practical tech tips, SEO guides, and industry insights from the Tecorbitron team.",
+            "Expert articles, practical guides, and industry updates from the Tecorbitron team — written to help you build, grow, and scale your business online.",
         url: "https://www.tecorbitron.com/blog",
         images: [{ url: "/og-image.png", width: 1200, height: 630 }],
     },

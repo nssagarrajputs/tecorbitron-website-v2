@@ -85,7 +85,7 @@ export type TechnologyGroup = {
 // ─── Groups ───────────────────────────────────────────────────────────────────
 
 export const byWebDevelopment: TechnologyGroup = {
-    heading: "Web Development",
+    heading: "Frontend & Web",
     items: [
         { name: "React", icon: React },
         { name: "Next.js", icon: Nextjs },
@@ -99,7 +99,7 @@ export const byWebDevelopment: TechnologyGroup = {
 };
 
 export const byAppDevelopment: TechnologyGroup = {
-    heading: "App Development",
+    heading: "Mobile & App",
     items: [
         { name: "React Native", icon: ReactNative },
         { name: "Flutter", icon: Flutter },
@@ -110,7 +110,7 @@ export const byAppDevelopment: TechnologyGroup = {
 };
 
 export const byBackendLanguages: TechnologyGroup = {
-    heading: "Backend & Languages",
+    heading: "Backend & APIs",
     items: [
         { name: "Python", icon: Python },
         { name: "Go", icon: Go },
@@ -122,7 +122,7 @@ export const byBackendLanguages: TechnologyGroup = {
 };
 
 export const byDatabases: TechnologyGroup = {
-    heading: "Databases",
+    heading: "Databases & Storage",
     items: [
         { name: "PostgreSQL", icon: PostgreSQL },
         { name: "MySQL", icon: MySQL },
@@ -134,7 +134,7 @@ export const byDatabases: TechnologyGroup = {
 };
 
 export const byCloudInfrastructure: TechnologyGroup = {
-    heading: "Cloud & Infrastructure",
+    heading: "Cloud & DevOps",
     items: [
         { name: "AWS", icon: AWS },
         { name: "Google Cloud", icon: GCP },
@@ -188,7 +188,7 @@ export const byDesignTools: TechnologyGroup = {
 };
 
 export const byMarketingCrm: TechnologyGroup = {
-    heading: "SEO, CRM & Support",
+    heading: "Marketing & Support Tools",
     items: [
         { name: "HubSpot", icon: HubSpot },
         { name: "Zoho", icon: Zoho },

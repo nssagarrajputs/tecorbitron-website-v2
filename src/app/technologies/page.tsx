@@ -5,24 +5,27 @@ import { technologyGroups } from "@/content/technologies-data";
 import TechStack from "./_components/TechStack";
 
 export const metadata: Metadata = {
-    title: "Technologies & Tech Stack",
+    title: "The Stack Behind Every Project — Tecorbitron",
     description:
-        "Explore the technologies Tecorbitron works with — React, Next.js, Flutter, AWS, PostgreSQL, AI tools, and more. We choose the right stack for your product, not just what's trending.",
+        "Explore the tech stack behind every Tecorbitron project — from frontend frameworks and backend systems to cloud, AI, and e-commerce platforms.",
     keywords: [
         "Tecorbitron tech stack",
         "web development technologies",
         "app development technologies India",
         "React Next.js development company",
-        "Flutter React Native agency",
         "AWS cloud development India",
         "AI development tools",
         "e-commerce tech stack",
+
+        "technologies used by Tecorbitron",
+        "Next.js development",
+        "Flutter app development",
     ],
     alternates: { canonical: "/technologies" },
     openGraph: {
-        title: "Technologies We Work With | Tecorbitron",
+        title: "The Stack Behind Every Project — Tecorbitron",
         description:
-            "From frontend frameworks to cloud, databases, CMS, and AI — see the tools we use to build scalable digital products.",
+            "Explore the tech stack behind every Tecorbitron project — from frontend frameworks and backend systems to cloud, AI, and e-commerce platforms.",
         url: "https://www.tecorbitron.com/technologies",
         images: [
             {
@@ -35,9 +38,9 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Technologies & Tech Stack | Tecorbitron",
+        title: "The Stack Behind Every Project — Tecorbitron",
         description:
-            "React, Next.js, Flutter, AWS, PostgreSQL, OpenAI, and more — the stack behind our web, app, and software projects.",
+            "Explore the tech stack behind every Tecorbitron project — from frontend frameworks and backend systems to cloud, AI, and e-commerce platforms.",
         images: ["/og-image.png"],
     },
 };
@@ -46,25 +49,22 @@ export default function TechnologiesPage() {
     return (
         <main className="bg-bkg-primary">
             <PageHero
-                eyebrow="Tech Stack"
-                title="Technologies We Work With"
-                highlight="We Work With"
-                description="We pick the right technology for the right problem — modern frameworks, proven backends, reliable cloud, and tools that scale with your business."
+                eyebrow="Tools & Tech"
+                title="Stack Behind Every Project"
+                description="We pick the right technology for the right problem — modern frameworks, proven backends, reliable cloud infrastructure, and tools that are built to scale with your business. No unnecessary complexity, no outdated stacks."
             />
 
             <TechStack groups={technologyGroups} />
 
             <CTAFormat
-                eypill="START A PROJECT"
-                heading="Need Help Choosing the Right Stack?"
-                highlight="Right Stack?"
-                bodyText="Tell us what you're building. We'll recommend a practical tech stack — scoped to your timeline, budget, and growth plans."
+                eyebrow="Have a Specific Tech Requirement?"
+                heading="Tell us or let us recommend the right one — we'll build around what works best for your project."
                 primaryAction={{
-                    text: "Start Your Project",
+                    text: "Start Your Project →",
                     href: "/contact",
                 }}
                 secondaryAction={{
-                    text: "View Our Services",
+                    text: "Explore Our Services →",
                     href: "/services",
                 }}
             />

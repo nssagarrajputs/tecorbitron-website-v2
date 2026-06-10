@@ -7,16 +7,15 @@ import WaysToConnect from "./_components/WaysToConnect";
 import FAQSection from "@/components/templetes/FAQFormat";
 
 export const metadata: Metadata = {
-    title: "Contact Us",
+    title: "Contact Us — Tecorbitron",
     description:
-        "Have an idea or project in mind? Contact Tecorbitron for a free consultation. Get a clear plan, timeline, and cost within 24 hours. No commitment required.",
+        "Got a project in mind? Get in touch with Tecorbitron — we'll get back to you within 24 hours. Let's build something great together.",
     keywords: [
         // High intent (VERY IMPORTANT)
         "hire web developer India",
         "hire app developer India",
         "contact software development company",
         "start a project web development",
-        "book free consultation IT company",
 
         // Conversion intent
         "get website development quote",
@@ -31,10 +30,10 @@ export const metadata: Metadata = {
     ],
     alternates: { canonical: "/contact" },
     openGraph: {
-        title: "Start Your Project Today | Free Consultation | Tecorbitron",
+        title: "Contact Us — Tecorbitron",
 
         description:
-            "Tell us about your idea and get a clear plan within 24 hours. Free consultation, transparent pricing, and expert guidance.",
+            "Got a project in mind? Get in touch with Tecorbitron — we'll get back to you within 24 hours. Let's build something great together.",
 
         url: "https://www.tecorbitron.com/contact",
 
@@ -49,9 +48,9 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Contact Tecorbitron | Start Your Project",
+        title: "Contact Us — Tecorbitron",
         description:
-            "Book a free consultation and build your website, app, or software with experts.",
+            "Got a project in mind? Get in touch with Tecorbitron — we'll get back to you within 24 hours. Let's build something great together.",
         images: ["/og-image.png"],
     },
 };
@@ -77,6 +76,10 @@ const faqdata = [
         question: "How do I know if my project is a good fit for Tecorbitron?",
         answer: "If you're a startup, SMB, or founder looking to build or improve a digital product — website, app, software, or anything in between — you're likely a great fit. We work across industries and project sizes. The best way to find out is to book a free call. We'll tell you honestly whether we're the right team for your project, and if not, we'll point you in the right direction.",
     },
+    {
+        question: "Do you sign an NDA before starting a project?",
+        answer: "Yes — if you need an NDA before sharing sensitive project details, we're happy to sign one. Confidentiality is important to us and we treat every client's project with full discretion, with or without a formal agreement.",
+    },
 ];
 
 export default function Contact() {
@@ -87,19 +90,16 @@ export default function Contact() {
             <PageHero
                 eyebrow="Get in Touch"
                 title="Let's Connect"
-                highlight="Connect"
-                description="Tell us about your project and we'll get back to you within 24 hours. Free consultation, no strings attached."
+                description="Share your idea and we'll get back to you within 24 hours — free consultation, no strings attached."
             />
 
             <ProjectInquiry />
-
+            <div className="section-edge-light"></div>
             <WaysToConnect />
 
             <FAQSection
                 eyebrow="FAQS"
                 heading="Before You Reach Out"
-                highlight="Reach Out"
-                support="Everything you need to know before getting in touch."
                 items={faqdata}
             />
         </main>

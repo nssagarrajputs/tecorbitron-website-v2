@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { Zap, UserCheck, HandHeart } from "lucide-react";
-import SectionContainer from "@/components/basic-ui/SectionContainer";
 
 type FormData = {
     name: string;
@@ -44,8 +43,6 @@ export default function ProjectInquiry() {
     const [form, setForm] = useState<FormData>(emptyForm);
     const [status, setStatus] = useState<Status>("idle");
 
-
-
     // ── Auto-dismiss success after 3s ──
     useEffect(() => {
         if (status !== "success") return;
@@ -83,136 +80,149 @@ export default function ProjectInquiry() {
     };
 
     return (
-        <SectionContainer width="lg">
-            <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_2fr] lg:gap-16">
-                {/* ── LEFT — Trust Signals (always visible) ── */}
-                <div className="flex flex-col gap-12 p-6 md:p-8">
-                    {trustSignals.map(({ icon: Icon, title, desc }) => (
-                        <div key={title} className="flex flex-col gap-4">
-                            <div className="flex items-center gap-2">
-                                <Icon size={20} className="text-malachite" />
-                                <h4 className="text-small font-bold">
-                                    {title}
-                                </h4>
-                            </div>
-                            <p className="text-small text-typocolor-muted leading-relaxed">
-                                {desc}
-                            </p>
-                        </div>
-                    ))}
-                </div>
+        <section className="bg-canvas-white">
+            <div className="edge-light mx-auto max-w-7xl border-x">
+                <div className="grid grid-cols-1 gap-y-18 py-12 md:py-18 lg:py-24 xl:grid-cols-[1fr_2fr]">
+                    <div className="text-ink-light-primary side-breathing">
+                        <h2 className="text-h2 mb-8 font-serif">
+                            Discuss Your Project
+                        </h2>
+                        <p className="text-body text-ink-light-secondary mt-2 max-w-3xl leading-relaxed">
+                            Have a project in mind, a question for our team, or
+                            just want to know more about what we do? Fill in the
+                            form below and {"we'll"} get back to you shortly.
+                        </p>
+                    </div>
 
-                {/* ── RIGHT — Form or Success (scoped) ── */}
-                <div className="cardbox flex flex-col gap-8 p-6 md:p-8">
-                    {status === "success" ? (
-                        <div className="flex-center flex-1 flex-col gap-4 py-12 text-center">
-                            <div className="bg-malachite-dim flex-center h-16 w-16 rounded-full">
-                                <span className="text-malachite text-h3 font-bold">
-                                    ✓
-                                </span>
-                            </div>
-                            <h3 className="text-h4 text-typocolor-primary font-black tracking-tight">
-                                Inquiry Received
-                            </h3>
-                            <p className="text-small text-typocolor-secondary max-w-sm leading-relaxed">
-                                Thank you! Our team will review your submission
-                                and reach out within 24 hours.
-                            </p>
-                            <p className="text-xmall text-typocolor-muted">
-                                This message will close automatically…
-                            </p>
-                        </div>
-                    ) : (
-                        <>
-                            <div>
-                                <h2 className="text-h4 font-bold">
-                                    Discuss your project
-                                </h2>
-                                <p className="text-small text-typocolor-muted mt-2 leading-relaxed">
-                                    Have a question or want to discuss your
-                                    project? Submit your request below and{" "}
-                                    {"we'll"} get back within 24 hours.
+                    <div className="side-breathing flex flex-col gap-8">
+                        {status === "success" ? (
+                            <div className="flex-center flex-1 flex-col gap-4 py-12 text-center">
+                                <div className="bg-malachite-dim flex-center h-16 w-16 rounded-full">
+                                    <span className="text-malachite text-h3 font-bold">
+                                        ✓
+                                    </span>
+                                </div>
+                                <h3 className="text-h4 text-typocolor-primary font-black tracking-tight">
+                                    Inquiry Received
+                                </h3>
+                                <p className="text-small text-typocolor-secondary max-w-sm leading-relaxed">
+                                    Thank you! Our team will review your
+                                    submission and reach out within 24 hours.
+                                </p>
+                                <p className="text-xmall text-typocolor-muted">
+                                    This message will close automatically…
                                 </p>
                             </div>
-                            <form
-                                onSubmit={handleSubmit}
-                                className="grid grid-cols-1 gap-4 sm:grid-cols-2"
-                            >
-                                <input
-                                    name="name"
-                                    type="text"
-                                    autoComplete="name"
-                                    value={form.name}
-                                    onChange={handleChange}
-                                    placeholder="Full Name"
-                                    className="form-field"
-                                    required
-                                />
-                                <input
-                                    name="company"
-                                    type="text"
-                                    autoComplete="organization"
-                                    value={form.company}
-                                    onChange={handleChange}
-                                    placeholder="Company / Brand Name"
-                                    className="form-field"
-                                />
-                                <input
-                                    name="email"
-                                    type="email"
-                                    autoComplete="email"
-                                    value={form.email}
-                                    onChange={handleChange}
-                                    placeholder="Work Email"
-                                    className="form-field"
-                                    required
-                                />
-                                <input
-                                    name="phone"
-                                    type="tel"
-                                    autoComplete="tel"
-                                    value={form.phone}
-                                    onChange={handleChange}
-                                    placeholder="Phone Number"
-                                    className="form-field"
-                                    required
-                                />
-                                <textarea
-                                    name="description"
-                                    rows={6}
-                                    value={form.description}
-                                    onChange={handleChange}
-                                    placeholder="Tell us about your project, goals, features, or current challenges."
-                                    className="form-field w-full resize-none sm:col-span-2"
-                                    required
-                                />
-                                <div className="flex flex-col items-start gap-3 pt-1 sm:col-span-2 sm:flex-row sm:items-center">
-                                    <button
-                                        type="submit"
-                                        disabled={status === "sending"}
-                                        className="bg-malachite hover:bg-malachite-rich text-body mx-auto mt-4 h-12.5 rounded-full px-6 py-1 font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-60"
-                                    >
-                                        {status === "sending"
-                                            ? "Sending..."
-                                            : "Send Project Inquiry"}
-                                    </button>
-                                    {status === "error" && (
-                                        <p className="text-sm font-medium text-red-600">
-                                            Something went wrong. Email us at{" "}
-                                            <a
-                                                href="mailto:info@tecorbitron.com"
-                                                className="underline"
-                                            >
-                                                info@tecorbitron.com
-                                            </a>
-                                        </p>
-                                    )}
-                                </div>
-                            </form>
-                        </>
-                    )}
+                        ) : (
+                            <>
+                                <form
+                                    onSubmit={handleSubmit}
+                                    className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2"
+                                >
+                                    <input
+                                        name="name"
+                                        type="text"
+                                        autoComplete="name"
+                                        value={form.name}
+                                        onChange={handleChange}
+                                        placeholder="Full Name"
+                                        className="form-field"
+                                        required
+                                    />
+                                    <input
+                                        name="company"
+                                        type="text"
+                                        autoComplete="organization"
+                                        value={form.company}
+                                        onChange={handleChange}
+                                        placeholder="Company Name (optional)"
+                                        className="form-field"
+                                    />
+                                    <input
+                                        name="email"
+                                        type="email"
+                                        autoComplete="email"
+                                        value={form.email}
+                                        onChange={handleChange}
+                                        placeholder="Work Email"
+                                        className="form-field"
+                                        required
+                                    />
+                                    <input
+                                        name="phone"
+                                        type="tel"
+                                        autoComplete="tel"
+                                        value={form.phone}
+                                        onChange={handleChange}
+                                        placeholder="Phone Number"
+                                        className="form-field"
+                                        required
+                                    />
+                                    <textarea
+                                        name="description"
+                                        rows={6}
+                                        value={form.description}
+                                        onChange={handleChange}
+                                        placeholder="How Can We Help You?"
+                                        className="form-field w-full resize-none sm:col-span-2"
+                                        required
+                                    />
+                                    <div className="flex-vertical w-full gap-6 sm:col-span-2">
+                                        <button
+                                            type="submit"
+                                            disabled={status === "sending"}
+                                            className="bg-primary active:bg-primary-active text-16 smooth-transition mx-auto block px-12 py-4 font-bold text-white disabled:cursor-not-allowed disabled:opacity-60"
+                                        >
+                                            {status === "sending"
+                                                ? "Sending..."
+                                                : "Send Request"}
+                                        </button>
+
+                                        <span className="text-xmall text-ink-light-muted text-center">
+                                            By submitting this form you are
+                                            agree to our privacy policy and
+                                            terms.
+                                        </span>
+
+                                        {status === "error" && (
+                                            <p className="text-small text-error text-center font-medium">
+                                                Something went wrong. Email us
+                                                at{" "}
+                                                <a
+                                                    href="mailto:info@tecorbitron.com"
+                                                    className="underline underline-offset-4"
+                                                >
+                                                    info@tecorbitron.com
+                                                </a>
+                                            </p>
+                                        )}
+                                    </div>
+                                </form>
+                            </>
+                        )}
+                    </div>
                 </div>
             </div>
-        </SectionContainer>
+
+            {/* ── Trust Signals ── */}
+            <div className="edge-light mx-auto grid max-w-7xl grid-cols-1 border-l md:grid-cols-3">
+                {trustSignals.map(({ icon: Icon, title, desc }) => (
+                    <div
+                        key={title}
+                        className="flex-vertical edge-light gap-4 border-t border-r px-8 py-20"
+                    >
+                        <div className="flex items-center gap-2">
+                            <Icon size={20} className="text-malachite" />
+                            <h3 className="text-body text-ink-light-primary font-medium">
+                                {title}
+                            </h3>
+                        </div>
+                        <p className="text-body text-ink-light-secondary leading-relaxed">
+                            {desc}
+                        </p>
+                    </div>
+                ))}
+            </div>
+        </section>
     );
 }
