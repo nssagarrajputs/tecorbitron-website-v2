@@ -13,20 +13,62 @@ import ServiceWhatSolutions from "../_components/ServiceWhatSolutions";
 import ServiceSandM from "../_components/ServiceSandM";
 import ServiceIntro from "../_components/ServiceIntro";
 
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+    title: "E-Commerce Development Company — Tecorbitron",
+    description:
+        "We build online stores that load fast, convert well, and are easy to manage — on Shopify, WooCommerce, or fully custom. Built for businesses ready to sell online.",
+    keywords: [
+        "ecommerce development company India",
+        "Shopify development",
+        "WooCommerce development",
+        "custom ecommerce store",
+        "online store development",
+        "Tecorbitron ecommerce",
+    ],
+    alternates: { canonical: "/solutions" },
+    openGraph: {
+        title: "E-Commerce Development Company — Tecorbitron",
+        description:
+            "We build online stores that load fast, convert well, and are easy to manage — on Shopify, WooCommerce, or fully custom. Built for businesses ready to sell online.",
+        url: "https://www.tecorbitron.com/solutions",
+        images: [
+            {
+                url: "/og-image.png",
+                width: 1200,
+                height: 630,
+                alt: "Tecorbitron Solutions — Custom Digital Systems",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "E-Commerce Development Company — Tecorbitron",
+        description:
+            "We build online stores that load fast, convert well, and are easy to manage — on Shopify, WooCommerce, or fully custom. Built for businesses ready to sell online.",
+        images: ["/og-image.png"],
+    },
+};
+
 export default function page() {
     return (
         <main>
             <PageHero
-                eyebrow="Services"
-                title="E-Commerce Development Services"
+                eyebrow="E-Commerce Development"
+                title="Online Stores Built to Sell — Fast, Smart & Scalable"
                 highlight="Services"
-                description="Ready to sell online the right way? We build powerful, conversion-focused e-commerce stores on Shopify, WooCommerce, Headless, or fully custom platforms. From storefront design to payment integration, we deliver complete end-to-end solutions built to scale with your business."
+                description="From Shopify and WooCommerce to fully custom stores — we build e-commerce solutions that convert visitors into customers and scale with your business."
             />
             <ServiceIntro data={serviceIntroEcomm} />
+             <div className="section-edge-light"></div>
             <ServiceWhatSolutions data={serviceSolutionsEcomm} />
+             <div className="section-edge-light"></div>
             <ServiceDevProcess data={serviceDevProcessEcomm} />
-            <ServiceWhyUs data={servicesWhyForEcomm} />
+             <div className="section-edge-light"></div>
             <ServiceSandM data={serviceSandMEcomm} />
+             <div className="section-edge-light"></div>
+            <ServiceWhyUs data={servicesWhyForEcomm} />
+             <div className="section-edge-light"></div>
             <ServiceLetsConnect />
         </main>
     );

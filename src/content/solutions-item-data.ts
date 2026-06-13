@@ -431,7 +431,7 @@ export const byIndustries: SolutionGroup[] = [
     },
 
     {
-        heading: "Healthcare & Medical",
+        heading: "Healthcare",
         items: [
             {
                 name: "Hospital Management System",
@@ -465,7 +465,7 @@ export const byIndustries: SolutionGroup[] = [
     },
 
     {
-        heading: "Education & E-Learning",
+        heading: "Education",
         items: [
             {
                 name: "Coaching Platform",
@@ -601,7 +601,7 @@ export const byIndustries: SolutionGroup[] = [
     },
 
     {
-        heading: "Finance & Legal",
+        heading: "Finance",
         items: [
             {
                 name: "Billing & Invoicing Platform",

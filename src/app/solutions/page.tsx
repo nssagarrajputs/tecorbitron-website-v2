@@ -1,24 +1,16 @@
-import type { Metadata } from "next";
-import Image from "next/image";
-import type { LucideIcon } from "lucide-react";
-import { StaticImageData } from "next/image";
 
 import PageHero from "@/components/basic-ui/PageHero";
-import SectionContainer from "@/components/basic-ui/SectionContainer";
-import {
-    byServices,
-    byIndustries,
-    byCloudAI,
-    byPlatforms,
-    type SolutionItem,
-} from "@/content/solutions-item-data";
-import BrandBtn from "@/components/basic-ui/BrandBtn";
-import SolutionStack from "./_components/SolutionStack";
+import ByServices from "./_components/ByServices";
+import ByIndustries from "./_components/ByIndustries";
+import ByCloudAi from "./_components/ByCloudAi";
+import CTAFormat from "@/components/templetes/CTAFormat";
+import ByThirdParty from "./_components/ByThirdParty";
 
+import type { Metadata } from "next";
 export const metadata: Metadata = {
-    title: "Industry & Business Solutions",
+    title: "Digital Solutions for Every Business — Tecorbitron",
     description:
-        "Explore Tecorbitron's comprehensive suite of digital solutions — customized ERPs, CRM systems, mobile apps, e-commerce, AI implementations, and cloud integrations built to scale.",
+        "From custom websites and web apps to CRM, ERP, LMS, and e-commerce — Tecorbitron builds digital solutions tailored to your business needs and goals.",
     keywords: [
         "business ERP and CRM solutions",
         "healthcare medical billing systems",
@@ -31,9 +23,9 @@ export const metadata: Metadata = {
     ],
     alternates: { canonical: "/solutions" },
     openGraph: {
-        title: "Digital Solutions for Startups & Enterprises | Tecorbitron",
+        title: "Digital Solutions for Every Business — Tecorbitron",
         description:
-            "From ERPs and CRMs to AI capabilities and e-commerce platforms, we build customized software architectures tailored to your business operations.",
+            "From custom websites and web apps to CRM, ERP, LMS, and e-commerce — Tecorbitron builds digital solutions tailored to your business needs and goals.",
         url: "https://www.tecorbitron.com/solutions",
         images: [
             {
@@ -46,9 +38,9 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Industry & Business Solutions | Tecorbitron",
+        title: "Digital Solutions for Every Business — Tecorbitron",
         description:
-            "ERPs, CRMs, mobile applications, cloud infrastructures, and AI tools customized for your business. View our solutions catalog.",
+            "From custom websites and web apps to CRM, ERP, LMS, and e-commerce — Tecorbitron builds digital solutions tailored to your business needs and goals.",
         images: ["/og-image.png"],
     },
 };
@@ -57,42 +49,31 @@ function Page() {
     return (
         <main className="bg-bkg-primary">
             <PageHero
-                eyebrow="Solutions Catalog"
-                title="Solutions Built for Every Industry"
+                eyebrow="Our Solutions"
+                title="Right Solution for Every Business Need"
                 highlight="Every Industry"
-                description="From early-stage startups to established enterprises — we build web, app, e-commerce, and marketing solutions that deliver results."
+                description="From early-stage startups to established enterprises — we build web, app, e-commerce, and custom digital solutions that are scoped to your business and built to deliver results."
             />
 
-            <SolutionStack
-                eyebrow="By Services"
-                heading="Solutions Mapped by Service Area"
-                highlight="Service Area"
-                support="Explore tailored solutions organized under our key expertise disciplines: Web, Mobile Apps, E-Commerce, and SEO."
-                groups={byServices}
-            />
+            <ByServices />
+            <div className="section-edge-light"></div>
+            <ByIndustries />
+            <div className="section-edge-light"></div>
+            <ByCloudAi />
+            <div className="section-edge-light"></div>
+            <ByThirdParty />
 
-            <SolutionStack
-                eyebrow="By Industries"
-                heading="Industry-Specific Systems"
-                highlight="Systems"
-                support="Domain-specific applications designed to streamline industry operations, automate work processes, and ensure regulatory compliance."
-                groups={byIndustries}
-            />
-
-            <SolutionStack
-                eyebrow="Cloud & AI"
-                heading="Add-On. Cloud and Ai Integrations"
-                highlight="Integrations"
-                support="Future-proof your operations with optimized cloud architectures and integrations that leverage smart generative tools."
-                groups={byCloudAI}
-            />
-
-            <SolutionStack
-                eyebrow="Platforms & Integrations"
-                heading="Third-Party Platforms & Integrations"
-                highlight="Platforms & Integrations"
-                support="Out-of-the-box system integrations and headless platform builds to extend the functionality of your digital infrastructure."
-                groups={byPlatforms}
+            <CTAFormat
+                eyebrow="Can't Find What You're Looking For?"
+                heading="Tell us what you need and we'll build a solution around it — scoped to your business, your budget, and your timeline."
+                primaryAction={{
+                    text: "Build Your Own →",
+                    href: "/contact",
+                }}
+                secondaryAction={{
+                    text: "Explore Our Services →",
+                    href: "/services",
+                }}
             />
         </main>
     );

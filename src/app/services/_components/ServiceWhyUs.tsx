@@ -6,45 +6,48 @@ type Props = { data: WhyUsData };
 
 export default function ServiceWhyUs({ data }: Props) {
     return (
-        <SectionContainer width="lg">
-            {/* Heading */}
-            <h2 className="text-h2 gradient-heading text-center font-bold">
-                {data.heading}
-            </h2>
-
-            {/* Full width banner image */}
-            <div className="rounded-4 relative h-100 w-full overflow-hidden">
-                <Image
-                    src={data.bannerImg as string}
-                    alt={data.heading}
-                    fill
-                    className="object-cover"
-                    sizes="100vw"
-                    priority
-                />
-            </div>
-
-            {/* List items */}
-            <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-12">
-                {data.li.map((item, i) => (
-                    <li
-                        key={item.title}
-                        className="rounded-4 group flex flex-col gap-2"
-                    >
-                        <div className="flex items-center gap-3">
-                            <span className="bg-bkg-secondary text-typocolor-muted text-small flex-center group-hover:text-malachite transi-base h-10 w-10 shrink-0 rounded-full font-bold">
-                                {String(i + 1).padStart(2, "0")}
-                            </span>
-                            <h4 className="text-body text-typocolor-primary transi-base group-hover:text-malachite font-bold">
-                                {item.title}
-                            </h4>
+        <section className="bg-canvas-white">
+            <div className="mx-auto max-w-7xl">
+                <div className="edge-light border-x">
+                    <div className="text-ink-light-primary py-12 md:py-18 lg:py-24">
+                        <div className="side-breathing mx-auto max-w-4xl text-center">
+                            <h2 className="text-h2 font-serif">
+                                {data.heading}
+                            </h2>
                         </div>
-                        <p className="text-small text-typocolor-muted pl-14 leading-relaxed">
-                            {item.description}
-                        </p>
-                    </li>
-                ))}
-            </ul>
-        </SectionContainer>
+                    </div>
+                    <div className="relative h-40 md:h-50 lg:h-60 xl:h-70">
+                        <Image
+                            src={data.bannerImg as string}
+                            alt={data.heading}
+                            fill
+                            className="object-cover"
+                        />
+                    </div>
+                </div>
+
+                {/* List items */}
+                <ul className="edge-light grid grid-cols-1 border-l md:grid-cols-2">
+                    {data.li.map((item, i) => (
+                        <li
+                            key={item.title}
+                            className="edge-light flex-vertical gap-6 border-t border-r p-12 py-16"
+                        >
+                            <div className="flex items-center gap-3">
+                                <span className="bg-canvas-surface text-ink-light-muted text-14 flex-center h-10 w-10 rounded-full font-medium">
+                                    {String(i + 1).padStart(2, "0")}
+                                </span>
+                                <h4 className="text-h4 text-ink-light-primary">
+                                    {item.title}
+                                </h4>
+                            </div>
+                            <p className="text-body text-ink-light-secondary leading-relaxed">
+                                {item.description}
+                            </p>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </section>
     );
 }

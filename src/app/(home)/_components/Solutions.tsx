@@ -16,35 +16,35 @@ const solution = [
         icon: Globe,
         title: "Custom Websites",
         description:
-            "Modern business websites built to inform, engage, and convert your audience.",
+            "A professional website built from scratch — tailored to your brand, goals, and audience.",
     },
     {
         icon: AppWindow,
         title: "Web Apps & PWA",
         description:
-            "Fast, scalable applications for workflows, customer access, and daily operations.",
+            "Fast, browser-based applications that work seamlessly across all devices — no app store needed.",
     },
     {
         icon: Smartphone,
         title: "Cross Platform Apps",
         description:
-            "Mobile apps that work across devices with a consistent and reliable user experience.",
+            "One codebase, every platform — Android and iOS apps built with Flutter for speed and consistency.",
     },
     {
         icon: LayoutDashboard,
-        title: "Web Portals",
+        title: "Web Portal",
         description:
-            "Secure portals for customers, teams, vendors, and role-based access needs.",
+            "Secure, role-based portals for clients, vendors, or teams — built for real business workflows.",
     },
     {
         icon: ShoppingCart,
-        title: "E-Commerce Platforms",
+        title: "E-Commerce Store",
         description:
-            "Online stores designed for product management, smooth checkout, and growth.",
+            "Online stores built to sell — fast, conversion-focused, and easy to manage at any scale.",
     },
     {
         icon: Building2,
-        title: "CRM & ERP Systems",
+        title: "CRM & ERP",
         description:
             "Connected systems to manage customers, operations, data, and core business processes.",
     },
@@ -52,13 +52,13 @@ const solution = [
         icon: Users,
         title: "HR & Internal Tools",
         description:
-            "Internal software that simplifies team workflows, approvals, records, and everyday tasks.",
+            "Internal dashboards and HR tools that save time, reduce manual work, and keep teams aligned.",
     },
     {
         icon: GraduationCap,
-        title: "Learning Platforms",
+        title: "Learning & LMS",
         description:
-            "Training and education platforms with structured content, progress tracking, and user access.",
+            "Custom learning platforms and LMS solutions built for schools, trainers, and growing teams.",
     },
 ];
 

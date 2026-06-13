@@ -1,5 +1,5 @@
 import Image from "next/image";
-import SectionContainer from "@/components/basic-ui/SectionContainer";
+
 import type {
     ServiceSolutionsData,
     SolutionItem,
@@ -23,45 +23,40 @@ function SolutionIcon({ item }: { item: SolutionItem }) {
     );
 }
 
-// ─── Card ─────────────────────────────────────────────────────────────────────
-
-function SolutionCard({ item }: { item: SolutionItem }) {
-    return (
-        <div className="cardbox transi-base hover:border-malachite flex flex-col gap-3 p-6">
-            <SolutionIcon item={item} />
-            <h3 className="text-small text-typocolor-primary font-bold">
-                {item.title}
-            </h3>
-            <p className="text-xmall text-typocolor-muted leading-relaxed">
-                {item.description}
-            </p>
-        </div>
-    );
-}
-
 // ─── Main component ───────────────────────────────────────────────────────────
 
 type Props = { data: ServiceSolutionsData };
 
 export default function ServiceWhatSolutions({ data }: Props) {
     return (
-        <SectionContainer width="lg">
-            {/* Heading */}
-            <h2 className="text-h2 gradient-heading text-center font-bold">
-                {data.heading}
-            </h2>
+        <section className="bg-canvas-white">
+            <div className="mx-auto max-w-7xl">
+                <div className="text-ink-light-primary edge-light side-breathing border-x py-12 md:py-18 lg:py-24">
+                    <div className="mx-auto max-w-4xl text-center">
+                        <h2 className="text-h2 mb-8 font-serif">
+                            {data.heading}
+                        </h2>
+                        <p>{data.para}</p>
+                    </div>
+                </div>
 
-            {/* Paragraph */}
-            <p className="text-body text-typocolor-secondary mx-auto max-w-2xl text-center leading-relaxed">
-                {data.para}
-            </p>
-
-            {/* Grid */}
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                {data.solutions.map((item) => (
-                    <SolutionCard key={item.title} item={item} />
-                ))}
+                <div className="edge-light grid grid-cols-1 border-l sm:grid-cols-2 lg:grid-cols-4">
+                    {data.solutions.map((item) => (
+                        <div
+                            key={item.title}
+                            className="edge-light flex flex-col gap-3 border-t border-r p-12"
+                        >
+                            <SolutionIcon item={item} />
+                            <h3 className="text-body text-ink-light-primary font-medium">
+                                {item.title}
+                            </h3>
+                            <p className="text-small text-ink-light-secondary leading-relaxed">
+                                {item.description}
+                            </p>
+                        </div>
+                    ))}
+                </div>
             </div>
-        </SectionContainer>
+        </section>
     );
 }

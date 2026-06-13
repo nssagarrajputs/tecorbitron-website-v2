@@ -1,5 +1,3 @@
-
-
 import servicesWhyUsWebBanner from "@/assets/other/why-us.webp";
 import servicesWhyUsAppBanner from "@/assets/other/why-us.webp";
 import servicesWhyUsEcommBanner from "@/assets/other/why-us.webp";
@@ -52,7 +50,6 @@ import { LucideIcon } from "lucide-react";
 import { StaticImageData } from "next/image";
 
 // ─── Home & Service page service card ─────────────────────────────────────────
-
 
 // ─── Type ─────────────────────────────────────────────────────────────────────
 
@@ -661,28 +658,28 @@ export const serviceSandMWeb: ServiceSandMData = {
     heading: "Website Support & Maintenance",
     highlight: "Support & Maintenance",
     description:
-        "Every website we deliver comes with 60 days of free post-deployment support — no questions asked. After that, we offer three flexible engagement models to keep your website fast, secure, and up to date. Choose a monthly package for ongoing care, an annual package for the best value and priority response, or a per-scope arrangement for one-off updates with no long-term commitment. All pricing is determined after project scoping. Terms and conditions apply.",
+        "Every website we deliver comes with 3 months of free post-launch support — no questions asked. During this period, we handle bug fixes, performance issues, and minor adjustments at no extra cost. After that, we offer three flexible engagement models to keep your website fast, secure, and up to date. Choose a monthly retainer for ongoing care and regular updates, an annual plan for the best value and priority response, or a per-scope arrangement for one-off changes with no long-term commitment. All pricing is determined after project scoping. Terms and conditions apply.",
 };
 
 export const serviceSandMApp: ServiceSandMData = {
     heading: "App Support & Maintenance",
     highlight: "Support & Maintenance",
     description:
-        "Every app we ship includes 60 days of free post-launch support — covering bug fixes, crash monitoring, and OS compatibility checks at no additional cost. Beyond that, we offer three engagement models tailored to how your app is used. A monthly package keeps your app stable with regular updates and priority response. An annual package provides dedicated hours and proactive maintenance. A per-scope option handles one-off feature updates or platform migrations without any retainer. Pricing is scoped per project. Terms and conditions apply.",
+        "Every app we deliver comes with 3 months of free post-launch support — covering bug fixes, crash reports, performance issues, and minor UI adjustments at no extra cost. After that, we offer three flexible engagement models to keep your app running smoothly across platforms and OS updates. Choose a monthly retainer for continuous monitoring and updates, an annual plan for priority support and best value, or a per-scope arrangement for specific fixes or feature additions with no long-term commitment. All pricing is determined after project scoping. Terms and conditions apply.",
 };
 
 export const serviceSandMEcomm: ServiceSandMData = {
     heading: "E-Commerce Support & Maintenance",
     highlight: "Support & Maintenance",
     description:
-        "Every store we launch includes 60 days of free post-deployment support — so your first weeks of trading are fully covered. After that, we offer three maintenance models built around how e-commerce actually works. A monthly package handles plugin updates, payment gateway checks, and performance monitoring. An annual package includes dedicated hours and seasonal readiness prep. A per-scope option covers product uploads, theme changes, or integration fixes without any ongoing commitment. All pricing is scoped to your project. Terms and conditions apply.",
+        "Every online store we deliver comes with 3 months of free post-launch support — covering bug fixes, payment issues, product management queries, and minor store adjustments at no extra cost. After that, we offer three flexible engagement models to keep your store running, converting, and up to date. Choose a monthly retainer for ongoing store management and updates, an annual plan for priority support and best value, or a per-scope arrangement for one-off changes with no long-term commitment. All pricing is determined after project scoping. Terms and conditions apply.",
 };
 
 export const serviceSandMSeo: ServiceSandMData = {
     heading: "SEO & Marketing Support",
     highlight: "Marketing Support",
     description:
-        "Every SEO and marketing engagement includes 60 days of free post-project support — covering reporting, tracking fixes, and campaign adjustments at no extra cost. After that, we work through three models depending on your goals. A monthly retainer keeps your rankings and campaigns actively managed with regular reporting. An annual partnership includes quarterly strategy reviews and priority execution. A per-scope option handles one-time audits, campaign setups, or content projects with no ongoing commitment. Pricing is always scoped to your specific requirements. Terms and conditions apply.",
+        "Every SEO engagement comes with 3 months of active support — covering strategy reviews, ranking monitoring, on-page adjustments, and reporting at no extra cost. After that, we offer three flexible engagement models to keep your search visibility growing. Choose a monthly retainer for continuous SEO management and content updates, an annual plan for consistent long-term growth and priority access, or a per-scope arrangement for specific audits or campaigns with no long-term commitment. All pricing is determined after project scoping. Terms and conditions apply.",
 };
 
 // ─── Type ─────────────────────────────────────────────────────────────────────
@@ -690,33 +687,43 @@ export const serviceSandMSeo: ServiceSandMData = {
 export type ServiceIntroData = {
     image: StaticImageData | string;
     imageAlt: string;
+    title: string;
     description: string;
 };
 
 export const serviceIntroWeb: ServiceIntroData = {
     image: defaultThumbnail,
     imageAlt: "Web Development Services — Tecorbitron",
-    description:
-        "Your website is the first thing a potential client sees — and it has about three seconds to make an impression. Whether you need a clean business site, a high-converting landing page, or a full-scale web application, you deserve something that loads fast, looks sharp, and works exactly the way your business needs it to.",
+    title: "Our Web Development Expertise",
+    description: `Your website is the first thing a potential client sees — and it has about three seconds to make an impression. Whether you need a clean business site, a high-converting landing page, or a full-scale web application, you deserve something that loads fast, looks sharp, and works exactly the way your business needs it to.
+
+    We've spent 6+ years building web solutions across industries — from startups launching their first product to established businesses rebuilding outdated systems. Every project starts with understanding your goals, your audience, and your constraints. We don't just write code; we build products that solve real problems and deliver real results.
+        `,
 };
 
 export const serviceIntroApp: ServiceIntroData = {
     image: defaultThumbnail,
     imageAlt: "Mobile App Development Services — Tecorbitron",
-    description:
-        "Your customers are on their phones — your business should be too. Whether you are launching your first app or rebuilding one that did not quite land, you need something that feels smooth, works offline, and does not crash at the worst possible moment. iOS, Android, or both — built right the first time.",
+    title: "Our App Development Expertise",
+    description: `Your app is often the most direct touchpoint between your business and your customers. It needs to be fast, intuitive, and reliable — because a poor mobile experience doesn't get a second chance. Whether you need an Android app, an iOS app, or a cross-platform solution that covers both, we build mobile products that users actually want to use.
+    
+    We've built apps across industries — from consumer-facing products and booking platforms to internal tools and enterprise solutions. Every app starts with a clear understanding of your users and business goals. We handle everything from UI/UX design to development, testing, and deployment — so you get a complete, production-ready product.`,
 };
 
 export const serviceIntroEcomm: ServiceIntroData = {
     image: defaultThumbnail,
     imageAlt: "E-Commerce Development Services — Tecorbitron",
-    description:
-        "Every second your checkout is slow, confusing, or broken, you are losing a sale. Your store should make it effortless for customers to find what they want, pay without friction, and come back again. Whether you are starting fresh or moving away from a platform that has outgrown you — you need a store built around how your customers actually shop.",
+    title: "Our E-Commerce Solutions Expertise",
+    description: `Selling online is more competitive than ever — and your store needs to do more than just look good. It needs to load fast, guide users to checkout, handle payments smoothly, and work flawlessly on every device. Whether you're launching your first store or rebuilding an existing one, we build e-commerce solutions that are designed to convert and built to last.
+    
+    We work with Shopify, WooCommerce, and fully custom e-commerce builds — so you get the right platform for your product, your audience, and your budget. From product catalogues and payment integrations to inventory management and order tracking — we handle every part of the build so you can focus on growing your business.`,
 };
 
 export const serviceIntroSeo: ServiceIntroData = {
     image: defaultThumbnail,
     imageAlt: "SEO & Digital Marketing Services — Tecorbitron",
-    description:
-        "If your business does not show up when people search for what you offer, someone else takes that lead. You should not have to guess why your rankings are stuck or why your ads are burning budget without results. You need a clear strategy, honest reporting, and execution that actually moves the numbers.",
+    title: "Our SEO & Optimization Expertise",
+    description: `Ranking on Google isn't luck — it's a result of a well-structured website, the right content, and a consistent strategy. Most businesses either ignore SEO until it's too late or invest in tactics that don't move the needle. We do it differently — every SEO engagement starts with a thorough audit, a clear strategy, and measurable goals.
+    
+    We've helped startups get found online from day one and helped established businesses recover rankings, fix technical issues, and build long-term search authority. Whether you need local SEO, e-commerce SEO, or a full technical overhaul — we have the experience and the process to deliver results that last.`,
 };

@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import PageHero from "@/components/basic-ui/PageHero";
-import SectionContainer from "@/components/basic-ui/SectionContainer";
-import BrandBtn from "@/components/basic-ui/BrandBtn";
+
 import { privacyPolicy, termsAndConditions } from "@/content/legal-data";
+import Link from "next/link";
 
 type LegalSection = {
     id: string;
@@ -73,44 +73,50 @@ export default async function LegalPage(props: {
             <PageHero
                 eyebrow={doc.hero.eyebrow}
                 title={doc.hero.title}
-                highlight={doc.hero.highlight}
                 description={doc.hero.description}
             />
 
-            <SectionContainer width="md">
-                {/* Intro note */}
-                <p className="text-body leading-relaxed font-semibold italic">
-                    {doc.intro}
-                </p>
-
-                {/* Sections */}
-                <article className="flex flex-col gap-12">
-                    {doc.sections.map((section) => (
-                        <div
-                            key={section.id}
-                            id={section.id}
-                            className="flex scroll-mt-28 flex-col gap-4"
-                        >
-                            <h2 className="text-typocolor-primary text-body border-base border-b pb-3 font-bold">
-                                {section.title}
-                            </h2>
-                            <div className="text-typocolor-secondary text-small leading-relaxed whitespace-pre-line">
-                                {section.content}
-                            </div>
-                        </div>
-                    ))}
-                </article>
-
-                {/* Bottom nav */}
-                <div className="border-base flex-center flex-wrap gap-8 border-t pt-8 md:justify-between">
-                    <p className="text-typocolor-muted text-small font-semibold">
-                        Last Updated: {doc.meta.lastUpdated}
+            <section className="edge-light bg-canvas-white side-breathing mx-auto max-w-7xl border-x py-24">
+                <div className="mx-auto max-w-6xl">
+                    {/* Intro note */}
+                    <p className="text-body text-ink-light-primary mb-16 leading-relaxed italic">
+                        {doc.intro}
                     </p>
-                    <BrandBtn href={doc.crossLink.href} variant="primary">
-                        {doc.crossLink.label}
-                    </BrandBtn>
+
+                    {/* Sections */}
+                    <article className="flex-vertical gap-16">
+                        {doc.sections.map((section) => (
+                            <div
+                                key={section.id}
+                                id={section.id}
+                                className="flex-vertical gap-8"
+                            >
+                                <h2 className="text-ink-light-primary text-h4 edge-dark border-b pb-4 font-medium">
+                                    {section.title}
+                                </h2>
+
+                                <p className="text-ink-light-secondary text-16 font-mono leading-relaxed whitespace-pre-line">
+                                    {section.content}
+                                </p>
+                            </div>
+                        ))}
+                    </article>
+
+                    {/* Bottom nav */}
+                    <div className="edge-dark flex-center mt-16 flex-wrap gap-8 border-t pt-16 md:justify-between">
+                        <p className="text-ink-light-muted text-16 font-mono">
+                            Last Updated: {doc.meta.lastUpdated}
+                        </p>
+
+                        <Link
+                            href={doc.crossLink.href}
+                            className="edge-dark text-ink-light-primary text-16 hover:bg-canvas-black hover:text-ink-dark-primary smooth-transition active:bg-canvas-black active:text-ink-dark-primary border px-4 py-2 font-medium"
+                        >
+                            {doc.crossLink.label}
+                        </Link>
+                    </div>
                 </div>
-            </SectionContainer>
+            </section>
         </main>
     );
 }
