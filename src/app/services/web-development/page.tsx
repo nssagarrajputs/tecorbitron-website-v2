@@ -1,10 +1,8 @@
 import PageHero from "@/components/basic-ui/PageHero";
-import ServiceDevProcess from "../_components/ServiceDevProcess";
 import ServiceWhyUs from "../_components/ServiceWhyUs";
 import ServiceLetsConnect from "../_components/ServiceLetsConnect";
 import {
     servicesWhyForWeb,
-    serviceDevProcessWeb,
     serviceSolutionsWeb,
     serviceSandMWeb,
     serviceIntroWeb,
@@ -61,8 +59,7 @@ export default function page() {
             <ServiceIntro data={serviceIntroWeb} />
             <div className="section-edge-light"></div>
             <ServiceWhatSolutions data={serviceSolutionsWeb} />
-            <div className="section-edge-light"></div>
-            <ServiceDevProcess data={serviceDevProcessWeb} />
+
             <div className="section-edge-light"></div>
             <ServiceSandM data={serviceSandMWeb} />
             <div className="section-edge-light"></div>

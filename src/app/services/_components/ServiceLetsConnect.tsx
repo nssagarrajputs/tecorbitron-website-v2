@@ -162,7 +162,7 @@ export default function ServiceLetsConnect() {
                                     <button
                                         type="submit"
                                         disabled={status === "sending"}
-                                        className="bg-primary active:bg-primary-active text-16 smooth-transition mx-auto block px-12 py-4 font-bold text-white disabled:cursor-not-allowed disabled:opacity-60"
+                                        className="form-submit-button"
                                     >
                                         {status === "sending"
                                             ? "Sending..."

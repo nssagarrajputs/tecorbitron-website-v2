@@ -91,11 +91,15 @@ export default function Solutions() {
                     {solution.map(({ title, icon: Icon, description }) => (
                         <div
                             key={title}
-                            className="edge-light text-ink-light-secondary border-t border-r p-6"
+                            className="edge-light border-t border-r p-6"
                         >
-                            <Icon size={40} strokeWidth={1} />
+                            <Icon
+                                size={40}
+                                strokeWidth={1.2}
+                                className="text-ink-light-secondary"
+                            />
 
-                            <h3 className="text-body text-ink-light-secondary my-4 font-semibold">
+                            <h3 className="text-body text-ink-light-secondary my-4 font-bold">
                                 {title}
                             </h3>
                             <p className="text-small text-ink-light-muted">

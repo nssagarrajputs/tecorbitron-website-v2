@@ -70,7 +70,7 @@ function Industries() {
                                 strokeWidth={1.2}
                                 className="text-ink-light-muted select-none"
                             />
-                            <p className="text-small text-ink-light-muted text-center font-medium">
+                            <p className="text-small text-ink-light-muted text-center">
                                 {name}
                             </p>
                         </div>

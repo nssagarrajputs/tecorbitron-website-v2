@@ -33,7 +33,7 @@ export default function Hero() {
 
             <div className="edge-dark relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-between gap-6 border-x pt-16 text-center">
                 <div className="edge-dark w-full border-b p-8">
-                    <span className="text-body text-ink-dark-secondary font-mono">
+                    <span className="section-subtle-dark">
                         FOR STARTUPS AND BUSINESS
                     </span>
                 </div>
@@ -54,7 +54,7 @@ export default function Hero() {
 
                     <Link
                         href={"/contact"}
-                        className="bg-malachite text-ink-dark-primary text-16 hover:bg-primary active:bg-primary-active smooth-transition mx-auto w-fit px-12 py-4 font-bold"
+                        className="brand-btn-primary mx-auto"
                     >
                         Start Your Project
                     </Link>

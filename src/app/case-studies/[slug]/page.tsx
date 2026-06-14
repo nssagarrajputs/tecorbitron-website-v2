@@ -343,10 +343,8 @@ export default async function ProjectDetailPage(props: {
             </SectionContainer>
 
             <CTAFormat
-                eypill="YOUR TURN"
+                eyebrow="YOUR TURN"
                 heading="Want Results Like This?"
-                highlight="Like This?"
-                bodyText="Share your project idea — we'll reply within 24 hours with a clear plan."
                 primaryAction={{
                     text: "Start Your Project",
                     href: "/contact",

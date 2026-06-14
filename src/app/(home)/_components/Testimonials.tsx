@@ -1,8 +1,3 @@
-"use client";
-import { Star, Verified } from "lucide-react";
-import Image from "next/image";
-import DefaultAvatar from "@/assets/other/default-avatar.png";
-
 const testimonials = [
     {
         name: "James Whitfield",
@@ -57,45 +52,43 @@ const testimonials = [
 export default function Testimonials() {
     return (
         <section className="bg-canvas-white">
-            <div className="bg-canvas edge-dark mx-auto max-w-7xl border-x">
-                <div className="flex-center side-breathing min-h-120">
-                    <h2 className="hidden">What Our client Says</h2>
-                    <div className="flex-vertical gap-8">
-                        <div className="flex-ic-jb">
-                            <span className="font-medium">
-                                5.0 | Bark Verified
-                            </span>
-                            <span className="font-black">ThreadCo Name</span>
-                        </div>
-                        <blockquote className="text-h4 mx-auto line-clamp-3 max-w-3xl font-serif leading-relaxed">
-                            {'"'}Honestly refreshing to work with a team that
-                            actually gets design. They redesigned our entire
-                            storefront and it just *looks* like money now.
-                            {'"'}
-                        </blockquote>
+            <div className="bg-canvas mx-auto max-w-7xl">
+                <div className="text-ink-light-primary edge-dark side-breathing border-x py-12 md:py-18 lg:py-24">
+                    <div className="mx-auto max-w-4xl text-center">
+                        <h2 className="text-h2 text-ink-dark-primary mb-8 font-serif">
+                            What Our Clients Say
+                        </h2>
+                        <p className="text-ink-dark-secondary">
+                            Verified feedback from clients across industries —
+                            in their own words
+                        </p>
                     </div>
                 </div>
 
-                <div className="edge-dark side-breathing mx-auto border-t py-4">
-                    <div className="flex-ic-jb mx-auto max-w-3xl">
-                        <div className="flex-vertical">
-                            <span className="text-body font-bold">
-                                Name Surname
-                            </span>
-                            <span className="text-small font-medium">
-                                Designation
-                            </span>
+                <div className="edge-dark grid grid-cols-1 border-l md:grid-cols-2 xl:grid-cols-3">
+                    {testimonials.map((review) => (
+                        <div
+                            key={review.name}
+                            className="edge-dark border-t border-r p-8"
+                        >
+                            <div className="flex-vertical gap-4">
+                                <div className="flex-ic-jb text-ink-dark-muted font-black">
+                                    <div className="text-16">
+                                        <span className="text-malachite">
+                                            {review.rating}
+                                        </span>{" "}
+                                        | {review.source}
+                                    </div>
+                                    <span className="">
+                                        {review.companyName}
+                                    </span>
+                                </div>
+                                <blockquote className="text-body text-ink-dark-secondary leading-relaxed">
+                                    {review.quote}
+                                </blockquote>
+                            </div>
                         </div>
-
-                        <div className="flex gap-4">
-                            <button className="border-hairlight flex-center h-10 w-10 border-2 font-bold">
-                                P
-                            </button>
-                            <button className="border-hairlight flex-center h-10 w-10 border-2 font-bold">
-                                N
-                            </button>
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </div>
         </section>

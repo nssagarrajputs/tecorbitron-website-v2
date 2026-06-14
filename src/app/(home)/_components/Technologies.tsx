@@ -76,14 +76,14 @@ export default function Technologies() {
                     {technology.map((tech) => (
                         <div
                             key={tech.name}
-                            className="edge-light flex flex-col items-center gap-2 border-t border-r py-4"
+                            className="edge-light flex flex-col items-center gap-4 border-t border-r py-8"
                         >
                             <Image
                                 src={tech.icon}
                                 alt={tech.name}
                                 className="aspect-square w-[30%] object-contain select-none"
                             />
-                            <p className="text-xmall text-ink-light-muted font-mono">
+                            <p className="text-xmall text-ink-light-muted">
                                 {tech.name}
                             </p>
                         </div>

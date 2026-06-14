@@ -1,5 +1,4 @@
 import Image from "next/image";
-import SectionContainer from "@/components/basic-ui/SectionContainer";
 import type { WhyUsData } from "@/content/services-data";
 
 type Props = { data: WhyUsData };

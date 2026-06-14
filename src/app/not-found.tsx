@@ -1,5 +1,5 @@
-import SectionHeader from "@/components/basic-ui/SectionHeader";
-import BrandBtn from "@/components/basic-ui/BrandBtn";
+// import SectionHeader from "@/components/basic-ui/SectionHeader";
+// import BrandBtn from "@/components/basic-ui/BrandBtn";
 
 export const metadata = {
     title: "404 — Page Not Found",
@@ -58,21 +58,21 @@ export default function NotFound() {
 
             {/* Content */}
             <div className="relative z-10 flex max-w-xl flex-col items-center gap-6 text-center">
-                <SectionHeader
+                {/* <SectionHeader
                     eyebrow="Error 404"
                     heading="Lost In Orbit"
                     highlight="Orbit"
                     support="The page you're looking for doesn't exist or has been moved. Lets get you back on track."
-                />
+                /> */}
 
                 {/* CTAs */}
                 <div className="mt-2 flex items-center gap-6 max-sm:flex-col">
-                    <BrandBtn href="/" variant="primary">
+                    {/* <BrandBtn href="/" variant="primary">
                         Back To Home
                     </BrandBtn>
                     <BrandBtn href="/contact" variant="secondary">
                         Contact Us
-                    </BrandBtn>
+                    </BrandBtn> */}
                 </div>
             </div>
         </main>

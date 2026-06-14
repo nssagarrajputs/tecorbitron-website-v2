@@ -120,7 +120,7 @@ export default async function PortfolioPage() {
                                             )}
 
                                             <Link
-                                                href={`/portfolio/${proj.slug}`}
+                                                href={`/case-studies/${proj.slug}`}
                                                 className="border-hairdark text-ink-light-primary mt-6 w-fit border px-4 py-2 underline-offset-4 group-hover:underline"
                                             >
                                                 View Case Study

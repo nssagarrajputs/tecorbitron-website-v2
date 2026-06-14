@@ -1,8 +1,9 @@
 import Image from "next/image";
-import webDevelopmentIcon from "@/assets/service-icon/web-development.png";
-import appDevelopmentIcon from "@/assets/service-icon/app-development.png";
-import ecommerceIcon from "@/assets/service-icon/e-commerce.png";
-import seoIcon from "@/assets/service-icon/seo.png";
+
+import webDevelopmentIcon from "@/assets/specific-services/ssi/wi.png";
+import appDevelopmentIcon from "@/assets/specific-services/ssi/ai.png";
+import ecommerceIcon from "@/assets/specific-services/ssi/ei.png";
+import seoIcon from "@/assets/specific-services/ssi/si.png";
 
 import Link from "next/link";
 
@@ -81,15 +82,15 @@ export default function CoreServices() {
             <div className="mx-auto max-w-7xl">
                 <div className="text-ink-light-primary edge-light side-breathing grid grid-cols-1 gap-y-12 border-x py-12 md:py-18 lg:grid-cols-2 lg:py-24">
                     <div className="">
-                        <span className="text-12 font-mono">We Build Bold</span>
-                        <h2 className="text-h2 font-serif">
+                        <span className="eyebrow-light">We Build Bold</span>
+                        <h2 className="section-heading">
                             Digital Services Designed to Grow Your Business
                         </h2>
                     </div>
                     <div className="flex-vertical justify-end md:items-end">
                         <Link
                             href={"/services"}
-                            className="text-16 border-hairdark hover:bg-canvas active:bg-canvas active:text-ink-dark-primary hover:text-ink-dark-primary smooth-transition w-fit border px-4 py-2 font-medium"
+                            className="button-primary-light"
                         >
                             Explore All Services
                         </Link>
@@ -102,12 +103,12 @@ export default function CoreServices() {
                             key={service.name}
                             className={`text-ink-light-primary edge-light flex flex-col gap-4 border-t p-8 lg:p-14 ${index % 2 === 0 ? "md:border-r" : ""} `}
                         >
-                            <div className="flex h-18 w-18 items-center justify-center select-none">
+                            <div className="flex h-50 w-50 items-center justify-center select-none">
                                 <Image
                                     src={service.icon}
                                     alt={service.name}
-                                    width={100}
-                                    height={100}
+                                    width={500}
+                                    height={500}
                                     className="h-full w-full object-contain"
                                 />
                             </div>

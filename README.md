@@ -1,0 +1,3 @@
+--text-body: 1.0625rem; /_ 17 _/
+--text-small: 0.9375rem; /_ 15 _/
+--text-xmall: 0.8125rem; /_ 13 _/

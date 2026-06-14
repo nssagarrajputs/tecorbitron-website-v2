@@ -1,27 +1,12 @@
-import servicesWhyUsWebBanner from "@/assets/other/why-us.webp";
-import servicesWhyUsAppBanner from "@/assets/other/why-us.webp";
-import servicesWhyUsEcommBanner from "@/assets/other/why-us.webp";
-import servicesWhyUsSeoBanner from "@/assets/other/why-us.webp";
+import servicesWhyUsWebBanner from "@/assets/specific-services/why-us.jpg";
+import servicesWhyUsAppBanner from "@/assets/specific-services/why-us.jpg";
+import servicesWhyUsEcommBanner from "@/assets/specific-services/why-us.jpg";
+import servicesWhyUsSeoBanner from "@/assets/specific-services/why-us.jpg";
 
-import servicesProcessWebAppImg1 from "@/assets/other/why-us.webp";
-import servicesProcessWebAppImg2 from "@/assets/other/why-us.webp";
-import servicesProcessWebAppImg3 from "@/assets/other/why-us.webp";
-import servicesProcessWebAppImg4 from "@/assets/other/why-us.webp";
-import servicesProcessWebAppImg5 from "@/assets/other/why-us.webp";
-
-import servicesProcessEcommImg1 from "@/assets/other/why-us.webp";
-import servicesProcessEcommImg2 from "@/assets/other/why-us.webp";
-import servicesProcessEcommImg3 from "@/assets/other/why-us.webp";
-import servicesProcessEcommImg4 from "@/assets/other/why-us.webp";
-import servicesProcessEcommImg5 from "@/assets/other/why-us.webp";
-
-import servicesProcessSeoImg1 from "@/assets/other/why-us.webp";
-import servicesProcessSeoImg2 from "@/assets/other/why-us.webp";
-import servicesProcessSeoImg3 from "@/assets/other/why-us.webp";
-import servicesProcessSeoImg4 from "@/assets/other/why-us.webp";
-import servicesProcessSeoImg5 from "@/assets/other/why-us.webp";
-
-import defaultThumbnail from "@/assets/other/default-thumbnail.webp";
+import serviceIntroWebImg from "@/assets/specific-services/intro/web-intro.jpg";
+import serviceIntroAppImg from "@/assets/specific-services/intro/app-intro.jpg";
+import serviceIntroEcommImg from "@/assets/specific-services/intro/ecomm-intro.jpg";
+import serviceIntroSEOImg from "@/assets/specific-services/intro/seo-intro.jpg";
 
 import {
     Globe,
@@ -237,168 +222,6 @@ export const servicesWhyForSeo: WhyUsData = {
 
             description:
                 "Content calendars, technical fixes, and campaign launches — all delivered on the dates we commit to. No chasing, no delays, no excuses.",
-        },
-    ],
-};
-
-// ─── Type ─────────────────────────────────────────────────────────────────────
-
-export type ServiceDevProcessItem = {
-    title: string;
-    img: StaticImageData | string;
-    description: string;
-};
-
-export type ServiceDevProcess = {
-    heading: string;
-    highlight: string;
-    li: ServiceDevProcessItem[];
-};
-
-export const serviceDevProcessWeb: ServiceDevProcess = {
-    heading: "Our Website Development Process",
-    highlight: "Process",
-    li: [
-        {
-            title: "Discovery & Scoping",
-            img: servicesProcessWebAppImg1,
-            description:
-                "We start by understanding your goals, target audience, and requirements. This phase defines project scope, timeline, and deliverables to ensure complete alignment before development begins.",
-        },
-        {
-            title: "Design & Prototyping",
-            img: servicesProcessWebAppImg2,
-            description:
-                "We craft wireframes and high-fidelity UI designs tailored to your brand. Interactive prototypes let you visualise the final product and provide feedback before any code is written.",
-        },
-        {
-            title: "Development & Build",
-            img: servicesProcessWebAppImg3,
-            description:
-                "Our developers bring designs to life using modern, scalable tech stacks. Every component is built for performance, responsiveness, and clean code structure from the ground up.",
-        },
-        {
-            title: "Debugging & QA",
-            img: servicesProcessWebAppImg4,
-            description:
-                "We run thorough testing across devices, browsers, and screen sizes. Bugs are identified and resolved, ensuring your website is stable, fast, and ready for real-world use.",
-        },
-        {
-            title: "Deployment & Handover",
-            img: servicesProcessWebAppImg5,
-            description:
-                "Your website is deployed to a live environment with full configuration. We handle domain, hosting setup, and provide complete handover documentation so you stay in control.",
-        },
-    ],
-};
-
-export const serviceDevProcessApp: ServiceDevProcess = {
-    heading: "Our App Development Process",
-    highlight: "Process",
-    li: [
-        {
-            title: "Discovery & Scoping",
-            img: servicesProcessWebAppImg1,
-            description:
-                "We deep-dive into your app idea, user flows, and business goals. This phase maps out features, platforms, and technical requirements to build a clear, actionable development roadmap.",
-        },
-        {
-            title: "Design & Prototyping",
-            img: servicesProcessWebAppImg2,
-            description:
-                "We design intuitive, mobile-first UI/UX with a focus on user experience. Clickable prototypes are shared for your feedback before committing to full-scale app development.",
-        },
-        {
-            title: "Development & Build",
-            img: servicesProcessWebAppImg3,
-            description:
-                "We build your app using industry-standard frameworks for iOS, Android, or cross-platform. Code is structured for scalability, speed, and easy future updates from day one.",
-        },
-        {
-            title: "Debugging & QA",
-            img: servicesProcessWebAppImg4,
-            description:
-                "The app undergoes rigorous testing on real devices and emulators. We check functionality, performance, and edge cases to ensure a smooth, crash-free experience for your users.",
-        },
-        {
-            title: "Deployment & Handover",
-            img: servicesProcessWebAppImg5,
-            description:
-                "We manage App Store and Play Store submissions, handling all configurations and compliance. Full source code and documentation are handed over so your team owns everything completely.",
-        },
-    ],
-};
-
-export const serviceDevProcessEcomm: ServiceDevProcess = {
-    heading: "Our E-Commerce Development Process",
-    highlight: "Process",
-    li: [
-        {
-            title: "Requirements & Platform Fit",
-            img: servicesProcessEcommImg1,
-            description:
-                "We analyse your business model, product catalogue, and goals to recommend the right platform — Shopify, WooCommerce, Headless, or Custom — before a single line of code is written.",
-        },
-        {
-            title: "Store Design & UX",
-            img: servicesProcessEcommImg2,
-            description:
-                "We design conversion-focused storefronts that reflect your brand. From product pages to checkout flows, every screen is crafted to maximise user trust and drive actual sales.",
-        },
-        {
-            title: "Build & Integration",
-            img: servicesProcessEcommImg3,
-            description:
-                "We develop your store and integrate payment gateways, inventory systems, shipping APIs, and third-party tools — ensuring everything works seamlessly across your entire commerce ecosystem.",
-        },
-        {
-            title: "Testing & QA",
-            img: servicesProcessEcommImg4,
-            description:
-                "Every user journey — browsing, cart, checkout, order confirmation — is tested thoroughly. We validate across devices and browsers to ensure a smooth, bug-free shopping experience.",
-        },
-        {
-            title: "Go-Live & Handover",
-            img: servicesProcessEcommImg5,
-            description:
-                "We manage the full launch including domain, hosting, and platform configuration. You receive complete handover documentation and training so you can manage your store independently.",
-        },
-    ],
-};
-
-export const serviceDevProcessSeo: ServiceDevProcess = {
-    heading: "Our SEO Service Process",
-    highlight: "Process",
-    li: [
-        {
-            title: "Website Audit & Analysis",
-            img: servicesProcessSeoImg1,
-            description:
-                "We conduct a full audit of your website — analysing current rankings, traffic, site health, and competitor positioning to identify exactly where the gaps and opportunities lie.",
-        },
-        {
-            title: "Content & On-Page Setup",
-            img: servicesProcessSeoImg2,
-            description:
-                "We optimise meta tags, headings, content structure, and internal linking across your pages. Every element is aligned with target keywords to improve relevance and search visibility.",
-        },
-        {
-            title: "Technical SEO & Site Health",
-            img: servicesProcessSeoImg3,
-            description:
-                "We fix crawl errors, improve site speed, implement schema markup, and ensure proper indexing. A technically sound website is the foundation every successful SEO strategy is built on.",
-        },
-        {
-            title: "Off-Page SEO & Outreach",
-            img: servicesProcessSeoImg4,
-            description:
-                "We build high-quality backlinks through ethical outreach and content strategies. Strengthening your domain authority signals trust to search engines and drives sustained ranking improvements over time.",
-        },
-        {
-            title: "Analytics & Reporting",
-            img: servicesProcessSeoImg5,
-            description:
-                "We track rankings, traffic, and conversions through clear, actionable reports. You always know what's working, what's improving, and where the next phase of growth is coming from.",
         },
     ],
 };
@@ -692,7 +515,7 @@ export type ServiceIntroData = {
 };
 
 export const serviceIntroWeb: ServiceIntroData = {
-    image: defaultThumbnail,
+    image: serviceIntroWebImg,
     imageAlt: "Web Development Services — Tecorbitron",
     title: "Our Web Development Expertise",
     description: `Your website is the first thing a potential client sees — and it has about three seconds to make an impression. Whether you need a clean business site, a high-converting landing page, or a full-scale web application, you deserve something that loads fast, looks sharp, and works exactly the way your business needs it to.
@@ -702,7 +525,7 @@ export const serviceIntroWeb: ServiceIntroData = {
 };
 
 export const serviceIntroApp: ServiceIntroData = {
-    image: defaultThumbnail,
+    image: serviceIntroAppImg,
     imageAlt: "Mobile App Development Services — Tecorbitron",
     title: "Our App Development Expertise",
     description: `Your app is often the most direct touchpoint between your business and your customers. It needs to be fast, intuitive, and reliable — because a poor mobile experience doesn't get a second chance. Whether you need an Android app, an iOS app, or a cross-platform solution that covers both, we build mobile products that users actually want to use.
@@ -711,7 +534,7 @@ export const serviceIntroApp: ServiceIntroData = {
 };
 
 export const serviceIntroEcomm: ServiceIntroData = {
-    image: defaultThumbnail,
+    image: serviceIntroEcommImg,
     imageAlt: "E-Commerce Development Services — Tecorbitron",
     title: "Our E-Commerce Solutions Expertise",
     description: `Selling online is more competitive than ever — and your store needs to do more than just look good. It needs to load fast, guide users to checkout, handle payments smoothly, and work flawlessly on every device. Whether you're launching your first store or rebuilding an existing one, we build e-commerce solutions that are designed to convert and built to last.
@@ -720,7 +543,7 @@ export const serviceIntroEcomm: ServiceIntroData = {
 };
 
 export const serviceIntroSeo: ServiceIntroData = {
-    image: defaultThumbnail,
+    image: serviceIntroSEOImg,
     imageAlt: "SEO & Digital Marketing Services — Tecorbitron",
     title: "Our SEO & Optimization Expertise",
     description: `Ranking on Google isn't luck — it's a result of a well-structured website, the right content, and a consistent strategy. Most businesses either ignore SEO until it's too late or invest in tactics that don't move the needle. We do it differently — every SEO engagement starts with a thorough audit, a clear strategy, and measurable goals.

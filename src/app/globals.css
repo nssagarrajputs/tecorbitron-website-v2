@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
     --font-sans: var(--font-sans);
     --font-serif: var(--font-serif);
@@ -18,11 +20,9 @@
     --color-ink-light-primary: #050e15;
     --color-ink-light-secondary: #2c3f4d;
     --color-ink-light-muted: #5d7280;
-    --color-ink-light-faint: #8da0ac;
     --color-ink-dark-primary: #ffffff;
     --color-ink-dark-secondary: #d5e3e7;
     --color-ink-dark-muted: #97b0b7;
-    --color-ink-dark-faint: #668089;
 
     --color-canvas: #02181a;
     --color-canvas-accent: #00d060;
@@ -50,9 +50,10 @@
     --text-body: clamp(1rem, 0.817rem + 0.781vw, 1.125rem); /* 16 → 18 */
     --text-small: clamp(0.875rem, 0.692rem + 0.781vw, 1rem); /* 14 → 16 */
     --text-xmall: clamp(0.75rem, 0.659rem + 0.391vw, 0.8125rem); /* 12 → 13 */
-    --text-16: 1rem;
-    --text-14: 0.875rem;
-    --text-12: 0.75rem;
+    --text-18: 1.1875rem; /* 19 */
+    --text-16: 1rem; /* 16 */
+    --text-14: 0.875rem; /* 14 */
+    --text-12: 0.75rem; /* 12 */
 
     --font-weight-*: initial;
     --font-weight-light: 300;
@@ -121,6 +122,8 @@
 /* DESIGN UTILITIES                                                           */
 /* -------------------------------------------------------------------------- */
 
+/* BORDERS & EDGES */
+
 @utility edge-light {
     @apply border-hairlight;
 }
@@ -134,6 +137,8 @@
     @apply bg-hairdark h-px;
 }
 
+/* PARTICULAR TEXT */
+
 @utility text-gradient {
     background: linear-gradient(135deg, #164965 0%, #00d060 100%);
     -webkit-background-clip: text;
@@ -141,9 +146,104 @@
     background-clip: text;
 }
 
-@utility elevated-shadow {
-    box-shadow: 0 8px 30px rgba(7, 30, 45, 0.08);
+@utility header-disclaimer {
+    @apply text-18 text-ink-light-secondary font-mono;
+
+    @variant dark {
+        @apply text-ink-dark-secondary;
+    }
 }
+
+@utility eyebrow {
+    @apply text-14 text-ink-light-primary font-mono;
+
+    @variant dark {
+        @apply text-ink-dark-primary;
+    }
+}
+
+@utility section-heading {
+    @apply text-h2 text-ink-light-primary font-serif;
+
+    @variant dark {
+        @apply text-ink-dark-primary;
+    }
+}
+
+@utility section-supportive {
+    @apply text-18 text-ink-light-primary;
+
+    @variant dark {
+        @apply text-ink-dark-primary;
+    }
+}
+
+@utility section-endline {
+    @apply text-ink-light-muted text-body font-mono;
+
+    @variant dark {
+        @apply text-ink-dark-muted;
+    }
+}
+
+/* BUTTONS STYLE */
+
+@utility brand-btn-primary {
+    @apply bg-primary hover:bg-primary-active active:bg-malachite;
+    @apply text-ink-dark-primary text-16 font-bold;
+    @apply smooth-transition w-fit px-12 py-4;
+}
+
+@utility brand-btn-secondary {
+    @apply bg-secondary hover:bg-secondary-active active:bg-deepspace;
+    @apply text-ink-dark-primary text-16 font-bold;
+    @apply smooth-transition w-fit px-12 py-4;
+}
+
+@utility button-primary {
+    @apply bg-canvas-white hover:bg-canvas-black active:bg-canvas-black;
+    @apply text-ink-light-primary hover:text-ink-dark-primary active:text-ink-dark-primary;
+    @apply text-16 font-medium;
+    @apply border-hairdark border;
+    @apply smooth-transition w-fit px-4 py-2;
+
+    @variant dark {
+        @apply bg-canvas-black hover:bg-canvas-white active:bg-canvas-white;
+        @apply text-ink-dark-primary hover:text-ink-light-primary active:text-ink-light-primary;
+        @apply border-hairlight;
+    }
+}
+
+@utility button-secondary {
+    @apply bg-canvas-white text-ink-light-primary;
+    @apply underline-offset-4 active:underline;
+    @apply text-16 font-medium;
+    @apply border-hairdark border;
+    @apply smooth-transition w-fit px-4 py-2;
+
+    @variant dark {
+        @apply bg-canvas-black text-ink-dark-primary;
+        @apply border-hairlight;
+    }
+}
+
+/* FORM */
+
+@utility form-field {
+    @apply text-16 font-medium tracking-wide;
+    @apply placeholder:text-ink-light-muted text-ink-light-primary;
+    @apply px-6 py-4;
+    @apply edge-light border;
+}
+
+@utility form-submit-button {
+    @apply bg-primary active:bg-primary-active smooth-transition;
+    @apply text-16 text-ink-dark-primary font-bold;
+    @apply mx-auto px-12 py-4;
+    @apply disabled:cursor-not-allowed disabled:opacity-60;
+}
+
+/* TRANSITIONS & ANIMATION */
 
 @utility smooth-transition {
     transition-property:
@@ -151,13 +251,6 @@
         all;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 300ms;
-}
-
-@utility form-field {
-    @apply text-16 font-medium tracking-wide;
-    @apply placeholder:text-ink-light-muted text-ink-light-primary;
-    @apply px-6 py-4;
-    @apply edge-light border;
 }
 
 /* -------------------------------------------------------------------------- */

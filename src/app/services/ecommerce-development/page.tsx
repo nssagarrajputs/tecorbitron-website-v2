@@ -1,10 +1,9 @@
 import PageHero from "@/components/basic-ui/PageHero";
-import ServiceDevProcess from "../_components/ServiceDevProcess";
+
 import ServiceWhyUs from "../_components/ServiceWhyUs";
 import ServiceLetsConnect from "../_components/ServiceLetsConnect";
 import {
     servicesWhyForEcomm,
-    serviceDevProcessEcomm,
     serviceSolutionsEcomm,
     serviceSandMEcomm,
     serviceIntroEcomm,
@@ -60,15 +59,14 @@ export default function page() {
                 description="From Shopify and WooCommerce to fully custom stores — we build e-commerce solutions that convert visitors into customers and scale with your business."
             />
             <ServiceIntro data={serviceIntroEcomm} />
-             <div className="section-edge-light"></div>
+            <div className="section-edge-light"></div>
             <ServiceWhatSolutions data={serviceSolutionsEcomm} />
-             <div className="section-edge-light"></div>
-            <ServiceDevProcess data={serviceDevProcessEcomm} />
-             <div className="section-edge-light"></div>
+
+            <div className="section-edge-light"></div>
             <ServiceSandM data={serviceSandMEcomm} />
-             <div className="section-edge-light"></div>
+            <div className="section-edge-light"></div>
             <ServiceWhyUs data={servicesWhyForEcomm} />
-             <div className="section-edge-light"></div>
+            <div className="section-edge-light"></div>
             <ServiceLetsConnect />
         </main>
     );

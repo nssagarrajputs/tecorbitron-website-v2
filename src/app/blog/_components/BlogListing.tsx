@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { groq } from "next-sanity";
 
 import Image from "next/image";
 import DefBlogThumbnail from "@/assets/other/default-thumbnail.webp";

@@ -1,10 +1,10 @@
 import PageHero from "@/components/basic-ui/PageHero";
-import ServiceDevProcess from "../_components/ServiceDevProcess";
+
 import ServiceWhyUs from "../_components/ServiceWhyUs";
 import ServiceLetsConnect from "../_components/ServiceLetsConnect";
 import {
     servicesWhyForSeo,
-    serviceDevProcessSeo,
+
     serviceSolutionsSeo,
     serviceSandMSeo,
     serviceIntroSeo,
@@ -63,8 +63,7 @@ export default function page() {
             <ServiceIntro data={serviceIntroSeo} />
             <div className="section-edge-light"></div>
             <ServiceWhatSolutions data={serviceSolutionsSeo} />
-            <div className="section-edge-light"></div>
-            <ServiceDevProcess data={serviceDevProcessSeo} />
+          
             <div className="section-edge-light"></div>
             <ServiceSandM data={serviceSandMSeo} />
             <div className="section-edge-light"></div>
