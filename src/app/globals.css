@@ -20,6 +20,7 @@
     --color-ink-light-primary: #050e15;
     --color-ink-light-secondary: #2c3f4d;
     --color-ink-light-muted: #5d7280;
+
     --color-ink-dark-primary: #ffffff;
     --color-ink-dark-secondary: #d5e3e7;
     --color-ink-dark-muted: #97b0b7;
@@ -224,6 +225,16 @@
     @variant dark {
         @apply bg-canvas-black text-ink-dark-primary;
         @apply border-hairlight;
+    }
+}
+
+@utility button-text {
+    @apply text-ink-light-primary text-16 w-fit py-2;
+    @apply underline-offset-4 hover:underline active:underline;
+    @apply smooth-transition;
+
+    @variant dark {
+        @apply text-ink-dark-primary;
     }
 }
 
