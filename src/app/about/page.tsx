@@ -55,7 +55,7 @@ export const metadata: Metadata = {
 export default function About() {
     return (
         <main>
-            <PageHero
+            {/* <PageHero
                 eyebrow="who we are"
                 title="About Tecorbitron"
                 description="Discover our journey, mission, and the people behind every project — dedicated to building modern digital products that make a real difference."
@@ -81,7 +81,7 @@ export default function About() {
                     text: "Explore Our Services → ",
                     href: "/services",
                 }}
-            />
+            /> */}
         </main>
     );
 }

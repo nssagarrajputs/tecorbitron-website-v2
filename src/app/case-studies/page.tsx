@@ -50,11 +50,11 @@ export default async function PortfolioPage() {
 
     return (
         <main>
-            <PageHero
+            {/* <PageHero
                 eyebrow="Case Studies"
                 title="Projects That Matter"
                 description="A curated selection of our work across web, mobile, software, and AI — each project measured by real business outcomes."
-            />
+            /> */}
 
             <section className="bg-canvas-white side-breathing py-24">
                 <div className="mx-auto max-w-7xl">

@@ -51,9 +51,10 @@
     --text-h2: clamp(2.25rem, 1.152rem + 4.688vw, 3rem); /* 36 → 48 */
     --text-h3: clamp(1.5rem, 0.402rem + 4.688vw, 2.25rem); /* 24 → 36 */
     --text-h4: clamp(1.25rem, 0.884rem + 1.563vw, 1.5rem); /* 20 → 24 */
-    --text-body: clamp(1rem, 0.817rem + 0.781vw, 1.125rem); /* 16 → 18 */
-    --text-small: clamp(0.875rem, 0.692rem + 0.781vw, 1rem); /* 14 → 16 */
-    --text-xmall: clamp(0.75rem, 0.659rem + 0.391vw, 0.8125rem); /* 12 → 13 */
+    --text-body: 1rem; /* 16 */
+    --text-small: 0.875rem; /* 14 */
+    --text-xmall: 0.75rem; /* 12 */
+
     --text-18: 1.1875rem; /* 19 */
     --text-16: 1rem; /* 16 */
     --text-14: 0.875rem; /* 14 */
@@ -126,22 +127,6 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* SPACING UTILITIES                                                          */
-/* -------------------------------------------------------------------------- */
-
-@utility side-layout-spacing {
-    @apply sm:px-8 lg:px-12;
-}
-
-@utility side-breathing {
-    @apply px-8 md:px-12;
-}
-
-@utility section-header-spacing {
-    @apply side-breathing gap-y-12 py-24;
-}
-
-/* -------------------------------------------------------------------------- */
 /* HELPER UTILITIES                                                           */
 /* -------------------------------------------------------------------------- */
 
@@ -156,23 +141,24 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* DESIGN UTILITIES                                                           */
+/* SPACING UTILITIES                                                          */
 /* -------------------------------------------------------------------------- */
 
-/* BORDERS & EDGES */
+@utility side-layout-spacing {
+    @apply sm:px-8 lg:px-12;
+}
 
-@utility edge-light {
-    @apply border-hairlight;
+@utility side-breathing {
+    @apply px-8 md:px-12;
 }
-@utility edge-dark {
-    @apply border-hairdark;
+
+@utility section-header-spacing {
+    @apply py-24;
 }
-@utility section-edge-light {
-    @apply bg-hairlight h-px;
-}
-@utility section-edge-dark {
-    @apply bg-hairdark h-px;
-}
+
+/* -------------------------------------------------------------------------- */
+/* DESIGN UTILITIES                                                           */
+/* -------------------------------------------------------------------------- */
 
 /* PARTICULAR TEXT */
 
@@ -196,7 +182,7 @@
 }
 
 @utility section-supportive {
-    @apply text-18 text-ink-secondary;
+    @apply text-18 text-ink-secondary font-sans;
 }
 
 @utility section-endline {
@@ -264,6 +250,21 @@
     @apply disabled:cursor-not-allowed disabled:opacity-60;
 }
 
+/* BORDERS & EDGES */
+
+@utility edge-light {
+    @apply border-hairlight;
+}
+@utility edge-dark {
+    @apply border-hairdark;
+}
+@utility section-edge-light {
+    @apply bg-hairlight h-px;
+}
+@utility section-edge-dark {
+    @apply bg-hairdark h-px;
+}
+
 /* TRANSITIONS & ANIMATION */
 
 @utility smooth-transition {
@@ -289,22 +290,6 @@
 }
 @utility tb4 {
     @apply border-info border;
-}
-
-/* ------------------------------------------------------------------------ */
-/* HEADER & FOOTER */
-/* ------------------------------------------------------------------------ */
-
-@utility navbar-cta-btn {
-    @apply hover:bg-primary active:bg-primary-active;
-    @apply smooth-transition;
-    @apply text-ink-white text-16 font-medium;
-}
-
-@utility footer-spacing {
-    @apply pt-24 md:pt-32;
-    @apply px-8 md:px-16 xl:px-24;
-    @apply pb-32 md:pb-40;
 }
 
 /* ------------------------------------------------------------------------ */

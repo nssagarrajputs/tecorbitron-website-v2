@@ -48,7 +48,7 @@ export const metadata: Metadata = {
 export default function TechnologiesPage() {
     return (
         <main className="bg-bkg-primary">
-            <PageHero
+            {/* <PageHero
                 eyebrow="Tools & Tech"
                 title="Stack Behind Every Project"
                 description="We pick the right technology for the right problem — modern frameworks, proven backends, reliable cloud infrastructure, and tools that are built to scale with your business. No unnecessary complexity, no outdated stacks."
@@ -67,7 +67,7 @@ export default function TechnologiesPage() {
                     text: "Explore Our Services →",
                     href: "/services",
                 }}
-            />
+            /> */}
         </main>
     );
 }

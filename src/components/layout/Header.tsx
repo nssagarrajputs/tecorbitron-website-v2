@@ -81,7 +81,7 @@ export default function Header() {
             {/* ── NAVBAR ── */}
             <motion.nav className="fixed z-50 min-h-20 w-full" initial={false}>
                 <motion.div
-                    className="rounded-b-2 bg-canvas-white flex-ic-jb mx-auto h-16 max-w-7xl px-4"
+                    className="bg-canvas-white flex-ic-jb mx-auto h-16 max-w-7xl px-8"
                     animate={{
                         boxShadow: scrolled
                             ? "0 4px 24px rgba(7,30,45,0.12)"
@@ -109,7 +109,7 @@ export default function Header() {
                                 >
                                     <Link
                                         href={link.href}
-                                        className={`text-16 relative pb-1 font-medium ${
+                                        className={`text-16 font-medium ${
                                             isActive(link.href)
                                                 ? "text-ink-primary"
                                                 : "text-ink-secondary"
@@ -134,7 +134,7 @@ export default function Header() {
                             >
                                 <Link
                                     href="/contact"
-                                    className="bg-deepspace navbar-cta-btn rounded-1 block px-4 py-1.5"
+                                    className="bg-deepspace hover:bg-primary active:bg-primary-active smooth-transition text-ink-white text-16 block px-4 py-1.5 font-medium"
                                 >
                                     Contact Us
                                 </Link>
@@ -148,7 +148,7 @@ export default function Header() {
                                 aria-label="Open menu"
                                 whileTap={{ scale: 0.9 }}
                             >
-                                <Menu size={25} className="text-ink-primary" />
+                                <Menu size={24} className="text-deepspace" />
                             </motion.button>
                         </div>
                     </div>
@@ -180,13 +180,13 @@ export default function Header() {
                             className="bg-canvas-white flex-vertical fixed top-0 right-0 z-50 h-full w-80 shadow-2xl"
                         >
                             {/* Sidebar top Header */}
-                            <div className="border-hairlight flex h-16 items-center justify-end border-b px-4">
+                            <div className="border-hairlight flex h-16 items-center justify-end border-b px-8">
                                 <motion.button
                                     onClick={() => setMenuOpen(false)}
                                     aria-label="Close menu"
                                     whileTap={{ scale: 0.9 }}
                                 >
-                                    <X size={25} className="text-ink-primary" />
+                                    <X size={24} className="text-deepspace" />
                                 </motion.button>
                             </div>
 
@@ -217,7 +217,8 @@ export default function Header() {
                                                     <span className="bg-malachite block h-2 w-2 rounded-full" />
                                                 ) : (
                                                     <ArrowRight
-                                                        size={18}
+                                                        size={24}
+                                                        strokeWidth={1.2}
                                                         className="text-ink-muted"
                                                     />
                                                 )}
@@ -228,7 +229,7 @@ export default function Header() {
                             </motion.nav>
 
                             {/* Sidebar CTA */}
-                            <div className="border-hairlight border-t px-4 py-8">
+                            <div className="border-hairlight border-t px-8 py-8">
                                 <motion.div
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.97 }}
@@ -241,7 +242,7 @@ export default function Header() {
                                     <Link
                                         href="/contact"
                                         onClick={() => setMenuOpen(false)}
-                                        className="bg-primary flex-center navbar-cta-btn w-full py-3"
+                                        className="bg-primary hover:bg-primary active:bg-primary-active smooth-transition text-ink-white text-16 block w-full py-3 text-center font-medium"
                                     >
                                         Contact Us
                                     </Link>

@@ -87,7 +87,7 @@ export default function Contact() {
         <main>
             <StructuredData data={contactSchema()} />
 
-            <PageHero
+            {/* <PageHero
                 eyebrow="Get in Touch"
                 title="Let's Connect"
                 description="Share your idea and we'll get back to you within 24 hours — free consultation, no strings attached."
@@ -102,7 +102,7 @@ export default function Contact() {
                 eyebrow="FAQS"
                 heading="Before You Reach Out"
                 items={faqdata}
-            />
+            /> */}
         </main>
     );
 }

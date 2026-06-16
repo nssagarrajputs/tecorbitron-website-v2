@@ -70,11 +70,11 @@ export default async function LegalPage(props: {
 
     return (
         <main>
-            <PageHero
+            {/* <PageHero
                 eyebrow={doc.hero.eyebrow}
                 title={doc.hero.title}
                 description={doc.hero.description}
-            />
+            /> */}
 
             <section className="edge-light bg-canvas-white side-breathing mx-auto max-w-7xl border-x py-24">
                 <div className="mx-auto max-w-6xl">

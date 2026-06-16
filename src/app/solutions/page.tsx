@@ -48,7 +48,7 @@ export const metadata: Metadata = {
 function Page() {
     return (
         <main className="bg-bkg-primary">
-            <PageHero
+            {/* <PageHero
                 eyebrow="Our Solutions"
                 title="Right Solution for Every Business Need"
                 highlight="Every Industry"
@@ -74,7 +74,7 @@ function Page() {
                     text: "Explore Our Services →",
                     href: "/services",
                 }}
-            />
+            /> */}
         </main>
     );
 }

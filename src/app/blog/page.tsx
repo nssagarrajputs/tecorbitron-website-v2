@@ -52,12 +52,12 @@ export default async function Blog() {
 
     return (
         <main>
-            <PageHero
+            {/* <PageHero
                 eyebrow="Blogs & Insights"
                 title="Stay Informed. Stay Ahead."
                 description="Practical guides, expert articles, and industry updates on tech and businesses — written by the Tecorbitron team."
             />
-            <BlogListing posts={posts} categories={categories} />
+            <BlogListing posts={posts} categories={categories} /> */}
         </main>
     );
 }

@@ -139,7 +139,7 @@ export default function RootLayout({
                 <Analytics />
                 <Header />
                 {children}
-                <Footer />
+                {/* <Footer /> */}
             </body>
             <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />
         </html>

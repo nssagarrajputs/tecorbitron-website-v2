@@ -103,7 +103,7 @@ export default function Services() {
     return (
         <main>
             <StructuredData data={servicesSchema()} />
-            <PageHero
+            {/* <PageHero
                 eyebrow="What We OFFER"
                 title="Explore Our Services"
                 description="Technical services scoped to your business — not cookie-cutter packages. Work within your timeline and budget."
@@ -129,7 +129,7 @@ export default function Services() {
                     text: "Explore Our Work →",
                     href: "/portfolio",
                 }}
-            />
+            /> */}
         </main>
     );
 }
