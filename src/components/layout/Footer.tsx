@@ -84,12 +84,12 @@ export default function Footer() {
     const year = new Date().getFullYear();
 
     return (
-        <footer className="edge-dark border-y">
-            <div className="edge-dark mx-auto max-w-7xl border-x px-4 pt-32 pb-40 md:px-14 lg:px-28 xl:px-32">
-                <div className="grid grid-cols-1 gap-8 gap-y-16 max-md:px-8 sm:grid-cols-2 lg:grid-cols-4">
+        <footer className="edge-dark dark side-layout-spacing border-y">
+            <div className="edge-dark footer-spacing mx-auto max-w-7xl border-x">
+                <div className="grid grid-cols-1 gap-8 gap-y-16 md:grid-cols-2 xl:grid-cols-4">
                     {footerMenus.map((menu) => (
                         <div key={menu.title}>
-                            <h3 className="text-ink-dark-faint text-16 mb-6 font-bold">
+                            <h3 className="text-ink-muted text-16 mb-6 font-bold">
                                 {menu.title}
                             </h3>
 
@@ -109,7 +109,7 @@ export default function Footer() {
                                                     ? "noopener noreferrer"
                                                     : undefined
                                             }
-                                            className="hover:text-malachite text-ink-dark-secondary text-16 w-fit font-mono underline-offset-4 hover:underline"
+                                            className="hover:text-malachite text-ink-secondary text-16 w-fit font-mono underline-offset-4 hover:underline"
                                         >
                                             {link.label}
                                         </a>
@@ -117,7 +117,7 @@ export default function Footer() {
                                         <Link
                                             key={link.href}
                                             href={link.href}
-                                            className="hover:text-malachite text-ink-dark-secondary text-16 w-fit font-mono underline-offset-4 hover:underline"
+                                            className="hover:text-malachite text-ink-secondary text-16 w-fit font-mono underline-offset-4 hover:underline"
                                         >
                                             {link.label}
                                         </Link>
@@ -135,7 +135,7 @@ export default function Footer() {
                 </div>
 
                 {/* Copyright */}
-                <div className="flex justify-between gap-4 max-lg:flex-col max-md:px-8">
+                <div className="flex justify-between gap-4 max-lg:flex-col">
                     <div className="flex gap-4 max-md:flex-col md:items-center">
                         <Link href="/">
                             <Image
@@ -145,12 +145,12 @@ export default function Footer() {
                                 className="opacity-100 select-none"
                             />
                         </Link>
-                        <small className="text-14 text-ink-dark-muted font-medium">
+                        <small className="text-14 text-ink-muted font-medium">
                             {year} © All Rights Reserved.
                         </small>
                     </div>
 
-                    <div className="text-ink-dark-muted **:hover:text-ink-dark-primary text-16 flex flex-wrap items-center gap-3 font-medium underline-offset-4 **:hover:underline">
+                    <div className="text-ink-muted **:hover:text-ink-primary text-16 flex flex-wrap items-center gap-3 font-medium underline-offset-4 **:hover:underline">
                         <a
                             href="https://www.linkedin.com/company/tecorbitrons"
                             target="_blank"

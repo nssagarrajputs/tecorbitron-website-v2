@@ -80,7 +80,7 @@ export default function ProjectInquiry() {
     };
 
     return (
-        <section className="bg-canvas-white">
+        <section className="bg-canvas-white side-layout-spacing">
             <div className="edge-light mx-auto max-w-7xl border-x">
                 <div className="grid grid-cols-1 gap-y-18 py-12 md:py-18 lg:py-24 xl:grid-cols-[1fr_2fr]">
                     <div className="text-ink-light-primary side-breathing">
@@ -205,7 +205,7 @@ export default function ProjectInquiry() {
             </div>
 
             {/* ── Trust Signals ── */}
-            <div className="edge-light mx-auto grid max-w-7xl grid-cols-1 border-l md:grid-cols-3">
+            <div className="edge-light mx-auto grid max-w-7xl grid-cols-1 border-l lg:grid-cols-3">
                 {trustSignals.map(({ icon: Icon, title, desc }) => (
                     <div
                         key={title}

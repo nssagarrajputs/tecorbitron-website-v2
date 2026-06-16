@@ -111,8 +111,8 @@ export default function Header() {
                                         href={link.href}
                                         className={`text-16 relative pb-1 font-medium ${
                                             isActive(link.href)
-                                                ? "text-ink-light-primary"
-                                                : "text-ink-light-secondary"
+                                                ? "text-ink-primary"
+                                                : "text-ink-secondary"
                                         }`}
                                     >
                                         {link.label}
@@ -134,7 +134,7 @@ export default function Header() {
                             >
                                 <Link
                                     href="/contact"
-                                    className="bg-deepspace hover:bg-primary active:bg-primary-active rounded-1 smooth-transition text-ink-dark-primary text-16 block px-4 py-1.5 font-medium"
+                                    className="bg-deepspace navbar-cta-btn rounded-1 block px-4 py-1.5"
                                 >
                                     Contact Us
                                 </Link>
@@ -148,10 +148,7 @@ export default function Header() {
                                 aria-label="Open menu"
                                 whileTap={{ scale: 0.9 }}
                             >
-                                <Menu
-                                    size={25}
-                                    className="text-ink-light-primary"
-                                />
+                                <Menu size={25} className="text-ink-primary" />
                             </motion.button>
                         </div>
                     </div>
@@ -189,10 +186,7 @@ export default function Header() {
                                     aria-label="Close menu"
                                     whileTap={{ scale: 0.9 }}
                                 >
-                                    <X
-                                        size={25}
-                                        className="text-ink-light-primary"
-                                    />
+                                    <X size={25} className="text-ink-primary" />
                                 </motion.button>
                             </div>
 
@@ -213,8 +207,8 @@ export default function Header() {
                                             onClick={() => setMenuOpen(false)}
                                             className={`text-16 smooth-transition flex-ic-jb px-4 py-2 font-medium ${
                                                 isActive(link.href)
-                                                    ? "text-ink-light-primary"
-                                                    : "text-ink-light-muted hover:bg-canvas-surface"
+                                                    ? "text-ink-primary"
+                                                    : "text-ink-muted hover:bg-canvas-surface"
                                             }`}
                                         >
                                             {link.label}
@@ -224,7 +218,7 @@ export default function Header() {
                                                 ) : (
                                                     <ArrowRight
                                                         size={18}
-                                                        className="text-ink-light-faint"
+                                                        className="text-ink-muted"
                                                     />
                                                 )}
                                             </div>
@@ -247,7 +241,7 @@ export default function Header() {
                                     <Link
                                         href="/contact"
                                         onClick={() => setMenuOpen(false)}
-                                        className="bg-primary active:bg-primary-active flex-center smooth-transition text-ink-dark-primary text-16 w-full py-3 font-medium"
+                                        className="bg-primary flex-center navbar-cta-btn w-full py-3"
                                     >
                                         Contact Us
                                     </Link>

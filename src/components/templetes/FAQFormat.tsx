@@ -27,19 +27,19 @@ export default function FAQFormat({
     const [openIndex, setOpenIndex] = useState<number | null>(defaultOpenIndex);
 
     return (
-        <section className="bg-canvas-surface">
+        <section className="bg-canvas-surface side-layout-spacing">
             <div className="edge-light side-breathing mx-auto max-w-7xl border-x">
-                <div className="mx-auto max-w-5xl">
-                    <div className="text-ink-light-primary py-12 md:py-18 lg:py-24">
+                <div className="mx-auto max-w-5xl py-24 md:py-40">
+                    <div className="mb-12 md:mb-24">
                         <div className="max-w-4xl">
-                            <span className="text-12 font-mono">{eyebrow}</span>
+                            <span className="eyebrow">{eyebrow}</span>
                             <h2 className="text-h2 mb-8 font-serif">
                                 {heading}
                             </h2>
                         </div>
                     </div>
 
-                    <div className="flex flex-col gap-4 pb-24">
+                    <div className="">
                         {items.map((faq, index) => {
                             const isOpen = openIndex === index;
 
@@ -51,25 +51,25 @@ export default function FAQFormat({
                                     }
                                     className="edge-light border-b"
                                 >
-                                    <div className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left">
-                                        <h4 className="text-h4 text-ink-light-primary">
+                                    <div className="group flex w-full items-center justify-between gap-4 py-4">
+                                        <h3 className="text-h4 text-ink-primary group-hover:text-primary group-active:text-primary">
                                             {faq.question}
-                                        </h4>
+                                        </h3>
 
                                         <div
-                                            className={`text-ink-light-primary smooth-transition flex-center rounded-full ${
+                                            className={`text-ink-primary smooth-transition flex-center ${
                                                 isOpen
                                                     ? "rotate-45"
                                                     : "rotate-0"
                                             }`}
                                         >
-                                            <Plus />
+                                            <Plus size={24} strokeWidth={1} />
                                         </div>
                                     </div>
 
                                     {isOpen && (
-                                        <div className="px-5 pb-5">
-                                            <p className="text-ink-light-secondary text-body max-w-3xl leading-relaxed">
+                                        <div className="max-w-3xl pb-8">
+                                            <p className="text-ink-secondary text-body leading-relaxed">
                                                 {faq.answer}
                                             </p>
 
@@ -77,7 +77,7 @@ export default function FAQFormat({
                                                 <div className="mt-3">
                                                     <Link
                                                         href={faq.link}
-                                                        className="text-small text-malachite hover:text-malachite-rich transi-base inline-flex font-bold"
+                                                        className="text-small text-primary hover:text-malachite smooth-transition inline-flex font-bold"
                                                     >
                                                         {faq.linkText}
                                                     </Link>

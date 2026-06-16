@@ -78,20 +78,17 @@ export const servicesCardData = [
 
 export default function CoreServices() {
     return (
-        <section className="bg-canvas-white">
+        <section className="bg-canvas-white side-layout-spacing">
             <div className="mx-auto max-w-7xl">
-                <div className="text-ink-light-primary edge-light side-breathing grid grid-cols-1 gap-y-12 border-x py-12 md:py-18 lg:grid-cols-2 lg:py-24">
+                <div className="edge-light section-header-spacing grid grid-cols-1 border-x lg:grid-cols-2">
                     <div className="">
-                        <span className="eyebrow-light">We Build Bold</span>
+                        <span className="eyebrow">We Build Bold</span>
                         <h2 className="section-heading">
                             Digital Services Designed to Grow Your Business
                         </h2>
                     </div>
                     <div className="flex-vertical justify-end md:items-end">
-                        <Link
-                            href={"/services"}
-                            className="button-primary-light"
-                        >
+                        <Link href={"/services"} className="button-primary">
                             Explore All Services
                         </Link>
                     </div>

@@ -51,14 +51,14 @@ const testimonials = [
 
 export default function Testimonials() {
     return (
-        <section className="bg-canvas-white">
+        <section className="bg-canvas-white dark">
             <div className="bg-canvas mx-auto max-w-7xl">
                 <div className="text-ink-light-primary edge-dark side-breathing border-x py-12 md:py-18 lg:py-24">
                     <div className="mx-auto max-w-4xl text-center">
-                        <h2 className="text-h2 text-ink-dark-primary mb-8 font-serif">
+                        <h2 className="text-h2 text-ink-primary mb-8 font-serif">
                             What Our Clients Say
                         </h2>
-                        <p className="text-ink-dark-secondary">
+                        <p className="text-ink-secondary text-18 font-bold">
                             Verified feedback from clients across industries —
                             in their own words
                         </p>
@@ -72,7 +72,7 @@ export default function Testimonials() {
                             className="edge-dark border-t border-r p-8"
                         >
                             <div className="flex-vertical gap-4">
-                                <div className="flex-ic-jb text-ink-dark-muted font-black">
+                                <div className="flex-ic-jb text-ink-muted font-black">
                                     <div className="text-16">
                                         <span className="text-malachite">
                                             {review.rating}
@@ -83,7 +83,7 @@ export default function Testimonials() {
                                         {review.companyName}
                                     </span>
                                 </div>
-                                <blockquote className="text-body text-ink-dark-secondary leading-relaxed">
+                                <blockquote className="text-body text-ink-secondary leading-relaxed">
                                     {review.quote}
                                 </blockquote>
                             </div>

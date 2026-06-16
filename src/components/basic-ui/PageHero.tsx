@@ -20,11 +20,8 @@ function PageHero({
     highlight,
     description,
 }: PageHeroProps) {
-    const parts =
-        highlight && title.includes(highlight) ? title.split(highlight) : null;
-
     return (
-        <section className="edge-dark relative overflow-hidden border-b">
+        <section className="edge-dark dark side-layout-spacing relative overflow-hidden border-b">
             <div
                 className="pointer-events-none absolute inset-0 opacity-[0.03]"
                 style={{
@@ -45,29 +42,19 @@ function PageHero({
             {/* <div className="tb1 mx-auto flex max-w-4xl flex-col items-center text-center"> */}
             <div className="edge-dark mx-auto max-w-7xl border-x py-16">
                 <div className="edge-dark w-full border-b p-8 text-center">
-                    <span className="text-body text-ink-dark-secondary font-mono uppercase">
+                    <span className="header-disclaimer uppercase">
                         {eyebrow}
                     </span>
                 </div>
                 <div
-                    className={`mx-auto flex ${widthMap[width]} flex-col items-center text-center`}
+                    className={`mx-auto flex ${widthMap[width]} side-breathing flex-col items-center text-center`}
                 >
-                    <h1 className="text-h1 mx-auto mt-6 mb-5 leading-tight font-black tracking-tight">
-                        {parts ? (
-                            <>
-                                {parts[0]}
-                                <span className="text-malachite">
-                                    {highlight}
-                                </span>
-                                {parts[1]}
-                            </>
-                        ) : (
-                            title
-                        )}
+                    <h1 className="text-h1 text-ink-primary mx-auto mt-6 mb-5 leading-tight font-black tracking-tight">
+                        {title}
                     </h1>
 
                     {description ? (
-                        <p className="text-ink-dark-muted text-body max-w-xl leading-relaxed font-medium">
+                        <p className="text-ink-muted text-body max-w-xl leading-relaxed font-medium">
                             {description}
                         </p>
                     ) : null}

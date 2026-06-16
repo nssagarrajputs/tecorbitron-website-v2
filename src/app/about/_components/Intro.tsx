@@ -66,18 +66,18 @@ const stats = [
 ];
 export default function Intro() {
     return (
-        <section>
+        <section className="side-layout-spacing dark">
             <div className="edge-dark side-breathing mx-auto max-w-7xl border-x py-12 md:py-18 lg:py-24">
                 <div className="flex flex-col gap-6">
-                    <h2 className="text-h2 text-ink-dark-primary mb-8 text-center font-serif">
+                    <h2 className="text-h2 text-ink-primary mb-8 text-center font-serif">
                         A Company <br className="md:hidden" /> Built to Build
                     </h2>
-                    <p className="text-body mx-auto max-w-4xl font-mono leading-relaxed">
+                    <p className="text-body text-ink-secondary mx-auto max-w-4xl font-mono leading-relaxed">
                         {
                             "Tecorbitron was founded with one simple belief — great digital products shouldn't be reserved for big companies with big budgets. We're a founder-led digital solutions company based in Ghaziabad, India, building modern websites, apps, and digital systems for startups and growing businesses across India and internationally."
                         }
                     </p>
-                    <p className="text-body mx-auto max-w-4xl font-mono leading-relaxed">
+                    <p className="text-body text-ink-secondary mx-auto max-w-4xl font-mono leading-relaxed">
                         {
                             "We started before we were officially registered — because the work came first. Since then, we've delivered 120+ projects, worked with 100+ clients, and covered 30+ industries. Every project we take on is treated with the same level of care, precision, and ambition."
                         }
@@ -96,10 +96,10 @@ export default function Intro() {
                                     {r.logo}
                                 </div>
                                 <div className="flex flex-col">
-                                    <span className="text-body font-bold">
+                                    <span className="text-body text-ink-secondary font-bold">
                                         {r.platform}
                                     </span>
-                                    <span className="text-typocolor-muted text-xmall">
+                                    <span className="text-ink-muted text-xmall">
                                         {r.reviews}
                                     </span>
                                 </div>
@@ -135,7 +135,7 @@ export default function Intro() {
                 </div>
 
                 {/* Note */}
-                <p className="text-ink-dark-muted text-small text-center font-medium">
+                <p className="text-ink-muted text-small text-center font-medium">
                     Ratings reflect verified client feedback across platforms.
                 </p>
             </div>
@@ -146,7 +146,7 @@ export default function Intro() {
                         key={stat.title}
                         className={`edge-dark flex flex-col-reverse items-center gap-2 border-t border-r py-16 text-center`}
                     >
-                        <h3 className="text-ink-dark-secondary text-body">
+                        <h3 className="text-ink-secondary text-body">
                             {stat.title}
                         </h3>
                         <p className="text-malachite text-h3 font-mono font-black tracking-tight">

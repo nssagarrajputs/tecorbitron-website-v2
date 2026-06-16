@@ -38,15 +38,15 @@ const channels = [
 
 export default function WaysToConnect() {
     return (
-        <section className="bg-canvas-white">
+        <section className="bg-canvas-white dark side-layout-spacing">
             <div className="bg-canvas mx-auto max-w-7xl">
                 <div className="side-breathing edge-dark border-x py-12">
-                    <h2 className="text-ink-dark-secondary text-body text-center font-mono">
+                    <h2 className="text-ink-primary text-body text-center font-mono">
                         {"We're"} easy to reach — choose the channel that works
                         best for you.
                     </h2>
                 </div>
-                <div className="edge-dark grid grid-cols-1 border-l sm:grid-cols-2 lg:grid-cols-4">
+                <div className="edge-dark grid grid-cols-1 border-l sm:grid-cols-2 xl:grid-cols-4">
                     {channels.map(
                         ({
                             icon: Icon,
@@ -64,10 +64,10 @@ export default function WaysToConnect() {
 
                                 {/* Text */}
                                 <div className="flex flex-col gap-1">
-                                    <h3 className="text-ink-dark-primary text-body font-bold">
+                                    <h3 className="text-ink-primary text-body font-bold">
                                         {title}
                                     </h3>
-                                    <p className="text-ink-dark-secondary text-small font-medium">
+                                    <p className="text-ink-secondary text-small font-medium">
                                         {subtitle}
                                     </p>
                                 </div>
@@ -77,7 +77,7 @@ export default function WaysToConnect() {
                                     href={href}
                                     target={external ? "_blank" : "_self"}
                                     rel="noopener noreferrer"
-                                    className="border-canvas-white text-16 w-fit border px-8 py-4 font-bold underline-offset-4 hover:underline active:underline"
+                                    className="button-secondary"
                                 >
                                     {label}
                                 </a>

@@ -96,6 +96,7 @@ export default function Contact() {
             <ProjectInquiry />
             <div className="section-edge-light"></div>
             <WaysToConnect />
+            <div className="section-edge-light"></div>
 
             <FAQSection
                 eyebrow="FAQS"

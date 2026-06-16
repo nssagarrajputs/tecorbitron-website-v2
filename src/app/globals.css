@@ -2,6 +2,17 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+:root {
+    --pen-light-primary: #050e15;
+    --pen-light-secondary: #2c3f4d;
+    --pen-light-muted: #5d7280;
+    --pen-dark-primary: #ffffff;
+    --pen-dark-secondary: #d5e3e7;
+    --pen-dark-muted: #97b0b7;
+    --pen-white: #ffffff;
+    --pen-black: #050e15;
+}
+
 @theme {
     --font-sans: var(--font-sans);
     --font-serif: var(--font-serif);
@@ -16,14 +27,6 @@
     --color-primary-active: #009c91;
     --color-secondary: #00637a;
     --color-secondary-active: #2f4858;
-
-    --color-ink-light-primary: #050e15;
-    --color-ink-light-secondary: #2c3f4d;
-    --color-ink-light-muted: #5d7280;
-
-    --color-ink-dark-primary: #ffffff;
-    --color-ink-dark-secondary: #d5e3e7;
-    --color-ink-dark-muted: #97b0b7;
 
     --color-canvas: #02181a;
     --color-canvas-accent: #00d060;
@@ -70,6 +73,31 @@
     --radius-4: 1rem;
 }
 
+@utility text-ink-primary {
+    color: var(--pen-light-primary);
+    @variant dark {
+        color: var(--pen-dark-primary);
+    }
+}
+@utility text-ink-secondary {
+    color: var(--pen-light-secondary);
+    @variant dark {
+        color: var(--pen-dark-secondary);
+    }
+}
+@utility text-ink-muted {
+    color: var(--pen-light-muted);
+    @variant dark {
+        color: var(--pen-dark-muted);
+    }
+}
+@utility text-ink-white {
+    color: var(--pen-white);
+}
+@utility text-ink-black {
+    color: var(--pen-black);
+}
+
 /* -------------------------------------------------------------------------- */
 /* BASE LAYER                                                                 */
 /* -------------------------------------------------------------------------- */
@@ -83,7 +111,7 @@
     }
 
     body {
-        @apply text-ink-dark-primary bg-canvas text-body font-sans antialiased;
+        @apply text-ink-primary bg-canvas text-body font-sans antialiased;
     }
 
     hr {
@@ -101,8 +129,16 @@
 /* SPACING UTILITIES                                                          */
 /* -------------------------------------------------------------------------- */
 
+@utility side-layout-spacing {
+    @apply sm:px-8 lg:px-12;
+}
+
 @utility side-breathing {
-    @apply px-4 md:px-6 lg:px-8;
+    @apply px-8 md:px-12;
+}
+
+@utility section-header-spacing {
+    @apply side-breathing gap-y-12 py-24;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -148,108 +184,82 @@
 }
 
 @utility header-disclaimer {
-    @apply text-18 text-ink-light-secondary font-mono;
-
-    @variant dark {
-        @apply text-ink-dark-secondary;
-    }
+    @apply text-18 text-ink-secondary font-mono;
 }
 
 @utility eyebrow {
-    @apply text-14 text-ink-light-primary font-mono;
-
-    @variant dark {
-        @apply text-ink-dark-primary;
-    }
+    @apply text-14 text-ink-primary font-mono;
 }
 
 @utility section-heading {
-    @apply text-h2 text-ink-light-primary font-serif;
-
-    @variant dark {
-        @apply text-ink-dark-primary;
-    }
+    @apply text-h2 text-ink-primary font-serif;
 }
 
 @utility section-supportive {
-    @apply text-18 text-ink-light-primary;
-
-    @variant dark {
-        @apply text-ink-dark-primary;
-    }
+    @apply text-18 text-ink-secondary;
 }
 
 @utility section-endline {
-    @apply text-ink-light-muted text-body font-mono;
-
-    @variant dark {
-        @apply text-ink-dark-muted;
-    }
+    @apply text-ink-muted text-body font-mono;
 }
 
 /* BUTTONS STYLE */
 
 @utility brand-btn-primary {
     @apply bg-primary hover:bg-primary-active active:bg-malachite;
-    @apply text-ink-dark-primary text-16 font-bold;
+    @apply text-ink-white text-16 font-bold;
     @apply smooth-transition w-fit px-12 py-4;
 }
 
 @utility brand-btn-secondary {
     @apply bg-secondary hover:bg-secondary-active active:bg-deepspace;
-    @apply text-ink-dark-primary text-16 font-bold;
+    @apply text-ink-white text-16 font-bold;
     @apply smooth-transition w-fit px-12 py-4;
 }
 
 @utility button-primary {
     @apply bg-canvas-white hover:bg-canvas-black active:bg-canvas-black;
-    @apply text-ink-light-primary hover:text-ink-dark-primary active:text-ink-dark-primary;
+    @apply text-ink-black hover:text-ink-white active:text-ink-white;
     @apply text-16 font-medium;
     @apply border-hairdark border;
     @apply smooth-transition w-fit px-4 py-2;
 
     @variant dark {
         @apply bg-canvas-black hover:bg-canvas-white active:bg-canvas-white;
-        @apply text-ink-dark-primary hover:text-ink-light-primary active:text-ink-light-primary;
+        @apply text-ink-white hover:text-ink-black active:text-ink-black;
         @apply border-hairlight;
     }
 }
 
 @utility button-secondary {
-    @apply bg-canvas-white text-ink-light-primary;
     @apply underline-offset-4 active:underline;
-    @apply text-16 font-medium;
+    @apply text-16 text-ink-primary font-medium;
     @apply border-hairdark border;
-    @apply smooth-transition w-fit px-4 py-2;
+    @apply smooth-transition w-fit px-8 py-4;
 
     @variant dark {
-        @apply bg-canvas-black text-ink-dark-primary;
         @apply border-hairlight;
     }
 }
 
 @utility button-text {
-    @apply text-ink-light-primary text-16 w-fit py-2;
+    @apply text-ink-primary text-16 w-fit py-2;
     @apply underline-offset-4 hover:underline active:underline;
     @apply smooth-transition;
-
-    @variant dark {
-        @apply text-ink-dark-primary;
-    }
 }
 
 /* FORM */
 
 @utility form-field {
     @apply text-16 font-medium tracking-wide;
-    @apply placeholder:text-ink-light-muted text-ink-light-primary;
+    @apply placeholder:text-ink-muted text-ink-primary;
     @apply px-6 py-4;
     @apply edge-light border;
 }
 
 @utility form-submit-button {
     @apply bg-primary active:bg-primary-active smooth-transition;
-    @apply text-16 text-ink-dark-primary font-bold;
+    @apply text-16 text-ink-white font-bold;
     @apply mx-auto px-12 py-4;
     @apply disabled:cursor-not-allowed disabled:opacity-60;
 }
@@ -279,6 +289,22 @@
 }
 @utility tb4 {
     @apply border-info border;
+}
+
+/* ------------------------------------------------------------------------ */
+/* HEADER & FOOTER */
+/* ------------------------------------------------------------------------ */
+
+@utility navbar-cta-btn {
+    @apply hover:bg-primary active:bg-primary-active;
+    @apply smooth-transition;
+    @apply text-ink-white text-16 font-medium;
+}
+
+@utility footer-spacing {
+    @apply pt-24 md:pt-32;
+    @apply px-8 md:px-16 xl:px-24;
+    @apply pb-32 md:pb-40;
 }
 
 /* ------------------------------------------------------------------------ */
