@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import { SectionHeaderCentered } from "@/components/basic-ui/SectionHeaderType";
 
 const stats = [
     { value: 6, suffix: "+", label: "Years of Expertise", decimal: false },
@@ -84,36 +85,39 @@ export default function StatsBand() {
     const inView = useInView(ref, { once: true, margin: "-80px" });
 
     return (
-        <section className="bg-canvas-white">
-            <div className="bg-canvas edge-dark border-x flex-center mx-auto max-w-7xl py-24">
-                <h2 className="text-h3 font-serif">Real Work. Real Results.</h2>
+        <section className="bg-canvas-white side-layout-spacing dark">
+            <div className="bg-canvas mx-auto max-w-7xl">
+                <div className="edge-dark border-x">
+                    <SectionHeaderCentered heading="Real Work. Real Results." />
+                </div>
+
+                <motion.div
+                    ref={ref}
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate={inView ? "visible" : "hidden"}
+                    className="edge-dark grid grid-cols-1 border-l sm:grid-cols-2 lg:grid-cols-4"
+                >
+                    {stats.map((stat) => (
+                        <motion.div
+                            key={stat.label}
+                            variants={itemVariants}
+                            className={`edge-dark flex flex-col items-center gap-2 border-t border-r px-2 py-16 text-center`}
+                        >
+                            <p className="text-malachite text-h1 font-mono font-black tracking-tight">
+                                <CountUp
+                                    target={stat.value}
+                                    suffix={stat.suffix}
+                                    decimal={stat.decimal}
+                                />
+                            </p>
+                            <p className="text-ink-secondary text-body">
+                                {stat.label}
+                            </p>
+                        </motion.div>
+                    ))}
+                </motion.div>
             </div>
-            <motion.div
-                ref={ref}
-                variants={containerVariants}
-                initial="hidden"
-                animate={inView ? "visible" : "hidden"}
-                className="bg-canvas mx-auto grid max-w-7xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 edge-dark border-l"
-            >
-                {stats.map((stat) => (
-                    <motion.div
-                        key={stat.label}
-                        variants={itemVariants}
-                        className={`edge-dark flex flex-col items-center gap-2 border-t border-r py-16 text-center`}
-                    >
-                        <p className="text-malachite text-h1 font-mono font-black tracking-tight">
-                            <CountUp
-                                target={stat.value}
-                                suffix={stat.suffix}
-                                decimal={stat.decimal}
-                            />
-                        </p>
-                        <p className="text-ink-dark-secondary text-body">
-                            {stat.label}
-                        </p>
-                    </motion.div>
-                ))}
-            </motion.div>
         </section>
     );
 }

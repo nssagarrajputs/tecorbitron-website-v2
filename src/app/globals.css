@@ -170,7 +170,7 @@
 }
 
 @utility eyebrow {
-    @apply text-14 text-ink-primary font-mono;
+    @apply text-14 text-ink-primary font-mono uppercase;
 }
 
 @utility section-heading {
@@ -202,7 +202,7 @@
 @utility button-primary {
     @apply bg-canvas-white hover:bg-canvas-black active:bg-canvas-black;
     @apply text-ink-black hover:text-ink-white active:text-ink-white;
-    @apply text-16 font-medium;
+    @apply text-16 font-medium select-none;
     @apply border-hairdark border;
     @apply smooth-transition w-fit px-4 py-2;
 
@@ -215,7 +215,7 @@
 
 @utility button-secondary {
     @apply underline-offset-4 active:underline;
-    @apply text-16 text-ink-primary font-medium;
+    @apply text-16 text-ink-primary font-medium select-none;
     @apply border-hairdark border;
     @apply smooth-transition w-fit px-8 py-4;
 
@@ -225,7 +225,7 @@
 }
 
 @utility button-text {
-    @apply text-ink-primary text-16 w-fit py-2;
+    @apply text-ink-primary text-16 w-fit py-2 select-none;
     @apply underline-offset-4 hover:underline active:underline;
     @apply smooth-transition;
 }

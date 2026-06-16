@@ -6,6 +6,8 @@ import ecommerceIcon from "@/assets/specific-services/ssi/ei.png";
 import seoIcon from "@/assets/specific-services/ssi/si.png";
 
 import Link from "next/link";
+import { SectionHeaderLeftRight } from "@/components/basic-ui/SectionHeaderType";
+import { CircleCheck } from "lucide-react";
 
 export const servicesCardData = [
     {
@@ -80,57 +82,57 @@ export default function CoreServices() {
     return (
         <section className="bg-canvas-white side-layout-spacing">
             <div className="mx-auto max-w-7xl">
-                <div className="edge-light section-header-spacing grid grid-cols-1 border-x lg:grid-cols-2">
-                    <div className="">
-                        <span className="eyebrow">We Build Bold</span>
-                        <h2 className="section-heading">
-                            Digital Services Designed to Grow Your Business
-                        </h2>
-                    </div>
-                    <div className="flex-vertical justify-end md:items-end">
-                        <Link href={"/services"} className="button-primary">
-                            Explore All Services
-                        </Link>
-                    </div>
+                <div className="edge-light border-x">
+                    <SectionHeaderLeftRight
+                        eyebrow="We Build Bold"
+                        heading="Digital Services Designed to Grow Your Business"
+                        href="/services"
+                        hreflabel="Explore All Services"
+                    />
                 </div>
 
-                <div className="edge-light grid grid-cols-1 border-x md:grid-cols-2">
-                    {servicesCardData.map((service, index) => (
+                <div className="edge-light grid grid-cols-1 border-l lg:grid-cols-2">
+                    {servicesCardData.map((service) => (
                         <div
                             key={service.name}
-                            className={`text-ink-light-primary edge-light flex flex-col gap-4 border-t p-8 lg:p-14 ${index % 2 === 0 ? "md:border-r" : ""} `}
+                            className="edge-light flex-vertical side-breathing justify-between border-t border-r pt-4 pb-12"
                         >
-                            <div className="flex h-50 w-50 items-center justify-center select-none">
+                            <div className="flex-center h-50 w-50 select-none">
                                 <Image
                                     src={service.icon}
                                     alt={service.name}
                                     width={500}
                                     height={500}
+                                    loading="eager"
                                     className="h-full w-full object-contain"
                                 />
                             </div>
-                            <h3 className="text-ink-light-primary text-h4 font-medium">
+                            <h3 className="text-ink-primary text-h4 mb-8 font-medium">
                                 {service.name}
                             </h3>
 
-                            <p className="text-ink-light-secondary text-body mb-4 md:min-h-16">
+                            <p className="text-ink-secondary text-body mb-6 max-w-sm font-medium">
                                 {service.tagline}
                             </p>
 
-                            <div className="flex flex-wrap gap-4">
+                            <ul className="flex-vertical mb-12 gap-4">
                                 {service.tags.map((tag) => (
-                                    <span
+                                    <li
                                         key={tag}
-                                        className="bg-canvas-soft text-16 text-ink-light-muted px-2 py-0.5 font-semibold select-none"
+                                        className="text-body text-ink-muted flex w-fit items-center gap-x-2"
                                     >
+                                        <CircleCheck
+                                            size={18}
+                                            strokeWidth={1.5}
+                                        />{" "}
                                         {tag}
-                                    </span>
+                                    </li>
                                 ))}
-                            </div>
+                            </ul>
 
                             <Link
                                 href={service.href}
-                                className="text-16 mt-8 w-fit border px-4 py-2 font-medium underline-offset-4 hover:underline"
+                                className="button-secondary"
                             >
                                 {service.hreflabel}
                             </Link>

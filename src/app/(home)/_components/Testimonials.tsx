@@ -1,3 +1,5 @@
+import { SectionHeaderCentered } from "@/components/basic-ui/SectionHeaderType";
+
 const testimonials = [
     {
         name: "James Whitfield",
@@ -51,39 +53,35 @@ const testimonials = [
 
 export default function Testimonials() {
     return (
-        <section className="bg-canvas-white dark">
+        <section className="bg-canvas-white dark side-layout-spacing">
             <div className="bg-canvas mx-auto max-w-7xl">
-                <div className="text-ink-light-primary edge-dark side-breathing border-x py-12 md:py-18 lg:py-24">
-                    <div className="mx-auto max-w-4xl text-center">
-                        <h2 className="text-h2 text-ink-primary mb-8 font-serif">
-                            What Our Clients Say
-                        </h2>
-                        <p className="text-ink-secondary text-18 font-bold">
-                            Verified feedback from clients across industries —
-                            in their own words
-                        </p>
-                    </div>
+                <div className="edge-dark border-x">
+                    <SectionHeaderCentered
+                        eyebrow="What Our Clients Say"
+                        heading="Verified feedback from clients across industries —
+                            in their own words"
+                    />
                 </div>
 
                 <div className="edge-dark grid grid-cols-1 border-l md:grid-cols-2 xl:grid-cols-3">
                     {testimonials.map((review) => (
                         <div
                             key={review.name}
-                            className="edge-dark border-t border-r p-8"
+                            className="edge-dark side-breathing border-t border-r py-12"
                         >
-                            <div className="flex-vertical gap-4">
-                                <div className="flex-ic-jb text-ink-muted font-black">
+                            <div className="flex-vertical gap-6">
+                                <div className="flex-ic-jb text-ink-muted">
                                     <div className="text-16">
                                         <span className="text-malachite">
                                             {review.rating}
                                         </span>{" "}
                                         | {review.source}
                                     </div>
-                                    <span className="">
+                                    <span className="font-black">
                                         {review.companyName}
                                     </span>
                                 </div>
-                                <blockquote className="text-body text-ink-secondary leading-relaxed">
+                                <blockquote className="text-body text-ink-secondary line-clamp-4 leading-relaxed tracking-wide">
                                     {review.quote}
                                 </blockquote>
                             </div>

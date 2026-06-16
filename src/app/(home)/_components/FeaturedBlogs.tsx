@@ -2,6 +2,8 @@ import Link from "next/link";
 import { client } from "@/sanity/client";
 import { groq } from "next-sanity";
 import Image from "next/image";
+import { SectionHeaderLeftRight } from "@/components/basic-ui/SectionHeaderType";
+import DefProjectThumbnail from "@/assets/other/default-thumbnail.webp";
 
 // Type
 type BlogTeaserPost = {
@@ -37,68 +39,48 @@ export default async function FeaturedBlogs() {
     );
 
     return (
-        <section className="bg-canvas-white">
+        <section className="bg-canvas-white side-layout-spacing">
             <div className="mx-auto max-w-7xl">
-                <div className="text-ink-light-primary edge-light side-breathing grid grid-cols-1 gap-y-12 border-x py-12 md:py-18 lg:grid-cols-2 lg:py-24">
-                    <div className="">
-                        <span className="text-12 font-mono">Insights</span>
-                        <h2 className="text-h2 font-serif">From Our Experts</h2>
-                    </div>
-                    <div className="flex-vertical justify-end md:items-end">
-                        <Link
-                            href={"/case-studies"}
-                            className="text-16 border-hairdark hover:bg-canvas active:bg-canvas active:text-ink-dark-primary hover:text-ink-dark-primary smooth-transition w-fit border px-4 py-2 font-medium"
-                        >
-                            Read All Insights →
-                        </Link>
-                    </div>
+                <div className="edge-light border-x">
+                    <SectionHeaderLeftRight
+                        eyebrow="Insights"
+                        heading="From Our Experts"
+                        href="/blog"
+                        hreflabel="Read All Insights"
+                    />
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 edge-light border-l">
+                <div className="edge-light grid grid-cols-1 border-l lg:grid-cols-3">
                     {posts.map((post) => (
                         <div
                             key={post.slug}
-                            className="edge-light flex flex-col overflow-hidden border-t border-r"
+                            className="edge-light flex-vertical side-breathing gap-y-8 border-t border-r py-16"
                         >
                             {/* Thumbnail */}
-                            <div className="bg-deepspace relative h-44 overflow-hidden">
-                                {post.coverImage ? (
-                                    <Image
-                                        src={post.coverImage}
-                                        alt={post.title}
-                                        fill
-                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                        sizes="(max-width: 768px) 100vw, 33vw"
-                                    />
-                                ) : (
-                                    <div className="from-deepspace to-deepspace-soft absolute inset-0 bg-linear-to-br">
-                                        <div
-                                            className="absolute inset-0 opacity-10"
-                                            style={{
-                                                backgroundImage:
-                                                    "radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px)",
-                                                backgroundSize: "24px 24px",
-                                            }}
-                                        />
-                                    </div>
-                                )}
+                            <div className="edge-light relative aspect-4/2 border">
+                                <Image
+                                    src={post.coverImage || DefProjectThumbnail}
+                                    alt={post.title}
+                                    fill
+                                    loading="lazy"
+                                    className="h-full w-full object-cover"
+                                />
                             </div>
 
                             {/* Content */}
-                            <div className="flex-vertical p-6">
-                                <h3 className="text-h4 text-ink-light-primary line-clamp-3 h-30 font-medium tracking-tight">
+                            <div className="flex-vertical h-full justify-between gap-y-8">
+                                <h3 className="text-h4 text-ink-primary mb-6 line-clamp-3 font-medium tracking-tight">
                                     {post.title}
                                 </h3>
-
-                                <div className="mt-4 flex items-center justify-between">
+                                <div className="flex flex-wrap items-center justify-between gap-y-4">
                                     <Link
                                         href={`/blog/${post.slug}`}
-                                        className="border-hairdark text-ink-light-primary w-fit border px-4 py-2 underline-offset-4 hover:underline"
+                                        className="button-secondary"
                                     >
                                         Read Article
                                     </Link>
 
-                                    <p className="text-ink-light-muted">
+                                    <p className="text-ink-muted text-body">
                                         {formatDate(post.publishedAt)}
                                     </p>
                                 </div>

@@ -1,3 +1,4 @@
+import { SectionHeaderLeftRight } from "@/components/basic-ui/SectionHeaderType";
 import {
     Globe,
     AppWindow,
@@ -8,8 +9,6 @@ import {
     Users,
     GraduationCap,
 } from "lucide-react";
-
-import Link from "next/link";
 
 const solution = [
     {
@@ -64,45 +63,32 @@ const solution = [
 
 export default function Solutions() {
     return (
-        <section className="bg-canvas-white">
+        <section className="bg-canvas-white side-layout-spacing">
             <div className="mx-auto max-w-7xl">
-                <div className="text-ink-light-primary edge-light side-breathing grid grid-cols-1 gap-y-12 border-x py-12 md:py-18 lg:grid-cols-2 lg:py-24">
-                    <h2 className="text-h2 font-serif">
-                        Solutions for Every Stage of Growth
-                    </h2>
-
-                    <div className="flex-vertical justify-end md:items-end">
-                        <Link
-                            href={"/solutions"}
-                            className="text-16 border-hairdark hover:bg-canvas active:bg-canvas active:text-ink-dark-primary hover:text-ink-dark-primary smooth-transition w-fit border px-4 py-2 font-medium"
-                        >
-                            Explore All Solutions →
-                        </Link>
-                        <Link
-                            href={"/contact"}
-                            className="text-16 border-hairdark hover:bg-canvas active:bg-canvas active:text-ink-dark-primary hover:text-ink-dark-primary smooth-transition w-fit border px-4 py-2 font-medium"
-                        >
-                            Build Your Own →
-                        </Link>
-                    </div>
+                <div className="edge-light border-x">
+                    <SectionHeaderLeftRight
+                        heading="Solutions for Every Stage of Growth"
+                        href={"/solutions"}
+                        hreflabel="Explore All Solutions"
+                    />
                 </div>
 
-                <div className="edge-light grid grid-cols-1 border-l sm:grid-cols-2 lg:grid-cols-4">
+                <div className="edge-light grid grid-cols-1 border-l sm:grid-cols-2 xl:grid-cols-4">
                     {solution.map(({ title, icon: Icon, description }) => (
                         <div
                             key={title}
-                            className="edge-light border-t border-r p-6"
+                            className="edge-light side-breathing border-t border-r py-12"
                         >
                             <Icon
-                                size={40}
-                                strokeWidth={1.2}
-                                className="text-ink-light-secondary"
+                                size={32}
+                                strokeWidth={1}
+                                className="text-ink-secondary"
                             />
 
-                            <h3 className="text-body text-ink-light-secondary my-4 font-bold">
+                            <h3 className="text-body text-ink-secondary my-4 font-medium">
                                 {title}
                             </h3>
-                            <p className="text-small text-ink-light-muted">
+                            <p className="text-body text-ink-muted">
                                 {description}
                             </p>
                         </div>
