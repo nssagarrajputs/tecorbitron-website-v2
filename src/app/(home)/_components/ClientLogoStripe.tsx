@@ -49,10 +49,10 @@ const logosRow2 = [
 
 export default function ClientLogoStripe() {
     return (
-        <section className="bg-canvas-white overflow-hidden py-14 md:py-20">
+        <section className="bg-canvas-white overflow-hidden py-24">
             {/* ── ROW 1 — scroll left ── */}
             <div
-                className="flex w-max gap-8 md:gap-16 lg:gap-24"
+                className="flex w-max gap-12 md:gap-16 lg:gap-24"
                 style={{ animation: "marquee-left 70s linear infinite" }}
             >
                 {[...logosRow1, ...logosRow1, ...logosRow1].map((logo, i) => (
@@ -67,13 +67,13 @@ export default function ClientLogoStripe() {
             </div>
 
             {/* ── ROW 2 — Quote ── */}
-            <p className="text-body text-ink-light-primary my-12 px-4 text-center md:my-14">
+            <p className="text-body text-ink-primary side-breathing my-16 text-center">
                 Loved by 100+ brands around the world
             </p>
 
             {/* ── ROW 3 — scroll right ── */}
             <div
-                className="flex w-max gap-8 md:gap-16 lg:gap-24"
+                className="flex w-max gap-12 md:gap-16 lg:gap-24"
                 style={{ animation: "marquee-right 80s linear infinite" }}
             >
                 {[...logosRow2, ...logosRow2, ...logosRow2].map((logo, i) => (

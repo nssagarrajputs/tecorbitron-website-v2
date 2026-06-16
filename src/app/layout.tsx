@@ -137,7 +137,7 @@ export default function RootLayout({
                 <StructuredData data={globalSchema()} />
                 <SpeedInsights />
                 <Analytics />
-                <Header />
+                {/* <Header /> */}
                 {children}
                 {/* <Footer /> */}
             </body>

@@ -4,12 +4,12 @@ import Link from "next/link";
 const trustBadges = [
     {
         icon: Users,
-        text: "120+ Jobs done",
+        text: "120+ Jobs Done",
         iconClass: "text-malachite",
     },
     {
         icon: Star,
-        text: "Trusted by 100+ clients",
+        text: "Trusted by 100+ Clients",
         iconClass: "text-warning",
     },
     {
@@ -32,14 +32,14 @@ export default function Hero() {
             />
 
             <div className="relative z-10 mx-auto max-w-7xl">
-                <div className="edge-dark flex-center side-breathing w-full border-x border-b pt-24 pb-8">
-                    <span className="header-disclaimer">
+                <div className="edge-dark flex-center side-breathing w-full border-x border-b py-12">
+                    <span className="text-body text-ink-secondary font-mono tracking-wider uppercase">
                         FOR STARTUPS AND BUSINESS
                     </span>
                 </div>
 
-                <div className="flex-vertical edge-dark side-breathing w-full items-center gap-12 border-x py-16">
-                    <h1 className="text-d1 text-ink-primary text-center leading-tight font-light tracking-tight">
+                <div className="flex-vertical edge-dark side-breathing border-x py-16">
+                    <h1 className="text-d1 text-ink-primary mb-8 text-center leading-tight font-light tracking-tight">
                         Build your Web & App <br />{" "}
                         <span className="text-gradient font-bold">
                             Superfast
@@ -54,7 +54,7 @@ export default function Hero() {
 
                     <Link
                         href={"/contact"}
-                        className="brand-btn-primary mx-auto"
+                        className="brand-btn-primary mx-auto mt-16 mb-4"
                     >
                         Start Your Project
                     </Link>
@@ -66,8 +66,8 @@ export default function Hero() {
                             key={text}
                             className="flex-center edge-dark gap-2 border-t border-r py-8"
                         >
-                            <Icon size={15} className={iconClass} />
-                            <span className="text-16 text-ink-primary font-mono">
+                            <Icon size={20} className={iconClass} />
+                            <span className="text-body text-ink-primary font-mono tracking-tighter">
                                 {text}
                             </span>
                         </div>

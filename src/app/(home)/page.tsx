@@ -31,10 +31,14 @@ export default function Home() {
         <main>
             <StructuredData data={homePageSchema()} />
 
-            {/* <Hero />
+            {/*             
+            <Hero /> 
             <ClientLogoStripe />
+            */}
+
             <div className="section-edge-light"></div>
             <CoreServices />
+            {/* 
             <div className="section-edge-light"></div>
             <Solutions />
             <div className="section-edge-light"></div>
@@ -64,7 +68,8 @@ export default function Home() {
                     text: "Explore Services",
                     href: "/services",
                 }}
-            /> */}
+            /> 
+            */}
         </main>
     );
 }

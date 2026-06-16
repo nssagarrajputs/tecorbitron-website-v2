@@ -77,9 +77,9 @@ export default function Header() {
         href === "/" ? pathname === "/" : pathname.startsWith(href);
 
     return (
-        <header>
+        <header className="edge-dark min-h-16 border-b select-none">
             {/* ── NAVBAR ── */}
-            <motion.nav className="fixed z-50 min-h-20 w-full" initial={false}>
+            <motion.nav className="fixed z-50 w-full" initial={false}>
                 <motion.div
                     className="bg-canvas-white flex-ic-jb mx-auto h-16 max-w-7xl px-8"
                     animate={{

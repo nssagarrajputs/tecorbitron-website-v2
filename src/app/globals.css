@@ -169,10 +169,6 @@
     background-clip: text;
 }
 
-@utility header-disclaimer {
-    @apply text-18 text-ink-secondary font-mono;
-}
-
 @utility eyebrow {
     @apply text-14 text-ink-primary font-mono;
 }
