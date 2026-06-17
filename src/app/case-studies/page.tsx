@@ -50,83 +50,61 @@ export default async function PortfolioPage() {
 
     return (
         <main>
-            {/* <PageHero
+            <PageHero
                 eyebrow="Case Studies"
                 title="Projects That Matter"
                 description="A curated selection of our work across web, mobile, software, and AI — each project measured by real business outcomes."
-            /> */}
+            />
 
-            <section className="bg-canvas-white side-breathing py-24">
-                <div className="mx-auto max-w-7xl">
+            <section className="side-layout-spacing dark py-24">
+                <div className="side-breathing mx-auto max-w-7xl">
                     {projects.length === 0 ? (
-                        /* ── Empty state ── */
-                        <div className="flex flex-col items-center gap-4 py-16 text-center">
-                            <span className="text-5xl">🚧</span>
-                            <h3 className="text-typocolor-primary text-h4 font-bold">
+                        <div className="flex-vertical items-center gap-4 text-center">
+                            <span className="text-d1">🚧</span>
+                            <h2 className="text-ink-primary text-h2 font-medium">
                                 Projects Coming Soon
-                            </h3>
-                            <p className="text-typocolor-muted text-small max-w-sm font-light">
+                            </h2>
+                            <p className="text-ink-muted text-body max-w-sm">
                                 We&apos;re currently updating our portfolio.
                                 Check back soon or{" "}
-                                <Link
-                                    href="/contact"
-                                    className="text-malachite-rich font-semibold hover:underline"
-                                >
+                                <Link href="/contact" className="button-text">
                                     contact us
                                 </Link>{" "}
                                 to see our work directly.
                             </p>
                         </div>
                     ) : (
-                        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12">
+                        <div className="grid grid-cols-1 gap-x-16 gap-y-24 lg:grid-cols-2">
                             {projects.map((proj) => (
                                 <div
                                     key={proj.slug}
-                                    className="group flex flex-col overflow-hidden"
+                                    className="group flex-vertical justify-between cursor-pointer"
                                 >
-                                    {/* Thumbnail */}
-                                    <div className="rounded-2 border-hairlight relative h-48 overflow-hidden border sm:h-56 md:h-64 lg:h-72">
-                                        <Image
-                                            src={
-                                                proj.thumbnail ||
-                                                DefProjectThumbnail
-                                            }
-                                            alt={proj.title}
-                                            fill
-                                            className="smooth-transition h-full w-full scale-105 object-cover group-hover:scale-102"
-                                        />
-                                    </div>
-
-                                    {/* Content */}
-                                    <div className="flex flex-1 flex-col py-6">
-                                        <h3 className="text-ink-light-primary text-h4 line-clamp-2 leading-snug font-medium">
-                                            {proj.title}
-                                        </h3>
-
-                                        <div className="mt-auto flex flex-col gap-5 pt-6">
-                                            {proj.techStack?.length > 0 && (
-                                                <div className="border-base flex flex-wrap gap-2 border-t pt-5">
-                                                    {proj.techStack.map(
-                                                        (tech) => (
-                                                            <span
-                                                                key={tech}
-                                                                className="bg-canvas-soft text-16 text-ink-light-muted px-2 py-0.5 font-semibold select-none"
-                                                            >
-                                                                {tech}
-                                                            </span>
-                                                        ),
-                                                    )}
-                                                </div>
-                                            )}
-
-                                            <Link
-                                                href={`/case-studies/${proj.slug}`}
-                                                className="border-hairdark text-ink-light-primary mt-6 w-fit border px-4 py-2 underline-offset-4 group-hover:underline"
-                                            >
-                                                View Case Study
-                                            </Link>
+                                    <div>
+                                        <div className="edge-dark aspect-6/3 w-full overflow-hidden border">
+                                            <Image
+                                                src={
+                                                    proj.thumbnail ||
+                                                    DefProjectThumbnail
+                                                }
+                                                alt={proj.title}
+                                                width={500}
+                                                height={500}
+                                                loading="lazy"
+                                                className="smooth-transition h-full w-full object-cover group-hover:scale-102"
+                                            />
                                         </div>
+
+                                        <h2 className="text-h4 text-ink-primary my-8 line-clamp-3 leading-snug font-medium">
+                                            {proj.title}
+                                        </h2>
                                     </div>
+                                    <Link
+                                        href={`/case-studies/${proj.slug}`}
+                                        className="button-secondary uppercase"
+                                    >
+                                        View Case Study
+                                    </Link>
                                 </div>
                             ))}
                         </div>

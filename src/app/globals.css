@@ -217,7 +217,7 @@
     @apply underline-offset-4 active:underline;
     @apply text-16 text-ink-primary font-medium select-none;
     @apply border-hairdark border;
-    @apply smooth-transition w-fit px-8 py-4;
+    @apply smooth-transition block w-fit px-8 py-4;
 
     @variant dark {
         @apply border-hairlight;

@@ -70,16 +70,16 @@ export default async function LegalPage(props: {
 
     return (
         <main>
-            {/* <PageHero
+            <PageHero
                 eyebrow={doc.hero.eyebrow}
                 title={doc.hero.title}
                 description={doc.hero.description}
-            /> */}
+            />
 
-            <section className="edge-light bg-canvas-white side-breathing mx-auto max-w-7xl border-x py-24">
-                <div className="mx-auto max-w-6xl">
+            <section className="side-layout-spacing">
+                <div className="edge-light bg-canvas-white side-breathing mx-auto max-w-7xl border-x py-24">
                     {/* Intro note */}
-                    <p className="text-body text-ink-light-primary mb-16 leading-relaxed italic">
+                    <p className="text-18 text-ink-primary mb-16 leading-relaxed italic">
                         {doc.intro}
                     </p>
 
@@ -91,11 +91,11 @@ export default async function LegalPage(props: {
                                 id={section.id}
                                 className="flex-vertical gap-8"
                             >
-                                <h2 className="text-ink-light-primary text-h4 edge-dark border-b pb-4 font-medium">
+                                <h2 className="text-ink-primary text-h4 edge-dark border-b pb-4 font-medium">
                                     {section.title}
                                 </h2>
 
-                                <p className="text-ink-light-secondary text-16 font-mono leading-relaxed whitespace-pre-line">
+                                <p className="text-ink-secondary text-16 font-mono leading-relaxed whitespace-pre-line">
                                     {section.content}
                                 </p>
                             </div>
@@ -103,14 +103,14 @@ export default async function LegalPage(props: {
                     </article>
 
                     {/* Bottom nav */}
-                    <div className="edge-dark flex-center mt-16 flex-wrap gap-8 border-t pt-16 md:justify-between">
-                        <p className="text-ink-light-muted text-16 font-mono">
+                    <div className="edge-light flex-center mt-16 flex-wrap gap-8 border-t pt-16 md:justify-between">
+                        <p className="text-ink-muted text-16 font-mono">
                             Last Updated: {doc.meta.lastUpdated}
                         </p>
 
                         <Link
                             href={doc.crossLink.href}
-                            className="edge-dark text-ink-light-primary text-16 hover:bg-canvas-black hover:text-ink-dark-primary smooth-transition active:bg-canvas-black active:text-ink-dark-primary border px-4 py-2 font-medium"
+                            className="button-primary"
                         >
                             {doc.crossLink.label}
                         </Link>
