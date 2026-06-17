@@ -1,27 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
 import FounderImage from "@/assets/other/founder.png";
+import { SectionHeaderLeftHanded } from "@/components/basic-ui/SectionHeaderType";
 
 export default function Founder() {
     return (
-        <section className="bg-canvas-white">
+        <section className="bg-canvas-white side-layout-spacing">
             <div className="mx-auto max-w-7xl">
-                <div className="text-ink-light-primary edge-light side-breathing border-x py-12 md:py-18 lg:py-24">
-                    <div>
-                        <span className="text-12 font-mono">
-                            Meet the Founder
-                        </span>
-                        <h2 className="text-h2 mb-8 font-serif">
-                            Sagar Chauhan
-                        </h2>
-                        <span>
-                            Founder & CEO — Tecorbitron Solutions Pvt. Ltd.
-                        </span>
-                    </div>
+                <div className="edge-light border-x">
+                    <SectionHeaderLeftHanded
+                        eyebrow="Meet the Founder"
+                        heading="Sagar Chauhan"
+                        supportive="Founder & CEO — Tecorbitron Solutions Pvt. Ltd."
+                    />
                 </div>
 
-                <div className="edge-light border-t border-x grid grid-cols-1 lg:grid-cols-2">
-                    <div className="text-ink-light-secondary text-body flex flex-col gap-8 leading-relaxed side-breathing py-8">
+                <div className="edge-light grid grid-cols-1 border-x border-t lg:grid-cols-[3fr_2fr]">
+                    <div className="text-ink-secondary text-body side-breathing flex flex-col gap-8 py-8 leading-relaxed">
                         <p>
                             Sagar founded Tecorbitron with a clear vision — to
                             build a technology company that prioritises client
@@ -59,18 +54,18 @@ export default function Founder() {
                             href="https://www.linkedin.com/in/nssagarrajput"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-ink-light-primary hover:text-malachite smooth-transition w-fit font-bold"
+                            className="button-text text-ink-primary w-fit font-bold"
                         >
                             LinkedIn
                         </Link>
                     </div>
 
-                    <div className="mx-auto w-85 sm:w-100 lg:w-115 flex-vertical justify-end">
+                    <div className="flex-vertical mx-auto w-85 justify-end sm:w-100 lg:w-115">
                         <Image
                             src={FounderImage}
                             alt="Sagar Chauhan — Founder & CEO, Tecorbitron"
                             className="h-auto w-full object-contain object-center drop-shadow-2xl"
-                            priority
+                            loading="lazy"
                         />
                     </div>
                 </div>

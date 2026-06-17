@@ -1,3 +1,4 @@
+import { SectionHeaderCentered } from "@/components/basic-ui/SectionHeaderType";
 import { Tag, Timer, ListChecks, RefreshCw } from "lucide-react";
 
 const pricingModels = [
@@ -29,19 +30,14 @@ const pricingModels = [
 
 export default function PricingPolicy() {
     return (
-        <section className="bg-canvas-white">
+        <section className="bg-canvas-white side-layout-spacing">
             <div className="mx-auto max-w-7xl">
-                <div className="text-ink-light-primary edge-light side-breathing flex-vertical items-center gap-8 border-x py-12 md:py-18 lg:py-24">
-                    <div className="text-center">
-                        <span className="text-12 font-mono">How We Charge</span>
-
-                        <h2 className="text-h2 font-serif">
-                            No Surprises. <br />
-                            Just Clear Pricing.
-                        </h2>
-                    </div>
+                <div className="edge-light border-x">
+                    <SectionHeaderCentered
+                        eyebrow="How We Charge"
+                        heading="No Surprises, Just Clear Pricing."
+                    />
                 </div>
-
                 <div className="edge-light grid grid-cols-1 border-l md:grid-cols-2">
                     {pricingModels.map((model) => {
                         const Icon = model.icon;
@@ -49,7 +45,7 @@ export default function PricingPolicy() {
                         return (
                             <div
                                 key={model.name}
-                                className="edge-light flex h-full flex-col border-t border-r p-8 md:p-16"
+                                className="edge-light side-breathing flex h-full flex-col border-t border-r py-16"
                             >
                                 <div className="bg-malachite/10 mb-6 flex h-12 w-12 items-center justify-center rounded-full">
                                     <Icon
@@ -58,11 +54,11 @@ export default function PricingPolicy() {
                                     />
                                 </div>
 
-                                <h3 className="text-h4 text-ink-light-primary min-h-14 font-medium uppercase">
+                                <h3 className="text-h4 text-ink-primary font-medium uppercase md:min-h-14">
                                     {model.name}
                                 </h3>
 
-                                <p className="text-body text-ink-light-secondary mt-3 leading-relaxed">
+                                <p className="text-body text-ink-secondary mt-6 max-w-md leading-relaxed">
                                     {model.description}
                                 </p>
                             </div>
@@ -71,7 +67,7 @@ export default function PricingPolicy() {
                 </div>
 
                 <div className="edge-light flex-center border-x border-t py-8">
-                    <span className="text-ink-light-muted text-center font-mono">
+                    <span className="section-endline text-center">
                         Fixed Pricing • Flexible Engagements • No Hidden Costs
                     </span>
                 </div>
