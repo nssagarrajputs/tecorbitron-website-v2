@@ -222,6 +222,26 @@ export default function ProjectInquiry() {
                     </div>
                 </div>
             </div>
+
+            {/* ── Trust Signals ── */}
+            <div className="edge-light mx-auto grid max-w-7xl grid-cols-1 border-l lg:grid-cols-3">
+                {trustSignals.map(({ icon: Icon, title, desc }) => (
+                    <div
+                        key={title}
+                        className="flex-vertical edge-light side-breathing gap-4 border-t border-r py-16"
+                    >
+                        <div className="flex items-center gap-2">
+                            <Icon size={20} className="text-malachite" />
+                            <h3 className="text-body text-ink-primary font-medium">
+                                {title}
+                            </h3>
+                        </div>
+                        <p className="text-body text-ink-secondary leading-relaxed">
+                            {desc}
+                        </p>
+                    </div>
+                ))}
+            </div>
         </section>
     );
 }

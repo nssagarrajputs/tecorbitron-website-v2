@@ -40,8 +40,8 @@ export default function WaysToConnect() {
     return (
         <section className="bg-canvas-white dark side-layout-spacing">
             <div className="bg-canvas mx-auto max-w-7xl">
-                <div className="side-breathing edge-dark border-x py-12">
-                    <h2 className="text-ink-primary text-body text-center font-mono">
+                <div className="side-breathing edge-dark border-x py-16">
+                    <h2 className="text-ink-primary text-18 text-center font-mono">
                         {"We're"} easy to reach — choose the channel that works
                         best for you.
                     </h2>
@@ -58,16 +58,16 @@ export default function WaysToConnect() {
                         }) => (
                             <div
                                 key={title}
-                                className="edge-dark flex-vertical items-center gap-6 border-t border-r p-6 py-16 text-center"
+                                className="edge-dark flex-vertical items-center gap-6 border-t border-r px-2 py-16 text-center"
                             >
                                 <Icon size={30} className="text-malachite" />
 
                                 {/* Text */}
-                                <div className="flex flex-col gap-1">
-                                    <h3 className="text-ink-primary text-body font-bold">
+                                <div className="">
+                                    <h3 className="text-ink-primary text-body mb-2 font-bold">
                                         {title}
                                     </h3>
-                                    <p className="text-ink-secondary text-small font-medium">
+                                    <p className="text-ink-muted text-body font-medium tracking-wide">
                                         {subtitle}
                                     </p>
                                 </div>
