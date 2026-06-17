@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Zap, UserCheck, HandHeart } from "lucide-react";
+import { Zap, UserCheck, HandHeart, CircleCheckBig } from "lucide-react";
+import Link from "next/link";
 
 type FormData = {
     name: string;
@@ -82,42 +83,48 @@ export default function ProjectInquiry() {
     return (
         <section className="bg-canvas-white side-layout-spacing">
             <div className="edge-light mx-auto max-w-7xl border-x">
-                <div className="grid grid-cols-1 gap-y-18 py-12 md:py-18 lg:py-24 xl:grid-cols-[1fr_2fr]">
-                    <div className="text-ink-light-primary side-breathing">
-                        <h2 className="text-h2 mb-8 font-serif">
+                <div className="section-header-spacing grid grid-cols-1 gap-y-24 xl:grid-cols-[1fr_2fr]">
+                    <div className="side-breathing">
+                        <h2 className="text-h2 text-ink-primary mb-8 font-serif">
                             Discuss Your Project
                         </h2>
-                        <p className="text-body text-ink-light-secondary mt-2 max-w-3xl leading-relaxed">
+                        <p className="text-18 text-ink-secondary max-w-xl leading-relaxed">
                             Have a project in mind, a question for our team, or
                             just want to know more about what we do? Fill in the
                             form below and {"we'll"} get back to you shortly.
                         </p>
                     </div>
 
-                    <div className="side-breathing flex flex-col gap-8">
+                    <div className="side-breathing">
                         {status === "success" ? (
-                            <div className="flex-center flex-1 flex-col gap-4 py-12 text-center">
-                                <div className="bg-malachite-dim flex-center h-16 w-16 rounded-full">
-                                    <span className="text-malachite text-h3 font-bold">
-                                        ✓
-                                    </span>
+                            <div className="flex-center h-full w-full">
+                                <div className="flex-vertical items-center text-center">
+                                    <div className="bg-malachite/10 flex-center mb-6 h-24 w-24 rounded-full">
+                                        <span>
+                                            <CircleCheckBig
+                                                size={48}
+                                                className="text-malachite"
+                                            />
+                                        </span>
+                                    </div>
+                                    <h3 className="text-h4 text-ink-primary mb-4 font-medium tracking-tight">
+                                        Inquiry Received
+                                    </h3>
+                                    <p className="text-body text-ink-secondary mb-8 max-w-sm leading-relaxed">
+                                        Thank you! Our team will review your
+                                        submission and reach out within 24
+                                        hours.
+                                    </p>
+                                    <p className="text-body text-ink-muted font-mono">
+                                        This message will close automatically…
+                                    </p>
                                 </div>
-                                <h3 className="text-h4 text-typocolor-primary font-black tracking-tight">
-                                    Inquiry Received
-                                </h3>
-                                <p className="text-small text-typocolor-secondary max-w-sm leading-relaxed">
-                                    Thank you! Our team will review your
-                                    submission and reach out within 24 hours.
-                                </p>
-                                <p className="text-xmall text-typocolor-muted">
-                                    This message will close automatically…
-                                </p>
                             </div>
                         ) : (
-                            <>
+                            <div className="h-full w-full select-none">
                                 <form
                                     onSubmit={handleSubmit}
-                                    className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2"
+                                    className="grid grid-cols-1 gap-x-6 gap-y-8 md:grid-cols-2"
                                 >
                                     <input
                                         name="name"
@@ -145,7 +152,7 @@ export default function ProjectInquiry() {
                                         value={form.email}
                                         onChange={handleChange}
                                         placeholder="Work Email"
-                                        className="form-field"
+                                        className="form-field w-full"
                                         required
                                     />
                                     <input
@@ -155,7 +162,7 @@ export default function ProjectInquiry() {
                                         value={form.phone}
                                         onChange={handleChange}
                                         placeholder="Phone Number"
-                                        className="form-field"
+                                        className="form-field w-full"
                                         required
                                     />
                                     <textarea
@@ -164,10 +171,10 @@ export default function ProjectInquiry() {
                                         value={form.description}
                                         onChange={handleChange}
                                         placeholder="How Can We Help You?"
-                                        className="form-field w-full resize-none sm:col-span-2"
+                                        className="form-field w-full resize-none md:col-span-2"
                                         required
                                     />
-                                    <div className="flex-vertical w-full gap-6 sm:col-span-2">
+                                    <div className="flex-vertical w-full gap-6 md:col-span-2">
                                         <button
                                             type="submit"
                                             disabled={status === "sending"}
@@ -178,10 +185,22 @@ export default function ProjectInquiry() {
                                                 : "Send Request"}
                                         </button>
 
-                                        <span className="text-xmall text-ink-light-muted text-center">
+                                        <span className="text-small text-ink-muted text-center">
                                             By submitting this form you are
-                                            agree to our privacy policy and
-                                            terms.
+                                            agree to our{" "}
+                                            <Link
+                                                href={"/legal/privacy-policy"}
+                                                className="button-text"
+                                            >
+                                                privacy policy
+                                            </Link>{" "}
+                                            and{" "}
+                                            <Link
+                                                href={"/legal/terms"}
+                                                className="button-text"
+                                            >
+                                                terms
+                                            </Link>
                                         </span>
 
                                         {status === "error" && (
@@ -189,39 +208,19 @@ export default function ProjectInquiry() {
                                                 Something went wrong. Email us
                                                 at{" "}
                                                 <a
-                                                    href="mailto:info@tecorbitron.com"
+                                                    href="mailto:conact@tecorbitron.com"
                                                     className="underline underline-offset-4"
                                                 >
-                                                    info@tecorbitron.com
+                                                    contact@tecorbitron.com
                                                 </a>
                                             </p>
                                         )}
                                     </div>
                                 </form>
-                            </>
+                            </div>
                         )}
                     </div>
                 </div>
-            </div>
-
-            {/* ── Trust Signals ── */}
-            <div className="edge-light mx-auto grid max-w-7xl grid-cols-1 border-l lg:grid-cols-3">
-                {trustSignals.map(({ icon: Icon, title, desc }) => (
-                    <div
-                        key={title}
-                        className="flex-vertical edge-light gap-4 border-t border-r px-8 py-20"
-                    >
-                        <div className="flex items-center gap-2">
-                            <Icon size={20} className="text-malachite" />
-                            <h3 className="text-body text-ink-light-primary font-medium">
-                                {title}
-                            </h3>
-                        </div>
-                        <p className="text-body text-ink-light-secondary leading-relaxed">
-                            {desc}
-                        </p>
-                    </div>
-                ))}
             </div>
         </section>
     );

@@ -40,15 +40,15 @@ export default function BlogListing({ posts, categories }: Props) {
         active === "All" ? posts : posts.filter((p) => p.category === active);
 
     return (
-        <section className="py-24">
-            <div className="flex-vertical side-breathing mx-auto max-w-7xl gap-24">
-                <div className="mx-auto flex max-w-5xl flex-wrap justify-center gap-2 gap-y-4">
+        <section className="dark py-24">
+            <div className="side-breathing mx-auto max-w-7xl">
+                <div className="mx-auto mb-24 flex flex-wrap gap-4 select-none">
                     <button
                         onClick={() => setActive("All")}
-                        className={`text-14 smooth-transition cursor-pointer rounded-full px-6 py-2 font-mono ${
+                        className={`text-14 smooth-transition text-ink-primary border-secondary-active cursor-pointer border px-4 py-2 font-mono ${
                             active === "All"
-                                ? "bg-primary border-primary text-ink-dark-primary border text-white"
-                                : "hover:border-primary border-secondary-active text-ink-dark-secondary border bg-white"
+                                ? "bg-primary border-primary"
+                                : "hover:border-primary active:border-primary"
                         }`}
                     >
                         All
@@ -57,10 +57,10 @@ export default function BlogListing({ posts, categories }: Props) {
                         <button
                             key={cat.slug}
                             onClick={() => setActive(cat.name)}
-                            className={`text-14 smooth-transition cursor-pointer rounded-full px-6 py-2 font-mono ${
+                            className={`text-14 smooth-transition text-ink-primary border-secondary-active cursor-pointer border px-4 py-2 font-mono ${
                                 active === cat.name
-                                    ? "bg-primary border-primary text-ink-dark-primary border text-white"
-                                    : "hover:border-primary border-secondary-active text-ink-dark-secondary border bg-white"
+                                    ? "bg-primary border-primary"
+                                    : "hover:border-primary active:border-primary"
                             }`}
                         >
                             {cat.name}
@@ -69,40 +69,35 @@ export default function BlogListing({ posts, categories }: Props) {
                 </div>
 
                 {filtered.length > 0 ? (
-                    <div className="grid grid-cols-1 gap-12 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
+                    <div className="grid grid-cols-1 gap-12 gap-y-24 md:grid-cols-2 lg:grid-cols-3">
                         {filtered.map((post) => (
                             <Link href={`/blog/${post.slug}`} key={post.slug}>
                                 <div className="group flex-vertical overflow-hidden">
                                     {/* Thumbnail */}
-                                    <div className="bg-deepspace rounded-2 relative h-44 overflow-hidden">
-                                        {post.coverImage ? (
-                                            <Image
-                                                src={post.coverImage}
-                                                alt={post.title}
-                                                fill
-                                                className="object-cover grayscale-75 transition-transform duration-500 group-hover:scale-103 group-hover:grayscale-0"
-                                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                            />
-                                        ) : (
-                                            <Image
-                                                src={DefBlogThumbnail}
-                                                alt={post.title}
-                                                fill
-                                                className="object-cover"
-                                            />
-                                        )}
+                                    <div className="edge-dark relative aspect-4/2 border">
+                                        <Image
+                                            src={
+                                                post.coverImage ||
+                                                DefBlogThumbnail
+                                            }
+                                            alt={post.title}
+                                            fill
+                                            loading="lazy"
+                                            className="object-cover grayscale-50 transition-transform duration-500 group-hover:scale-103 group-hover:grayscale-0 group-active:scale-103 group-active:grayscale-0"
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                        />
                                     </div>
 
                                     {/* Content */}
-                                    <div className="flex flex-col-reverse gap-4 py-4">
-                                        <h3 className="text-ink-dark-primary text-body leading-snug font-medium">
+                                    <div className="flex flex-col-reverse gap-6 py-4">
+                                        <h3 className="text-ink-primary text-16 leading-snug font-medium">
                                             {post.title}
                                         </h3>
                                         <div className="text-14 mt-auto flex items-center gap-4 pt-3">
-                                            <span className="text-primary smooth-transition group-hover:text-malachite font-mono underline-offset-4 group-hover:underline">
+                                            <span className="text-primary smooth-transition group-hover:text-malachite group-active:text-malachite font-mono underline-offset-4 group-hover:underline group-active:underline">
                                                 Read Article
                                             </span>
-                                            <span className="text-ink-dark-muted font-mono">
+                                            <span className="text-ink-muted font-mono">
                                                 {formatDate(post.publishedAt)}
                                             </span>
                                         </div>
@@ -112,8 +107,8 @@ export default function BlogListing({ posts, categories }: Props) {
                         ))}
                     </div>
                 ) : (
-                    <div className="flex flex-col gap-3 py-32 text-center">
-                        <p className="text-ink-dark-muted text-h4 font-medium">
+                    <div className="flex-center py-32 text-center">
+                        <p className="text-ink-muted text-h4 font-medium">
                             No articles found in the category
                         </p>
                     </div>

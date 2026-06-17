@@ -225,7 +225,7 @@
 }
 
 @utility button-text {
-    @apply text-ink-primary text-16 w-fit py-2 select-none;
+    @apply text-primary select-none;
     @apply underline-offset-4 hover:underline active:underline;
     @apply smooth-transition;
 }

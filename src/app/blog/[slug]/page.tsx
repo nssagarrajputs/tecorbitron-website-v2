@@ -7,8 +7,7 @@ import type { PortableTextBlock } from "@portabletext/react";
 import { ArrowLeft } from "lucide-react";
 import { client } from "@/sanity/client";
 import StructuredData, { blogPostSchema } from "@/components/StructuredData";
-import SectionContainer from "@/components/basic-ui/SectionContainer";
-import SectionHeader from "@/components/basic-ui/SectionHeader";
+
 import PageHero from "@/components/basic-ui/PageHero";
 import DefBlogThumbnail from "@/assets/other/default-thumbnail.webp";
 import { ptComponents } from "@/components/PortableTextFormat";
