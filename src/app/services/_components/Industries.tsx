@@ -1,3 +1,4 @@
+import { SectionHeaderCentered } from "@/components/basic-ui/SectionHeaderType";
 import {
     Wheat,
     Car,
@@ -42,37 +43,33 @@ const industries = [
 
 function Industries() {
     return (
-        <section className="bg-canvas-white">
+        <section className="bg-canvas-white side-layout-spacing">
             <div className="mx-auto max-w-7xl">
-                <div className="text-ink-light-primary edge-light side-breathing border-x py-12 md:py-18 lg:py-24">
-                    <div className="mx-auto max-w-4xl text-center">
-                        <span className="text-12 font-mono">Industries</span>
-                        <h2 className="text-h2 mb-8 font-serif">
-                            Wide Expertise Across Sectors
-                        </h2>
-                        <p>
-                            {"We've"} built for clients across very different
+                <div className="edge-light border-x">
+                    <SectionHeaderCentered
+                        eyebrow="Industries"
+                        heading="Wide Expertise Across Sectors"
+                        supportive="We've built for clients across very different
                             sectors — from early-stage startups to established
                             enterprises. No matter your industry, we know what
-                            it takes to deliver.
-                        </p>
-                    </div>
+                            it takes to deliver."
+                    />
                 </div>
 
-                <div className="grid edge-light border-l grid-cols-2 lg:grid-cols-6">
+                <div className="edge-light grid grid-cols-2 border-l md:grid-cols-3 lg:grid-cols-6">
                     {industries.map(({ icon: Icon, name }) => (
                         <div
                             key={name}
-                            className="edge-light group flex flex-col items-center gap-3 border-t border-r p-4 py-8"
+                            className="edge-light flex-vertical items-center gap-3 border-t border-r p-2 py-12"
                         >
                             <Icon
                                 size={35}
-                                strokeWidth={1.2}
-                                className="text-ink-light-muted select-none"
+                                strokeWidth={1.5}
+                                className="text-malachite select-none"
                             />
-                            <p className="text-small text-ink-light-muted text-center">
+                            <span className="text-14 text-ink-muted leading-snug font-medium">
                                 {name}
-                            </p>
+                            </span>
                         </div>
                     ))}
                 </div>

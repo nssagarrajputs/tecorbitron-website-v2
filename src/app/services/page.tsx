@@ -103,13 +103,16 @@ export default function Services() {
     return (
         <main>
             <StructuredData data={servicesSchema()} />
-            {/* <PageHero
+
+            <PageHero
                 eyebrow="What We OFFER"
                 title="Explore Our Services"
                 description="Technical services scoped to your business — not cookie-cutter packages. Work within your timeline and budget."
             />
+
             <MainServices />
             <div className="section-edge-light"></div>
+
             <Industries />
             <div className="section-edge-light"></div>
 
@@ -118,18 +121,19 @@ export default function Services() {
                 heading="Frequently Asked Questions"
                 items={faqdata}
             />
+
             <CTAFormat
                 eyebrow="NOT SURE WHERE TO BEGIN?"
-                heading="Tell us about your project and we'll help you figure out the best approach."
+                heading="We'll help you figure out the best approach."
                 primaryAction={{
-                    text: "Start Your Project →",
+                    text: "Start Your Project",
                     href: "/contact",
                 }}
                 secondaryAction={{
-                    text: "Explore Our Work →",
-                    href: "/portfolio",
+                    text: "Explore Our Work",
+                    href: "/case-studies",
                 }}
-            /> */}
+            />
         </main>
     );
 }
