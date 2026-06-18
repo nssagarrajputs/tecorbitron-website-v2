@@ -4,10 +4,11 @@ import { byServices } from "@/content/solutions-item-data";
 
 import type { SolutionItem } from "@/content/solutions-item-data";
 import Link from "next/link";
+import { SectionHeaderCentered } from "@/components/basic-ui/SectionHeaderType";
 
 // ─── Icon renderer ────────────────────────────────────────────────────────────
 
-function SolutionIcon({
+export function SolutionIcon({
     icon,
     name,
 }: {
@@ -16,7 +17,7 @@ function SolutionIcon({
 }) {
     if (icon.type === "lucide") {
         const Icon = icon.icon;
-        return <Icon size={35} strokeWidth={1.5} className="text-malachite" />;
+        return <Icon size={40} strokeWidth={1.5} className="text-malachite" />;
     }
     return (
         <Image
@@ -29,48 +30,48 @@ function SolutionIcon({
     );
 }
 
-function ByServices() {
+export default function ByServices() {
     return (
-        <section className="bg-canvas-white">
+        <section className="bg-canvas-white side-layout-spacing">
             <div className="mx-auto max-w-7xl">
-                <div className="text-ink-light-primary edge-light side-breathing border-x py-12 md:py-18 lg:py-24">
-                    <div className="mx-auto max-w-4xl text-center">
-                        <span className="text-12 font-mono">By Services</span>
-                        <h2 className="text-h2 mb-8 font-serif">
-                            Browse Solutions by Development
-                        </h2>
-                        <p>
-                            Explore tailored solutions across our four core
+                <div className="edge-light border-x">
+                    <SectionHeaderCentered
+                        eyebrow="By Services"
+                        heading="Browse Solutions by Development"
+                        supportive="Explore tailored solutions across our four core
                             disciplines — Web Development, Mobile Apps,
-                            E-Commerce, and SEO & Digital Growth.
-                        </p>
-                    </div>
+                            E-Commerce, and SEO & Digital Growth."
+                    />
                 </div>
 
                 <div className="edge-light border-x">
                     {byServices.map((group) => (
                         <div key={group.heading} className="">
                             {/* Group heading + optional button */}
-                            <div className="edge-light side-breathing flex items-center justify-between gap-8 border-y py-12 max-sm:flex-col">
-                                <h3 className="text-h3 text-ink-light-primary">
-                                    {group.heading}
-                                </h3>
+                            <div className="edge-light side-breathing grid grid-cols-1 gap-y-8 border-t py-16 lg:grid-cols-2">
+                                <div>
+                                    <h3 className="text-h3 text-ink-primary">
+                                        {group.heading}
+                                    </h3>
+                                </div>
                                 {group.href && (
-                                    <Link
-                                        href={group.href}
-                                        className="border-hairdark text-ink-light-primary text-16 border px-4 py-2 font-bold"
-                                    >
-                                        Explore {group.hreftext} Service
-                                    </Link>
+                                    <div className="flex-vertical justify-center lg:items-end">
+                                        <Link
+                                            href={group.href}
+                                            className="button-primary"
+                                        >
+                                            Explore {group.hreftext} Service
+                                        </Link>
+                                    </div>
                                 )}
                             </div>
 
                             {/* Cards grid */}
-                            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+                            <div className="grid grid-cols-2 gap-4 px-4 pb-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
                                 {group.items.map((item) => (
                                     <div
                                         key={item.name}
-                                        className="flex-vertical items-center gap-3 px-4 py-6 text-center"
+                                        className="flex-vertical bg-canvas-surface/30 items-center gap-3 px-2 py-8 text-center"
                                     >
                                         <div className="flex-center h-15 w-15">
                                             <SolutionIcon
@@ -78,7 +79,7 @@ function ByServices() {
                                                 name={item.name}
                                             />
                                         </div>
-                                        <span className="text-small text-ink-light-muted font-mono">
+                                        <span className="text-14 text-ink-muted leading-snug font-medium">
                                             {item.name}
                                         </span>
                                     </div>
@@ -91,5 +92,3 @@ function ByServices() {
         </section>
     );
 }
-
-export default ByServices;

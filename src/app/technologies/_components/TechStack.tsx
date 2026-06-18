@@ -13,16 +13,16 @@ export default function TechStack({ groups }: Props) {
                     key={group.heading}
                     className="bg-canvas-white side-layout-spacing"
                 >
-                    <div className="flex-vertical edge-light mx-auto max-w-7xl gap-12 border-x border-b pt-24 pb-12">
-                        <h2 className="text-h3 text-ink-primary side-breathing">
+                    <div className="flex-vertical edge-light mx-auto max-w-7xl border-x border-t">
+                        <h2 className="text-h3 text-ink-primary side-breathing mt-24 mb-12">
                             {group.heading}
                         </h2>
 
-                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
+                        <div className="grid grid-cols-2 gap-4 px-4 pb-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
                             {group.items.map((item) => (
                                 <div
                                     key={item.name}
-                                    className="flex h-full flex-col items-center gap-3 p-4 text-center md:p-6"
+                                    className="bg-canvas-surface/30 flex-vertical h-full items-center gap-3 px-2 py-6 text-center"
                                 >
                                     <div className="flex-center h-15 w-15">
                                         <Image
@@ -33,9 +33,9 @@ export default function TechStack({ groups }: Props) {
                                             className="object-contain"
                                         />
                                     </div>
-                                    <p className="text-14 text-ink-muted leading-snug font-medium">
+                                    <span className="text-14 text-ink-muted leading-snug font-medium">
                                         {item.name}
-                                    </p>
+                                    </span>
                                 </div>
                             ))}
                         </div>

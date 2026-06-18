@@ -204,7 +204,7 @@
     @apply text-ink-black hover:text-ink-white active:text-ink-white;
     @apply text-16 font-medium select-none;
     @apply border-hairdark border;
-    @apply smooth-transition w-fit px-4 py-2;
+    @apply smooth-transition block w-fit px-4 py-2;
 
     @variant dark {
         @apply bg-canvas-black hover:bg-canvas-white active:bg-canvas-white;

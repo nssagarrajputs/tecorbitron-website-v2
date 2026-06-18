@@ -1,4 +1,3 @@
-
 import PageHero from "@/components/basic-ui/PageHero";
 import ByServices from "./_components/ByServices";
 import ByIndustries from "./_components/ByIndustries";
@@ -47,34 +46,35 @@ export const metadata: Metadata = {
 
 function Page() {
     return (
-        <main className="bg-bkg-primary">
-            {/* <PageHero
+        <main>
+            <PageHero
                 eyebrow="Our Solutions"
                 title="Right Solution for Every Business Need"
-                highlight="Every Industry"
                 description="From early-stage startups to established enterprises — we build web, app, e-commerce, and custom digital solutions that are scoped to your business and built to deliver results."
             />
 
             <ByServices />
             <div className="section-edge-light"></div>
+
             <ByIndustries />
             <div className="section-edge-light"></div>
+
             <ByCloudAi />
             <div className="section-edge-light"></div>
             <ByThirdParty />
 
             <CTAFormat
                 eyebrow="Can't Find What You're Looking For?"
-                heading="Tell us what you need and we'll build a solution around it — scoped to your business, your budget, and your timeline."
+                heading="We'll build a solution scoped to your business, budget, and timeline."
                 primaryAction={{
-                    text: "Build Your Own →",
+                    text: "Build Your Own",
                     href: "/contact",
                 }}
                 secondaryAction={{
-                    text: "Explore Our Services →",
+                    text: "Explore Our Services",
                     href: "/services",
                 }}
-            /> */}
+            />
         </main>
     );
 }
