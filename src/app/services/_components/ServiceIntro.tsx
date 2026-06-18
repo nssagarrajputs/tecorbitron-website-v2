@@ -6,23 +6,23 @@ type Props = { data: ServiceIntroData };
 
 export default function ServiceIntro({ data }: Props) {
     return (
-        <section className="bg-canvas-white">
-            <div className="edge-light mx-auto max-w-7xl border-x">
-                <div className="side-breathing py-24">
-                    <h2 className="text-h2 text-ink-light-primary mb-12 font-serif">
+        <section className="bg-canvas-white side-layout-spacing">
+            <div className="edge-light mx-auto max-w-7xl border-x pt-24">
+                <div className="side-breathing mb-16">
+                    <h2 className="text-h2 text-ink-primary mb-16 font-serif">
                         {data.title}
                     </h2>
-                    <p className="text-body text-ink-light-secondary whitespace-pre-line">
+                    <p className="text-body text-ink-secondary whitespace-pre-line">
                         {data.description}
                     </p>
                 </div>
-                <div className="edge-light relative h-50 border-t sm:h-60 md:h-90 lg:h-110 xl:h-120">
+                <div className="edge-light relative aspect-16/8 w-full border-t">
                     <Image
                         src={data.image}
                         alt={data.imageAlt}
                         fill
                         className="h-full w-full object-cover"
-                        priority
+                        loading="eager"
                     />
                 </div>
             </div>

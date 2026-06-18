@@ -4,7 +4,6 @@ import ServiceWhyUs from "../_components/ServiceWhyUs";
 import ServiceLetsConnect from "../_components/ServiceLetsConnect";
 import {
     servicesWhyForSeo,
-
     serviceSolutionsSeo,
     serviceSandMSeo,
     serviceIntroSeo,
@@ -57,13 +56,12 @@ export default function page() {
             <PageHero
                 eyebrow="SEO & Digital Growth"
                 title="Search Visibility That Drives Real, Qualified Traffic"
-                highlight="Services"
                 description="From technical SEO and on-page optimisation to local and e-commerce SEO — we build search strategies that bring the right people to your business."
             />
             <ServiceIntro data={serviceIntroSeo} />
             <div className="section-edge-light"></div>
             <ServiceWhatSolutions data={serviceSolutionsSeo} />
-          
+
             <div className="section-edge-light"></div>
             <ServiceSandM data={serviceSandMSeo} />
             <div className="section-edge-light"></div>

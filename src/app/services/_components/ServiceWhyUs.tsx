@@ -1,46 +1,42 @@
 import Image from "next/image";
 import type { WhyUsData } from "@/content/services-data";
+import { SectionHeaderCentered } from "@/components/basic-ui/SectionHeaderType";
 
 type Props = { data: WhyUsData };
 
 export default function ServiceWhyUs({ data }: Props) {
     return (
-        <section className="bg-canvas-white">
+        <section className="bg-canvas-white side-layout-spacing">
             <div className="mx-auto max-w-7xl">
                 <div className="edge-light border-x">
-                    <div className="text-ink-light-primary py-12 md:py-18 lg:py-24">
-                        <div className="side-breathing mx-auto max-w-4xl text-center">
-                            <h2 className="text-h2 font-serif">
-                                {data.heading}
-                            </h2>
-                        </div>
-                    </div>
-                    <div className="relative h-40 md:h-50 lg:h-60 xl:h-70">
-                        <Image
-                            src={data.bannerImg as string}
-                            alt={data.heading}
-                            fill
-                            className="object-cover"
-                        />
-                    </div>
+                    <SectionHeaderCentered heading={data.heading} />
+                </div>
+                <div className="edge-light relative aspect-16/7 border lg:aspect-16/4">
+                    <Image
+                        src={data.bannerImg as string}
+                        alt={data.heading}
+                        fill
+                        loading="eager"
+                        className="object-cover"
+                    />
                 </div>
 
                 {/* List items */}
-                <ul className="edge-light grid grid-cols-1 border-l md:grid-cols-2">
+                <ul className="edge-light grid grid-cols-1 border-l md:grid-cols-2 xl:grid-cols-3">
                     {data.li.map((item, i) => (
                         <li
                             key={item.title}
-                            className="edge-light flex-vertical gap-6 border-t border-r p-12 py-16"
+                            className="edge-light flex-vertical side-breathing gap-6 border-t border-r py-16"
                         >
-                            <div className="flex items-center gap-3">
+                            <div className="flex-vertical gap-3">
                                 <span className="bg-canvas-surface text-ink-light-muted text-14 flex-center h-10 w-10 rounded-full font-medium">
                                     {String(i + 1).padStart(2, "0")}
                                 </span>
-                                <h4 className="text-h4 text-ink-light-primary">
+                                <h3 className="text-h4 text-ink-primary">
                                     {item.title}
-                                </h4>
+                                </h3>
                             </div>
-                            <p className="text-body text-ink-light-secondary leading-relaxed">
+                            <p className="text-body text-ink-secondary leading-relaxed">
                                 {item.description}
                             </p>
                         </li>

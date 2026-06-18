@@ -56,15 +56,19 @@ export default function page() {
                 title="Fast, Scalable Websites & Web Apps Built for Growth"
                 description="From landing pages and business websites to custom web apps and portals — we build modern, high-performance web solutions tailored to your goals and budget."
             />
+
             <ServiceIntro data={serviceIntroWeb} />
             <div className="section-edge-light"></div>
-            <ServiceWhatSolutions data={serviceSolutionsWeb} />
 
+            <ServiceWhatSolutions data={serviceSolutionsWeb} />
             <div className="section-edge-light"></div>
+
             <ServiceSandM data={serviceSandMWeb} />
             <div className="section-edge-light"></div>
+
             <ServiceWhyUs data={servicesWhyForWeb} />
             <div className="section-edge-light"></div>
+
             <ServiceLetsConnect />
         </main>
     );

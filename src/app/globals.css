@@ -11,6 +11,8 @@
     --pen-dark-muted: #97b0b7;
     --pen-white: #ffffff;
     --pen-black: #050e15;
+
+    --pen: #ffffff53;
 }
 
 @theme {

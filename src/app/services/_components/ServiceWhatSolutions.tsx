@@ -4,6 +4,7 @@ import type {
     ServiceSolutionsData,
     SolutionItem,
 } from "@/content/services-data";
+import { SectionHeaderCentered } from "@/components/basic-ui/SectionHeaderType";
 
 // ─── Icon renderer ────────────────────────────────────────────────────────────
 
@@ -29,28 +30,27 @@ type Props = { data: ServiceSolutionsData };
 
 export default function ServiceWhatSolutions({ data }: Props) {
     return (
-        <section className="bg-canvas-white">
+        <section className="bg-canvas-white side-layout-spacing">
             <div className="mx-auto max-w-7xl">
-                <div className="text-ink-light-primary edge-light side-breathing border-x py-12 md:py-18 lg:py-24">
-                    <div className="mx-auto max-w-4xl text-center">
-                        <h2 className="text-h2 mb-8 font-serif">
-                            {data.heading}
-                        </h2>
-                        <p>{data.para}</p>
-                    </div>
+                <div className="edge-light border-x">
+                    <SectionHeaderCentered
+                        eyebrow=""
+                        heading={data.heading}
+                        supportive={data.para}
+                    />
                 </div>
 
-                <div className="edge-light grid grid-cols-1 border-l sm:grid-cols-2 lg:grid-cols-4">
+                <div className="edge-light grid grid-cols-1 border-l md:grid-cols-2 xl:grid-cols-4">
                     {data.solutions.map((item) => (
                         <div
                             key={item.title}
-                            className="edge-light flex flex-col gap-3 border-t border-r p-12"
+                            className="edge-light side-breathing flex flex-col gap-4 border-t border-r py-16"
                         >
                             <SolutionIcon item={item} />
-                            <h3 className="text-body text-ink-light-primary font-medium">
+                            <h3 className="text-body text-ink-primary font-medium">
                                 {item.title}
                             </h3>
-                            <p className="text-small text-ink-light-secondary leading-relaxed">
+                            <p className="text-body text-ink-secondary leading-relaxed">
                                 {item.description}
                             </p>
                         </div>

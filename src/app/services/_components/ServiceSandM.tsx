@@ -1,5 +1,6 @@
 import { CalendarClock, PackageCheck, ScanSearch } from "lucide-react";
 import type { ServiceSandMData } from "@/content/services-data";
+import { SectionHeaderCentered } from "@/components/basic-ui/SectionHeaderType";
 
 // ─── Hardcoded engagement models ──────────────────────────────────────────────
 
@@ -15,13 +16,13 @@ type Props = { data: ServiceSandMData };
 
 export default function ServiceSandM({ data }: Props) {
     return (
-        <section className="bg-canvas-white">
+        <section className="bg-canvas-white side-layout-spacing">
             <div className="mx-auto max-w-7xl">
-                <div className="side-breathing edge-light flex flex-col items-center gap-4 border-x py-12 text-center md:py-18 lg:py-24">
-                    <h2 className="text-h2 text-ink-light-primary font-serif">
-                        {data.heading}
-                    </h2>
-                    <p className="text-body text-ink-light-secondary max-w-5xl text-justify leading-relaxed">
+                <div className="edge-light border-x">
+                    <SectionHeaderCentered heading={data.heading} />
+                </div>
+                <div className="side-breathing edge-light border-x pb-24">
+                    <p className="text-body text-ink-secondary mx-auto max-w-4xl text-justify leading-relaxed">
                         {data.description}
                     </p>
                 </div>
@@ -37,7 +38,7 @@ export default function ServiceSandM({ data }: Props) {
                                 strokeWidth={1.5}
                                 className="text-malachite"
                             />
-                            <h3 className="text-16 text-ink-light-muted font-mono">
+                            <h3 className="text-16 text-ink-muted font-mono">
                                 {title}
                             </h3>
                         </div>
