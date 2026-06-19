@@ -12,8 +12,7 @@ import PageHero from "@/components/basic-ui/PageHero";
 import DefBlogThumbnail from "@/assets/other/default-thumbnail.webp";
 import { ptComponents } from "@/components/PortableTextFormat";
 import type { Metadata } from "next";
-
-// ─── Types ────────────────────────────────────────────────────────────────────
+import { SectionHeaderCentered } from "@/components/basic-ui/SectionHeaderType";
 
 type BlogPost = {
     title: string;
@@ -139,151 +138,127 @@ export default async function BlogPostPage(props: {
 
             <PageHero width="lg" eyebrow="Blog Post" title={post.title} />
 
-            <SectionContainer width="md">
-                {/* Cover Image */}
-                <div className="border-base rounded-4 shadow-soft overflow-hidden border">
-                    {post.coverImage ? (
+            {/* Cover Image */}
+            <section className="bg-canvas-white side-layout-spacing">
+                <div className="mx-auto max-w-7xl">
+                    <div className="edge-light relative aspect-video w-full border-x xl:aspect-16/7">
                         <Image
-                            src={post.coverImage}
+                            src={post.coverImage || DefBlogThumbnail}
                             alt={post.title}
-                            width={2000}
-                            height={2000}
-                            className="h-120 w-full object-cover"
-                            priority
+                            fill
+                            className="w-full object-cover"
+                            loading="eager"
                         />
-                    ) : (
-                        <Image
-                            src={DefBlogThumbnail}
-                            alt={post.title}
-                            width={2000}
-                            height={2000}
-                            className="h-auto w-full object-cover"
-                            priority
-                        />
-                    )}
+                    </div>
                 </div>
+            </section>
 
-                {/* Back + Excerpt */}
-                <div className="flex flex-col gap-8">
+            <div className="section-edge-light"></div>
+
+            {/* Back + Excerpt */}
+            <section className="bg-canvas-white side-layout-spacing">
+                <div className="side-breathing edge-light mx-auto max-w-7xl border-x py-24">
                     <Link
                         href="/blog"
-                        className="action-btn flex w-fit items-center gap-2 hover:text-white"
+                        className="button-primary flex items-center gap-2"
                     >
                         <ArrowLeft size={13} strokeWidth={3} />
                         Back to Blog
                     </Link>
 
                     {post.excerpt && (
-                        <p className="text-typocolor-primary border-malachite text-body border-l-4 pl-5 leading-relaxed">
+                        <p className="text-ink-primary border-malachite text-body mt-16 border-l-4 pl-6 leading-relaxed">
                             {post.excerpt}
                         </p>
                     )}
                 </div>
+            </section>
 
-                {/* Body */}
-                <div className="flex flex-col gap-5">
-                    <PortableText value={post.body} components={ptComponents} />
-                </div>
+            <div className="section-edge-light"></div>
 
-                <hr />
-
-                {/* Tags */}
-                {post.tags?.length > 0 && (
-                    <div className="flex flex-wrap gap-4">
-                        {post.tags.map((tag) => (
-                            <span
-                                key={tag}
-                                className="bg-bkg-primary border-base text-typocolor-muted text-xmall shadow-soft rounded-full border px-4 py-2 font-semibold"
-                            >
-                                #{tag}
-                            </span>
-                        ))}
-                    </div>
-                )}
-
-                {/* Author Card */}
-                {post.author && (
-                    <div className="cardbox mx-auto flex w-fit items-start gap-6 p-6 px-12">
-                        {post.author.photo ? (
-                            <Image
-                                src={post.author.photo}
-                                alt={post.author.name}
-                                width={52}
-                                height={52}
-                                className="h-auto shrink-0 rounded-full object-cover"
-                            />
-                        ) : (
-                            <div className="bg-deepspace flex h-13 w-13 shrink-0 items-center justify-center rounded-full text-lg font-black text-white">
-                                {post.author.name.charAt(0)}
-                            </div>
-                        )}
-                        <div className="flex flex-col gap-1">
-                            <span className="text-typocolor-primary text-small font-bold">
-                                {post.author.name}
-                            </span>
-                            <span className="text-typocolor-secondary text-xmall font-semibold">
-                                {post.author.role}
-                            </span>
-                        </div>
-                    </div>
-                )}
-
-                <hr />
-
-                {/* Related Posts */}
-                {related?.length > 0 && (
-                    <div className="section-vlex-gap">
-                        <SectionHeader
-                            heading="Related Article"
-                            highlight="Article"
+            {/* Body */}
+            <section className="bg-canvas-white side-layout-spacing">
+                <div className="side-breathing edge-light mx-auto max-w-7xl border-x py-24">
+                    <div className="flex-vertical gap-8">
+                        <PortableText
+                            value={post.body}
+                            components={ptComponents}
                         />
-                        <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
-                            {related.map((rel) => (
-                                <div
-                                    key={rel.slug}
-                                    className="group hover:border-malachite cardbox flex flex-col overflow-hidden"
+                    </div>
+                </div>
+            </section>
+
+            <div className="section-edge-light"></div>
+
+            {/* Tags */}
+            {post.tags?.length > 0 && (
+                <section className="bg-canvas-white side-layout-spacing">
+                    <div className="side-breathing edge-light mx-auto max-w-7xl border-x py-24">
+                        <div className="flex flex-wrap gap-4">
+                            {post.tags.map((tag) => (
+                                <span
+                                    key={tag}
+                                    className="bg-canvas-soft text-ink-secondary text-16 px-4 py-2 font-medium"
                                 >
-                                    <div className="bg-deepspace relative h-32 overflow-hidden">
-                                        {rel.coverImage ? (
-                                            <Image
-                                                src={rel.coverImage}
-                                                alt={rel.title}
-                                                width={500}
-                                                height={500}
-                                                className="h-auto w-full object-cover"
-                                            />
-                                        ) : (
-                                            <Image
-                                                src={DefBlogThumbnail}
-                                                alt={rel.title}
-                                                width={500}
-                                                height={500}
-                                                className="h-auto w-full object-cover"
-                                            />
-                                        )}
-                                    </div>
-                                    <div className="flex flex-col gap-6 p-4">
-                                        <h3 className="text-typocolor-primary text-small line-clamp-2 leading-snug font-bold">
-                                            {rel.title}
-                                        </h3>
-                                        <div className="flex items-center justify-between">
-                                            <Link
-                                                href={`/blog/${rel.slug}`}
-                                                className="action-btn"
-                                            >
-                                                View Blog
-                                            </Link>
-                                            <span className="text-typocolor-muted text-xmall">
-                                                {formatDate(rel.publishedAt)}
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
+                                    #{tag}
+                                </span>
                             ))}
                         </div>
                     </div>
-                )}
-            </SectionContainer>
+                </section>
+            )}
+
+            <div className="section-edge-light"></div>
+
+            {/* Related Posts */}
+            {related?.length > 0 && (
+                <section className="bg-canvas-white side-layout-spacing">
+                    <div className="mx-auto max-w-7xl">
+                        <div className="edge-light border-x">
+                            <SectionHeaderCentered heading="Related Articles" />
+                            <div className="edge-light grid grid-cols-1 border-l lg:grid-cols-3">
+                                {related.map((rel) => (
+                                    <div
+                                        key={rel.slug}
+                                        className="edge-light side-breathing border-t border-r py-16"
+                                    >
+                                        <div className="edge-light relative aspect-video w-full border">
+                                            <Image
+                                                src={
+                                                    rel.coverImage ||
+                                                    DefBlogThumbnail
+                                                }
+                                                alt={rel.title}
+                                                fill
+                                                loading="lazy"
+                                                className="h-auto w-full object-cover"
+                                            />
+                                        </div>
+                                        <div className="flex flex-col-reverse gap-6 pt-8">
+                                            <h3 className="text-ink-primary text-body leading-snug font-medium">
+                                                {rel.title}
+                                            </h3>
+                                            <div className="flex items-center justify-between">
+                                                <Link
+                                                    href={`/blog/${rel.slug}`}
+                                                    className="button-text"
+                                                >
+                                                    Read Article
+                                                </Link>
+                                                <span className="text-ink-muted text-14">
+                                                    {formatDate(
+                                                        rel.publishedAt,
+                                                    )}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            )}
         </main>
     );
 }
