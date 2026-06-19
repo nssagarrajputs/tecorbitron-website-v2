@@ -137,9 +137,9 @@ export default function RootLayout({
                 <StructuredData data={globalSchema()} />
                 <SpeedInsights />
                 <Analytics />
-                {/* <Header /> */}
+                <Header />
                 {children}
-                {/* <Footer /> */}
+                <Footer />
             </body>
             <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />
         </html>
