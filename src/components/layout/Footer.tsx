@@ -41,14 +41,14 @@ const footerMenus: footerMenuItem[] = [
             { label: "About", href: "/about" },
             { label: "Solutions", href: "/solutions" },
             { label: "Technologies", href: "/technologies" },
-            { label: "Portfolio", href: "/portfolio" },
+            { label: "Portfolio", href: "/case-studies" },
         ],
     },
     {
         title: "Importants",
         links: [
             { label: "Contact Us", href: "/contact" },
-            { label: "Blogs", href: "/blog" },
+            { label: "Insights", href: "/blog" },
             { label: "Privacy Policy", href: "/legal/privacy-policy" },
             { label: "Terms", href: "/legal/terms" },
         ],
@@ -179,7 +179,7 @@ export default function Footer() {
                                 Facebook
                             </a>
                             <a
-                                href="https://www.facebook.com/tecorbitron"
+                                href="https://www.youtube.com/@Tecorbitron"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="Visit Tecorbitron Youtube Channel"

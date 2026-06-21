@@ -7,6 +7,7 @@ import MissionVision from "./_components/MissionVision";
 import PricingPolicy from "./_components/PricingPolicy";
 
 import type { Metadata } from "next";
+import { AboutPageSchema } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
     title: "About Tecorbitron – Founder-Led Digital Solutions Company",
@@ -55,6 +56,8 @@ export const metadata: Metadata = {
 export default function About() {
     return (
         <main>
+            <AboutPageSchema />
+            
             <PageHero
                 eyebrow="who we are"
                 title="About Tecorbitron"

@@ -32,13 +32,13 @@ export function SectionHeaderLeftRight({
                     </p>
                 )}
             </div>
-            <div className="flex-vertical side-breathing justify-end md:items-end">
-                {href && hreflabel && (
+            {href && hreflabel && (
+                <div className="flex-vertical side-breathing justify-end md:items-end">
                     <Link href={href} className="button-primary">
                         {hreflabel}
                     </Link>
-                )}
-            </div>
+                </div>
+            )}
         </div>
     );
 }

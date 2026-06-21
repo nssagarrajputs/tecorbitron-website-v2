@@ -22,7 +22,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // ── Dynamic portfolio pages ──
     const portfolioUrls: MetadataRoute.Sitemap = projects.map((proj) => ({
-        url: `${baseUrl}/portfolio/${proj.slug}`,
+        url: `${baseUrl}/case-studies/${proj.slug}`,
         lastModified: new Date(proj.updatedAt),
         changeFrequency: "monthly",
         priority: 0.7,
@@ -57,7 +57,31 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             priority: 0.9,
         },
         {
-            url: `${baseUrl}/portfolio`,
+            url: `${baseUrl}/services/web-development`,
+            lastModified: new Date(),
+            changeFrequency: "monthly",
+            priority: 0.8,
+        },
+        {
+            url: `${baseUrl}/services/app-development`,
+            lastModified: new Date(),
+            changeFrequency: "monthly",
+            priority: 0.8,
+        },
+        {
+            url: `${baseUrl}/services/ecommerce-development`,
+            lastModified: new Date(),
+            changeFrequency: "monthly",
+            priority: 0.8,
+        },
+        {
+            url: `${baseUrl}/services/seo-and-marketing`,
+            lastModified: new Date(),
+            changeFrequency: "monthly",
+            priority: 0.8,
+        },
+        {
+            url: `${baseUrl}/case-studies`,
             lastModified: new Date(),
             changeFrequency: "weekly",
             priority: 0.8,

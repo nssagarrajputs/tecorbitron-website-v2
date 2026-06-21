@@ -6,7 +6,7 @@ import Footer from "@/components/layout/Footer";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
-import StructuredData, { globalSchema } from "@/components/StructuredData";
+import { GlobalSchema } from "@/components/StructuredData";
 
 // ── Noto Serif Japanese — accent ──
 const serif = Noto_Serif_JP({
@@ -131,17 +131,19 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
+            {process.env.NEXT_PUBLIC_GTM_ID && (
+                <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
+            )}
             <body
                 className={`${sans.variable} ${serif.variable} ${mono.variable}`}
             >
-                <StructuredData data={globalSchema()} />
+                <GlobalSchema />
                 <SpeedInsights />
                 <Analytics />
                 <Header />
                 {children}
                 <Footer />
             </body>
-            <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />
         </html>
     );
 }

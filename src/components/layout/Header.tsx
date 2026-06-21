@@ -73,8 +73,10 @@ export default function Header() {
         };
     }, [menuOpen]);
 
-    const isActive = (href: string) =>
-        href === "/" ? pathname === "/" : pathname.startsWith(href);
+     const isActive = (href: string) => {
+         if (href === "/") return pathname === "/";
+         return pathname === href || pathname.startsWith(`${href}/`);
+     };
 
     return (
         <header className="edge-dark min-h-16 border-b select-none">

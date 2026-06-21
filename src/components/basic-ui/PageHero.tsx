@@ -1,22 +1,12 @@
 type PageHeroProps = {
-    width?: "sm" | "md" | "lg" | "xl";
     eyebrow: string;
     title: string;
     description?: string;
 };
 
-const widthMap = {
-    sm: "max-w-4xl",
-    md: "max-w-5xl",
-    lg: "max-w-6xl",
-    xl: "max-w-7xl",
-};
-
-function PageHero({
-    width = "sm",
+export default function PageHero({
     eyebrow,
     title,
-
     description,
 }: PageHeroProps) {
     return (
@@ -50,5 +40,3 @@ function PageHero({
         </section>
     );
 }
-
-export default PageHero;

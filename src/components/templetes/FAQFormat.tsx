@@ -45,7 +45,7 @@ export default function FAQFormat({
 
                             return (
                                 <article
-                                    key={index}
+                                    key={faq.question}
                                     onClick={() =>
                                         setOpenIndex(isOpen ? null : index)
                                     }

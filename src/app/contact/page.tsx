@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import StructuredData, { contactSchema } from "@/components/StructuredData";
+import { ContactPageSchema } from "@/components/StructuredData";
 
 import PageHero from "@/components/basic-ui/PageHero";
 import ProjectInquiry from "./_components/ProjectInquiry";
@@ -85,19 +85,15 @@ const faqdata = [
 export default function Contact() {
     return (
         <main>
-            <StructuredData data={contactSchema()} />
-
+            <ContactPageSchema />
             <PageHero
                 eyebrow="Get in Touch"
                 title="Let's Connect"
                 description="Share your idea and we'll get back to you within 24 hours — free consultation, no strings attached."
             />
-
             <ProjectInquiry />
-
             <div className="section-edge-light"></div>
             <WaysToConnect />
-
             <div className="section-edge-light"></div>
             <FAQSection
                 eyebrow="FAQS"

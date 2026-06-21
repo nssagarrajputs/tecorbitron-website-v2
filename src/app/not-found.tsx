@@ -1,10 +1,10 @@
-import { SectionHeaderCentered } from "@/components/basic-ui/SectionHeaderType";
 import Link from "next/link";
 
 export const metadata = {
-    title: "404 — Page Not Found",
-    description: "The page you are looking for does not exist.",
-    robots: { index: false, follow: false },
+    title: "Page Not Found — Tecorbitron",
+    description:
+        "This page doesn't exist or has moved. Head back home or get in touch — we'll help you find what you're looking for.",
+    robots: { index: false, follow: true },
 };
 
 export default function NotFound() {
@@ -45,14 +45,18 @@ export default function NotFound() {
             {/* Content */}
             <div className="relative z-50 flex max-w-xl flex-col items-center gap-6 text-center">
                 <div className="dark">
-                    <SectionHeaderCentered
-                        eyebrow="Error 404"
-                        heading="Lost In Orbit"
-                        supportive="The page you're looking for doesn't exist or has been moved. Lets get you back on track."
-                    />
+                    <span className="text-ink-primary eyebrow">Error 404</span>
+                    <h1 className="text-h1 section-heading mt-4 mb-8">
+                        Lost In Orbit
+                    </h1>
+                    <p className="section-supportive">
+                        {
+                            "The page you're looking for doesn't exist or has been moved. Lets get you back on track."
+                        }
+                    </p>
                 </div>
 
-                <div className="flex items-center gap-6 max-sm:flex-col">
+                <div className="mt-12 flex items-center gap-6 max-sm:flex-col">
                     <Link href={"/"} className="brand-btn-primary">
                         Back To Home
                     </Link>

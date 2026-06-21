@@ -136,7 +136,7 @@ export default async function BlogPostPage(props: {
         <main>
             <StructuredData data={blogPostSchema(post)} />
 
-            <PageHero width="lg" eyebrow="Blog Post" title={post.title} />
+            <PageHero eyebrow="Blog Post" title={post.title} />
 
             {/* Cover Image */}
             <section className="bg-canvas-white side-layout-spacing">

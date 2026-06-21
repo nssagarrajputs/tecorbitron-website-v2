@@ -9,60 +9,6 @@ export default function StructuredData({ data }: { data: object }) {
     );
 }
 
-// ─── Global — layout.tsx ──────────────────────────────────────────────────────
-
-export function globalSchema() {
-    return {
-        "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "Organization",
-                "@id": "https://www.tecorbitron.com/#organization",
-                name: "Tecorbitron Solutions Pvt. Ltd.",
-                url: "https://www.tecorbitron.com",
-                logo: {
-                    "@type": "ImageObject",
-                    url: "https://www.tecorbitron.com/android-chrome-512x512.png",
-                },
-                foundingDate: "2024",
-                founders: [{ "@type": "Person", name: "Sagar Chauhan" }],
-                address: {
-                    "@type": "PostalAddress",
-                    addressLocality: "Ghaziabad",
-                    addressRegion: "Uttar Pradesh",
-                    addressCountry: "IN",
-                },
-                contactPoint: {
-                    "@type": "ContactPoint",
-                    telephone: "+91-9084800496",
-                    contactType: "customer service",
-                    availableLanguage: ["English", "Hindi"],
-                },
-                sameAs: [
-                    "https://www.linkedin.com/company/tecorbitrons",
-                    "https://www.instagram.com/tecorbitron",
-                    "https://www.facebook.com/tecorbitron",
-                    "https://www.youtube.com/@Tecorbitron",
-                ],
-            },
-            {
-                "@type": "WebSite",
-                "@id": "https://www.tecorbitron.com/#website",
-                url: "https://www.tecorbitron.com",
-                name: "Tecorbitron Solutions",
-                publisher: {
-                    "@id": "https://www.tecorbitron.com/#organization",
-                },
-                potentialAction: {
-                    "@type": "SearchAction",
-                    target: "https://www.tecorbitron.com/blog?q={search_term_string}",
-                    "query-input": "required name=search_term_string",
-                },
-            },
-        ],
-    };
-}
-
 // ─── Homepage ─────────────────────────────────────────────────────────────────
 export function homePageSchema() {
     return {
@@ -248,4 +194,180 @@ export function portfolioProjectSchema(proj: {
         dateCreated: proj.completedAt,
         keywords: proj.techStack?.join(", "),
     };
+}
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+// ─── Internal renderer — not exported ────────────────────────────────────────
+// Every schema component below builds its own JSON-LD object and calls this to render it. Pages never call this directly and never pass raw `data`.
+
+function Schema({ data }: { data: object }) {
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+        />
+    );
+}
+
+// ─── Global — used once, in layout.tsx ───────────────────────────────────────
+// Organization + WebSite. Every other schema in this file references the
+// Organization's @id — this is the foundation everything else builds on.
+
+export function GlobalSchema() {
+    return (
+        <Schema
+            data={{
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "Organization",
+                        "@id": "https://www.tecorbitron.com/#organization",
+                        name: "Tecorbitron Solutions Pvt. Ltd.",
+                        url: "https://www.tecorbitron.com",
+                        logo: {
+                            "@type": "ImageObject",
+                            url: "https://www.tecorbitron.com/android-chrome-512x512.png",
+                        },
+                        foundingDate: "2024-08-05",
+                        founders: [
+                            { "@type": "Person", name: "Sagar Chauhan" },
+                        ],
+                        address: {
+                            "@type": "PostalAddress",
+                            streetAddress: "S9, Angel Mega Mall",
+                            addressLocality: "Ghaziabad",
+                            addressRegion: "Uttar Pradesh",
+                            postalCode: "201010",
+                            addressCountry: "IN",
+                        },
+                        contactPoint: {
+                            "@type": "ContactPoint",
+                            telephone: "+91-9084800496",
+                            email: "contact@tecorbitron.com",
+                            contactType: "customer service",
+                            availableLanguage: ["English", "Hindi"],
+                        },
+                        sameAs: [
+                            "https://www.linkedin.com/company/tecorbitrons",
+                            "https://www.instagram.com/tecorbitron",
+                            "https://www.facebook.com/tecorbitron",
+                            "https://www.youtube.com/@Tecorbitron",
+                        ],
+                    },
+                    {
+                        "@type": "WebSite",
+                        "@id": "https://www.tecorbitron.com/#website",
+                        url: "https://www.tecorbitron.com",
+                        name: "Tecorbitron Solutions",
+                        publisher: {
+                            "@id": "https://www.tecorbitron.com/#organization",
+                        },
+                    },
+                ],
+            }}
+        />
+    );
+}
+
+// ─── Homepage — used in (home)/page.tsx ──────────────────────────────────────
+// name + description mirror the real metadata in layout.tsx, so this schema
+// never drifts from the page's actual title/description tags.
+
+export function HomePageSchema() {
+    return (
+        <Schema
+            data={{
+                "@context": "https://schema.org",
+                "@type": "WebPage",
+                "@id": "https://www.tecorbitron.com/#homepage",
+                url: "https://www.tecorbitron.com",
+                name: "Tecorbitron – Web, App & Digital Solutions for Startups and SMBs",
+                description:
+                    "We build websites, apps, and digital systems for startups and growing businesses. Modern tech, transparent pricing, and 3 months support included.",
+                isPartOf: {
+                    "@id": "https://www.tecorbitron.com/#website",
+                },
+                about: {
+                    "@id": "https://www.tecorbitron.com/#organization",
+                },
+            }}
+        />
+    );
+}
+
+// ─── Contact — used in contact/page.tsx ──────────────────────────────────────
+// `about` references the Organization rather than re-stating phone/email/
+// address here — those live once in GlobalSchema, this just points at them.
+
+export function ContactPageSchema() {
+    return (
+        <Schema
+            data={{
+                "@context": "https://schema.org",
+                "@type": "ContactPage",
+                "@id": "https://www.tecorbitron.com/contact/#webpage",
+                url: "https://www.tecorbitron.com/contact",
+                name: "Contact Us — Tecorbitron",
+                description:
+                    "Got a project in mind? Get in touch with Tecorbitron — we'll get back to you within 24 hours. Let's build something great together.",
+                isPartOf: {
+                    "@id": "https://www.tecorbitron.com/#website",
+                },
+                about: {
+                    "@id": "https://www.tecorbitron.com/#organization",
+                },
+            }}
+        />
+    );
+}
+
+// ─── About — used in about/page.tsx ──────────────────────────────────────────
+// name + description mirror real about/page.tsx metadata. Includes the
+// founder as a `mentions` Person entity, since the page has a dedicated
+// founder section with his name, title, and LinkedIn.
+
+export function AboutPageSchema() {
+    return (
+        <Schema
+            data={{
+                "@context": "https://schema.org",
+                "@type": "AboutPage",
+                "@id": "https://www.tecorbitron.com/about/#webpage",
+                url: "https://www.tecorbitron.com/about",
+                name: "About Tecorbitron – Founder-Led Digital Solutions Company",
+                description:
+                    "Learn about Tecorbitron — a founder-led digital solutions company based in Ghaziabad, India. Modern web, app, and e-commerce solutions for startups and SMBs.",
+                isPartOf: {
+                    "@id": "https://www.tecorbitron.com/#website",
+                },
+                about: {
+                    "@id": "https://www.tecorbitron.com/#organization",
+                },
+                mentions: {
+                    "@type": "Person",
+                    name: "Sagar Chauhan",
+                    jobTitle: "Founder & CEO",
+                    url: "https://www.linkedin.com/in/nssagarrajput",
+                },
+            }}
+        />
+    );
 }

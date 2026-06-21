@@ -9,6 +9,8 @@ import type {
     PortableTextListItemComponent,
 } from "@portabletext/react";
 
+import DefaultImage from "@/assets/other/default-thumbnail.webp";
+
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 type InlineImage = {
@@ -51,25 +53,25 @@ function getYouTubeId(url: string) {
 const calloutConfig = {
     tip: {
         icon: "💡",
-        bg: "bg-malachite-dim",
+        bg: "bg-success/10",
         border: "border-success",
         label: "Tip",
     },
     info: {
         icon: "ℹ️",
-        bg: "bg-deepspace-dim",
+        bg: "bg-info/10",
         border: "border-info",
         label: "Info",
     },
     warning: {
         icon: "⚠️",
-        bg: "bg-yellow-50",
+        bg: "bg-warning/10",
         border: "border-warning",
         label: "Warning",
     },
     danger: {
         icon: "🚨",
-        bg: "bg-red-50",
+        bg: "bg-error/10",
         border: "border-error",
         label: "Danger",
     },
@@ -82,27 +84,29 @@ export const ptComponents: PortableTextComponents = {
         normal: ({
             children,
         }: PortableTextComponentProps<PortableTextBlock>) => (
-            <p className="text-body leading-relaxed">{children}</p>
+            <p className="text-body text-ink-secondary leading-relaxed">
+                {children}
+            </p>
         ),
         h2: ({ children }: PortableTextComponentProps<PortableTextBlock>) => (
-            <h2 className="text-typocolor-primary text-h3 mt-10 mb-4 scroll-mt-28 font-black">
+            <h2 className="text-ink-primary text-h3 mt-10 mb-4 scroll-mt-28 font-black">
                 {children}
             </h2>
         ),
         h3: ({ children }: PortableTextComponentProps<PortableTextBlock>) => (
-            <h3 className="text-typocolor-primary text-h4 mt-4 scroll-mt-28 font-bold">
+            <h3 className="text-ink-primary text-h4 mt-4 scroll-mt-28 font-bold">
                 {children}
             </h3>
         ),
         h4: ({ children }: PortableTextComponentProps<PortableTextBlock>) => (
-            <h4 className="text-typocolor-primary text-body mt-4 mb-2 font-black">
+            <h4 className="text-ink-primary text-18 mt-4 mb-2 font-black">
                 {children}
             </h4>
         ),
         blockquote: ({
             children,
         }: PortableTextComponentProps<PortableTextBlock>) => (
-            <blockquote className="border-malachite bg-malachite-dim text-deepspace rounded-4 border-l-4 py-3 pr-4 pl-5 text-base leading-relaxed italic">
+            <blockquote className="border-malachite bg-malachite-dim text-deepspace rounded-4 text-16 border-l-4 py-3 pr-4 pl-5 leading-relaxed italic">
                 {children}
             </blockquote>
         ),
@@ -135,13 +139,13 @@ export const ptComponents: PortableTextComponents = {
 
     marks: {
         strong: ({ children }: PortableTextMarkComponentProps) => (
-            <strong className="text-deepspace font-black">{children}</strong>
+            <strong className="font-bold">{children}</strong>
         ),
         em: ({ children }: PortableTextMarkComponentProps) => (
-            <em className="text-deepspace/80 italic">{children}</em>
+            <em className="italic">{children}</em>
         ),
         underline: ({ children }: PortableTextMarkComponentProps) => (
-            <span className="underline underline-offset-2">{children}</span>
+            <span className="underline underline-offset-4">{children}</span>
         ),
         code: ({ children }: PortableTextMarkComponentProps) => (
             <code className="bg-deepspace-dim border-base text-malachite-rich text-small rounded border p-4">
@@ -153,7 +157,7 @@ export const ptComponents: PortableTextComponents = {
                 href={value?.href}
                 target={value?.blank ? "_blank" : "_self"}
                 rel={value?.blank ? "noopener noreferrer" : undefined}
-                className="text-malachite-rich hover:text-malachite transi-base underline underline-offset-2"
+                className="button-text"
             >
                 {children}
             </a>
@@ -164,9 +168,9 @@ export const ptComponents: PortableTextComponents = {
         // Inline Image
         image: ({ value }: { value: InlineImage }) => (
             <figure className="my-2">
-                <div className="border-base shadow-soft rounded-4 mx-auto my-12 max-h-120 max-w-4xl overflow-hidden border">
+                <div className="edge-light mx-auto my-12 max-h-120 max-w-4xl border">
                     <Image
-                        src={value.asset?.url}
+                        src={value.asset?.url || DefaultImage}
                         alt={value.alt ?? "Image"}
                         width={800}
                         height={450}
@@ -174,7 +178,7 @@ export const ptComponents: PortableTextComponents = {
                     />
                 </div>
                 {value.caption && (
-                    <figcaption className="text-typocolor-muted text-xmall mt-2 text-center font-semibold">
+                    <figcaption className="text-ink-muted text-12 mt-2 text-center font-medium">
                         {value.caption}
                     </figcaption>
                 )}
@@ -242,10 +246,10 @@ export const ptComponents: PortableTextComponents = {
                 >
                     <span className="mt-0.5 shrink-0 text-xl">{cfg.icon}</span>
                     <div className="flex flex-col gap-1">
-                        <span className="text-deepspace/60 text-xs font-black tracking-widest uppercase">
+                        <span className="text-secondary text-12 font-bold tracking-widest uppercase">
                             {cfg.label}
                         </span>
-                        <p className="text-subtle text-sm leading-relaxed font-light">
+                        <p className="text-ink-muted text-14 leading-relaxed font-light">
                             {value.content}
                         </p>
                     </div>
@@ -258,12 +262,12 @@ export const ptComponents: PortableTextComponents = {
             const map = {
                 line: <hr className="border-border my-2" />,
                 dots: (
-                    <div className="text-border my-2 flex justify-center gap-2 text-lg">
+                    <div className="text-border text-18 my-2 flex justify-center gap-2">
                         • • •
                     </div>
                 ),
                 star: (
-                    <div className="text-border my-2 flex justify-center text-lg">
+                    <div className="text-border text-18 my-2 flex justify-center">
                         ★
                     </div>
                 ),
