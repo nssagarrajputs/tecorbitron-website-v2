@@ -57,11 +57,12 @@ export default async function FeaturedBlogs() {
                             className="edge-light flex-vertical side-breathing gap-y-8 border-t border-r py-16"
                         >
                             {/* Thumbnail */}
-                            <div className="edge-light relative aspect-4/2 border">
+                            <div className="edge-light relative aspect-4/2 w-full border">
                                 <Image
                                     src={post.coverImage || DefProjectThumbnail}
                                     alt={post.title}
                                     fill
+                                    sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 33vw, 400px"
                                     loading="lazy"
                                     className="h-full w-full object-cover"
                                 />

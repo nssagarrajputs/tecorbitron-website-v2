@@ -47,7 +47,7 @@ export default async function FeaturedProjects() {
                             className="edge-light side-breathing flex-vertical gap-y-8 border-t border-r py-16"
                         >
                             {/* Thumbnail */}
-                            <div className="edge-light relative aspect-4/2 border">
+                            <div className="edge-light relative aspect-4/2 w-full border">
                                 <Image
                                     src={
                                         project.thumbnail || DefProjectThumbnail
@@ -55,6 +55,7 @@ export default async function FeaturedProjects() {
                                     alt={project.projectName}
                                     fill
                                     loading="lazy"
+                                    sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 33vw, 400px"
                                     className="h-full w-full object-cover"
                                 />
                             </div>

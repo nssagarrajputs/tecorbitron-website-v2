@@ -97,7 +97,7 @@ export default function Header() {
                             src={logo}
                             width={200}
                             alt="Tecorbitron Solutions"
-                            priority
+                            preload
                         />
                     </Link>
 

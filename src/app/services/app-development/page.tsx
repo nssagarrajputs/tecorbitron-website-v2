@@ -49,12 +49,12 @@ export const metadata: Metadata = {
         "affordable app development India",
         "Tecorbitron app development",
     ],
-    alternates: { canonical: "/solutions" },
+    alternates: { canonical: "/services/app-development" },
     openGraph: {
         title: "App Development Company — Tecorbitron",
         description:
             "We design and develop mobile apps that perform on every platform — Android, iOS, and cross-platform. Built for startups and businesses ready to go mobile.",
-        url: "https://www.tecorbitron.com/solutions",
+        url: "https://www.tecorbitron.com/services/app-development",
         images: [
             {
                 url: "/og-image.png",

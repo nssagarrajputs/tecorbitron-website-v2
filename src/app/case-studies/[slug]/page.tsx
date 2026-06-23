@@ -83,11 +83,11 @@ export async function generateMetadata(props: {
         description: proj.summary
             ? proj.summary.slice(0, 155)
             : `${proj.projectName} — A project by Tecorbitron Solutions`,
-        alternates: { canonical: `/portfolio/${slug}` },
+        alternates: { canonical: `/case-studies/${slug}` },
         openGraph: {
             title: `${proj.projectName} — Tecorbitron Portfolio`,
             description: proj.summary?.slice(0, 155) ?? "",
-            url: `https://www.tecorbitron.com/portfolio/${slug}`,
+            url: `https://www.tecorbitron.com/case-studies/${slug}`,
             images: proj.thumbnail
                 ? [{ url: proj.thumbnail, width: 1200, height: 630 }]
                 : [{ url: "/og-image.png", width: 1200, height: 630 }],

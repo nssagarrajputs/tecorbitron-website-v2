@@ -73,12 +73,16 @@ export default function Technologies() {
                             key={tech.name}
                             className="edge-light flex flex-col items-center gap-4 border-t border-r py-8"
                         >
-                            <Image
-                                src={tech.icon}
-                                alt={tech.name}
-                                loading="lazy"
-                                className="aspect-square w-[30%] object-contain select-none"
-                            />
+                            <div className="flex-center relative aspect-square w-12">
+                                <Image
+                                    src={tech.icon}
+                                    alt={tech.name}
+                                    fill
+                                    sizes="50px"
+                                    loading="lazy"
+                                    className="object-contain select-none"
+                                />
+                            </div>
                             <p className="text-body text-ink-muted">
                                 {tech.name}
                             </p>

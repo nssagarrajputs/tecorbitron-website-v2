@@ -56,11 +56,17 @@ export default function ClientLogoStripe() {
                 style={{ animation: "marquee-left 70s linear infinite" }}
             >
                 {[...logosRow1, ...logosRow1, ...logosRow1].map((logo, i) => (
-                    <div key={`r1-${i}`} className="h-6 min-w-16 md:h-7">
+                    <div
+                        key={`r1-${i}`}
+                        className="flex-center relative h-8 w-24"
+                    >
                         <Image
                             src={logo.src}
                             alt={logo.name}
-                            className="h-full w-auto object-contain"
+                            fill
+                            sizes="100px"
+                            loading="eager"
+                            className="h-full w-full object-contain"
                         />
                     </div>
                 ))}
@@ -77,11 +83,17 @@ export default function ClientLogoStripe() {
                 style={{ animation: "marquee-right 80s linear infinite" }}
             >
                 {[...logosRow2, ...logosRow2, ...logosRow2].map((logo, i) => (
-                    <div key={`r2-${i}`} className="h-6 min-w-16 md:h-7">
+                    <div
+                        key={`r2-${i}`}
+                        className="flex-center relative h-8 w-24"
+                    >
                         <Image
                             src={logo.src}
                             alt={logo.name}
-                            className="h-full w-auto object-contain"
+                            fill
+                            sizes="100px"
+                            loading="eager"
+                            className="h-full w-full object-contain"
                         />
                     </div>
                 ))}

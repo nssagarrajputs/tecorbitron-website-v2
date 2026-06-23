@@ -48,12 +48,12 @@ export const metadata: Metadata = {
         "website development with support India",
         "Tecorbitron web development",
     ],
-    alternates: { canonical: "/solutions" },
+    alternates: { canonical: "/services/web-development" },
     openGraph: {
         title: "Web Development Company — Tecorbitron",
         description:
             "We design and develop websites and web applications that load fast, rank well, and convert visitors into customers — built specifically for your business goals.",
-        url: "https://www.tecorbitron.com/solutions",
+        url: "https://www.tecorbitron.com/services/web-development",
         images: [
             {
                 url: "/og-image.png",

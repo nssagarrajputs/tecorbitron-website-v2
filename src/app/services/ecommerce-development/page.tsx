@@ -50,12 +50,12 @@ export const metadata: Metadata = {
         "ecommerce store with payment gateway India",
         "Tecorbitron ecommerce",
     ],
-    alternates: { canonical: "/solutions" },
+    alternates: { canonical: "/services/ecommerce-development" },
     openGraph: {
         title: "E-Commerce Development Company — Tecorbitron",
         description:
             "We build online stores that load fast, convert well, and are easy to manage — on Shopify, WooCommerce, or fully custom. Built for businesses ready to sell online.",
-        url: "https://www.tecorbitron.com/solutions",
+        url: "https://www.tecorbitron.com/services/ecommerce-development",
         images: [
             {
                 url: "/og-image.png",

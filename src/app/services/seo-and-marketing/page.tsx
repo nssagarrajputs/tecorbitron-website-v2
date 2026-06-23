@@ -49,12 +49,12 @@ export const metadata: Metadata = {
         "monthly SEO retainer India",
         "SEO services with monthly reporting",
     ],
-    alternates: { canonical: "/solutions" },
+    alternates: { canonical: "/services/seo-and-marketing" },
     openGraph: {
         title: "SEO Services Company — Tecorbitron",
         description:
             "We improve your search visibility with technical, on-page, and content SEO strategies that bring real, qualified traffic and measurable business results.",
-        url: "https://www.tecorbitron.com/solutions",
+        url: "https://www.tecorbitron.com/services/seo-and-marketing",
         images: [
             {
                 url: "/og-image.png",

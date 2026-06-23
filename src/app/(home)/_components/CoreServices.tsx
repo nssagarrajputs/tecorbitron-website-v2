@@ -97,13 +97,13 @@ export default function CoreServices() {
                             key={service.name}
                             className="edge-light flex-vertical side-breathing justify-between border-t border-r pt-4 pb-12"
                         >
-                            <div className="flex-center h-50 w-50 select-none">
+                            <div className="flex-center relative h-50 w-50 select-none">
                                 <Image
                                     src={service.icon}
                                     alt={service.name}
-                                    width={500}
-                                    height={500}
-                                    loading="eager"
+                                    fill
+                                    sizes="200px"
+                                    loading="lazy"
                                     className="h-full w-full object-contain"
                                 />
                             </div>

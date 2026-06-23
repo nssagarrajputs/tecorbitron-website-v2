@@ -30,12 +30,12 @@ export const metadata: Metadata = {
         "web development results India",
         "successful app development projects India",
     ],
-    alternates: { canonical: "/portfolio" },
+    alternates: { canonical: "/case-studies" },
     openGraph: {
         title: "Case Studies — Real Projects by Tecorbitron",
         description:
             "See what we've built — real projects delivered for startups and businesses across industries. From websites and apps to e-commerce and custom digital solutions.",
-        url: "https://www.tecorbitron.com/portfolio",
+        url: "https://www.tecorbitron.com/case-studies",
         images: [{ url: "/og-image.png", width: 1200, height: 630 }],
     },
 };

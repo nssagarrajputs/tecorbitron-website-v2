@@ -45,7 +45,7 @@ const footerMenus: footerMenuItem[] = [
         ],
     },
     {
-        title: "Importants",
+        title: "Important Links",
         links: [
             { label: "Contact Us", href: "/contact" },
             { label: "Insights", href: "/blog" },

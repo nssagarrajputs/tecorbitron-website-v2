@@ -14,22 +14,32 @@ export default function Home() {
     return (
         <main>
             <HomePageSchema />
+
             <Hero />
+
             <ClientLogoStripe />
+
             <div className="section-edge-light"></div>
             <CoreServices />
+
             <div className="section-edge-light"></div>
             <Solutions />
+
             <div className="section-edge-light"></div>
             <Testimonials />
+
             <div className="section-edge-light"></div>
             <StatsBand />
+
             <div className="section-edge-light"></div>
             <FeaturedProjects />
+
             <div className="section-edge-light"></div>
             <Technologies />
+
             <div className="section-edge-light"></div>
             <FeaturedBlogs />
+
             <CTAFormat
                 eyebrow="GET STARTED"
                 heading="Ready to Build Something That Works?"
