@@ -38,6 +38,13 @@ export const metadata: Metadata = {
         url: "https://www.tecorbitron.com/case-studies",
         images: [{ url: "/og-image.png", width: 1200, height: 630 }],
     },
+    twitter: {
+        card: "summary_large_image",
+        title: "Case Studies — Real Projects by Tecorbitron",
+        description:
+            "See what we've built — real projects delivered for startups and businesses across industries.",
+        images: ["/og-image.png"],
+    },
 };
 
 export type Project = {

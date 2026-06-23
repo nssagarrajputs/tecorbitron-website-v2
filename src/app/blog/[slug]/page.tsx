@@ -105,6 +105,12 @@ export async function generateMetadata(props: {
                 ? [{ url: post.coverImage, width: 1200, height: 630 }]
                 : [{ url: "/og-image.png", width: 1200, height: 630 }],
         },
+        twitter: {
+            card: "summary_large_image",
+            title: post.title,
+            description: post.excerpt,
+            images: post.coverImage ? [post.coverImage] : ["/og-image.png"],
+        },
     };
 }
 

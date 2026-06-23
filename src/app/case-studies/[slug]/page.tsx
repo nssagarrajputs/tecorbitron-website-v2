@@ -92,6 +92,12 @@ export async function generateMetadata(props: {
                 ? [{ url: proj.thumbnail, width: 1200, height: 630 }]
                 : [{ url: "/og-image.png", width: 1200, height: 630 }],
         },
+        twitter: {
+            card: "summary_large_image",
+            title: `${proj.projectName} — Tecorbitron Portfolio`,
+            description: proj.summary?.slice(0, 155) ?? "",
+            images: proj.thumbnail ? [proj.thumbnail] : ["/og-image.png"],
+        },
     };
 }
 
