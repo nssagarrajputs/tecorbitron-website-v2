@@ -24,10 +24,16 @@ export function GlobalSchema() {
                         "@type": "Organization",
                         "@id": "https://www.tecorbitron.com/#organization",
                         name: "Tecorbitron Solutions Pvt. Ltd.",
+                        description:
+                            "Tecorbitron Solutions Pvt. Ltd. — a founder-led digital solutions company based in Ghaziabad, India. We build websites, apps, e-commerce stores, and SEO strategies for startups and SMBs.",
                         url: "https://www.tecorbitron.com",
                         logo: {
                             "@type": "ImageObject",
                             url: "https://www.tecorbitron.com/android-chrome-512x512.png",
+                            contentUrl:
+                                "https://www.tecorbitron.com/android-chrome-512x512.png",
+                            width: 512,
+                            height: 512,
                         },
                         foundingDate: "2024-08-05",
                         founders: [
