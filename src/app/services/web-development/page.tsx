@@ -1,16 +1,10 @@
 import PageHero from "@/components/ui/PageHero";
-import ServiceWhyUs from "../_components/ServiceWhyUs";
-import ServiceLetsConnect from "../_components/ServiceLetsConnect";
-import {
-    servicesWhyForWeb,
-    serviceSolutionsWeb,
-    serviceSandMWeb,
-    serviceIntroWeb,
-} from "@/content/services-data";
-import ServiceWhatSolutions from "../_components/ServiceWhatSolutions";
-import ServiceSandM from "../_components/ServiceSandM";
 import ServiceIntro from "../_components/ServiceIntro";
-
+import ServiceWhatSolutions from "../_components/ServiceWhatSolutions";
+import ServiceWhyUs from "../_components/ServiceWhyUs";
+import ServiceSandM from "../_components/ServiceSandM";
+import ServiceLetsConnect from "../_components/ServiceLetsConnect";
+import { serviceWebDevelopment } from "@/content/services-data";
 import type { Metadata } from "next";
 import { WebServiceSchema } from "@/components/StructuredData";
 export const metadata: Metadata = {
@@ -83,16 +77,16 @@ export default function page() {
                 description="From landing pages and business websites to custom web apps and portals — we build modern, high-performance web solutions tailored to your goals and budget."
             />
 
-            <ServiceIntro data={serviceIntroWeb} />
+            <ServiceIntro data={serviceWebDevelopment.intro} />
             <div className="section-edge-light"></div>
 
-            <ServiceWhatSolutions data={serviceSolutionsWeb} />
+            <ServiceWhatSolutions data={serviceWebDevelopment.whatSolutions} />
             <div className="section-edge-light"></div>
 
-            <ServiceSandM data={serviceSandMWeb} />
+            <ServiceSandM data={serviceWebDevelopment.sandm} />
             <div className="section-edge-light"></div>
 
-            <ServiceWhyUs data={servicesWhyForWeb} />
+            <ServiceWhyUs data={serviceWebDevelopment.whyUs} />
             <div className="section-edge-light"></div>
 
             <ServiceLetsConnect />

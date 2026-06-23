@@ -1,5 +1,5 @@
 import { CalendarClock, PackageCheck, ScanSearch } from "lucide-react";
-import type { ServiceSandMData } from "@/content/services-data";
+import type { SandMSection } from "@/content/services-data";
 import { SectionHeaderCentered } from "@/components/ui/SectionHeaderType";
 
 // ─── Hardcoded engagement models ──────────────────────────────────────────────
@@ -12,7 +12,7 @@ const PLANS = [
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-type Props = { data: ServiceSandMData };
+type Props = { data: SandMSection };
 
 export default function ServiceSandM({ data }: Props) {
     return (

@@ -1,17 +1,10 @@
 import PageHero from "@/components/ui/PageHero";
-
-import ServiceWhyUs from "../_components/ServiceWhyUs";
-import ServiceLetsConnect from "../_components/ServiceLetsConnect";
-import {
-    servicesWhyForEcomm,
-    serviceSolutionsEcomm,
-    serviceSandMEcomm,
-    serviceIntroEcomm,
-} from "@/content/services-data";
-import ServiceWhatSolutions from "../_components/ServiceWhatSolutions";
-import ServiceSandM from "../_components/ServiceSandM";
 import ServiceIntro from "../_components/ServiceIntro";
-
+import ServiceWhatSolutions from "../_components/ServiceWhatSolutions";
+import ServiceWhyUs from "../_components/ServiceWhyUs";
+import ServiceSandM from "../_components/ServiceSandM";
+import ServiceLetsConnect from "../_components/ServiceLetsConnect";
+import { serviceEcommerceDevelopment } from "@/content/services-data";
 import type { Metadata } from "next";
 import { EcommerceServiceSchema } from "@/components/StructuredData";
 export const metadata: Metadata = {
@@ -84,15 +77,21 @@ export default function page() {
                 title="Online Stores Built to Sell — Fast, Smart & Scalable"
                 description="From Shopify and WooCommerce to fully custom stores — we build e-commerce solutions that convert visitors into customers and scale with your business."
             />
-            <ServiceIntro data={serviceIntroEcomm} />
-            <div className="section-edge-light"></div>
-            <ServiceWhatSolutions data={serviceSolutionsEcomm} />
 
+            <ServiceIntro data={serviceEcommerceDevelopment.intro} />
             <div className="section-edge-light"></div>
-            <ServiceSandM data={serviceSandMEcomm} />
+
+            <ServiceWhatSolutions
+                data={serviceEcommerceDevelopment.whatSolutions}
+            />
             <div className="section-edge-light"></div>
-            <ServiceWhyUs data={servicesWhyForEcomm} />
+
+            <ServiceSandM data={serviceEcommerceDevelopment.sandm} />
             <div className="section-edge-light"></div>
+
+            <ServiceWhyUs data={serviceEcommerceDevelopment.whyUs} />
+            <div className="section-edge-light"></div>
+
             <ServiceLetsConnect />
         </main>
     );

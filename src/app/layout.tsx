@@ -146,7 +146,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" suppressHydrationWarning>
+        <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
             {process.env.NEXT_PUBLIC_GTM_ID && (
                 <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
             )}

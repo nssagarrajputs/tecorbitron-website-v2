@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-import type { ServiceIntroData } from "@/content/services-data";
+import type { IntroSection } from "@/content/services-data";
 
-type Props = { data: ServiceIntroData };
+type Props = { data: IntroSection };
 
 export default function ServiceIntro({ data }: Props) {
     return (
@@ -21,6 +21,7 @@ export default function ServiceIntro({ data }: Props) {
                         src={data.image}
                         alt={data.imageAlt}
                         fill
+                        sizes="(max-width: 1280px) 100vw, 1280px"
                         className="h-full w-full object-cover"
                         loading="eager"
                     />

@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import type {
-    ServiceSolutionsData,
+    WhatSolutionsSection,
     SolutionItem,
 } from "@/content/services-data";
 import { SectionHeaderCentered } from "@/components/ui/SectionHeaderType";
@@ -26,7 +26,7 @@ function SolutionIcon({ item }: { item: SolutionItem }) {
 
 // ─── Main component ───────────────────────────────────────────────────────────
 
-type Props = { data: ServiceSolutionsData };
+type Props = { data: WhatSolutionsSection };
 
 export default function ServiceWhatSolutions({ data }: Props) {
     return (

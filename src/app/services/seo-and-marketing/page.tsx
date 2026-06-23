@@ -1,17 +1,10 @@
 import PageHero from "@/components/ui/PageHero";
-
-import ServiceWhyUs from "../_components/ServiceWhyUs";
-import ServiceLetsConnect from "../_components/ServiceLetsConnect";
-import {
-    servicesWhyForSeo,
-    serviceSolutionsSeo,
-    serviceSandMSeo,
-    serviceIntroSeo,
-} from "@/content/services-data";
-import ServiceWhatSolutions from "../_components/ServiceWhatSolutions";
-import ServiceSandM from "../_components/ServiceSandM";
 import ServiceIntro from "../_components/ServiceIntro";
-
+import ServiceWhatSolutions from "../_components/ServiceWhatSolutions";
+import ServiceWhyUs from "../_components/ServiceWhyUs";
+import ServiceSandM from "../_components/ServiceSandM";
+import ServiceLetsConnect from "../_components/ServiceLetsConnect";
+import { serviceSeoAndMarketing } from "@/content/services-data";
 import type { Metadata } from "next";
 import { SeoServiceSchema } from "@/components/StructuredData";
 export const metadata: Metadata = {
@@ -77,20 +70,25 @@ export default function page() {
     return (
         <main>
             <SeoServiceSchema />
+
             <PageHero
                 eyebrow="SEO & Digital Growth"
                 title="Search Visibility That Drives Real, Qualified Traffic"
                 description="From technical SEO and on-page optimisation to local and e-commerce SEO — we build search strategies that bring the right people to your business."
             />
-            <ServiceIntro data={serviceIntroSeo} />
-            <div className="section-edge-light"></div>
-            <ServiceWhatSolutions data={serviceSolutionsSeo} />
 
+            <ServiceIntro data={serviceSeoAndMarketing.intro} />
             <div className="section-edge-light"></div>
-            <ServiceSandM data={serviceSandMSeo} />
+
+            <ServiceWhatSolutions data={serviceSeoAndMarketing.whatSolutions} />
             <div className="section-edge-light"></div>
-            <ServiceWhyUs data={servicesWhyForSeo} />
+
+            <ServiceSandM data={serviceSeoAndMarketing.sandm} />
             <div className="section-edge-light"></div>
+
+            <ServiceWhyUs data={serviceSeoAndMarketing.whyUs} />
+            <div className="section-edge-light"></div>
+
             <ServiceLetsConnect />
         </main>
     );

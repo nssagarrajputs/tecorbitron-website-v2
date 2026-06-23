@@ -132,7 +132,10 @@ export default function Footer() {
 
                     {/* Tagline */}
                     <div className="my-24 select-none">
-                        <p className="text-gradient text-center text-[11vw] leading-none font-bold lg:text-[10.5vw]">
+                        <p
+                            className="text-gradient text-center leading-none font-bold"
+                            style={{ fontSize: "clamp(2rem, 11vw, 10rem)" }}
+                        >
                             #WeBuildBold
                         </p>
                     </div>
@@ -145,6 +148,7 @@ export default function Footer() {
                                     src={logoDark}
                                     alt="Tecorbitron Solutions"
                                     width={180}
+                                    preload
                                     className=""
                                 />
                             </Link>

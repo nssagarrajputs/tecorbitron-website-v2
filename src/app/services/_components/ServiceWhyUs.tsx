@@ -1,8 +1,8 @@
 import Image from "next/image";
-import type { WhyUsData } from "@/content/services-data";
 import { SectionHeaderCentered } from "@/components/ui/SectionHeaderType";
+import type { WhyUsSection } from "@/content/services-data";
 
-type Props = { data: WhyUsData };
+type Props = { data: WhyUsSection };
 
 export default function ServiceWhyUs({ data }: Props) {
     return (
@@ -16,7 +16,8 @@ export default function ServiceWhyUs({ data }: Props) {
                         src={data.bannerImg as string}
                         alt={data.heading}
                         fill
-                        loading="eager"
+                        sizes="(max-width: 1280px) 100vw, 1280px"
+                        loading="lazy"
                         className="object-cover"
                     />
                 </div>

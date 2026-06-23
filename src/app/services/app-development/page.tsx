@@ -1,17 +1,10 @@
 import PageHero from "@/components/ui/PageHero";
-
-import ServiceWhyUs from "../_components/ServiceWhyUs";
-import ServiceLetsConnect from "../_components/ServiceLetsConnect";
-import {
-    servicesWhyForApp,
-    serviceSolutionsApp,
-    serviceSandMApp,
-    serviceIntroApp,
-} from "@/content/services-data";
-import ServiceWhatSolutions from "../_components/ServiceWhatSolutions";
-import ServiceSandM from "../_components/ServiceSandM";
 import ServiceIntro from "../_components/ServiceIntro";
-
+import ServiceWhatSolutions from "../_components/ServiceWhatSolutions";
+import ServiceWhyUs from "../_components/ServiceWhyUs";
+import ServiceSandM from "../_components/ServiceSandM";
+import ServiceLetsConnect from "../_components/ServiceLetsConnect";
+import { serviceAppDevelopment } from "@/content/services-data";
 import type { Metadata } from "next";
 import { AppServiceSchema } from "@/components/StructuredData";
 export const metadata: Metadata = {
@@ -83,14 +76,14 @@ export default function page() {
                 title="Mobile Apps Built to Perform on Every Platform"
                 description="From Android and iOS to cross-platform apps — we build mobile products that are fast, reliable, and built around your users and business goals."
             />
-            <ServiceIntro data={serviceIntroApp} />
+            <ServiceIntro data={serviceAppDevelopment.intro} />
             <div className="section-edge-light"></div>
-            <ServiceWhatSolutions data={serviceSolutionsApp} />
+            <ServiceWhatSolutions data={serviceAppDevelopment.whatSolutions} />
 
             <div className="section-edge-light"></div>
-            <ServiceSandM data={serviceSandMApp} />
+            <ServiceSandM data={serviceAppDevelopment.sandm} />
             <div className="section-edge-light"></div>
-            <ServiceWhyUs data={servicesWhyForApp} />
+            <ServiceWhyUs data={serviceAppDevelopment.whyUs} />
             <div className="section-edge-light"></div>
             <ServiceLetsConnect />
         </main>
