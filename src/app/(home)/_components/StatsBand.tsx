@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView } from "motion/react";
 import { SectionHeaderCentered } from "@/components/ui/SectionHeaderType";
 
 const stats = [

@@ -74,7 +74,7 @@ const faqdata = [
     },
     {
         question: "Do you provide support after the project is delivered?",
-        answer: "Yes. Every project includes 45 days of free post-launch support covering anything within the agreed scope. After that, we offer flexible options — a subscription-based maintenance plan or per-scope scheduled work — whatever fits your needs best.",
+        answer: "Yes. Every project includes 3 months of free post-launch support covering anything within the agreed scope. After that, we offer flexible options — a subscription-based maintenance plan or per-scope scheduled work — whatever fits your needs best.",
     },
     {
         question: "How do I know if my project is a good fit for Tecorbitron?",

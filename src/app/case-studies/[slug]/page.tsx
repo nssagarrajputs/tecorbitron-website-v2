@@ -346,7 +346,7 @@ export default async function ProjectDetailPage(props: {
                                         {proj.title}
                                     </h3>
                                     <Link
-                                        href={`/portfolio/${proj.slug}`}
+                                        href={`/case-studies/${proj.slug}`}
                                         className="button-primary"
                                     >
                                         View Case Study
@@ -367,7 +367,7 @@ export default async function ProjectDetailPage(props: {
                 }}
                 secondaryAction={{
                     text: "Browse Portfolio",
-                    href: "/portfolio",
+                    href: "/case-studies",
                 }}
             />
         </main>

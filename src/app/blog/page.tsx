@@ -41,9 +41,9 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Case Studies — Real Projects by Tecorbitron",
+        title: "Insights — Tecorbitron",
         description:
-            "See what we've built — real projects delivered for startups and businesses across industries.",
+            "Expert articles, practical guides, and industry updates from the Tecorbitron team — written to help you build, grow, and scale your business online.",
         images: ["/og-image.png"],
     },
 };

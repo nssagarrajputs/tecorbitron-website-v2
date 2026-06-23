@@ -217,7 +217,7 @@ export default function ProjectInquiry() {
                                                 Something went wrong. Email us
                                                 at{" "}
                                                 <a
-                                                    href="mailto:conact@tecorbitron.com"
+                                                    href="mailto:contact@tecorbitron.com"
                                                     className="underline underline-offset-4"
                                                 >
                                                     contact@tecorbitron.com

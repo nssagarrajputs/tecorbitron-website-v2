@@ -72,44 +72,36 @@ export const metadata: Metadata = {
 
 const faqdata = [
     {
-        question: "How long does it take to build a website?",
-        answer: "Most business websites take 2–4 weeks. E-commerce platforms or complex web apps take 4–8 weeks. We always give you a clear timeline before starting, and we stick to it.",
+        question: "What services does Tecorbitron offer?",
+        answer: "We offer web development, app development, e-commerce development, and SEO services. From simple business websites to complex web apps, mobile apps, and online stores — we cover the full spectrum of digital product development.",
+    },
+    {
+        question: "How long does it take to complete a project?",
+        answer: "It depends on the scope and complexity of your project. A standard business website typically takes 2–4 weeks, while a custom web app or mobile app can take 6–16 weeks. We share a clear timeline before we begin so you always know what to expect.",
     },
     {
         question: "What is your pricing? Do you have fixed packages?",
-        answer: "We offer three engagement models — Fixed Price (starting ₹25,000), Monthly Retainer (starting ₹15,000/mo), and Dedicated Resource (custom). All pricing is transparent with no hidden costs.",
+        answer: "We don't offer one-size-fits-all packages. Every project is scoped and priced based on your specific requirements. We offer Fixed Quote, Pay as You Go, Staged Delivery, and Monthly Retainer models — so you always get a pricing structure that fits your project.",
     },
     {
-        question: "How many revisions do I get?",
-        answer: "All projects include at least 2 rounds of revisions. For design projects, we do revisions until you're happy — within the agreed scope. We want you to love what we build.",
-    },
-    {
-        question: "What technologies do you use?",
-        answer: "We primarily use Next.js, React, TypeScript, Node.js, and Tailwind CSS for web. React Native for mobile. Figma for design. We choose the best tool for each project — not just what we're comfortable with.",
-    },
-    {
-        question: "Do you provide support after the project is delivered?",
-        answer: "Yes. Every project includes 30 days of post-launch support. Beyond that, we offer AMC (Annual Maintenance Contracts) and monthly retainer plans to keep your product running smoothly.",
+        question: "What happens after the project is delivered?",
+        answer: "Every project includes 3 months of free post-launch support. During this period, we handle bug fixes, minor adjustments, and technical issues at no extra cost. After that, we offer ongoing support and maintenance through our best pricing model plans.",
     },
     {
         question: "Can you work with our existing team or codebase?",
-        answer: "Absolutely. We regularly work alongside in-house teams, integrate with existing codebases, and adapt to your tools and workflows. We're flexible.",
+        answer: "Absolutely. We're comfortable jumping into existing projects, reviewing codebases, and collaborating with in-house teams. Whether you need extra development capacity or a fresh perspective on an ongoing project, we can plug in wherever needed.",
+    },
+    {
+        question: "How do we communicate during the project?",
+        answer: "We keep it simple — WhatsApp for quick updates, email for formal communication, and weekly video calls for project reviews. You always know what's happening.",
     },
     {
         question: "Do you work with international clients?",
         answer: "Yes. We work with clients across India, USA, UK, UAE, and beyond. We're comfortable with different time zones and communicate in English. Payments in multiple currencies accepted.",
     },
     {
-        question: "What if I'm not sure which service I need?",
-        answer: "Book a free 30-minute discovery call. We'll understand your goals and recommend the right solution — honestly, even if that means telling you what you don't need.",
-    },
-    {
         question: "Are you a registered company?",
-        answer: "Yes. We are Tecorbitron Solutions Pvt. Ltd., incorporated in August 2024, GST registered, and based in Ghaziabad, NCR, India. Full company details available on our About page.",
-    },
-    {
-        question: "How do we communicate during the project?",
-        answer: "We keep it simple — WhatsApp for quick updates, email for formal communication, and weekly video calls for project reviews. You always know what's happening.",
+        answer: "Yes. We are Tecorbitron Solutions Pvt. Ltd., incorporated in August 2024, GST registered, and based in Ghaziabad, NCR, India.",
     },
 ];
 
