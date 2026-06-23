@@ -7,13 +7,13 @@ import StatsBand from "./_components/StatsBand";
 import FeaturedProjects from "./_components/FeaturedProjects";
 import Testimonials from "./_components/Testimonials";
 import FeaturedBlogs from "./_components/FeaturedBlogs";
-import CTAFormat from "@/components/templetes/CTAFormat";
+import CTAFormat from "@/components/templates/CTAFormat";
 import { HomePageSchema } from "@/components/StructuredData";
 
 export default function Home() {
     return (
         <main>
-            <HomePageSchema />;
+            <HomePageSchema />
             <Hero />
             <ClientLogoStripe />
             <div className="section-edge-light"></div>

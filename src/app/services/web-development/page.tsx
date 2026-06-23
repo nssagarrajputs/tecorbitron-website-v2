@@ -1,4 +1,4 @@
-import PageHero from "@/components/basic-ui/PageHero";
+import PageHero from "@/components/ui/PageHero";
 import ServiceWhyUs from "../_components/ServiceWhyUs";
 import ServiceLetsConnect from "../_components/ServiceLetsConnect";
 import {
@@ -12,16 +12,40 @@ import ServiceSandM from "../_components/ServiceSandM";
 import ServiceIntro from "../_components/ServiceIntro";
 
 import type { Metadata } from "next";
+import { WebServiceSchema } from "@/components/StructuredData";
 export const metadata: Metadata = {
     title: "Web Development Company — Tecorbitron",
     description:
         "We design and develop websites and web applications that load fast, rank well, and convert visitors into customers — built specifically for your business goals.",
     keywords: [
+        // Primary — highest volume
         "web development company India",
-        "custom website development",
-        "web app development",
-        "Nextjs development",
-        "business website",
+        "custom website development India",
+        "website development services India",
+
+        // Solution-specific (from your page)
+        "custom website design and development",
+        "WordPress website development India",
+        "landing page development service",
+        "web application development India",
+        "progressive web app development India",
+        "admin dashboard development",
+        "web portal development India",
+
+        // Tech-specific buyer searches
+        "Next.js website development company",
+        "React web development company India",
+        "TypeScript web development India",
+
+        // Persona
+        "website development for startups India",
+        "business website development India",
+        "website development company Ghaziabad",
+
+        // Pricing/hiring intent
+        "hire web developer India",
+        "affordable website development India",
+        "website development with support India",
         "Tecorbitron web development",
     ],
     alternates: { canonical: "/solutions" },
@@ -51,6 +75,8 @@ export const metadata: Metadata = {
 export default function page() {
     return (
         <main>
+            <WebServiceSchema />
+
             <PageHero
                 eyebrow="Web Development"
                 title="Fast, Scalable Websites & Web Apps Built for Growth"

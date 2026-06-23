@@ -1,4 +1,4 @@
-import { SectionHeaderCentered } from "@/components/basic-ui/SectionHeaderType";
+import { SectionHeaderCentered } from "@/components/ui/SectionHeaderType";
 import Image from "next/image";
 
 import GoogleImg from "@/assets/rating-platform/google.svg";

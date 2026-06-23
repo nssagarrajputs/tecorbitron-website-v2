@@ -62,8 +62,8 @@ const footerMenus: footerMenuItem[] = [
                 external: true,
             },
             {
-                label: "info@tecorbitron.com",
-                href: "mailto:info@tecorbitron.com",
+                label: "contact@tecorbitron.com",
+                href: "mailto:contact@tecorbitron.com",
                 external: true,
             },
             {

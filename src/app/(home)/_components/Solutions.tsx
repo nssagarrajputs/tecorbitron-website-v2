@@ -1,4 +1,4 @@
-import { SectionHeaderLeftRight } from "@/components/basic-ui/SectionHeaderType";
+import { SectionHeaderLeftRight } from "@/components/ui/SectionHeaderType";
 import {
     Globe,
     AppWindow,

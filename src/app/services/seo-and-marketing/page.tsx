@@ -1,4 +1,4 @@
-import PageHero from "@/components/basic-ui/PageHero";
+import PageHero from "@/components/ui/PageHero";
 
 import ServiceWhyUs from "../_components/ServiceWhyUs";
 import ServiceLetsConnect from "../_components/ServiceLetsConnect";
@@ -13,18 +13,41 @@ import ServiceSandM from "../_components/ServiceSandM";
 import ServiceIntro from "../_components/ServiceIntro";
 
 import type { Metadata } from "next";
+import { SeoServiceSchema } from "@/components/StructuredData";
 export const metadata: Metadata = {
     title: "SEO Services Company — Tecorbitron",
     description:
         "We improve your search visibility with technical, on-page, and content SEO strategies that bring real, qualified traffic and measurable business results.",
     keywords: [
+        // Primary
         "SEO services India",
-        "technical SEO",
-        "local SEO",
-        "on-page SEO",
-        "ecommerce SEO",
-        "SEO company Ghaziabad",
-        "Tecorbitron SEO",
+        "SEO company India",
+        "digital marketing services India",
+
+        // Service-specific (very high intent)
+        "technical SEO services India",
+        "on-page SEO services India",
+        "local SEO services India",
+        "local SEO company Ghaziabad",
+        "ecommerce SEO services India",
+        "SEO audit services India",
+        "Google Ads management India",
+        "PPC services India",
+
+        // Platform
+        "Google Business Profile optimization India",
+        "GA4 setup services India",
+
+        // Persona
+        "SEO for startups India",
+        "SEO for small business India",
+        "SEO company NCR India",
+        "affordable SEO services India",
+
+        // Intent
+        "hire SEO expert India",
+        "monthly SEO retainer India",
+        "SEO services with monthly reporting",
     ],
     alternates: { canonical: "/solutions" },
     openGraph: {
@@ -53,6 +76,7 @@ export const metadata: Metadata = {
 export default function page() {
     return (
         <main>
+            <SeoServiceSchema />
             <PageHero
                 eyebrow="SEO & Digital Growth"
                 title="Search Visibility That Drives Real, Qualified Traffic"

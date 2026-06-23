@@ -1,4 +1,4 @@
-import { SectionHeaderCentered } from "@/components/basic-ui/SectionHeaderType";
+import { SectionHeaderCentered } from "@/components/ui/SectionHeaderType";
 import {
     Wheat,
     Car,

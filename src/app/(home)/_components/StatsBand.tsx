@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { SectionHeaderCentered } from "@/components/basic-ui/SectionHeaderType";
+import { SectionHeaderCentered } from "@/components/ui/SectionHeaderType";
 
 const stats = [
     { value: 6, suffix: "+", label: "Years of Expertise", decimal: false },

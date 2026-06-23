@@ -1,23 +1,41 @@
-import PageHero from "@/components/basic-ui/PageHero";
+import PageHero from "@/components/ui/PageHero";
 import ByServices from "./_components/ByServices";
 import ByIndustries from "./_components/ByIndustries";
 import ByCloudAi from "./_components/ByCloudAi";
-import CTAFormat from "@/components/templetes/CTAFormat";
+import CTAFormat from "@/components/templates/CTAFormat";
 import ByThirdParty from "./_components/ByThirdParty";
 
 import type { Metadata } from "next";
+import { SolutionsPageSchema } from "@/components/StructuredData";
 export const metadata: Metadata = {
     title: "Digital Solutions for Every Business — Tecorbitron",
     description:
         "From custom websites and web apps to CRM, ERP, LMS, and e-commerce — Tecorbitron builds digital solutions tailored to your business needs and goals.",
+
     keywords: [
-        "business ERP and CRM solutions",
-        "healthcare medical billing systems",
-        "real estate booking software",
-        "e-learning LMS platform development",
-        "AI integrations for business",
-        "cloud database setup",
-        "payment gateway integrations",
+        // Industry-specific solutions (from your data)
+        "ERP software development India",
+        "custom CRM development India",
+        "LMS development company India",
+        "hospital management system development",
+        "school management system development",
+        "real estate portal development India",
+
+        // Cloud + AI (your differentiator)
+        "AI chatbot development India",
+        "AI integration for business India",
+        "cloud application development India",
+        "serverless app development India",
+
+        // E-commerce solutions
+        "multi-vendor marketplace development",
+        "grocery delivery platform development",
+        "headless commerce solution India",
+
+        // General solution intent
+        "custom digital solutions India",
+        "business software development India",
+        "industry-specific software India",
         "Tecorbitron solutions",
     ],
     alternates: { canonical: "/solutions" },
@@ -47,6 +65,8 @@ export const metadata: Metadata = {
 function Page() {
     return (
         <main>
+            <SolutionsPageSchema />
+
             <PageHero
                 eyebrow="Our Solutions"
                 title="Right Solution for Every Business Need"

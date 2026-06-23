@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import PageHero from "@/components/basic-ui/PageHero";
+import PageHero from "@/components/ui/PageHero";
 import { client } from "@/sanity/client";
 import { groq } from "next-sanity";
 import type { Metadata } from "next";
 import DefProjectThumbnail from "@/assets/other/default-thumbnail.webp";
+import { CaseStudiesPageSchema } from "@/components/StructuredData";
 
 export const revalidate = 21600;
 
@@ -12,12 +13,22 @@ export const metadata: Metadata = {
     title: "Case Studies — Real Projects by Tecorbitron",
     description:
         "See what we've built — real projects delivered for startups and businesses across industries. From websites and apps to e-commerce and custom digital solutions.",
+
     keywords: [
+        // Portfolio/proof searches
+        "Tecorbitron portfolio",
         "Tecorbitron case studies",
-        "web development projects India",
-        "app development projects",
-        "digital solutions work",
-        "client projects Tecorbitron",
+        "Tecorbitron work",
+
+        // Evaluation-stage searches
+        "web development company India projects",
+        "app development company India portfolio",
+        "software development company projects India",
+
+        // Trust-building
+        "real client projects web development India",
+        "web development results India",
+        "successful app development projects India",
     ],
     alternates: { canonical: "/portfolio" },
     openGraph: {
@@ -50,6 +61,8 @@ export default async function PortfolioPage() {
 
     return (
         <main>
+            <CaseStudiesPageSchema />
+
             <PageHero
                 eyebrow="Case Studies"
                 title="Projects That Matter"
@@ -78,7 +91,7 @@ export default async function PortfolioPage() {
                             {projects.map((proj) => (
                                 <div
                                     key={proj.slug}
-                                    className="group flex-vertical justify-between cursor-pointer"
+                                    className="group flex-vertical cursor-pointer justify-between"
                                 >
                                     <div>
                                         <div className="edge-dark aspect-6/3 w-full overflow-hidden border">

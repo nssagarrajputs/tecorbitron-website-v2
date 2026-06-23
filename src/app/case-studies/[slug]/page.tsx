@@ -8,13 +8,11 @@ import { client } from "@/sanity/client";
 import { groq } from "next-sanity";
 import DefBlogThumbnail from "@/assets/other/default-thumbnail.webp";
 import { ptComponents } from "@/components/PortableTextFormat";
-import StructuredData, {
-    portfolioProjectSchema,
-} from "@/components/StructuredData";
+import { CaseStudySchema } from "@/components/StructuredData";
 import type { Metadata } from "next";
-import PageHero from "@/components/basic-ui/PageHero";
-import CTAFormat from "@/components/templetes/CTAFormat";
-import { SectionHeaderCentered } from "@/components/basic-ui/SectionHeaderType";
+import PageHero from "@/components/ui/PageHero";
+import CTAFormat from "@/components/templates/CTAFormat";
+import { SectionHeaderCentered } from "@/components/ui/SectionHeaderType";
 
 type TechStack = {
     name: string;
@@ -133,7 +131,7 @@ export default async function ProjectDetailPage(props: {
 
     return (
         <main>
-            <StructuredData data={portfolioProjectSchema(projData)} />
+            <CaseStudySchema project={projData} />
 
             <PageHero eyebrow="Case Study" title={projData.title} />
 

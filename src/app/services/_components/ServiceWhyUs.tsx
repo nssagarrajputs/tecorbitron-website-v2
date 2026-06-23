@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { WhyUsData } from "@/content/services-data";
-import { SectionHeaderCentered } from "@/components/basic-ui/SectionHeaderType";
+import { SectionHeaderCentered } from "@/components/ui/SectionHeaderType";
 
 type Props = { data: WhyUsData };
 

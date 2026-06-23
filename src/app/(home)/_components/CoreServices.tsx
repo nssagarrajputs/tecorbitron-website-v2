@@ -6,7 +6,7 @@ import ecommerceIcon from "@/assets/specific-services/ssi/ei.png";
 import seoIcon from "@/assets/specific-services/ssi/si.png";
 
 import Link from "next/link";
-import { SectionHeaderLeftRight } from "@/components/basic-ui/SectionHeaderType";
+import { SectionHeaderLeftRight } from "@/components/ui/SectionHeaderType";
 import { CircleCheck } from "lucide-react";
 
 export const servicesCardData = [

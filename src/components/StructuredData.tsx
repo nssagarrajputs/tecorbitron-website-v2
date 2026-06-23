@@ -1,220 +1,3 @@
-// ─── Renderer ─────────────────────────────────────────────────────────────────
-
-export default function StructuredData({ data }: { data: object }) {
-    return (
-        <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-        />
-    );
-}
-
-// ─── Homepage ─────────────────────────────────────────────────────────────────
-export function homePageSchema() {
-    return {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "@id": "https://www.tecorbitron.com/#homepage",
-        url: "https://www.tecorbitron.com",
-        name: "Web Development & App Development Company | Tecorbitron",
-        description:
-            "Tecorbitron helps startups and businesses build high-converting websites, apps, and custom software solutions.",
-        isPartOf: {
-            "@id": "https://www.tecorbitron.com/#website",
-        },
-        about: {
-            "@id": "https://www.tecorbitron.com/#organization",
-        },
-    };
-}
-
-// ─── Services ─────────────────────────────────────────────────────────────────
-
-export function servicesSchema() {
-    return {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        name: "IT Services by Tecorbitron",
-        itemListElement: [
-            {
-                "@type": "ListItem",
-                position: 1,
-                item: {
-                    "@type": "Service",
-                    name: "Web Development",
-                    url: "https://www.tecorbitron.com/services#web-development",
-                    provider: {
-                        "@id": "https://www.tecorbitron.com/#organization",
-                    },
-                    description:
-                        "High-performance websites and web apps built with Next.js, React, and modern tech stacks.",
-                },
-            },
-            {
-                "@type": "ListItem",
-                position: 2,
-                item: {
-                    "@type": "Service",
-                    name: "App Development",
-                    url: "https://www.tecorbitron.com/services#app-development",
-                    provider: {
-                        "@id": "https://www.tecorbitron.com/#organization",
-                    },
-                    description:
-                        "Native and cross-platform mobile apps for iOS and Android using React Native.",
-                },
-            },
-            {
-                "@type": "ListItem",
-                position: 3,
-                item: {
-                    "@type": "Service",
-                    name: "SEO & Digital Marketing",
-                    url: "https://www.tecorbitron.com/services#seo-digital-marketing",
-                    provider: {
-                        "@id": "https://www.tecorbitron.com/#organization",
-                    },
-                    description:
-                        "Data-driven SEO and marketing strategies that increase visibility and drive organic traffic.",
-                },
-            },
-            {
-                "@type": "ListItem",
-                position: 4,
-                item: {
-                    "@type": "Service",
-                    name: "UI/UX Design",
-                    url: "https://www.tecorbitron.com/services#ui-ux-design",
-                    provider: {
-                        "@id": "https://www.tecorbitron.com/#organization",
-                    },
-                    description:
-                        "User-centred design from wireframes to polished Figma prototypes and design systems.",
-                },
-            },
-            {
-                "@type": "ListItem",
-                position: 5,
-                item: {
-                    "@type": "Service",
-                    name: "Custom Software Solutions",
-                    url: "https://www.tecorbitron.com/services#custom-software",
-                    provider: {
-                        "@id": "https://www.tecorbitron.com/#organization",
-                    },
-                    description:
-                        "Tailor-made ERP, CRM, dashboards, and automation tools built for your exact workflows.",
-                },
-            },
-            {
-                "@type": "ListItem",
-                position: 6,
-                item: {
-                    "@type": "Service",
-                    name: "AI Solutions",
-                    url: "https://www.tecorbitron.com/services#ai-solutions",
-                    provider: {
-                        "@id": "https://www.tecorbitron.com/#organization",
-                    },
-                    description:
-                        "AI chatbots, automation pipelines, smart analytics, and AI-integrated workflows.",
-                },
-            },
-        ],
-    };
-}
-
-// ─── Contact ──────────────────────────────────────────────────────────────────
-
-export function contactSchema() {
-    return {
-        "@context": "https://schema.org",
-        "@type": "ContactPage",
-        "@id": "https://www.tecorbitron.com/contact/#webpage",
-        url: "https://www.tecorbitron.com/contact",
-        name: "Contact Tecorbitron Solutions",
-        description:
-            "Get in touch with Tecorbitron Solutions. Free consultation within 24 hours.",
-        isPartOf: { "@id": "https://www.tecorbitron.com/#website" },
-    };
-}
-
-// ─── Blog Post (dynamic) ──────────────────────────────────────────────────────
-
-export function blogPostSchema(post: {
-    title: string;
-    slug: string;
-    excerpt: string;
-    publishedAt: string;
-    coverImage: string | null;
-    author?: { name: string } | null;
-}) {
-    return {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "@id": `https://www.tecorbitron.com/blog/${post.slug}/#article`,
-        headline: post.title,
-        description: post.excerpt,
-        image: post.coverImage ?? "https://www.tecorbitron.com/og-image.png",
-        datePublished: post.publishedAt,
-        author: {
-            "@type": "Person",
-            name: post.author?.name ?? "Sagar Chauhan",
-            url: "https://www.linkedin.com/in/nssagarrajput",
-        },
-        publisher: {
-            "@id": "https://www.tecorbitron.com/#organization",
-        },
-        mainEntityOfPage: {
-            "@type": "WebPage",
-            "@id": `https://www.tecorbitron.com/blog/${post.slug}`,
-        },
-    };
-}
-
-// ─── Portfolio Project (dynamic) ─────────────────────────────────────────────
-
-export function portfolioProjectSchema(proj: {
-    title: string;
-    slug: string;
-    summary?: string;
-    thumbnail: string | null;
-    completedAt?: string;
-    techStack?: string[];
-}) {
-    return {
-        "@context": "https://schema.org",
-        "@type": "CreativeWork",
-        "@id": `https://www.tecorbitron.com/portfolio/${proj.slug}/#creativework`,
-        name: proj.title,
-        description: proj.summary ?? proj.title,
-        image: proj.thumbnail ?? "https://www.tecorbitron.com/og-image.png",
-        url: `https://www.tecorbitron.com/portfolio/${proj.slug}`,
-        creator: { "@id": "https://www.tecorbitron.com/#organization" },
-        dateCreated: proj.completedAt,
-        keywords: proj.techStack?.join(", "),
-    };
-}
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 // ─── Internal renderer — not exported ────────────────────────────────────────
 // Every schema component below builds its own JSON-LD object and calls this to render it. Pages never call this directly and never pass raw `data`.
 
@@ -366,6 +149,308 @@ export function AboutPageSchema() {
                     name: "Sagar Chauhan",
                     jobTitle: "Founder & CEO",
                     url: "https://www.linkedin.com/in/nssagarrajput",
+                },
+            }}
+        />
+    );
+}
+
+// ─── Services — one component per real service page ─────────────────────────
+// All four share an identical shape: name + description mirror each page's
+// real metadata.title/description exactly, so schema never drifts from the
+// visible page content. `provider` always points at the Organization.
+
+export function WebServiceSchema() {
+    return (
+        <Schema
+            data={{
+                "@context": "https://schema.org",
+                "@type": "Service",
+                "@id": "https://www.tecorbitron.com/services/web-development/#service",
+                name: "Web Development Company — Tecorbitron",
+                url: "https://www.tecorbitron.com/services/web-development",
+                description:
+                    "We design and develop websites and web applications that load fast, rank well, and convert visitors into customers — built specifically for your business goals.",
+                serviceType: "Web Development",
+                areaServed: ["India", "International"],
+                provider: {
+                    "@id": "https://www.tecorbitron.com/#organization",
+                },
+            }}
+        />
+    );
+}
+
+export function AppServiceSchema() {
+    return (
+        <Schema
+            data={{
+                "@context": "https://schema.org",
+                "@type": "Service",
+                "@id": "https://www.tecorbitron.com/services/app-development/#service",
+                name: "App Development Company — Tecorbitron",
+                url: "https://www.tecorbitron.com/services/app-development",
+                description:
+                    "We design and develop mobile apps that perform on every platform — Android, iOS, and cross-platform. Built for startups and businesses ready to go mobile.",
+                serviceType: "App Development",
+                areaServed: ["India", "International"],
+                provider: {
+                    "@id": "https://www.tecorbitron.com/#organization",
+                },
+            }}
+        />
+    );
+}
+
+export function EcommerceServiceSchema() {
+    return (
+        <Schema
+            data={{
+                "@context": "https://schema.org",
+                "@type": "Service",
+                "@id": "https://www.tecorbitron.com/services/ecommerce-development/#service",
+                name: "E-Commerce Development Company — Tecorbitron",
+                url: "https://www.tecorbitron.com/services/ecommerce-development",
+                description:
+                    "We build online stores that load fast, convert well, and are easy to manage — on Shopify, WooCommerce, or fully custom. Built for businesses ready to sell online.",
+                serviceType: "E-Commerce Development",
+                areaServed: ["India", "International"],
+                provider: {
+                    "@id": "https://www.tecorbitron.com/#organization",
+                },
+            }}
+        />
+    );
+}
+
+export function SeoServiceSchema() {
+    return (
+        <Schema
+            data={{
+                "@context": "https://schema.org",
+                "@type": "Service",
+                "@id": "https://www.tecorbitron.com/services/seo-and-marketing/#service",
+                name: "SEO Services Company — Tecorbitron",
+                url: "https://www.tecorbitron.com/services/seo-and-marketing",
+                description:
+                    "We improve your search visibility with technical, on-page, and content SEO strategies that bring real, qualified traffic and measurable business results.",
+                serviceType: "SEO & Digital Growth",
+                areaServed: ["India", "International"],
+                provider: {
+                    "@id": "https://www.tecorbitron.com/#organization",
+                },
+            }}
+        />
+    );
+}
+
+// ─── Services hub — used in services/page.tsx ────────────────────────────────
+// Lightweight ItemList referencing the 4 Service @ids above — no duplicated content. The page itself should render this ALONGSIDE all 4 individual service schema components, so /services carries full Service detail for each of the 4 real cards shown on that page, not just references:   <ServicesPageSchema />   <WebServiceSchema />   <AppServiceSchema />   <EcommerceServiceSchema />   <SeoServiceSchema />
+
+export function ServicesPageSchema() {
+    return (
+        <Schema
+            data={{
+                "@context": "https://schema.org",
+                "@type": "ItemList",
+                "@id": "https://www.tecorbitron.com/services/#servicelist",
+                name: "Explore Our Services — Tecorbitron",
+                description:
+                    "From websites and apps to e-commerce and SEO — built for startups and businesses. Fast delivery, transparent pricing, 3 months support included.",
+                itemListElement: [
+                    {
+                        "@type": "ListItem",
+                        position: 1,
+                        item: {
+                            "@id": "https://www.tecorbitron.com/services/web-development/#service",
+                        },
+                    },
+                    {
+                        "@type": "ListItem",
+                        position: 2,
+                        item: {
+                            "@id": "https://www.tecorbitron.com/services/app-development/#service",
+                        },
+                    },
+                    {
+                        "@type": "ListItem",
+                        position: 3,
+                        item: {
+                            "@id": "https://www.tecorbitron.com/services/ecommerce-development/#service",
+                        },
+                    },
+                    {
+                        "@type": "ListItem",
+                        position: 4,
+                        item: {
+                            "@id": "https://www.tecorbitron.com/services/seo-and-marketing/#service",
+                        },
+                    },
+                ],
+            }}
+        />
+    );
+}
+
+// ─── Solutions — used in solutions/page.tsx ──────────────────────────────────
+// Lightweight CollectionPage, not a full breakdown of every solution item — the byServices/byIndustries/byCloudAI/byPlatforms lists are short names + icons, not enough unique content per item to justify individual Service entities the way the 4 main service pages did.
+
+export function SolutionsPageSchema() {
+    return (
+        <Schema
+            data={{
+                "@context": "https://schema.org",
+                "@type": "CollectionPage",
+                "@id": "https://www.tecorbitron.com/solutions/#webpage",
+                url: "https://www.tecorbitron.com/solutions",
+                name: "Digital Solutions for Every Business — Tecorbitron",
+                description:
+                    "From custom websites and web apps to CRM, ERP, LMS, and e-commerce — Tecorbitron builds digital solutions tailored to your business needs and goals.",
+                isPartOf: {
+                    "@id": "https://www.tecorbitron.com/#website",
+                },
+                about: {
+                    "@id": "https://www.tecorbitron.com/#organization",
+                },
+            }}
+        />
+    );
+}
+
+// ─── Case Studies listing — used in case-studies/page.tsx ───────────────────
+// Lightweight CollectionPage for the listing page itself. The individual case study schema (CaseStudySchema, dynamic) is separate and lives on each case-studies/[slug] detail page.
+
+export function CaseStudiesPageSchema() {
+    return (
+        <Schema
+            data={{
+                "@context": "https://schema.org",
+                "@type": "CollectionPage",
+                "@id": "https://www.tecorbitron.com/case-studies/#webpage",
+                url: "https://www.tecorbitron.com/case-studies",
+                name: "Case Studies — Real Projects by Tecorbitron",
+                description:
+                    "See what we've built — real projects delivered for startups and businesses across industries. From websites and apps to e-commerce and custom digital solutions.",
+                isPartOf: {
+                    "@id": "https://www.tecorbitron.com/#website",
+                },
+                about: {
+                    "@id": "https://www.tecorbitron.com/#organization",
+                },
+            }}
+        />
+    );
+}
+
+// ─── Case Study detail — used in case-studies/[slug]/page.tsx ───────────────
+// Dynamic — takes the fetched project object as a prop, since this data only exists after the page's own client.fetch resolves. Fixes two bugs from the old portfolioProjectSchema(): URLs now use /case-studies/ instead of the stale /portfolio/, and techStack (an array of {name, category} objects) is mapped to names before joining, instead of being joined directly as if it were a flat string array.
+
+type CaseStudyProject = {
+    title: string;
+    slug: string;
+    summary?: string;
+    thumbnail: string | null;
+    completedAt?: string;
+    techStack?: { name: string; category: string }[];
+};
+
+export function CaseStudySchema({ project }: { project: CaseStudyProject }) {
+    return (
+        <Schema
+            data={{
+                "@context": "https://schema.org",
+                "@type": "CreativeWork",
+                "@id": `https://www.tecorbitron.com/case-studies/${project.slug}/#creativework`,
+                name: project.title,
+                description: project.summary ?? project.title,
+                image:
+                    project.thumbnail ??
+                    "https://www.tecorbitron.com/og-image.png",
+                url: `https://www.tecorbitron.com/case-studies/${project.slug}`,
+                creator: {
+                    "@id": "https://www.tecorbitron.com/#organization",
+                },
+                dateCreated: project.completedAt,
+                keywords: project.techStack
+                    ?.map((tech) => tech.name)
+                    .join(", "),
+                mainEntityOfPage: {
+                    "@type": "WebPage",
+                    "@id": `https://www.tecorbitron.com/case-studies/${project.slug}`,
+                },
+            }}
+        />
+    );
+}
+
+// ─── Blog listing — used in blog/page.tsx ────────────────────────────────────
+// Lightweight CollectionPage for the listing page itself. The individual post schema (BlogPostSchema, dynamic) is separate and lives on each blog/[slug] detail page.
+
+export function BlogPageSchema() {
+    return (
+        <Schema
+            data={{
+                "@context": "https://schema.org",
+                "@type": "CollectionPage",
+                "@id": "https://www.tecorbitron.com/blog/#webpage",
+                url: "https://www.tecorbitron.com/blog",
+                name: "Insights — Tecorbitron",
+                description:
+                    "Expert articles, practical guides, and industry updates from the Tecorbitron team — written to help you build, grow, and scale your business online.",
+                isPartOf: {
+                    "@id": "https://www.tecorbitron.com/#website",
+                },
+                about: {
+                    "@id": "https://www.tecorbitron.com/#organization",
+                },
+            }}
+        />
+    );
+}
+
+// ─── Blog Post detail — used in blog/[slug]/page.tsx ─────────────────────────
+// Dynamic — takes the fetched post object as a prop, since this data only exists after the page's own client.fetch resolves. Adds category + tags as keywords, which the old blogPostSchema() never included despite the data being available.
+
+type BlogPostData = {
+    title: string;
+    slug: string;
+    excerpt: string;
+    publishedAt: string;
+    coverImage: string | null;
+    category?: string;
+    tags?: string[];
+    author?: { name: string } | null;
+};
+
+export function BlogPostSchema({ post }: { post: BlogPostData }) {
+    const keywords = [post.category, ...(post.tags ?? [])]
+        .filter(Boolean)
+        .join(", ");
+
+    return (
+        <Schema
+            data={{
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "@id": `https://www.tecorbitron.com/blog/${post.slug}/#article`,
+                headline: post.title,
+                description: post.excerpt,
+                image:
+                    post.coverImage ??
+                    "https://www.tecorbitron.com/og-image.png",
+                datePublished: post.publishedAt,
+                ...(keywords ? { keywords } : {}),
+                author: {
+                    "@type": "Person",
+                    name: post.author?.name ?? "Sagar Chauhan",
+                    url: "https://www.linkedin.com/in/nssagarrajput",
+                },
+                publisher: {
+                    "@id": "https://www.tecorbitron.com/#organization",
+                },
+                mainEntityOfPage: {
+                    "@type": "WebPage",
+                    "@id": `https://www.tecorbitron.com/blog/${post.slug}`,
                 },
             }}
         />

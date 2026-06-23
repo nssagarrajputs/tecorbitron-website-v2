@@ -1,8 +1,8 @@
-import PageHero from "@/components/basic-ui/PageHero";
+import PageHero from "@/components/ui/PageHero";
 import Intro from "@/app/about/_components/Intro";
 import Founder from "@/app/about/_components/Founder";
 import Credibility from "@/app/about/_components/Credibility";
-import CTAFormat from "@/components/templetes/CTAFormat";
+import CTAFormat from "@/components/templates/CTAFormat";
 import MissionVision from "./_components/MissionVision";
 import PricingPolicy from "./_components/PricingPolicy";
 
@@ -15,19 +15,27 @@ export const metadata: Metadata = {
         "Learn about Tecorbitron — a founder-led digital solutions company based in Ghaziabad, India. Modern web, app, and e-commerce solutions for startups and SMBs.",
 
     keywords: [
-        "About Tecorbitron",
-        "founder-led digital agency India",
-        "Sagar chauhan",
+        // Brand discovery
         "Tecorbitron",
-        "Tecorbitron Solutions Pvt Ltd",
-        "IT company Ghaziabad",
+        "Tecorbitron Solutions Private Limited",
+        "about Tecorbitron",
+
+        // Founder searches
         "Sagar Chauhan founder",
-        "software development company India",
-        "web development company NCR",
-        "app development company Ghaziabad",
-        "technology partner for startups",
-        "digital product development company",
-        "custom software company India",
+        "Sagar Chauhan Tecorbitron",
+
+        // Trust signals people search before hiring
+        "founder-led IT company India",
+        "registered software company India",
+        "IT company Ghaziabad India",
+        "MCA registered tech company India",
+        "MSME registered IT company India",
+
+        // People checking credibility
+        "Tecorbitron reviews",
+        "Tecorbitron team",
+        "reliable software company India",
+        "transparent IT company India",
     ],
     alternates: { canonical: "/about" },
     openGraph: {
@@ -57,7 +65,7 @@ export default function About() {
     return (
         <main>
             <AboutPageSchema />
-            
+
             <PageHero
                 eyebrow="who we are"
                 title="About Tecorbitron"

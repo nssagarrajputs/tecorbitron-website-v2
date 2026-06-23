@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import PageHero from "@/components/basic-ui/PageHero";
+import PageHero from "@/components/ui/PageHero";
 
 import { privacyPolicy, termsAndConditions } from "@/content/legal-data";
 import Link from "next/link";

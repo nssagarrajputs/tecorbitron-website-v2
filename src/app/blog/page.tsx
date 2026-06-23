@@ -4,19 +4,32 @@ import { client } from "@/sanity/client";
 import { groq } from "next-sanity";
 
 import type { Metadata } from "next";
-import PageHero from "@/components/basic-ui/PageHero";
+import PageHero from "@/components/ui/PageHero";
+import { BlogPageSchema } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
     title: "Insights — Tecorbitron",
     description:
         "Expert articles, practical guides, and industry updates from the Tecorbitron team — written to help you build, grow, and scale your business online.",
+
     keywords: [
-        "tech blog India",
-        "web development tips",
-        "SEO guides",
-        "AI trends",
-        "software development insights",
+        // Topical authority
+        "web development blog India",
+        "app development insights",
+        "SEO tips for businesses India",
+        "tech guides for startups India",
+
+        // Content discovery
         "Tecorbitron blog",
+        "Tecorbitron insights",
+        "digital marketing tips India",
+        "Next.js tutorials",
+        "how to build a website India",
+
+        // Awareness → conversion path
+        "website development cost India",
+        "how to hire a web developer India",
+        "startup tech blog India",
     ],
     alternates: { canonical: "/blog" },
     openGraph: {
@@ -52,6 +65,8 @@ export default async function Blog() {
 
     return (
         <main>
+            <BlogPageSchema />
+
             <PageHero
                 eyebrow="Blogs & Insights"
                 title="Stay Informed. Stay Ahead."

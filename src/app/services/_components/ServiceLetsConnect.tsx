@@ -129,6 +129,10 @@ export default function ServiceLetsConnect() {
                                             placeholder="Full Name"
                                             className="form-field"
                                             required
+                                            minLength={3}
+                                            maxLength={60}
+                                            pattern="[A-Za-z\s'-]+"
+                                            title="Please enter a valid name (letters only)"
                                         />
                                         <input
                                             name="company"
@@ -138,6 +142,7 @@ export default function ServiceLetsConnect() {
                                             onChange={handleChange}
                                             placeholder="Company Name (Optional)"
                                             className="form-field"
+                                            maxLength={100}
                                         />
                                         <input
                                             name="email"
@@ -148,6 +153,7 @@ export default function ServiceLetsConnect() {
                                             placeholder="Work Email"
                                             className="form-field"
                                             required
+                                            maxLength={100}
                                         />
                                         <input
                                             name="phone"
@@ -157,6 +163,7 @@ export default function ServiceLetsConnect() {
                                             onChange={handleChange}
                                             placeholder="Phone Number"
                                             className="form-field"
+                                            inputMode="tel"
                                         />
                                         <textarea
                                             name="description"
@@ -164,7 +171,11 @@ export default function ServiceLetsConnect() {
                                             value={form.description}
                                             onChange={handleChange}
                                             placeholder="Tell us about your project…"
-                                            className="form-field w-full resize-none md:col-span-2"
+                                                className="form-field w-full resize-none md:col-span-2"
+                                                required
+                                                minLength={20}
+                                                maxLength={1000}
+
                                         />
 
                                         <div className="flex-vertical w-full gap-6 md:col-span-2">
@@ -179,7 +190,7 @@ export default function ServiceLetsConnect() {
                                             </button>
 
                                             <span className="text-small text-ink-muted text-center">
-                                                By submitting this form you are
+                                                By submitting this form, you
                                                 agree to our{" "}
                                                 <Link
                                                     href={

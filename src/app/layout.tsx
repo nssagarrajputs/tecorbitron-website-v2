@@ -36,17 +36,33 @@ export const metadata: Metadata = {
     description:
         "Build bold with Tecorbitron. We deliver high-performance apps & websites with AI and Cloud integration as standard. Transparent pricing + 3 months support.",
     keywords: [
-        "web development company India",
-        "app development company India",
-        "react js development company",
-        "next js development agency",
-        "mobile app development services",
-        "MVP development services",
-        "SaaS development India",
-        "custom software for startups",
-        "React and Next.js developers",
+        // Primary brand + category
         "Tecorbitron",
         "Tecorbitron Solutions Pvt Ltd",
+
+        // High-intent service queries
+        "web development company India",
+        "app development company India",
+        "custom software development company India",
+        "digital product development company India",
+
+        // Persona-specific (your ICP)
+        "tech partner for startups India",
+        "IT company for SMBs India",
+        "software development company for startups",
+
+        // Location-specific
+        "IT company Ghaziabad",
+        "software company NCR India",
+        "web development company Ghaziabad",
+
+        // Stack-specific (developer searches)
+        "Next.js development company India",
+        "React development company India",
+
+        // Trust/credibility
+        "MCA registered IT company India",
+        "affordable web development company India",
     ],
 
     // ── AUTHOR & PUBLISHER ─────────────────────────────

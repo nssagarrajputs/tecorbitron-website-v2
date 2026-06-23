@@ -1,32 +1,36 @@
 import type { Metadata } from "next";
 import { ContactPageSchema } from "@/components/StructuredData";
 
-import PageHero from "@/components/basic-ui/PageHero";
+import PageHero from "@/components/ui/PageHero";
 import ProjectInquiry from "./_components/ProjectInquiry";
 import WaysToConnect from "./_components/WaysToConnect";
-import FAQSection from "@/components/templetes/FAQFormat";
+import FAQSection from "@/components/templates/FAQFormat";
 
 export const metadata: Metadata = {
     title: "Contact Us — Tecorbitron",
     description:
         "Got a project in mind? Get in touch with Tecorbitron — we'll get back to you within 24 hours. Let's build something great together.",
     keywords: [
-        // High intent (VERY IMPORTANT)
+        // Bottom-funnel — MOST important page
         "hire web developer India",
         "hire app developer India",
-        "contact software development company",
-        "start a project web development",
-
-        // Conversion intent
-        "get website development quote",
+        "start a web development project India",
+        "get website development quote India",
         "app development consultation India",
-        "custom software inquiry",
-        "IT company contact India",
 
-        // Local + brand
+        // Brand + contact
         "Tecorbitron contact",
+        "contact Tecorbitron",
+        "Tecorbitron inquiry",
+
+        // Location-specific
         "IT company Ghaziabad contact",
-        "software company NCR India",
+        "software company NCR inquiry",
+
+        // Trust
+        "free web development consultation India",
+        "NDA software development India",
+        "registered IT company contact India",
     ],
     alternates: { canonical: "/contact" },
     openGraph: {

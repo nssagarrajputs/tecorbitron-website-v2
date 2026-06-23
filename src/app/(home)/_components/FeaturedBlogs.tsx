@@ -2,7 +2,7 @@ import Link from "next/link";
 import { client } from "@/sanity/client";
 import { groq } from "next-sanity";
 import Image from "next/image";
-import { SectionHeaderLeftRight } from "@/components/basic-ui/SectionHeaderType";
+import { SectionHeaderLeftRight } from "@/components/ui/SectionHeaderType";
 import DefProjectThumbnail from "@/assets/other/default-thumbnail.webp";
 
 // Type

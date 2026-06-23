@@ -1,33 +1,47 @@
 import type { Metadata } from "next";
-import StructuredData, { servicesSchema } from "@/components/StructuredData";
-import PageHero from "@/components/basic-ui/PageHero";
-import FAQFormat from "@/components/templetes/FAQFormat";
-import CTAFormat from "@/components/templetes/CTAFormat";
+import PageHero from "@/components/ui/PageHero";
+import FAQFormat from "@/components/templates/FAQFormat";
+import CTAFormat from "@/components/templates/CTAFormat";
 import Industries from "./_components/Industries";
 import MainServices from "./_components/MainServices";
+import {
+    ServicesPageSchema,
+    WebServiceSchema,
+    AppServiceSchema,
+    EcommerceServiceSchema,
+    SeoServiceSchema,
+} from "@/components/StructuredData";
 
 export const metadata: Metadata = {
     title: "Explore Our Services — Tecorbitron",
     description:
         "From websites and apps to e-commerce and SEO — built for startups and businesses. Fast delivery, transparent pricing, 3 months support included.",
     keywords: [
-        "web development services for startups",
-        "app development services India",
-        // Service-specific
-        "next js development services",
-        "react development company India",
-        "mobile app development services India",
-        // Business intent
-        "build website for business",
-        "digital product development company",
-        "software solutions for startups",
-        "startup tech partner India",
+        // Core service intent
+        "web and app development services India",
+        "digital services for startups India",
+        "IT services for small businesses India",
+        "custom software development services India",
 
-        "web development services India",
-        "app development company",
-        "ecommerce development",
-        "SEO services India",
+        // Buyer journey — comparison stage
+        "best web development company India",
+        "hire software development team India",
+        "outsource web development India",
+        "affordable IT services India",
+
+        // Package/pricing searches
+        "website development packages India",
+        "web development pricing India",
+        "fixed price web development India",
+
+        // Location
+        "IT services Ghaziabad",
+        "digital agency NCR India",
+        "web development company near me India",
+
+        // Trust
         "Tecorbitron services",
+        "post-launch support web development",
     ],
     alternates: { canonical: "/services" },
     openGraph: {
@@ -102,7 +116,11 @@ const faqdata = [
 export default function Services() {
     return (
         <main>
-            <StructuredData data={servicesSchema()} />
+            <ServicesPageSchema />
+            <WebServiceSchema />
+            <AppServiceSchema />
+            <EcommerceServiceSchema />
+            <SeoServiceSchema />
 
             <PageHero
                 eyebrow="What We OFFER"

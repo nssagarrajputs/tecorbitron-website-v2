@@ -24,7 +24,7 @@ import GCP from "@/assets/technology-icon/google-cloud-1.svg";
 import Azure from "@/assets/technology-icon/azure-2.svg";
 import Image from "next/image";
 
-import { SectionHeaderCentered } from "@/components/basic-ui/SectionHeaderType";
+import { SectionHeaderCentered } from "@/components/ui/SectionHeaderType";
 
 const technology = [
     { name: "React", icon: React },

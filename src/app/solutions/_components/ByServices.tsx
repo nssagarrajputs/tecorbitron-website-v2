@@ -4,7 +4,7 @@ import { byServices } from "@/content/solutions-item-data";
 
 import type { SolutionItem } from "@/content/solutions-item-data";
 import Link from "next/link";
-import { SectionHeaderCentered } from "@/components/basic-ui/SectionHeaderType";
+import { SectionHeaderCentered } from "@/components/ui/SectionHeaderType";
 
 // ─── Icon renderer ────────────────────────────────────────────────────────────
 

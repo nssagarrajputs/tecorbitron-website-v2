@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import FounderImage from "@/assets/other/founder.png";
-import { SectionHeaderLeftHanded } from "@/components/basic-ui/SectionHeaderType";
+import { SectionHeaderLeftHanded } from "@/components/ui/SectionHeaderType";
 
 export default function Founder() {
     return (

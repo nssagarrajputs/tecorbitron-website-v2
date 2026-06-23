@@ -1,6 +1,6 @@
 import { CalendarClock, PackageCheck, ScanSearch } from "lucide-react";
 import type { ServiceSandMData } from "@/content/services-data";
-import { SectionHeaderCentered } from "@/components/basic-ui/SectionHeaderType";
+import { SectionHeaderCentered } from "@/components/ui/SectionHeaderType";
 
 // ─── Hardcoded engagement models ──────────────────────────────────────────────
 

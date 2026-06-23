@@ -1,4 +1,4 @@
-import { SectionHeaderCentered } from "@/components/basic-ui/SectionHeaderType";
+import { SectionHeaderCentered } from "@/components/ui/SectionHeaderType";
 import { byIndustries } from "@/content/solutions-item-data";
 import { SolutionIcon } from "./ByServices";
 import Link from "next/link";

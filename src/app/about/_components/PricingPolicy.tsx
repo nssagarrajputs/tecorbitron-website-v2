@@ -1,4 +1,4 @@
-import { SectionHeaderCentered } from "@/components/basic-ui/SectionHeaderType";
+import { SectionHeaderCentered } from "@/components/ui/SectionHeaderType";
 import { Tag, Timer, ListChecks, RefreshCw } from "lucide-react";
 
 const pricingModels = [

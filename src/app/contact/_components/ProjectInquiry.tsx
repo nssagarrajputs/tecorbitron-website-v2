@@ -135,6 +135,10 @@ export default function ProjectInquiry() {
                                         placeholder="Full Name"
                                         className="form-field"
                                         required
+                                        minLength={3}
+                                        maxLength={60}
+                                        pattern="[A-Za-z\s'-]+"
+                                        title="Please enter a valid name (letters only)"
                                     />
                                     <input
                                         name="company"
@@ -144,6 +148,7 @@ export default function ProjectInquiry() {
                                         onChange={handleChange}
                                         placeholder="Company Name (optional)"
                                         className="form-field"
+                                        maxLength={100}
                                     />
                                     <input
                                         name="email"
@@ -154,6 +159,7 @@ export default function ProjectInquiry() {
                                         placeholder="Work Email"
                                         className="form-field w-full"
                                         required
+                                        maxLength={100}
                                     />
                                     <input
                                         name="phone"
@@ -164,6 +170,7 @@ export default function ProjectInquiry() {
                                         placeholder="Phone Number"
                                         className="form-field w-full"
                                         required
+                                        inputMode="tel"
                                     />
                                     <textarea
                                         name="description"
@@ -173,6 +180,8 @@ export default function ProjectInquiry() {
                                         placeholder="How Can We Help You?"
                                         className="form-field w-full resize-none md:col-span-2"
                                         required
+                                        minLength={20}
+                                        maxLength={1000}
                                     />
                                     <div className="flex-vertical w-full gap-6 md:col-span-2">
                                         <button
@@ -186,8 +195,8 @@ export default function ProjectInquiry() {
                                         </button>
 
                                         <span className="text-small text-ink-muted text-center">
-                                            By submitting this form you are
-                                            agree to our{" "}
+                                            By submitting this form, you agree
+                                            to our{" "}
                                             <Link
                                                 href={"/legal/privacy-policy"}
                                                 className="button-text"

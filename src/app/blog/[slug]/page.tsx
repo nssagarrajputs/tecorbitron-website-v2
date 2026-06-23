@@ -6,13 +6,13 @@ import { PortableText } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/react";
 import { ArrowLeft } from "lucide-react";
 import { client } from "@/sanity/client";
-import StructuredData, { blogPostSchema } from "@/components/StructuredData";
+import { BlogPostSchema } from "@/components/StructuredData";
 
-import PageHero from "@/components/basic-ui/PageHero";
+import PageHero from "@/components/ui/PageHero";
 import DefBlogThumbnail from "@/assets/other/default-thumbnail.webp";
 import { ptComponents } from "@/components/PortableTextFormat";
 import type { Metadata } from "next";
-import { SectionHeaderCentered } from "@/components/basic-ui/SectionHeaderType";
+import { SectionHeaderCentered } from "@/components/ui/SectionHeaderType";
 
 type BlogPost = {
     title: string;
@@ -134,7 +134,7 @@ export default async function BlogPostPage(props: {
 
     return (
         <main>
-            <StructuredData data={blogPostSchema(post)} />
+            <BlogPostSchema post={post} />
 
             <PageHero eyebrow="Blog Post" title={post.title} />
 

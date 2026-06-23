@@ -1,4 +1,4 @@
-import PageHero from "@/components/basic-ui/PageHero";
+import PageHero from "@/components/ui/PageHero";
 
 import ServiceWhyUs from "../_components/ServiceWhyUs";
 import ServiceLetsConnect from "../_components/ServiceLetsConnect";
@@ -13,16 +13,40 @@ import ServiceSandM from "../_components/ServiceSandM";
 import ServiceIntro from "../_components/ServiceIntro";
 
 import type { Metadata } from "next";
+import { AppServiceSchema } from "@/components/StructuredData";
 export const metadata: Metadata = {
     title: "App Development Company — Tecorbitron",
     description:
         "We design and develop mobile apps that perform on every platform — Android, iOS, and cross-platform. Built for startups and businesses ready to go mobile.",
     keywords: [
-        "app development company India",
-        "mobile app development",
-        "Flutter app development",
-        "Android iOS app",
-        "cross platform app",
+        // Primary
+        "mobile app development company India",
+        "app development services India",
+        "Android iOS app development India",
+
+        // Platform-specific
+        "iOS app development India",
+        "Android app development India",
+        "cross-platform app development India",
+        "React Native app development India",
+        "Flutter app development India",
+
+        // App type (from your solutions)
+        "on-demand app development India",
+        "e-commerce mobile app development",
+        "enterprise mobile app development India",
+        "EdTech app development India",
+        "MVP app development India",
+
+        // Persona
+        "app development for startups India",
+        "hire app developer India",
+        "mobile app development company Ghaziabad",
+
+        // Intent
+        "build mobile app India",
+        "app development with 3 months support",
+        "affordable app development India",
         "Tecorbitron app development",
     ],
     alternates: { canonical: "/solutions" },
@@ -52,6 +76,8 @@ export const metadata: Metadata = {
 export default function page() {
     return (
         <main>
+            <AppServiceSchema />
+
             <PageHero
                 eyebrow="App Development"
                 title="Mobile Apps Built to Perform on Every Platform"
