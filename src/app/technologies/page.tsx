@@ -66,7 +66,7 @@ export default function TechnologiesPage() {
         <main className="bg-bkg-primary">
             <PageHero
                 eyebrow="Tools & Tech"
-                title="Stack Behind Every Project"
+                title="The Stack Behind Every Project"
                 description="We pick the right technology for the right problem — modern frameworks, proven backends, reliable cloud infrastructure, and tools that are built to scale with your business. No unnecessary complexity, no outdated stacks."
             />
 
@@ -74,7 +74,7 @@ export default function TechnologiesPage() {
 
             <CTAFormat
                 eyebrow="Have a Specific Tech Requirement?"
-                heading="Tell us or let us recommend the right one — we'll build around what works best for your project."
+                heading="Tell us or let us recommend — we'll build around what works best for your project."
                 primaryAction={{
                     text: "Start Your Project",
                     href: "/contact",

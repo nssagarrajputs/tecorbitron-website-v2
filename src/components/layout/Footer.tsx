@@ -57,7 +57,7 @@ const footerMenus: footerMenuItem[] = [
         title: "Get In Touch",
         links: [
             {
-                label: "908-480-0496",
+                label: "(+91) 908-480-0496",
                 href: "tel:+919084800496",
                 external: true,
             },
@@ -111,7 +111,7 @@ export default function Footer() {
                                                         ? "noopener noreferrer"
                                                         : undefined
                                                 }
-                                                className="hover:text-malachite text-ink-primary text-16 smooth-transition active:text-malachite w-fit font-mono underline-offset-4 hover:underline active:underline"
+                                                className="hover:text-malachite text-ink-primary text-16 smooth-transition active:text-malachite w-fit  underline-offset-4 hover:underline active:underline"
                                             >
                                                 {link.label}
                                             </a>
@@ -119,7 +119,7 @@ export default function Footer() {
                                             <Link
                                                 key={link.href}
                                                 href={link.href}
-                                                className="hover:text-malachite text-ink-primary text-16 smooth-transition active:text-malachite w-fit font-mono underline-offset-4 hover:underline active:underline"
+                                                className="hover:text-malachite text-ink-primary text-16 smooth-transition active:text-malachite w-fit  underline-offset-4 hover:underline active:underline"
                                             >
                                                 {link.label}
                                             </Link>

@@ -91,7 +91,7 @@ export default function ProjectInquiry() {
                         <p className="text-18 text-ink-secondary max-w-xl leading-relaxed">
                             Have a project in mind, a question for our team, or
                             just want to know more about what we do? Fill in the
-                            form below and {"we'll"} get back to you shortly.
+                            form and {"we'll"} get back to you shortly.
                         </p>
                     </div>
 
