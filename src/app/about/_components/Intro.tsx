@@ -87,7 +87,7 @@ export default function Intro() {
                             </div>
 
                             <div className="">
-                                <span className="text-h3 text-malachite font-mono leading-none tracking-tighter">
+                                <span className="text-h3 text-malachite leading-none tracking-tighter">
                                     {r.rating.toFixed(1)}
                                 </span>
                             </div>
@@ -120,7 +120,7 @@ export default function Intro() {
                         <h3 className="text-ink-secondary text-body">
                             {stat.title}
                         </h3>
-                        <p className="text-malachite text-h2 font-mono font-black tracking-tight">
+                        <p className="text-malachite text-h2 font-black tracking-tight">
                             {stat.value}
                         </p>
                     </div>

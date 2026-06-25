@@ -95,7 +95,7 @@ export default async function LegalPage(props: {
                                     {section.title}
                                 </h2>
 
-                                <p className="text-ink-secondary text-16 font-mono leading-relaxed whitespace-pre-line">
+                                <p className="text-ink-secondary text-16 leading-relaxed whitespace-pre-line">
                                     {section.content}
                                 </p>
                             </div>
@@ -104,7 +104,7 @@ export default async function LegalPage(props: {
 
                     {/* Bottom nav */}
                     <div className="edge-light flex-center mt-16 flex-wrap gap-8 border-t pt-16 md:justify-between">
-                        <p className="text-ink-muted text-16 font-mono">
+                        <p className="text-ink-muted text-16">
                             Last Updated: {doc.meta.lastUpdated}
                         </p>
 

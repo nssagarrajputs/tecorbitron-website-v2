@@ -85,7 +85,7 @@ export default function ProjectInquiry() {
             <div className="edge-light mx-auto max-w-7xl border-x">
                 <div className="section-header-spacing grid grid-cols-1 gap-y-24 xl:grid-cols-[1fr_2fr]">
                     <div className="side-breathing">
-                        <h2 className="text-h2 text-ink-primary mb-8 font-serif">
+                        <h2 className="text-h2 text-ink-primary mb-8">
                             Discuss Your Project
                         </h2>
                         <p className="text-18 text-ink-secondary max-w-xl leading-relaxed">
@@ -115,7 +115,7 @@ export default function ProjectInquiry() {
                                         submission and reach out within 24
                                         hours.
                                     </p>
-                                    <p className="text-body text-ink-muted font-mono">
+                                    <p className="text-body text-ink-muted">
                                         This message will close automatically…
                                     </p>
                                 </div>

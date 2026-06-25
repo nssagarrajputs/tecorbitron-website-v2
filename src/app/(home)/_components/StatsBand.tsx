@@ -104,7 +104,7 @@ export default function StatsBand() {
                             variants={itemVariants}
                             className={`edge-dark flex flex-col items-center gap-2 border-t border-r px-2 py-16 text-center`}
                         >
-                            <p className="text-malachite text-h1 font-mono font-black tracking-tight">
+                            <p className="text-malachite text-h1  font-black tracking-tight">
                                 <CountUp
                                     target={stat.value}
                                     suffix={stat.suffix}

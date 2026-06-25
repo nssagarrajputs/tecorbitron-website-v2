@@ -45,7 +45,7 @@ export default function BlogListing({ posts, categories }: Props) {
                 <div className="mx-auto mb-24 flex flex-wrap gap-4 select-none">
                     <button
                         onClick={() => setActive("All")}
-                        className={`text-14 smooth-transition text-ink-primary border-secondary-active cursor-pointer border px-4 py-2 font-mono ${
+                        className={`text-14 smooth-transition text-ink-primary border-secondary-active cursor-pointer border px-4 py-2 ${
                             active === "All"
                                 ? "bg-primary border-primary"
                                 : "hover:border-primary active:border-primary"
@@ -57,7 +57,7 @@ export default function BlogListing({ posts, categories }: Props) {
                         <button
                             key={cat.slug}
                             onClick={() => setActive(cat.name)}
-                            className={`text-14 smooth-transition text-ink-primary border-secondary-active cursor-pointer border px-4 py-2 font-mono ${
+                            className={`text-14 smooth-transition text-ink-primary border-secondary-active cursor-pointer border px-4 py-2 ${
                                 active === cat.name
                                     ? "bg-primary border-primary"
                                     : "hover:border-primary active:border-primary"
@@ -82,7 +82,7 @@ export default function BlogListing({ posts, categories }: Props) {
                                             }
                                             alt={post.title}
                                             fill
-                                            loading="lazy"
+                                            loading="eager"
                                             className="object-cover grayscale-50 transition-transform duration-500 group-hover:scale-103 group-hover:grayscale-0 group-active:scale-103 group-active:grayscale-0"
                                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                         />
@@ -94,10 +94,10 @@ export default function BlogListing({ posts, categories }: Props) {
                                             {post.title}
                                         </h3>
                                         <div className="text-14 mt-auto flex items-center gap-4 pt-3">
-                                            <span className="text-primary smooth-transition group-hover:text-malachite group-active:text-malachite font-mono underline-offset-4 group-hover:underline group-active:underline">
+                                            <span className="text-primary smooth-transition group-hover:text-malachite group-active:text-malachite underline-offset-4 group-hover:underline group-active:underline">
                                                 Read Article
                                             </span>
-                                            <span className="text-ink-muted font-mono">
+                                            <span className="text-ink-muted">
                                                 {formatDate(post.publishedAt)}
                                             </span>
                                         </div>

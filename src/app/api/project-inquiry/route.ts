@@ -21,21 +21,16 @@ export async function POST(req: Request) {
             to: process.env.CONTACT_EMAIL || "info@tecorbitron.com",
             replyTo: email,
             subject: `TSPL Project Inquiry - ${name}`,
-            html: `
-                <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #0C3146;">
-                    <h2 style="margin-bottom: 16px;">New Project Inquiry</h2>
-
-                    <p><strong>Full Name:</strong> ${name}</p>
-                    <p><strong>Company / Brand Name:</strong> ${company || "Not provided"}</p>
-                    <p><strong>Work Email:</strong> ${email}</p>
-                    <p><strong>Phone:</strong> ${phone}</p>
-
-                    <hr style="margin: 24px 0; border: none; border-top: 1px solid #DDE6ED;" />
-
-                    <p><strong>Project Description:</strong></p>
-                    <p style="white-space: pre-line;">${description}</p>
-                </div>
-            `,
+            template: {
+                id: "new-project-inquiry",
+                variables: {
+                    name: name,
+                    company: company,
+                    email: email,
+                    phone: phone,
+                    description: description,
+                },
+            },
         });
 
         return NextResponse.json({ success: true }, { status: 200 });

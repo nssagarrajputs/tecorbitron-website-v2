@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mulish, Noto_Serif_JP, IBM_Plex_Mono } from "next/font/google";
+import { Mulish } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -8,26 +8,10 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import { GlobalSchema } from "@/components/StructuredData";
 
-// ── Noto Serif Japanese — accent ──
-const serif = Noto_Serif_JP({
-    subsets: ["latin"],
-    weight: ["300", "400", "500", "600", "700", "800"],
-    variable: "--font-serif",
-    display: "swap",
-});
-
-// ── IBM Plex Mono — code ──
-const mono = IBM_Plex_Mono({
-    subsets: ["latin"],
-    weight: ["300", "400", "500", "600", "700"],
-    variable: "--font-mono",
-    display: "swap",
-});
-
 const sans = Mulish({
     subsets: ["latin"],
     display: "swap",
-    weight: ["300", "400", "500", "600", "700", "800"],
+    weight: ["300", "400", "600", "700", "800"],
     variable: "--font-sans",
 });
 
@@ -150,9 +134,7 @@ export default function RootLayout({
             {process.env.NEXT_PUBLIC_GTM_ID && (
                 <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
             )}
-            <body
-                className={`${sans.variable} ${serif.variable} ${mono.variable}`}
-            >
+            <body className={`${sans.variable}`}>
                 <GlobalSchema />
                 <SpeedInsights />
                 <Analytics />

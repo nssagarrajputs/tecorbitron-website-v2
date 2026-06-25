@@ -38,9 +38,7 @@ export default function ServiceSandM({ data }: Props) {
                                 strokeWidth={1.5}
                                 className="text-malachite"
                             />
-                            <h3 className="text-16 text-ink-muted font-mono">
-                                {title}
-                            </h3>
+                            <h3 className="text-16 text-ink-muted">{title}</h3>
                         </div>
                     ))}
                 </div>

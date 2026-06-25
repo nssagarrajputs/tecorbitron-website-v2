@@ -41,7 +41,7 @@ export default function WaysToConnect() {
         <section className="bg-canvas-white dark side-layout-spacing">
             <div className="bg-canvas mx-auto max-w-7xl">
                 <div className="side-breathing edge-dark border-x py-16">
-                    <h2 className="text-ink-primary text-18 text-center font-mono">
+                    <h2 className="text-ink-primary text-18 text-center">
                         {"We're"} easy to reach — choose the channel that works
                         best for you.
                     </h2>

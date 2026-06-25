@@ -193,15 +193,13 @@ export const ptComponents: PortableTextComponents = {
                         <span className="bg-error/70 h-2.5 w-2.5 rounded-full" />
                         <span className="bg-warning/70 h-2.5 w-2.5 rounded-full" />
                         <span className="bg-success/70 h-2.5 w-2.5 rounded-full" />
-                        <span className="ml-2 font-mono text-xs text-white/40">
+                        <span className="ml-2 text-xs text-white/40">
                             {value.filename}
                         </span>
                     </div>
                 )}
                 <pre className="bg-deepspace overflow-x-auto p-5 text-sm leading-relaxed">
-                    <code className="font-mono text-white/80">
-                        {value.code}
-                    </code>
+                    <code className="text-white/80">{value.code}</code>
                 </pre>
             </div>
         ),

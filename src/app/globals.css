@@ -3,7 +3,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-    --pen-light-primary: #050e15;
+    /* --pen-light-primary: #050e15; */
+    --pen-light-primary: #0f2c41;
     --pen-light-secondary: #2c3f4d;
     --pen-light-muted: #5d7280;
     --pen-dark-primary: #ffffff;
@@ -15,8 +16,6 @@
 
 @theme {
     --font-sans: var(--font-sans);
-    --font-serif: var(--font-serif);
-    --font-mono: var(--font-mono);
 
     --color-*: initial;
 
@@ -170,19 +169,19 @@
 }
 
 @utility eyebrow {
-    @apply text-14 text-ink-primary font-mono uppercase;
+    @apply text-14 text-ink-primary uppercase;
 }
 
 @utility section-heading {
-    @apply text-h2 text-ink-primary font-serif;
+    @apply text-h2 text-ink-primary;
 }
 
 @utility section-supportive {
-    @apply text-18 text-ink-secondary font-sans;
+    @apply text-18 text-ink-secondary;
 }
 
 @utility section-endline {
-    @apply text-ink-muted text-body font-mono;
+    @apply text-ink-muted text-body;
 }
 
 /* BUTTONS STYLE */

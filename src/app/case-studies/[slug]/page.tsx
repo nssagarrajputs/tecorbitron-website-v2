@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ChevronRight } from "lucide-react";
+import { ArrowLeft, ChevronRight } from "lucide-react";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/react";
 import { client } from "@/sanity/client";
@@ -113,7 +113,7 @@ function CaseStudySection({
     if (!content || content.length === 0) return null;
     return (
         <div className="flex flex-col gap-4">
-            <h2 className="text-h3 font-serif">{title}</h2>
+            <h2 className="text-h3 text-ink-primary">{title}</h2>
             <div className="flex flex-col gap-3">
                 <PortableText value={content} components={ptComponents} />
             </div>
@@ -139,60 +139,42 @@ export default async function ProjectDetailPage(props: {
         <main>
             <CaseStudySchema project={projData} />
 
-            <PageHero eyebrow="Case Study" title={projData.title} />
+            <section className="dark side-layout-spacing">
+                <div className="edge-dark mx-auto max-w-7xl border-x py-24">
+                    <div className="side-breathing flex-vertical mx-auto max-w-5xl gap-y-12">
+                        <div className="flex-vertical flex-col-reverse gap-y-6">
+                            <h1 className="text-ink-primary text-h2 font-bold">
+                                {projData.title}
+                            </h1>
+                            <Link
+                                href="/case-studies"
+                                className="button-text flex w-fit items-center gap-2"
+                            >
+                                <ArrowLeft size={18} strokeWidth={1.4} /> Back
+                            </Link>
+                        </div>
 
-            {/* Breadcrumb */}
-            <section className="bg-canvas-white side-layout-spacing">
-                <div className="side-breathing edge-light mx-auto max-w-7xl border-x py-6">
-                    <nav className="text-ink-muted text-14 flex items-center gap-1.5">
-                        <Link href="/" className="button-text">
-                            Home
-                        </Link>
-                        <ChevronRight size={12} />
-                        <Link href="/case-studies" className="button-text">
-                            Portfolio
-                        </Link>
-                        <ChevronRight size={12} />
-                        <span className="line-clamp-1">
-                            {projData.projectName}
-                        </span>
-                    </nav>
-                </div>
-            </section>
+                        <div className="edge-dark relative aspect-video w-full border">
+                            <Image
+                                src={projData.thumbnail || DefBlogThumbnail}
+                                alt={projData.projectName}
+                                fill
+                                sizes="(max-width: 1024px) 100vw, 1024px"
+                                className="w-full object-cover"
+                                preload
+                            />
+                        </div>
 
-            <div className="section-edge-light"></div>
-
-            {/* Thumbnail */}
-            <section className="bg-canvas-white side-layout-spacing">
-                <div className="edge-light mx-auto max-w-7xl border-x">
-                    <div className="relative aspect-video w-full">
-                        <Image
-                            src={projData.thumbnail || DefBlogThumbnail}
-                            alt={projData.projectName}
-                            fill
-                            className="h-full w-full object-cover"
-                            loading="eager"
-                        />
-                    </div>
-                </div>
-            </section>
-
-            <div className="section-edge-light"></div>
-
-            {/* Industries + Tech Stack */}
-            <section className="bg-canvas-white side-layout-spacing">
-                <div className="mx-auto max-w-7xl">
-                    <div className="edge-light grid grid-cols-1 border-l md:grid-cols-2">
                         {projData.industries?.length > 0 && (
-                            <div className="edge-light side-breathing border-r py-16">
-                                <h3 className="text-ink-secondary text-18 mb-6 font-medium">
+                            <div className="">
+                                <h2 className="text-ink-primary text-18 mb-6 font-medium">
                                     Industry
-                                </h3>
+                                </h2>
                                 <div className="flex flex-wrap gap-4">
                                     {projData.industries.map((ind: string) => (
                                         <span
                                             key={ind}
-                                            className="bg-canvas-soft text-ink-muted px-4 py-2 font-medium capitalize"
+                                            className="bg-primary/20 text-primary px-4 py-2 font-medium capitalize"
                                         >
                                             {ind}
                                         </span>
@@ -202,16 +184,16 @@ export default async function ProjectDetailPage(props: {
                         )}
 
                         {projData.techStack?.length > 0 && (
-                            <div className="edge-light side-breathing border-r py-16 max-md:border-t">
-                                <h3 className="text-ink-secondary text-18 mb-6 font-medium">
+                            <div className="">
+                                <h2 className="text-ink-primary text-18 mb-6 font-medium">
                                     Tech Stack
-                                </h3>
+                                </h2>
                                 <div className="flex flex-wrap gap-4">
                                     {projData.techStack.map(
                                         (tech: TechStack) => (
                                             <span
                                                 key={tech.name}
-                                                className="bg-canvas-soft text-ink-muted px-4 py-2 font-medium capitalize"
+                                                className="bg-secondary/20 text-ink-secondary px-4 py-2 font-medium capitalize"
                                             >
                                                 {tech.name}
                                             </span>
@@ -220,116 +202,107 @@ export default async function ProjectDetailPage(props: {
                                 </div>
                             </div>
                         )}
+
+                        <div className="section-edge-dark"></div>
+
+                        {projData.summary && (
+                            <div className="flex flex-col gap-3">
+                                <h2 className="text-h3 text-ink-primary">
+                                    Summary
+                                </h2>
+                                <p className="text-body text-ink-secondary leading-relaxed">
+                                    {projData.summary}
+                                </p>
+                            </div>
+                        )}
+
+                        {projData.problem && (
+                            <div className="flex flex-col gap-3">
+                                <CaseStudySection
+                                    title="The Problem"
+                                    content={projData.problem}
+                                />
+                            </div>
+                        )}
+
+                        {projData.solution && (
+                            <div className="flex flex-col gap-3">
+                                <CaseStudySection
+                                    title="Our Solution"
+                                    content={projData.solution}
+                                />
+                            </div>
+                        )}
+
+                        <div className="section-edge-dark"></div>
+
+                        {/* Screenshots */}
+                        {projData.screenshots?.length > 0 && (
+                            <div>
+                                <h2 className="text-h3 text-ink-primary mb-16">
+                                    Screenshots
+                                </h2>
+                                <div className="flex-vertical mx-auto max-w-5xl gap-12">
+                                    {projData.screenshots.map(
+                                        (
+                                            shot: {
+                                                url: string;
+                                                alt?: string;
+                                            },
+                                            idx: number,
+                                        ) => (
+                                            <div
+                                                key={idx}
+                                                className="edge-dark w-full border"
+                                            >
+                                                <Image
+                                                    src={shot.url}
+                                                    alt={
+                                                        shot.alt ??
+                                                        `${projData.projectName} — Screenshot ${idx + 1}`
+                                                    }
+                                                    width={1200}
+                                                    height={1000}
+                                                    className="h-auto w-full"
+                                                    loading="lazy"
+                                                />
+                                            </div>
+                                        ),
+                                    )}
+                                </div>
+                            </div>
+                        )}
+
+                        <div className="section-edge-dark"></div>
+
+                        {projData.result && (
+                            <div className="flex flex-col gap-3">
+                                <CaseStudySection
+                                    title="Results & Outcome"
+                                    content={projData.result}
+                                />
+                            </div>
+                        )}
                     </div>
                 </div>
             </section>
 
-            <div className="section-edge-light"></div>
-
-            <section className="bg-canvas-white side-layout-spacing">
-                <div className="mx-auto max-w-7xl">
-                    {projData.summary && (
-                        <div className="side-breathing edge-light flex flex-col gap-3 border-x py-16">
-                            <h2 className="text-h3 font-serif">Summary</h2>
-                            <p className="text-body text-ink-secondary leading-relaxed">
-                                {projData.summary}
-                            </p>
-                        </div>
-                    )}
-
-                    <div className="section-edge-light"></div>
-
-                    {projData.problem && (
-                        <div className="side-breathing edge-light flex flex-col gap-3 border-x py-16">
-                            <CaseStudySection
-                                title="The Problem"
-                                content={projData.problem}
-                            />
-                        </div>
-                    )}
-
-                    <div className="section-edge-light"></div>
-
-                    {projData.solution && (
-                        <div className="side-breathing edge-light flex flex-col gap-3 border-x py-16">
-                            <CaseStudySection
-                                title="Our Solution"
-                                content={projData.solution}
-                            />
-                        </div>
-                    )}
-                </div>
-            </section>
-
-            <div className="section-edge-light"></div>
-
-            {/* Screenshots */}
-            {projData.screenshots?.length > 0 && (
-                <section className="side-layout-spacing dark">
-                    <div className="edge-dark side-breathing mx-auto max-w-7xl border-x py-16">
-                        <h2 className="text-h3 text-ink-primary mb-16 font-serif">
-                            Screenshots
-                        </h2>
-                        <div className="flex-vertical mx-auto max-w-5xl gap-12">
-                            {projData.screenshots.map(
-                                (
-                                    shot: { url: string; alt?: string },
-                                    idx: number,
-                                ) => (
-                                    <div
-                                        key={idx}
-                                        className="edge-dark w-full border"
-                                    >
-                                        <Image
-                                            src={shot.url}
-                                            alt={
-                                                shot.alt ??
-                                                `${projData.projectName} — Screenshot ${idx + 1}`
-                                            }
-                                            width={1200}
-                                            height={1000}
-                                            className="h-full w-full"
-                                        />
-                                    </div>
-                                ),
-                            )}
-                        </div>
-                    </div>
-                </section>
-            )}
-
-            <div className="section-edge-light"></div>
-
-            {/* Case Study — Results */}
-            <section className="bg-canvas-white side-layout-spacing">
-                <div className="mx-auto max-w-7xl">
-                    {projData.result && (
-                        <div className="side-breathing edge-light flex flex-col gap-3 border-x py-16">
-                            <CaseStudySection
-                                title="Results & Outcome"
-                                content={projData.result}
-                            />
-                        </div>
-                    )}
-                </div>
-            </section>
-
-            <div className="section-edge-light"></div>
+            <div className="section-edge-dark"></div>
 
             {/* Related Projects */}
             {related?.length > 0 && (
-                <section className="bg-canvas-white side-layout-spacing">
+                <section className="dark side-layout-spacing">
                     <div className="mx-auto max-w-7xl">
-                        <div className="edge-light border-x">
+                        <div className="edge-dark border-x">
                             <SectionHeaderCentered heading="Related Projects" />
                         </div>
-                        <div className="edge-light grid grid-cols-1 border-l lg:grid-cols-3">
+                        <div className="edge-dark grid grid-cols-1 border-l lg:grid-cols-3">
                             {related.map((proj: RelatedProject) => (
                                 <div
                                     key={proj.slug}
-                                    className="edge-light side-breathing border-t border-r py-16"
+                                    className="edge-dark side-breathing border-t border-r py-16"
                                 >
-                                    <div className="edge-light relative aspect-video w-full border">
+                                    <div className="edge-dark relative aspect-video w-full border">
                                         <Image
                                             src={
                                                 proj.thumbnail ||
@@ -347,7 +320,7 @@ export default async function ProjectDetailPage(props: {
                                     </h3>
                                     <Link
                                         href={`/case-studies/${proj.slug}`}
-                                        className="button-primary"
+                                        className="button-secondary"
                                     >
                                         View Case Study
                                     </Link>
@@ -357,6 +330,8 @@ export default async function ProjectDetailPage(props: {
                     </div>
                 </section>
             )}
+
+            <div className="section-edge-dark"></div>
 
             <CTAFormat
                 eyebrow="YOUR TURN"

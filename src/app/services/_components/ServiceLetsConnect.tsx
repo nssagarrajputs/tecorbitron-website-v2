@@ -68,7 +68,7 @@ export default function ServiceLetsConnect() {
                     {/* ── LEFT ── */}
                     <div className="side-breathing flex-vertical justify-between gap-24">
                         <div>
-                            <h2 className="text-h2 text-ink-primary mb-8 font-serif leading-tight">
+                            <h2 className="text-h2 text-ink-primary mb-8 leading-tight">
                                 {"Let's"} Start a <br /> Conversation Today!
                             </h2>
                             <p className="text-18 text-ink-secondary max-w-100 leading-relaxed">
@@ -77,7 +77,7 @@ export default function ServiceLetsConnect() {
                                 success.
                             </p>
                         </div>
-                        <span className="text-16 text-ink-muted font-mono">
+                        <span className="text-16 text-ink-muted">
                             Drop us a line at{" "}
                             <a
                                 href="mailto:contact@tecorbitron.com"
@@ -110,7 +110,7 @@ export default function ServiceLetsConnect() {
                                         submission and reach out within 24
                                         hours.
                                     </p>
-                                    <p className="text-body text-ink-muted font-mono">
+                                    <p className="text-body text-ink-muted">
                                         This message will close automatically…
                                     </p>
                                 </div>
@@ -171,11 +171,10 @@ export default function ServiceLetsConnect() {
                                             value={form.description}
                                             onChange={handleChange}
                                             placeholder="Tell us about your project…"
-                                                className="form-field w-full resize-none md:col-span-2"
-                                                required
-                                                minLength={20}
-                                                maxLength={1000}
-
+                                            className="form-field w-full resize-none md:col-span-2"
+                                            required
+                                            minLength={20}
+                                            maxLength={1000}
                                         />
 
                                         <div className="flex-vertical w-full gap-6 md:col-span-2">

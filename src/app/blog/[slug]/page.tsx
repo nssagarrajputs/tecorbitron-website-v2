@@ -142,93 +142,124 @@ export default async function BlogPostPage(props: {
         <main>
             <BlogPostSchema post={post} />
 
-            <PageHero eyebrow="Blog Post" title={post.title} />
+            <section className="dark side-layout-spacing">
+                <div className="edge-dark mx-auto max-w-7xl border-x py-24">
+                    <div className="side-breathing flex-vertical mx-auto max-w-4xl gap-y-12">
+                        <div className="flex-vertical flex-col-reverse gap-y-6">
+                            <h1 className="text-ink-primary text-h2 font-bold">
+                                {post.title}
+                            </h1>
+                            <Link
+                                href="/blog"
+                                className="button-text flex w-fit items-center gap-2"
+                            >
+                                <ArrowLeft size={18} strokeWidth={1.4} /> Back
+                            </Link>
+                        </div>
 
-            {/* Cover Image */}
-            <section className="bg-canvas-white side-layout-spacing">
-                <div className="mx-auto max-w-7xl">
-                    <div className="edge-light relative aspect-video w-full border-x xl:aspect-16/7">
-                        <Image
-                            src={post.coverImage || DefBlogThumbnail}
-                            alt={post.title}
-                            fill
-                            className="w-full object-cover"
-                            loading="eager"
-                        />
-                    </div>
-                </div>
-            </section>
+                        <span className="text-ink-muted">
+                            {post.publishedAt}
+                        </span>
 
-            <div className="section-edge-light"></div>
+                        <div className="edge-dark relative aspect-video w-full border">
+                            <Image
+                                src={post.coverImage || DefBlogThumbnail}
+                                alt={post.title}
+                                fill
+                                sizes="(max-width: 1024px) 100vw, 900px"
+                                className="w-full object-cover"
+                                preload
+                            />
+                        </div>
 
-            {/* Back + Excerpt */}
-            <section className="bg-canvas-white side-layout-spacing">
-                <div className="side-breathing edge-light mx-auto max-w-7xl border-x py-24">
-                    <Link
-                        href="/blog"
-                        className="button-primary flex items-center gap-2"
-                    >
-                        <ArrowLeft size={13} strokeWidth={3} />
-                        Back to Blog
-                    </Link>
+                        {post.excerpt && (
+                            <p className="text-ink-primary border-malachite text-18 mt-16 border-l-4 pl-6 leading-relaxed">
+                                {post.excerpt}
+                            </p>
+                        )}
 
-                    {post.excerpt && (
-                        <p className="text-ink-primary border-malachite text-body mt-16 border-l-4 pl-6 leading-relaxed">
-                            {post.excerpt}
-                        </p>
-                    )}
-                </div>
-            </section>
+                        <div className="flex-vertical gap-8">
+                            <PortableText
+                                value={post.body}
+                                components={ptComponents}
+                            />
+                        </div>
 
-            <div className="section-edge-light"></div>
+                        <div className="section-edge-dark"></div>
 
-            {/* Body */}
-            <section className="bg-canvas-white side-layout-spacing">
-                <div className="side-breathing edge-light mx-auto max-w-7xl border-x py-24">
-                    <div className="flex-vertical gap-8">
-                        <PortableText
-                            value={post.body}
-                            components={ptComponents}
-                        />
-                    </div>
-                </div>
-            </section>
+                        {post.tags?.length > 0 && (
+                            <div className="flex flex-wrap gap-4">
+                                {post.tags.map((tag) => (
+                                    <span
+                                        key={tag}
+                                        className="text-malachite border-primary text-16 border px-4 py-2 font-medium"
+                                    >
+                                        #{tag}
+                                    </span>
+                                ))}
+                            </div>
+                        )}
 
-            <div className="section-edge-light"></div>
+                        <div className="section-edge-dark"></div>
 
-            {/* Tags */}
-            {post.tags?.length > 0 && (
-                <section className="bg-canvas-white side-layout-spacing">
-                    <div className="side-breathing edge-light mx-auto max-w-7xl border-x py-24">
-                        <div className="flex flex-wrap gap-4">
-                            {post.tags.map((tag) => (
-                                <span
-                                    key={tag}
-                                    className="bg-canvas-soft text-ink-secondary text-16 px-4 py-2 font-medium"
+                        <div>
+                            <h2 className="text-ink-muted text-body mb-6 uppercase">
+                                Share this article
+                            </h2>
+                            <div className="text-ink-muted **:hover:text-ink-primary text-16 **:active:text-ink-primary flex flex-wrap items-center gap-3 font-medium underline-offset-4 **:hover:underline **:active:underline">
+                                <a
+                                    href="https://www.linkedin.com/company/tecorbitrons"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Visit Tecorbitron on LinkedIn"
                                 >
-                                    #{tag}
-                                </span>
-                            ))}
+                                    LinkedIn
+                                </a>
+                                <a
+                                    href="https://www.instagram.com/tecorbitron"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Visit Tecorbitron on Instagram"
+                                >
+                                    Instagram
+                                </a>
+                                <a
+                                    href="https://www.facebook.com/tecorbitron"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Visit Tecorbitron on Facebook"
+                                >
+                                    Facebook
+                                </a>
+                                <a
+                                    href="https://www.youtube.com/@Tecorbitron"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Visit Tecorbitron Youtube Channel"
+                                >
+                                    Copy URL
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </section>
-            )}
+                </div>
+            </section>
 
-            <div className="section-edge-light"></div>
+            <div className="section-edge-dark"></div>
 
             {/* Related Posts */}
             {related?.length > 0 && (
-                <section className="bg-canvas-white side-layout-spacing">
+                <section className="dark side-layout-spacing">
                     <div className="mx-auto max-w-7xl">
-                        <div className="edge-light border-x">
+                        <div className="edge-dark border-x">
                             <SectionHeaderCentered heading="Related Articles" />
-                            <div className="edge-light grid grid-cols-1 border-l lg:grid-cols-3">
+                            <div className="edge-dark grid grid-cols-1 border-l lg:grid-cols-3">
                                 {related.map((rel) => (
                                     <div
                                         key={rel.slug}
-                                        className="edge-light side-breathing border-t border-r py-16"
+                                        className="edge-dark side-breathing border-t border-r py-16"
                                     >
-                                        <div className="edge-light relative aspect-video w-full border">
+                                        <div className="edge-dark relative aspect-video w-full border">
                                             <Image
                                                 src={
                                                     rel.coverImage ||

@@ -33,7 +33,7 @@ export default function Hero() {
 
             <div className="relative z-10 mx-auto max-w-7xl">
                 <div className="edge-dark flex-center side-breathing w-full border-x border-b py-12">
-                    <span className="text-body text-ink-secondary font-mono tracking-wider uppercase">
+                    <span className="text-body text-ink-secondary  tracking-wider uppercase">
                         FOR STARTUPS AND BUSINESS
                     </span>
                 </div>
@@ -67,7 +67,7 @@ export default function Hero() {
                             className="flex-center edge-dark gap-2 border-t border-r py-8"
                         >
                             <Icon size={20} className={iconClass} />
-                            <span className="text-body text-ink-primary font-mono tracking-tighter">
+                            <span className="text-body text-ink-primary  tracking-tighter">
                                 {text}
                             </span>
                         </div>

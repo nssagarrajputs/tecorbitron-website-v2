@@ -21,7 +21,7 @@ export default function PageHero({
 
             <div className="relative z-10 mx-auto max-w-7xl">
                 <div className="edge-dark flex-center side-breathing w-full border-x border-b py-12">
-                    <span className="text-body text-ink-secondary font-mono tracking-wider uppercase">
+                    <span className="text-body text-ink-secondary tracking-wider uppercase">
                         {eyebrow}
                     </span>
                 </div>

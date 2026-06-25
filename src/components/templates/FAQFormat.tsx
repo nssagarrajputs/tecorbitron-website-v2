@@ -33,9 +33,7 @@ export default function FAQFormat({
                     <div className="mb-12 md:mb-24">
                         <div className="max-w-4xl">
                             <span className="eyebrow">{eyebrow}</span>
-                            <h2 className="text-h2 mb-8 font-serif">
-                                {heading}
-                            </h2>
+                            <h2 className="text-h2 mb-8">{heading}</h2>
                         </div>
                     </div>
 
