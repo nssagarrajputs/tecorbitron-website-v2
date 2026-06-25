@@ -7,8 +7,6 @@ import type { PortableTextBlock } from "@portabletext/react";
 import { ArrowLeft } from "lucide-react";
 import { client } from "@/sanity/client";
 import { BlogPostSchema } from "@/components/StructuredData";
-
-import PageHero from "@/components/ui/PageHero";
 import DefBlogThumbnail from "@/assets/other/default-thumbnail.webp";
 import { ptComponents } from "@/components/PortableTextFormat";
 import type { Metadata } from "next";

@@ -23,7 +23,7 @@ export default function ByCloudAi() {
                             {/* Group heading + optional button */}
                             <div className="edge-light side-breathing grid grid-cols-1 gap-y-8 border-t py-16 lg:grid-cols-2">
                                 <div>
-                                    <h3 className="text-h3 text-ink-primary">
+                                    <h3 className="sub-heading">
                                         {group.heading}
                                     </h3>
                                 </div>
@@ -52,7 +52,7 @@ export default function ByCloudAi() {
                                                 name={item.name}
                                             />
                                         </div>
-                                        <span className="text-14 text-ink-muted leading-snug font-medium">
+                                        <span className="item-label">
                                             {item.name}
                                         </span>
                                     </div>

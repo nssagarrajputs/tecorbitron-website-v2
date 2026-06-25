@@ -33,7 +33,7 @@ export default function MissionVision() {
                                         <Icon className="text-primary h-6 w-6" />
                                     </div>
 
-                                    <h3 className="text-h4 text-ink-primary font-medium">
+                                    <h3 className="card-heading uppercase">
                                         {item.title}
                                     </h3>
                                 </div>

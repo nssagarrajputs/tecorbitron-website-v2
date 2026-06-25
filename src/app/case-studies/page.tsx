@@ -115,7 +115,7 @@ export default async function PortfolioPage() {
                                             />
                                         </div>
 
-                                        <h2 className="text-h4 text-ink-primary my-8 line-clamp-3 leading-snug font-medium">
+                                        <h2 className="card-heading my-8 line-clamp-3">
                                             {proj.title}
                                         </h2>
                                     </div>

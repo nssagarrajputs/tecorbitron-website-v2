@@ -241,9 +241,7 @@ export default function ProjectInquiry() {
                     >
                         <div className="flex items-center gap-2">
                             <Icon size={20} className="text-malachite" />
-                            <h3 className="text-body text-ink-primary font-medium">
-                                {title}
-                            </h3>
+                            <h3 className="card-title">{title}</h3>
                         </div>
                         <p className="text-body text-ink-secondary leading-relaxed">
                             {desc}

@@ -90,7 +90,7 @@ export default function BlogListing({ posts, categories }: Props) {
 
                                     {/* Content */}
                                     <div className="flex flex-col-reverse gap-6 py-4">
-                                        <h3 className="text-ink-primary text-16 leading-snug font-medium">
+                                        <h3 className="card-heading group-hover:text-primary smooth-transition">
                                             {post.title}
                                         </h3>
                                         <div className="text-14 mt-auto flex items-center gap-4 pt-3">

@@ -54,7 +54,7 @@ export default function PricingPolicy() {
                                     />
                                 </div>
 
-                                <h3 className="text-h4 text-ink-primary font-medium uppercase md:min-h-14">
+                                <h3 className="card-heading capitalize md:min-h-14">
                                     {model.name}
                                 </h3>
 
@@ -67,7 +67,7 @@ export default function PricingPolicy() {
                 </div>
 
                 <div className="edge-light flex-center border-x border-t py-8">
-                    <span className="section-endline text-center">
+                    <span className="section-endline">
                         Fixed Pricing • Flexible Engagements • No Hidden Costs
                     </span>
                 </div>

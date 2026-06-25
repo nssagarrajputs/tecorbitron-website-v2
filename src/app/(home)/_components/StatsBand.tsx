@@ -111,7 +111,7 @@ export default function StatsBand() {
                                     decimal={stat.decimal}
                                 />
                             </p>
-                            <p className="text-ink-secondary text-body">
+                            <p className="card-title">
                                 {stat.label}
                             </p>
                         </motion.div>

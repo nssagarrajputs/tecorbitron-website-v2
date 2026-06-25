@@ -85,7 +85,7 @@ export default function Solutions() {
                                 className="text-ink-secondary"
                             />
 
-                            <h3 className="text-body text-ink-secondary my-4 font-medium">
+                            <h3 className="card-title my-4 ">
                                 {title}
                             </h3>
                             <p className="text-body text-ink-muted">

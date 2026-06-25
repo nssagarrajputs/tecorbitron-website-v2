@@ -14,7 +14,7 @@ export default function TechStack({ groups }: Props) {
                     className="bg-canvas-white side-layout-spacing"
                 >
                     <div className="flex-vertical edge-light mx-auto max-w-7xl border-x border-t">
-                        <h2 className="text-h3 text-ink-primary side-breathing mt-24 mb-12">
+                        <h2 className="sub-heading side-breathing mt-24 mb-12">
                             {group.heading}
                         </h2>
 
@@ -33,7 +33,7 @@ export default function TechStack({ groups }: Props) {
                                             className="object-contain"
                                         />
                                     </div>
-                                    <span className="text-14 text-ink-muted leading-snug font-medium">
+                                    <span className="item-label">
                                         {item.name}
                                     </span>
                                 </div>

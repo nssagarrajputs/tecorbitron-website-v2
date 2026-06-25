@@ -50,7 +50,7 @@ export default function FAQFormat({
                                     className="edge-light border-b"
                                 >
                                     <div className="group flex w-full items-center justify-between gap-4 py-4">
-                                        <h3 className="text-h4 text-ink-primary group-hover:text-primary group-active:text-primary">
+                                        <h3 className="faq-question group-hover:text-primary group-active:text-primary">
                                             {faq.question}
                                         </h3>
 
@@ -67,7 +67,7 @@ export default function FAQFormat({
 
                                     {isOpen && (
                                         <div className="max-w-3xl pb-8">
-                                            <p className="text-ink-secondary text-body leading-relaxed">
+                                            <p className="faq-answer">
                                                 {faq.answer}
                                             </p>
 

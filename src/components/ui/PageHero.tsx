@@ -21,19 +21,15 @@ export default function PageHero({
 
             <div className="relative z-10 mx-auto max-w-7xl">
                 <div className="edge-dark flex-center side-breathing w-full border-x border-b py-12">
-                    <span className="text-body text-ink-secondary tracking-wider uppercase">
-                        {eyebrow}
-                    </span>
+                    <span className="display-headline">{eyebrow}</span>
                 </div>
 
                 <div className="edge-dark side-breathing border-x pt-16 pb-24">
-                    <h1 className="text-d1 text-ink-primary mb-8 text-center leading-tight font-light tracking-tight">
+                    <h1 className="display-heading mb-8 ">
                         {title}
                     </h1>
                     {description ? (
-                        <p className="text-18 text-ink-secondary mx-auto max-w-2xl text-center leading-relaxed">
-                            {description}
-                        </p>
+                        <p className="display-subtitle">{description}</p>
                     ) : null}
                 </div>
             </div>

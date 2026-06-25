@@ -46,7 +46,7 @@
     --text-base: 1rem;
     --text-base--line-height: calc(1.5 / 1);
     --text-d1: clamp(3.5rem, 1.536rem + 6.25vw, 4.5rem); /* 56 → 72 */
-    --text-h1: clamp(3rem, 1.536rem + 6.25vw, 4rem); /* 48 → 64 */
+    --text-h1: clamp(3rem, 1.536rem + 6.25vw, 3.5rem); /* 48 → 64 */
     --text-h2: clamp(2.25rem, 1.152rem + 4.688vw, 3rem); /* 36 → 48 */
     --text-h3: clamp(1.5rem, 0.402rem + 4.688vw, 2.25rem); /* 24 → 36 */
     --text-h4: clamp(1.25rem, 0.884rem + 1.563vw, 1.5rem); /* 20 → 24 */
@@ -54,7 +54,7 @@
     --text-small: 0.875rem; /* 14 */
     --text-xmall: 0.75rem; /* 12 */
 
-    --text-18: 1.1875rem; /* 19 */
+    --text-18: 1.125rem; /* 18 */
     --text-16: 1rem; /* 16 */
     --text-14: 0.875rem; /* 14 */
     --text-12: 0.75rem; /* 12 */
@@ -156,10 +156,8 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* DESIGN UTILITIES                                                           */
+/* TYPOGRAPGY SYSTEM                                                          */
 /* -------------------------------------------------------------------------- */
-
-/* PARTICULAR TEXT */
 
 @utility text-gradient {
     background: linear-gradient(135deg, #164965 0%, #00d060 100%);
@@ -168,21 +166,85 @@
     background-clip: text;
 }
 
+/* ── DISPLAY — Hero sections only ───────────────────────── */
+
+@utility display-headline {
+    @apply text-16 text-ink-secondary font-medium uppercase;
+}
+
+@utility display-heading {
+    @apply text-d1 text-ink-primary text-center;
+    @apply leading-tight font-light tracking-tight;
+}
+
+@utility display-subtitle {
+    @apply text-18 text-ink-secondary text-center leading-relaxed;
+    @apply mx-auto max-w-2xl;
+}
+
+/* ── SECTION LEVEL ───────────────────────────────────────── */
+
 @utility eyebrow {
     @apply text-14 text-ink-primary uppercase;
+    @apply mb-6 block w-fit;
 }
 
 @utility section-heading {
-    @apply text-h2 text-ink-primary;
+    @apply text-h1 text-ink-primary leading-tight tracking-tight;
 }
 
-@utility section-supportive {
-    @apply text-18 text-ink-secondary;
+@utility section-subtitle {
+    @apply text-18 text-ink-muted leading-relaxed;
 }
 
 @utility section-endline {
-    @apply text-ink-muted text-body;
+    @apply text-16 text-ink-muted font-medium;
+    @apply text-center leading-relaxed tracking-wide;
 }
+
+/* ── SUB LEVEL ───────────────────────────────────────────── */
+
+@utility sub-heading {
+    @apply text-h3 text-ink-secondary leading-tight font-medium tracking-tight;
+}
+
+@utility sub-subtitle {
+    @apply text-18 text-ink-muted leading-relaxed;
+}
+
+/* ── CARD LEVEL ──────────────────────────────────────────── */
+
+@utility card-heading {
+    @apply text-h4 text-ink-primary leading-snug font-medium tracking-tight;
+}
+
+@utility card-title {
+    @apply text-18 text-ink-primary leading-snug font-medium tracking-tight;
+}
+
+@utility item-label {
+    @apply text-14 text-ink-muted leading-snug;
+}
+
+/* ── FAQ ─────────────────────────────────────────────────── */
+
+@utility faq-question {
+    @apply text-h4 text-ink-primary leading-snug;
+}
+
+@utility faq-answer {
+    @apply text-16 text-ink-secondary leading-relaxed;
+}
+
+/* ── CTA SECTION ─────────────────────────────────────────── */
+
+@utility cta-title {
+    @apply text-d1 text-ink-primary max-w-4xl leading-tight font-medium tracking-tight;
+}
+
+/* -------------------------------------------------------------------------- */
+/* DESIGN UTILITIES                                                           */
+/* -------------------------------------------------------------------------- */
 
 /* BUTTONS STYLE */
 
@@ -199,27 +261,27 @@
 }
 
 @utility button-primary {
-    @apply bg-canvas-white hover:bg-canvas-black active:bg-canvas-black;
-    @apply text-ink-black hover:text-ink-white active:text-ink-white;
-    @apply text-16 font-medium select-none;
+    @apply bg-canvas-black hover:bg-canvas-white active:bg-canvas-white;
+    @apply text-ink-white hover:text-ink-black active:text-ink-black;
+    @apply text-16 font-medium tracking-tight select-none;
     @apply border-hairdark border;
     @apply smooth-transition block w-fit px-4 py-2;
 
     @variant dark {
-        @apply bg-canvas-black hover:bg-canvas-white active:bg-canvas-white;
-        @apply text-ink-white hover:text-ink-black active:text-ink-black;
+        @apply bg-canvas-white hover:bg-canvas-black active:bg-canvas-black;
+        @apply text-ink-black hover:text-ink-white active:text-ink-white;
         @apply border-hairlight;
     }
 }
 
 @utility button-secondary {
-    @apply underline-offset-4 active:underline;
-    @apply text-16 text-ink-primary font-medium select-none;
+    @apply underline-offset-6 hover:underline active:underline;
+    @apply text-16 text-ink-black font-medium tracking-tight select-none;
     @apply border-hairdark border;
-    @apply smooth-transition block w-fit px-8 py-4;
+    @apply smooth-transition block w-fit px-4 py-3;
 
     @variant dark {
-        @apply border-hairlight;
+        @apply border-hairlight text-ink-white;
     }
 }
 

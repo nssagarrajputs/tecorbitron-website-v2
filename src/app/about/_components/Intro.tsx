@@ -117,9 +117,7 @@ export default function Intro() {
                         key={stat.title}
                         className={`edge-dark flex flex-col-reverse items-center gap-2 border-t border-r px-2 py-16 text-center`}
                     >
-                        <h3 className="text-ink-secondary text-body">
-                            {stat.title}
-                        </h3>
+                        <h3 className="card-title">{stat.title}</h3>
                         <p className="text-malachite text-h2 font-black tracking-tight">
                             {stat.value}
                         </p>

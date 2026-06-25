@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/react";
 import { client } from "@/sanity/client";
@@ -10,7 +10,6 @@ import DefBlogThumbnail from "@/assets/other/default-thumbnail.webp";
 import { ptComponents } from "@/components/PortableTextFormat";
 import { CaseStudySchema } from "@/components/StructuredData";
 import type { Metadata } from "next";
-import PageHero from "@/components/ui/PageHero";
 import CTAFormat from "@/components/templates/CTAFormat";
 import { SectionHeaderCentered } from "@/components/ui/SectionHeaderType";
 

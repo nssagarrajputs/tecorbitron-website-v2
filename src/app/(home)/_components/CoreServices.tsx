@@ -107,9 +107,7 @@ export default function CoreServices() {
                                     className="h-full w-full object-contain"
                                 />
                             </div>
-                            <h3 className="text-ink-primary text-h4 mb-8 font-medium">
-                                {service.name}
-                            </h3>
+                            <h3 className="card-heading mb-8">{service.name}</h3>
 
                             <p className="text-ink-secondary text-body mb-6 max-w-sm font-medium">
                                 {service.tagline}

@@ -70,7 +70,7 @@ export default async function FeaturedBlogs() {
 
                             {/* Content */}
                             <div className="flex-vertical h-full justify-between gap-y-8">
-                                <h3 className="text-h4 text-ink-primary mb-6 line-clamp-3 font-medium tracking-tight">
+                                <h3 className="mb-6 line-clamp-3 card-heading">
                                     {post.title}
                                 </h3>
                                 <div className="flex flex-wrap items-center justify-between gap-y-4">

@@ -62,7 +62,7 @@ export default async function FeaturedProjects() {
 
                             {/* Content */}
                             <div className="">
-                                <h3 className="text-h4 text-ink-primary mb-6 font-medium tracking-tight">
+                                <h3 className="card-heading mb-6">
                                     {project.projectName}
                                 </h3>
 

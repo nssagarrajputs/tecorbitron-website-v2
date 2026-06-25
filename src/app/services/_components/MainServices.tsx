@@ -19,9 +19,7 @@ export default function MainServices() {
                             className="edge-light side-breathing flex-vertical justify-between border-t border-r pt-16"
                         >
                             <div className="flex items-center justify-between">
-                                <h2 className="text-h4 text-ink-primary">
-                                    {service.name}
-                                </h2>
+                                <h2 className="card-heading">{service.name}</h2>
                                 <Link
                                     href={service.href}
                                     className="button-primary"

@@ -33,20 +33,20 @@ export default function Hero() {
 
             <div className="relative z-10 mx-auto max-w-7xl">
                 <div className="edge-dark flex-center side-breathing w-full border-x border-b py-12">
-                    <span className="text-body text-ink-secondary  tracking-wider uppercase">
+                    <span className="display-headline">
                         FOR STARTUPS AND BUSINESS
                     </span>
                 </div>
 
                 <div className="flex-vertical edge-dark side-breathing border-x py-16">
-                    <h1 className="text-d1 text-ink-primary mb-8 text-center leading-tight font-light tracking-tight">
+                    <h1 className="display-heading mb-8 ">
                         Build your Web & App <br />{" "}
                         <span className="text-gradient font-bold">
                             Superfast
                         </span>
                     </h1>
 
-                    <p className="text-body text-ink-secondary mx-auto max-w-2xl text-center leading-relaxed">
+                    <p className="display-subtitle ">
                         From launch-ready websites to custom apps and e-commerce
                         stores — we design and build modern digital products
                         that help your business grow with confidence.
@@ -67,7 +67,7 @@ export default function Hero() {
                             className="flex-center edge-dark gap-2 border-t border-r py-8"
                         >
                             <Icon size={20} className={iconClass} />
-                            <span className="text-body text-ink-primary  tracking-tighter">
+                            <span className="text-body text-ink-primary tracking-tighter">
                                 {text}
                             </span>
                         </div>

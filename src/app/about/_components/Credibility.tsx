@@ -58,7 +58,7 @@ export default function Credibility() {
                                 </div>
 
                                 {/* Fixed title area */}
-                                <h3 className="text-h4 text-ink-primary font-medium uppercase md:min-h-14">
+                                <h3 className="card-heading capitalize md:min-h-14">
                                     {detail.label}
                                 </h3>
 
@@ -72,7 +72,7 @@ export default function Credibility() {
                 </div>
 
                 <div className="edge-light flex-center side-breathing border-x border-t py-8">
-                    <span className="section-endline text-center">
+                    <span className="section-endline">
                         MCA Approved | MSME Certified | GST Registered
                     </span>
                 </div>

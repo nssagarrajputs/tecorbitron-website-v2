@@ -83,7 +83,7 @@ export default function Technologies() {
                                     className="object-contain select-none"
                                 />
                             </div>
-                            <p className="text-body text-ink-muted">
+                            <p className="item-label">
                                 {tech.name}
                             </p>
                         </div>
