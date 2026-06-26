@@ -67,6 +67,7 @@ export default function TechnologiesPage() {
             <PageHero
                 eyebrow="Tools & Tech"
                 title="The Stack Behind Every Project"
+                highlight="Every Project"
                 description="We pick the right technology for the right problem — modern frameworks, proven backends, reliable cloud infrastructure, and tools that are built to scale with your business. No unnecessary complexity, no outdated stacks."
             />
 
@@ -75,6 +76,7 @@ export default function TechnologiesPage() {
             <CTAFormat
                 eyebrow="Have a Specific Tech Requirement?"
                 heading="We'll build around what works best for your project."
+                highlight="best for your project."
                 primaryAction={{
                     text: "Start Your Project",
                     href: "/contact",

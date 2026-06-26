@@ -74,6 +74,7 @@ export default function page() {
             <PageHero
                 eyebrow="App Development"
                 title="Mobile Apps Built to Perform on Every Platform"
+                highlight="on Every Platform"
                 description="From Android and iOS to cross-platform apps — we build mobile products that are fast, reliable, and built around your users and business goals."
             />
             <ServiceIntro data={serviceAppDevelopment.intro} />

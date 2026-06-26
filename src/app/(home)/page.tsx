@@ -43,6 +43,7 @@ export default function Home() {
             <CTAFormat
                 eyebrow="GET STARTED"
                 heading="Ready to Build Something That Works?"
+                highlight="Build Something"
                 primaryAction={{
                     text: "Start your project",
                     href: "/contact",

@@ -74,6 +74,7 @@ export default function page() {
             <PageHero
                 eyebrow="Web Development"
                 title="Fast, Scalable Websites & Web Apps Built for Growth"
+                highlight="Built for Growth"
                 description="From landing pages and business websites to custom web apps and portals — we build modern, high-performance web solutions tailored to your goals and budget."
             />
 

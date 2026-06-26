@@ -142,7 +142,7 @@ export default async function ProjectDetailPage(props: {
                 <div className="edge-dark mx-auto max-w-7xl border-x py-24">
                     <div className="side-breathing flex-vertical mx-auto max-w-5xl gap-y-12">
                         <div className="flex-vertical flex-col-reverse gap-y-6">
-                            <h1 className="text-ink-primary text-h2 font-bold">
+                            <h1 className="section-heading font-bold">
                                 {projData.title}
                             </h1>
                             <Link
@@ -166,7 +166,7 @@ export default async function ProjectDetailPage(props: {
 
                         {projData.industries?.length > 0 && (
                             <div className="">
-                                <h2 className="text-ink-primary text-18 mb-6 font-medium">
+                                <h2 className="text-h3 text-ink-primary mb-6">
                                     Industry
                                 </h2>
                                 <div className="flex flex-wrap gap-4">
@@ -184,7 +184,7 @@ export default async function ProjectDetailPage(props: {
 
                         {projData.techStack?.length > 0 && (
                             <div className="">
-                                <h2 className="text-ink-primary text-18 mb-6 font-medium">
+                                <h2 className="text-h3 text-ink-primary mb-6">
                                     Tech Stack
                                 </h2>
                                 <div className="flex flex-wrap gap-4">
@@ -314,7 +314,7 @@ export default async function ProjectDetailPage(props: {
                                         />
                                     </div>
 
-                                    <h3 className="text-ink-primary text-body my-8 line-clamp-4 leading-snug font-medium">
+                                    <h3 className="card-heading my-8 line-clamp-4">
                                         {proj.title}
                                     </h3>
                                     <Link
@@ -333,15 +333,16 @@ export default async function ProjectDetailPage(props: {
             <div className="section-edge-dark"></div>
 
             <CTAFormat
-                eyebrow="YOUR TURN"
+                eyebrow="YOUR TURN !"
                 heading="Want Results Like This?"
+                highlight="Like This?"
                 primaryAction={{
                     text: "Start Your Project",
                     href: "/contact",
                 }}
                 secondaryAction={{
-                    text: "Browse Portfolio",
-                    href: "/case-studies",
+                    text: "Explore Our Services",
+                    href: "/services",
                 }}
             />
         </main>

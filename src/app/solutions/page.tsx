@@ -70,6 +70,7 @@ function Page() {
             <PageHero
                 eyebrow="Our Solutions"
                 title="Right Solution for Every Business Need"
+                highlight="Every Business Need"
                 description="From early-stage startups to established enterprises — we build web, app, e-commerce, and custom digital solutions that are scoped to your business and built to deliver results."
             />
 
@@ -86,6 +87,7 @@ function Page() {
             <CTAFormat
                 eyebrow="Can't Find What You're Looking For?"
                 heading="Build solution scoped to your business, budget, and timeline."
+                highlight="business, budget, and timeline."
                 primaryAction={{
                     text: "Build Your Own",
                     href: "/contact",

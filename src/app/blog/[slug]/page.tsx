@@ -144,7 +144,7 @@ export default async function BlogPostPage(props: {
                 <div className="edge-dark mx-auto max-w-7xl border-x py-24">
                     <div className="side-breathing flex-vertical mx-auto max-w-4xl gap-y-12">
                         <div className="flex-vertical flex-col-reverse gap-y-6">
-                            <h1 className="text-ink-primary text-h2 font-bold">
+                            <h1 className="section-heading font-bold">
                                 {post.title}
                             </h1>
                             <Link
@@ -155,8 +155,8 @@ export default async function BlogPostPage(props: {
                             </Link>
                         </div>
 
-                        <span className="text-ink-muted">
-                            {post.publishedAt}
+                        <span className="section-subtitle">
+                            {formatDate(post.publishedAt)}
                         </span>
 
                         <div className="edge-dark relative aspect-video w-full border">
@@ -201,42 +201,51 @@ export default async function BlogPostPage(props: {
                         <div className="section-edge-dark"></div>
 
                         <div>
-                            <h2 className="text-ink-muted text-body mb-6 uppercase">
+                            <h2 className="section-subtitle mb-6 tracking-wide uppercase">
                                 Share this article
                             </h2>
-                            <div className="text-ink-muted **:hover:text-ink-primary text-16 **:active:text-ink-primary flex flex-wrap items-center gap-3 font-medium underline-offset-4 **:hover:underline **:active:underline">
-                                <a
-                                    href="https://www.linkedin.com/company/tecorbitrons"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Visit Tecorbitron on LinkedIn"
-                                >
-                                    LinkedIn
-                                </a>
-                                <a
-                                    href="https://www.instagram.com/tecorbitron"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Visit Tecorbitron on Instagram"
-                                >
-                                    Instagram
-                                </a>
-                                <a
-                                    href="https://www.facebook.com/tecorbitron"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Visit Tecorbitron on Facebook"
-                                >
-                                    Facebook
-                                </a>
-                                <a
-                                    href="https://www.youtube.com/@Tecorbitron"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Visit Tecorbitron Youtube Channel"
-                                >
-                                    Copy URL
-                                </a>
+                            <div className="flex flex-wrap items-center gap-4">
+                                {[
+                                    {
+                                        label: "LinkedIn",
+                                        href: "https://www.linkedin.com/company/tecorbitrons",
+                                        content: "Ln",
+                                    },
+                                    {
+                                        label: "Instagram",
+                                        href: "https://www.instagram.com/tecorbitron",
+                                        content: "Ig",
+                                    },
+                                    {
+                                        label: "Facebook",
+                                        href: "https://www.facebook.com/tecorbitron",
+                                        content: "Fb",
+                                    },
+                                    // {
+                                    //     label: "CopyURl",
+                                    //     href: "https://www.youtube.com/@Tecorbitron",
+                                    //     content: (
+                                    //         <LinkIcon
+                                    //             size={16}
+                                    //             strokeWidth={2.5}
+                                    //         />
+                                    //     ),
+                                    // },
+                                ].map(({ label, href, content }) => (
+                                    <a
+                                        key={label}
+                                        href={href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label={`Visit Tecorbitron on ${label}`}
+                                        className="edge-dark group hover:border-malachite smooth-transition bg-primary/10 flex-center active:border-malachite h-12 w-12 rounded-full border"
+                                        title={label}
+                                    >
+                                        <span className="text-ink-muted group-hover:text-malachite text-16 group-active:text-malachite font-bold">
+                                            {content}
+                                        </span>
+                                    </a>
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -270,7 +279,7 @@ export default async function BlogPostPage(props: {
                                             />
                                         </div>
                                         <div className="flex flex-col-reverse gap-6 pt-8">
-                                            <h3 className="text-ink-primary text-body leading-snug font-medium">
+                                            <h3 className="card-heading">
                                                 {rel.title}
                                             </h3>
                                             <div className="flex items-center justify-between">

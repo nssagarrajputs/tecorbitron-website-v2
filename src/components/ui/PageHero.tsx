@@ -1,14 +1,18 @@
 type PageHeroProps = {
     eyebrow: string;
     title: string;
+    highlight?: string;
     description?: string;
 };
 
 export default function PageHero({
     eyebrow,
     title,
+    highlight,
     description,
 }: PageHeroProps) {
+    const parts = highlight ? title.split(highlight) : [];
+
     return (
         <section className="edge-dark dark side-layout-spacing relative border-b">
             <div
@@ -25,8 +29,18 @@ export default function PageHero({
                 </div>
 
                 <div className="edge-dark side-breathing border-x pt-16 pb-24">
-                    <h1 className="display-heading mb-8 ">
-                        {title}
+                    <h1 className="display-page-heading mb-8">
+                        {highlight ? (
+                            <>
+                                {parts[0]}
+                                <span className="text-malachite">
+                                    {highlight}
+                                </span>
+                                {parts[1]}
+                            </>
+                        ) : (
+                            title
+                        )}
                     </h1>
                     {description ? (
                         <p className="display-subtitle">{description}</p>

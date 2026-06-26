@@ -73,6 +73,7 @@ export default async function PortfolioPage() {
             <PageHero
                 eyebrow="Case Studies"
                 title="Projects That Matter"
+                highlight="That Matter"
                 description="A curated selection of our work across web, mobile, software, and AI — each project measured by real business outcomes."
             />
 

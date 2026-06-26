@@ -74,6 +74,7 @@ export default function page() {
             <PageHero
                 eyebrow="SEO & Digital Growth"
                 title="Search Visibility That Drives Real, Qualified Traffic"
+                highlight="Qualified Traffic"
                 description="From technical SEO and on-page optimisation to local and e-commerce SEO — we build search strategies that bring the right people to your business."
             />
 

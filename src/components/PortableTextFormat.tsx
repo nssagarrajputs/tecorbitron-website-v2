@@ -89,7 +89,7 @@ export const ptComponents: PortableTextComponents = {
             </p>
         ),
         h2: ({ children }: PortableTextComponentProps<PortableTextBlock>) => (
-            <h2 className="text-ink-primary text-h3 mt-10 mb-4 scroll-mt-28 font-black">
+            <h2 className="text-ink-primary text-h3 mt-10 mb-4 scroll-mt-28 font-bold">
                 {children}
             </h2>
         ),
@@ -99,14 +99,14 @@ export const ptComponents: PortableTextComponents = {
             </h3>
         ),
         h4: ({ children }: PortableTextComponentProps<PortableTextBlock>) => (
-            <h4 className="text-ink-primary text-18 mt-4 mb-2 font-black">
+            <h4 className="text-ink-primary text-18 mt-4 mb-2 font-medium">
                 {children}
             </h4>
         ),
         blockquote: ({
             children,
         }: PortableTextComponentProps<PortableTextBlock>) => (
-            <blockquote className="border-malachite bg-malachite-dim text-deepspace rounded-4 text-16 border-l-4 py-3 pr-4 pl-5 leading-relaxed italic">
+            <blockquote className="border-malachite bg-malachite-dim text-deepspace text-16 border-l-4 py-3 pr-4 pl-5 leading-relaxed italic">
                 {children}
             </blockquote>
         ),
@@ -125,13 +125,13 @@ export const ptComponents: PortableTextComponents = {
 
     listItem: {
         bullet: (({ children }) => (
-            <li className="text-typocolor-secondary text-body flex gap-3 leading-relaxed">
+            <li className="text-ink-secondary text-body flex gap-3 leading-relaxed">
                 <span className="text-malachite">•</span>
                 <span>{children}</span>
             </li>
         )) as PortableTextListItemComponent,
         number: (({ children }) => (
-            <li className="text-subtle text-base leading-relaxed font-light">
+            <li className="text-ink-secondary text-body flex gap-3 leading-relaxed">
                 {children}
             </li>
         )) as PortableTextListItemComponent,
@@ -168,7 +168,7 @@ export const ptComponents: PortableTextComponents = {
         // Inline Image
         image: ({ value }: { value: InlineImage }) => (
             <figure className="my-2">
-                <div className="edge-light mx-auto my-12 max-h-120 max-w-4xl border">
+                <div className="edge-dark mx-auto my-12 max-h-120 max-w-4xl border">
                     <Image
                         src={value.asset?.url || DefaultImage}
                         alt={value.alt ?? "Image"}

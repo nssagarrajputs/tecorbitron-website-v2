@@ -75,6 +75,7 @@ export default function page() {
             <PageHero
                 eyebrow="E-Commerce Development"
                 title="Online Stores Built to Sell — Fast, Smart & Scalable"
+                highlight="Fast, Smart & Scalable"
                 description="From Shopify and WooCommerce to fully custom stores — we build e-commerce solutions that convert visitors into customers and scale with your business."
             />
 

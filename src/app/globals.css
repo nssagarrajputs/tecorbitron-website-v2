@@ -152,7 +152,7 @@
 }
 
 @utility section-header-spacing {
-    @apply py-24;
+    @apply pt-32 pb-24;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -180,6 +180,11 @@
 @utility display-subtitle {
     @apply text-18 text-ink-secondary text-center leading-relaxed;
     @apply mx-auto max-w-2xl;
+}
+
+@utility display-page-heading {
+    @apply text-d1 text-ink-primary text-center;
+    @apply leading-tight font-bold tracking-[-0.2rem];
 }
 
 /* ── SECTION LEVEL ───────────────────────────────────────── */

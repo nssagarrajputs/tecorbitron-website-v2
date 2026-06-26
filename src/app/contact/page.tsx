@@ -94,6 +94,7 @@ export default function Contact() {
             <PageHero
                 eyebrow="Get in Touch"
                 title="Let's Connect"
+                highlight="Connect"
                 description="Share your idea and we'll get back to you shortly — free consultation, no strings attached."
             />
 

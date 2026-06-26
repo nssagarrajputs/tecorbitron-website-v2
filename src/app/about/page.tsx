@@ -69,6 +69,7 @@ export default function About() {
             <PageHero
                 eyebrow="who we are"
                 title="About Tecorbitron"
+                highlight="Tecorbitron"
                 description="Discover our journey, mission, and the people behind every project — dedicated to building modern digital products that make a real difference."
             />
 
@@ -89,6 +90,7 @@ export default function About() {
             <CTAFormat
                 eyebrow="Got a Project in Mind?"
                 heading="Share your idea and we'll get back to you soon."
+                highlight="your idea"
                 primaryAction={{
                     text: "Start Your Project",
                     href: "/contact",

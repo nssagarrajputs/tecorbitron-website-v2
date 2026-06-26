@@ -117,6 +117,7 @@ export default function Services() {
             <PageHero
                 eyebrow="What We OFFER"
                 title="Explore Our Services"
+                highlight="Services"
                 description="Technical services scoped to your business — not cookie-cutter packages. Work within your timeline and budget."
             />
 
@@ -135,6 +136,7 @@ export default function Services() {
             <CTAFormat
                 eyebrow="NOT SURE WHERE TO BEGIN?"
                 heading="We'll help you figure out the best approach."
+                highlight="best approach."
                 primaryAction={{
                     text: "Discuss Your Project",
                     href: "/contact",
