@@ -136,7 +136,7 @@ export default function Services() {
                 eyebrow="NOT SURE WHERE TO BEGIN?"
                 heading="We'll help you figure out the best approach."
                 primaryAction={{
-                    text: "Start Your Project",
+                    text: "Discuss Your Project",
                     href: "/contact",
                 }}
                 secondaryAction={{

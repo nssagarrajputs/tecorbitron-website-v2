@@ -38,7 +38,7 @@ export default function MissionVision() {
                                     </h3>
                                 </div>
 
-                                <p className="text-ink-secondary max-w-md leading-relaxed">
+                                <p className="card-caption max-w-md">
                                     {item.description}
                                 </p>
                             </div>

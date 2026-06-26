@@ -33,13 +33,9 @@ export default function ServiceWhyUs({ data }: Props) {
                                 <span className="bg-canvas-surface text-ink-light-muted text-14 flex-center h-10 w-10 rounded-full font-medium">
                                     {String(i + 1).padStart(2, "0")}
                                 </span>
-                                <h3 className="text-h4 text-ink-primary">
-                                    {item.title}
-                                </h3>
+                                <h3 className="card-heading">{item.title}</h3>
                             </div>
-                            <p className="text-body text-ink-secondary leading-relaxed">
-                                {item.description}
-                            </p>
+                            <p className="card-caption">{item.description}</p>
                         </li>
                     ))}
                 </ul>

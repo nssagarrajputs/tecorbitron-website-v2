@@ -74,7 +74,7 @@ export default function TechnologiesPage() {
 
             <CTAFormat
                 eyebrow="Have a Specific Tech Requirement?"
-                heading="Tell us or let us recommend — we'll build around what works best for your project."
+                heading="We'll build around what works best for your project."
                 primaryAction={{
                     text: "Start Your Project",
                     href: "/contact",

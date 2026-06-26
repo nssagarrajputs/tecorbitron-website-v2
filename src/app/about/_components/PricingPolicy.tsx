@@ -54,11 +54,11 @@ export default function PricingPolicy() {
                                     />
                                 </div>
 
-                                <h3 className="card-heading capitalize md:min-h-14">
+                                <h3 className="card-heading capitalize">
                                     {model.name}
                                 </h3>
 
-                                <p className="text-body text-ink-secondary mt-6 max-w-md leading-relaxed">
+                                <p className=" mt-6 max-w-md card-caption">
                                     {model.description}
                                 </p>
                             </div>

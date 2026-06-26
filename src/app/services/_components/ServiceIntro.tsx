@@ -9,10 +9,8 @@ export default function ServiceIntro({ data }: Props) {
         <section className="bg-canvas-white side-layout-spacing">
             <div className="edge-light mx-auto max-w-7xl border-x pt-24">
                 <div className="side-breathing mb-16">
-                    <h2 className="text-h2 text-ink-primary mb-16">
-                        {data.title}
-                    </h2>
-                    <p className="text-body text-ink-secondary whitespace-pre-line">
+                    <h2 className="section-heading mb-16">{data.title}</h2>
+                    <p className="text-18 text-ink-secondary whitespace-pre-line">
                         {data.description}
                     </p>
                 </div>

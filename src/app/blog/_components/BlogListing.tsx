@@ -45,7 +45,7 @@ export default function BlogListing({ posts, categories }: Props) {
                 <div className="mx-auto mb-24 flex flex-wrap gap-4 select-none">
                     <button
                         onClick={() => setActive("All")}
-                        className={`text-14 smooth-transition text-ink-primary border-secondary-active cursor-pointer border px-4 py-2 ${
+                        className={`text-16 smooth-transition text-ink-primary border-secondary-active cursor-pointer border px-4 py-2 font-medium ${
                             active === "All"
                                 ? "bg-primary border-primary"
                                 : "hover:border-primary active:border-primary"
@@ -57,7 +57,7 @@ export default function BlogListing({ posts, categories }: Props) {
                         <button
                             key={cat.slug}
                             onClick={() => setActive(cat.name)}
-                            className={`text-14 smooth-transition text-ink-primary border-secondary-active cursor-pointer border px-4 py-2 ${
+                            className={`text-16 smooth-transition text-ink-primary border-secondary-active cursor-pointer border px-4 py-2 font-medium ${
                                 active === cat.name
                                     ? "bg-primary border-primary"
                                     : "hover:border-primary active:border-primary"

@@ -88,7 +88,7 @@ export default function About() {
             <div className="section-edge-dark"></div>
             <CTAFormat
                 eyebrow="Got a Project in Mind?"
-                heading="Share your idea and we'll get back to you within 24 hours."
+                heading="Share your idea and we'll get back to you soon."
                 primaryAction={{
                     text: "Start Your Project",
                     href: "/contact",

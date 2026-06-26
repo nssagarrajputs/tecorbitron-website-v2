@@ -33,7 +33,7 @@ export default function FAQFormat({
                     <div className="mb-12 md:mb-24">
                         <div className="max-w-4xl">
                             <span className="eyebrow">{eyebrow}</span>
-                            <h2 className="text-h2 mb-8">{heading}</h2>
+                            <h2 className="section-heading">{heading}</h2>
                         </div>
                     </div>
 
@@ -75,7 +75,7 @@ export default function FAQFormat({
                                                 <div className="mt-3">
                                                     <Link
                                                         href={faq.link}
-                                                        className="text-small text-primary hover:text-malachite smooth-transition inline-flex font-bold"
+                                                        className="button-text"
                                                     >
                                                         {faq.linkText}
                                                     </Link>

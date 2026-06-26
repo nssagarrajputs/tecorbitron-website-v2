@@ -222,6 +222,10 @@
     @apply text-18 text-ink-primary leading-snug font-medium tracking-tight;
 }
 
+@utility card-caption {
+    @apply text-body text-ink-secondary leading-relaxed;
+}
+
 @utility item-label {
     @apply text-14 text-ink-muted leading-snug;
 }

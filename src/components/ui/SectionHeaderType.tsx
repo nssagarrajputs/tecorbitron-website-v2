@@ -18,7 +18,7 @@ export function SectionHeaderLeftRight({
     return (
         <div className="section-header-spacing grid grid-cols-1 gap-y-12 lg:grid-cols-[2fr_1fr]">
             <div className="side-breathing">
-                {eyebrow && <span className="eyebrow mb-4">{eyebrow}</span>}
+                {eyebrow && <span className="eyebrow">{eyebrow}</span>}
 
                 {heading && <h2 className="section-heading">{heading}</h2>}
 
@@ -47,7 +47,7 @@ export function SectionHeaderLeftHanded({
     return (
         <div className="section-header-spacing flex-vertical gap-y-12">
             <div className="side-breathing">
-                {eyebrow && <span className="eyebrow mb-4">{eyebrow}</span>}
+                {eyebrow && <span className="eyebrow">{eyebrow}</span>}
 
                 {heading && (
                     <h2 className="section-heading max-w-2xl">{heading}</h2>
@@ -80,7 +80,7 @@ export function SectionHeaderCentered({
     return (
         <div className="section-header-spacing flex-vertical gap-y-12">
             <div className="side-breathing flex-vertical items-center text-center">
-                {eyebrow && <span className="eyebrow mb-4">{eyebrow}</span>}
+                {eyebrow && <span className="eyebrow">{eyebrow}</span>}
 
                 {heading && (
                     <h2 className="section-heading max-w-5xl">{heading}</h2>

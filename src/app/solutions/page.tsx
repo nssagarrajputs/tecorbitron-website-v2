@@ -85,7 +85,7 @@ function Page() {
 
             <CTAFormat
                 eyebrow="Can't Find What You're Looking For?"
-                heading="We'll build a solution scoped to your business, budget, and timeline."
+                heading="Build solution scoped to your business, budget, and timeline."
                 primaryAction={{
                     text: "Build Your Own",
                     href: "/contact",

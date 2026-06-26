@@ -68,10 +68,10 @@ export default function ServiceLetsConnect() {
                     {/* ── LEFT ── */}
                     <div className="side-breathing flex-vertical justify-between gap-24">
                         <div>
-                            <h2 className="text-h2 text-ink-primary mb-8 leading-tight">
+                            <h2 className="section-heading mb-8">
                                 {"Let's"} Start a <br /> Conversation Today!
                             </h2>
-                            <p className="text-18 text-ink-secondary max-w-100 leading-relaxed">
+                            <p className="section-subtitle max-w-100">
                                 Submit your details, and {"we'll"} connect with
                                 you to explore the best-fit solution that drives
                                 success.

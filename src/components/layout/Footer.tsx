@@ -41,7 +41,7 @@ const footerMenus: footerMenuItem[] = [
             { label: "About", href: "/about" },
             { label: "Solutions", href: "/solutions" },
             { label: "Technologies", href: "/technologies" },
-            { label: "Portfolio", href: "/case-studies" },
+            { label: "Case Studies", href: "/case-studies" },
         ],
     },
     {

@@ -90,15 +90,19 @@ export default function Contact() {
     return (
         <main>
             <ContactPageSchema />
+
             <PageHero
                 eyebrow="Get in Touch"
                 title="Let's Connect"
                 description="Share your idea and we'll get back to you shortly — free consultation, no strings attached."
             />
+
             <ProjectInquiry />
             <div className="section-edge-light"></div>
+
             <WaysToConnect />
             <div className="section-edge-light"></div>
+
             <FAQSection
                 eyebrow="FAQS"
                 heading="Before You Reach Out"

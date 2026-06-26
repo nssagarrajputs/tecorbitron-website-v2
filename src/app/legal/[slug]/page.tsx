@@ -91,11 +91,11 @@ export default async function LegalPage(props: {
                                 id={section.id}
                                 className="flex-vertical gap-8"
                             >
-                                <h2 className="text-ink-primary text-h4 edge-dark border-b pb-4 font-medium">
+                                <h2 className="edge-light card-heading border-b pb-4">
                                     {section.title}
                                 </h2>
 
-                                <p className="text-ink-secondary text-16 leading-relaxed whitespace-pre-line">
+                                <p className="card-caption max-w-4xl whitespace-pre-line md:pl-4">
                                     {section.content}
                                 </p>
                             </div>

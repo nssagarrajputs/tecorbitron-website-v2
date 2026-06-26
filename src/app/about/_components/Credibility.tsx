@@ -47,7 +47,7 @@ export default function Credibility() {
                         return (
                             <div
                                 key={detail.label}
-                                className="edge-light side-breathing flex h-full flex-col border-t border-r py-16"
+                                className="edge-light side-breathing flex-vertical h-full border-t border-r py-16"
                             >
                                 {/* Icon */}
                                 <div className="bg-malachite/10 mb-6 flex h-12 w-12 items-center justify-center rounded-full">
@@ -58,12 +58,12 @@ export default function Credibility() {
                                 </div>
 
                                 {/* Fixed title area */}
-                                <h3 className="card-heading capitalize md:min-h-14">
+                                <h3 className="card-heading capitalize">
                                     {detail.label}
                                 </h3>
 
                                 {/* Description */}
-                                <p className="text-body text-ink-secondary mt-6 max-w-md leading-relaxed">
+                                <p className="card-caption mt-6 max-w-md">
                                     {detail.value}
                                 </p>
                             </div>

@@ -85,10 +85,10 @@ export default function ProjectInquiry() {
             <div className="edge-light mx-auto max-w-7xl border-x">
                 <div className="section-header-spacing grid grid-cols-1 gap-y-24 xl:grid-cols-[1fr_2fr]">
                     <div className="side-breathing">
-                        <h2 className="text-h2 text-ink-primary mb-8">
+                        <h2 className="section-heading mb-8">
                             Discuss Your Project
                         </h2>
-                        <p className="text-18 text-ink-secondary max-w-xl leading-relaxed">
+                        <p className="section-subtitle max-w-xl">
                             Have a project in mind, a question for our team, or
                             just want to know more about what we do? Fill in the
                             form and {"we'll"} get back to you shortly.
@@ -243,9 +243,7 @@ export default function ProjectInquiry() {
                             <Icon size={20} className="text-malachite" />
                             <h3 className="card-title">{title}</h3>
                         </div>
-                        <p className="text-body text-ink-secondary leading-relaxed">
-                            {desc}
-                        </p>
+                        <p className="card-caption">{desc}</p>
                     </div>
                 ))}
             </div>

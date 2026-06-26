@@ -67,9 +67,7 @@ function Industries() {
                                 strokeWidth={1.5}
                                 className="text-malachite select-none"
                             />
-                            <span className="text-14 text-ink-muted leading-snug font-medium">
-                                {name}
-                            </span>
+                            <span className="item-label">{name}</span>
                         </div>
                     ))}
                 </div>

@@ -34,7 +34,6 @@ export default function ServiceWhatSolutions({ data }: Props) {
             <div className="mx-auto max-w-7xl">
                 <div className="edge-light border-x">
                     <SectionHeaderCentered
-                        eyebrow=""
                         heading={data.heading}
                         supportive={data.para}
                     />
@@ -47,12 +46,8 @@ export default function ServiceWhatSolutions({ data }: Props) {
                             className="edge-light side-breathing flex flex-col gap-4 border-t border-r py-16"
                         >
                             <SolutionIcon item={item} />
-                            <h3 className="text-body text-ink-primary font-medium">
-                                {item.title}
-                            </h3>
-                            <p className="text-body text-ink-secondary leading-relaxed">
-                                {item.description}
-                            </p>
+                            <h3 className="card-title">{item.title}</h3>
+                            <p className="card-caption">{item.description}</p>
                         </div>
                     ))}
                 </div>
