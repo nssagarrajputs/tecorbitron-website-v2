@@ -174,6 +174,7 @@ export const ptComponents: PortableTextComponents = {
                         alt={value.alt ?? "Image"}
                         width={800}
                         height={450}
+                        loading="lazy"
                         className="h-auto w-full object-cover"
                     />
                 </div>

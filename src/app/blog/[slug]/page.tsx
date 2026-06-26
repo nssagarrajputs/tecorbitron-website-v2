@@ -275,6 +275,7 @@ export default async function BlogPostPage(props: {
                                                 alt={rel.title}
                                                 fill
                                                 loading="lazy"
+                                                sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 33vw, 400px"
                                                 className="h-auto w-full object-cover"
                                             />
                                         </div>

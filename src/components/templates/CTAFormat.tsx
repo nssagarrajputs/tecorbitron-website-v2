@@ -59,7 +59,12 @@ export default function CTAFormat({
                 </div>
 
                 <div className="">
-                    <Image src={ctaBottomGraphic} alt="" aria-hidden />
+                    <Image
+                        src={ctaBottomGraphic}
+                        alt=""
+                        aria-hidden
+                        loading="eager"
+                    />
                 </div>
             </div>
         </section>
