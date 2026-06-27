@@ -45,11 +45,11 @@ export default function NotFound() {
             {/* Content */}
             <div className="relative z-50 flex max-w-xl flex-col items-center gap-6 text-center">
                 <div className="dark">
-                    <span className="text-ink-primary eyebrow">Error 404</span>
-                    <h1 className="text-h1 section-heading mt-4 mb-8">
-                        Lost In Orbit
+                    <span className="eyebrow mx-auto">Error 404</span>
+                    <h1 className="display-page-heading mt-4 mb-8">
+                        Lost In <span className="text-malachite">Orbit</span>
                     </h1>
-                    <p className="section-supportive">
+                    <p className="display-subtitle">
                         {
                             "The page you're looking for doesn't exist or has been moved. Lets get you back on track."
                         }
