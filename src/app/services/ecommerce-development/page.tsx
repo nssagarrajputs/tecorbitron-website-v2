@@ -45,13 +45,14 @@ export const metadata: Metadata = {
     ],
     alternates: { canonical: "/services/ecommerce-development" },
     openGraph: {
+        type: "website",
         title: "E-Commerce Development Company — Tecorbitron",
         description:
             "We build online stores that load fast, convert well, and are easy to manage — on Shopify, WooCommerce, or fully custom. Built for businesses ready to sell online.",
         url: "https://www.tecorbitron.com/services/ecommerce-development",
         images: [
             {
-                url: "/og-image.png",
+                url: "/public/opengraph/og-ecomm-service.png",
                 width: 1200,
                 height: 630,
                 alt: "Tecorbitron Solutions — Custom Digital Systems",
@@ -63,7 +64,7 @@ export const metadata: Metadata = {
         title: "E-Commerce Development Company — Tecorbitron",
         description:
             "We build online stores that load fast, convert well, and are easy to manage — on Shopify, WooCommerce, or fully custom. Built for businesses ready to sell online.",
-        images: ["/og-image.png"],
+        images: ["/public/opengraph/og-ecomm-service.png"],
     },
 };
 

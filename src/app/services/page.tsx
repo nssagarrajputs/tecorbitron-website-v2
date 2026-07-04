@@ -45,8 +45,8 @@ export const metadata: Metadata = {
     ],
     alternates: { canonical: "/services" },
     openGraph: {
+        type: "website",
         title: "Explore Our Services — Tecorbitron",
-
         description:
             "From websites and apps to e-commerce and SEO — built for startups and businesses. Fast delivery, transparent pricing, 3 months support included.",
 
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
 
         images: [
             {
-                url: "/og-image.png",
+                url: "/public/opengraph/og-services.png",
                 width: 1200,
                 height: 630,
                 alt: "Tecorbitron Services — Web, App & Software Development",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
         title: "Explore Our Services — Tecorbitron",
         description:
             "From websites and apps to e-commerce and SEO — built for startups and businesses. Fast delivery, transparent pricing, 3 months support included.",
-        images: ["/og-image.png"],
+        images: ["/public/opengraph/og-services.png"],
     },
 };
 

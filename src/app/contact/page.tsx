@@ -34,8 +34,8 @@ export const metadata: Metadata = {
     ],
     alternates: { canonical: "/contact" },
     openGraph: {
+        type: "website",
         title: "Contact Us — Tecorbitron",
-
         description:
             "Got a project in mind? Get in touch with Tecorbitron — we'll get back to you within 24 hours. Let's build something great together.",
 
@@ -43,10 +43,10 @@ export const metadata: Metadata = {
 
         images: [
             {
-                url: "/og-image.png",
+                url: "/opengraph/og-contact.png",
                 width: 1200,
                 height: 630,
-                alt: "Contact Tecorbitron — Start Your Project",
+                alt: "Contact Us — Tecorbitron",
             },
         ],
     },
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
         title: "Contact Us — Tecorbitron",
         description:
             "Got a project in mind? Get in touch with Tecorbitron — we'll get back to you within 24 hours. Let's build something great together.",
-        images: ["/og-image.png"],
+        images: ["/opengraph/og-contact.png"],
     },
 };
 

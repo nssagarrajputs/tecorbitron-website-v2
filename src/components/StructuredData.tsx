@@ -371,7 +371,7 @@ export function CaseStudySchema({ project }: { project: CaseStudyProject }) {
                 description: project.summary ?? project.title,
                 image:
                     project.thumbnail ??
-                    "https://www.tecorbitron.com/og-image.png",
+                    "https://www.tecorbitron.com/public/opengraph",
                 url: `https://www.tecorbitron.com/case-studies/${project.slug}`,
                 creator: {
                     "@id": "https://www.tecorbitron.com/#organization",
@@ -443,7 +443,7 @@ export function BlogPostSchema({ post }: { post: BlogPostData }) {
                 description: post.excerpt,
                 image:
                     post.coverImage ??
-                    "https://www.tecorbitron.com/og-image.png",
+                    "https://www.tecorbitron.com/public/opengraph",
                 datePublished: post.publishedAt,
                 ...(keywords ? { keywords } : {}),
                 author: {

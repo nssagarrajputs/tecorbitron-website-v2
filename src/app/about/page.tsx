@@ -39,13 +39,14 @@ export const metadata: Metadata = {
     ],
     alternates: { canonical: "/about" },
     openGraph: {
+        type: "website",
         title: "About Tecorbitron – Founder-Led Digital Solutions Company",
         description:
             "Learn about Tecorbitron — a founder-led digital solutions company based in Ghaziabad, India. Modern web, app, and e-commerce solutions for startups and SMBs.",
         url: "https://www.tecorbitron.com/about",
         images: [
             {
-                url: "/og-image.png",
+                url: "/public/opengraph/og-about.png",
                 width: 1200,
                 height: 630,
                 alt: "About Tecorbitron Solutions Pvt Ltd",
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
         title: "About Tecorbitron – Founder-Led Digital Solutions Company",
         description:
             "Learn about Tecorbitron — a founder-led digital solutions company based in Ghaziabad, India. Modern web, app, and e-commerce solutions for startups and SMBs.",
-        images: ["/og-image.png"],
+        images: ["/public/opengraph/og-about.png"],
     },
 };
 

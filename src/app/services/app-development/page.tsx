@@ -44,13 +44,14 @@ export const metadata: Metadata = {
     ],
     alternates: { canonical: "/services/app-development" },
     openGraph: {
+        type: "website",
         title: "App Development Company — Tecorbitron",
         description:
             "We design and develop mobile apps that perform on every platform — Android, iOS, and cross-platform. Built for startups and businesses ready to go mobile.",
         url: "https://www.tecorbitron.com/services/app-development",
         images: [
             {
-                url: "/og-image.png",
+                url: "/public/opengraph/og-app-service.png",
                 width: 1200,
                 height: 630,
                 alt: "Tecorbitron Solutions — Custom Digital Systems",
@@ -62,7 +63,7 @@ export const metadata: Metadata = {
         title: "App Development Company — Tecorbitron",
         description:
             "We design and develop mobile apps that perform on every platform — Android, iOS, and cross-platform. Built for startups and businesses ready to go mobile.",
-        images: ["/og-image.png"],
+        images: ["/public/opengraph/og-app-service.png"],
     },
 };
 

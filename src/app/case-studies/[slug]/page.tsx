@@ -84,18 +84,35 @@ export async function generateMetadata(props: {
             : `${proj.projectName} — A project by Tecorbitron Solutions`,
         alternates: { canonical: `/case-studies/${slug}` },
         openGraph: {
+            type: "article",
             title: `${proj.projectName} — Tecorbitron Portfolio`,
             description: proj.summary?.slice(0, 155) ?? "",
             url: `https://www.tecorbitron.com/case-studies/${slug}`,
             images: proj.thumbnail
-                ? [{ url: proj.thumbnail, width: 1200, height: 630 }]
-                : [{ url: "/og-image.png", width: 1200, height: 630 }],
+                ? [
+                      {
+                          url: proj.thumbnail,
+                          width: 1200,
+                          height: 630,
+                          alt: proj.projectName,
+                      },
+                  ]
+                : [
+                      {
+                          url: "/public/opengraph/og-casestudies.png",
+                          width: 1200,
+                          height: 630,
+                          alt: proj.projectName,
+                      },
+                  ],
         },
         twitter: {
             card: "summary_large_image",
             title: `${proj.projectName} — Tecorbitron Portfolio`,
             description: proj.summary?.slice(0, 155) ?? "",
-            images: proj.thumbnail ? [proj.thumbnail] : ["/og-image.png"],
+            images: proj.thumbnail
+                ? [proj.thumbnail]
+                : ["/public/opengraph/og-casestudies.png"],
         },
     };
 }
