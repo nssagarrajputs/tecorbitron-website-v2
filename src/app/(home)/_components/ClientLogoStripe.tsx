@@ -92,7 +92,7 @@ export default function ClientLogoStripe() {
                             alt={logo.name}
                             fill
                             sizes="100px"
-                            loading="eager"
+                            loading="lazy"
                             className="h-full w-full object-contain"
                         />
                     </div>
