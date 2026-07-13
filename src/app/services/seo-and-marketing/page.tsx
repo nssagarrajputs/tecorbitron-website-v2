@@ -51,7 +51,7 @@ export const metadata: Metadata = {
         url: "https://www.tecorbitron.com/services/seo-and-marketing",
         images: [
             {
-                url: "/public/opengraph/og-seo-service.png",
+                url: "/opengraph/og-seo-service.png",
                 width: 1200,
                 height: 630,
                 alt: "Tecorbitron Solutions — Custom Digital Systems",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
         title: "SEO Services Company — Tecorbitron",
         description:
             "We improve your search visibility with technical, on-page, and content SEO strategies that bring real, qualified traffic and measurable business results.",
-        images: ["/public/opengraph/og-seo-service.png"],
+        images: ["/opengraph/og-seo-service.png"],
     },
 };
 

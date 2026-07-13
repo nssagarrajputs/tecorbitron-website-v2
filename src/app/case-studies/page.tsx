@@ -39,7 +39,7 @@ export const metadata: Metadata = {
         url: "https://www.tecorbitron.com/case-studies",
         images: [
             {
-                url: "/public/opengraph/og-casestudies.png",
+                url: "/opengraph/og-casestudies.png",
                 width: 1200,
                 height: 630,
                 alt: "Case Studies — Real Projects by Tecorbitron",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
         title: "Case Studies — Real Projects by Tecorbitron",
         description:
             "See what we've built — real projects delivered for startups and businesses across industries.",
-        images: ["/public/opengraph/og-casestudies.png"],
+        images: ["/opengraph/og-casestudies.png"],
     },
 };
 

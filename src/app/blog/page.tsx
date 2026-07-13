@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         url: "https://www.tecorbitron.com/blog",
         images: [
             {
-                url: "/public/opengraph/og-insights.png",
+                url: "/opengraph/og-insights.png",
                 width: 1200,
                 height: 630,
                 alt: "Insights — Tecorbitron",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
         title: "Insights — Tecorbitron",
         description:
             "Expert articles, practical guides, and industry updates from the Tecorbitron team — written to help you build, grow, and scale your business online.",
-        images: ["/public/opengraph/og-insights.png"],
+        images: ["/opengraph/og-insights.png"],
     },
 };
 

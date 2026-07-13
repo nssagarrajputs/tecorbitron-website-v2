@@ -46,7 +46,7 @@ export const metadata: Metadata = {
         url: "https://www.tecorbitron.com/technologies",
         images: [
             {
-                url: "/public/opengraph/og-technologies.png",
+                url: "/opengraph/og-technologies.png",
                 width: 1200,
                 height: 630,
                 alt: "Tecorbitron Technologies & Tech Stack",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
         title: "The Stack Behind Every Project — Tecorbitron",
         description:
             "Explore the tech stack behind every Tecorbitron project — from frontend frameworks and backend systems to cloud, AI, and e-commerce platforms.",
-        images: ["/public/opengraph/og-technologies.png"],
+        images: ["/opengraph/og-technologies.png"],
     },
 };
 

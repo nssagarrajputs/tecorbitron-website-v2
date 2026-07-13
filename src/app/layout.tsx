@@ -89,7 +89,7 @@ export const metadata: Metadata = {
 
         images: [
             {
-                url: "/public/opengraph/og-home.png",
+                url: "/opengraph/og-home.png",
                 width: 1200,
                 height: 630,
                 alt: "Tecorbitron Solutions — Next-Gen IT Solutions",
@@ -101,7 +101,7 @@ export const metadata: Metadata = {
         title: "Tecorbitron – Web, App & Digital Solutions for Startups and SMBs",
         description:
             "Premium digital solutions for startups and SMBs. Websites, apps, e-commerce, and SEO — built to launch fast and scale well.",
-        images: ["/public/opengraph/og-home.png"],
+        images: ["/opengraph/og-home.png"],
     },
 
     // ── EXTRA SEO BOOST ────────────────────────────

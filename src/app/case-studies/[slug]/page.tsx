@@ -99,7 +99,7 @@ export async function generateMetadata(props: {
                   ]
                 : [
                       {
-                          url: "/public/opengraph/og-casestudies.png",
+                          url: "/opengraph/og-casestudies.png",
                           width: 1200,
                           height: 630,
                           alt: proj.projectName,
@@ -112,7 +112,7 @@ export async function generateMetadata(props: {
             description: proj.summary?.slice(0, 155) ?? "",
             images: proj.thumbnail
                 ? [proj.thumbnail]
-                : ["/public/opengraph/og-casestudies.png"],
+                : ["/opengraph/og-casestudies.png"],
         },
     };
 }

@@ -111,7 +111,7 @@ export async function generateMetadata(props: {
                   ]
                 : [
                       {
-                          url: "/public/opengraph/og-insights.png",
+                          url: "/opengraph/og-insights.png",
                           width: 1200,
                           height: 630,
                           alt: post.title,
@@ -124,7 +124,7 @@ export async function generateMetadata(props: {
             description: post.excerpt,
             images: post.coverImage
                 ? [post.coverImage]
-                : ["/public/opengraph/og-insights.png"],
+                : ["/opengraph/og-insights.png"],
         },
     };
 }

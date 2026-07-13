@@ -47,7 +47,7 @@ export const metadata: Metadata = {
         url: "https://www.tecorbitron.com/solutions",
         images: [
             {
-                url: "/public/opengraph/og-solutions.png",
+                url: "/opengraph/og-solutions.png",
                 width: 1200,
                 height: 630,
                 alt: "Tecorbitron Solutions — Custom Digital Systems",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
         title: "Digital Solutions for Every Business — Tecorbitron",
         description:
             "From custom websites and web apps to CRM, ERP, LMS, and e-commerce — Tecorbitron builds digital solutions tailored to your business needs and goals.",
-        images: ["/public/opengraph/og-solutions.png"],
+        images: ["/opengraph/og-solutions.png"],
     },
 };
 

@@ -51,7 +51,7 @@ export const metadata: Metadata = {
         url: "https://www.tecorbitron.com/services/web-development",
         images: [
             {
-                url: "/public/opengraph/og-web-service.png",
+                url: "/opengraph/og-web-service.png",
                 width: 1200,
                 height: 630,
                 alt: "Tecorbitron Solutions — Custom Digital Systems",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
         title: "Web Development Company — Tecorbitron",
         description:
             "We design and develop websites and web applications that load fast, rank well, and convert visitors into customers — built specifically for your business goals.",
-        images: ["/public/opengraph/og-web-service.png"],
+        images: ["/opengraph/og-web-service.png"],
     },
 };
 
